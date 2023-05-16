@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; PySYCL 0.0 documentation</title>
+  <title>Index &mdash; PySYCL  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -23,12 +23,13 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: #B0B0B0" >
 
           
           
           <a href="index.html" class="icon icon-home">
             PySYCL
+              <img src="_static/PySYCL Logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,7 +48,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #B0B0B0" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PySYCL</a>
       </nav>
@@ -73,6 +74,7 @@
  <a href="#D"><strong>D</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#V"><strong>V</strong></a>
  
 </div>
 <h2 id="D">D</h2>
@@ -85,8 +87,17 @@
         <li><a href="device.html#module-device">module</a>
 </li>
       </ul></li>
+      <li>
+    device_inquiry
+
+      <ul>
+        <li><a href="device_inquiry.html#module-device_inquiry">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="device_inquiry.html#device_inquiry.device_list">device_list() (in module device_inquiry)</a>
+</li>
       <li><a href="device.html#device.device_select.device_name">device_name() (device.device_select method)</a>
 </li>
       <li><a href="device.html#device.device_select">device_select (class in device)</a>
@@ -105,7 +116,11 @@
       <ul>
         <li><a href="device.html#module-device">device</a>
 </li>
+        <li><a href="device_inquiry.html#module-device_inquiry">device_inquiry</a>
+</li>
         <li><a href="pysycl.html#module-pysycl">pysycl</a>
+</li>
+        <li><a href="vector_operations.html#module-vector_operations">vector_operations</a>
 </li>
       </ul></li>
   </ul></td>
@@ -114,6 +129,10 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="device_inquiry.html#device_inquiry.platform_list">platform_list() (in module device_inquiry)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pysycl
 
@@ -121,6 +140,37 @@
         <li><a href="pysycl.html#module-pysycl">module</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="vector_operations.html#vector_operations.vector_addition">vector_addition() (in module vector_operations)</a>
+</li>
+      <li><a href="vector_operations.html#vector_operations.vector_dot_product">vector_dot_product() (in module vector_operations)</a>
+</li>
+      <li><a href="vector_operations.html#vector_operations.vector_element_division">vector_element_division() (in module vector_operations)</a>
+</li>
+      <li><a href="vector_operations.html#vector_operations.vector_element_multiplication">vector_element_multiplication() (in module vector_operations)</a>
+</li>
+      <li><a href="vector_operations.html#vector_operations.vector_max_reduction">vector_max_reduction() (in module vector_operations)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="vector_operations.html#vector_operations.vector_min_reduction">vector_min_reduction() (in module vector_operations)</a>
+</li>
+      <li>
+    vector_operations
+
+      <ul>
+        <li><a href="vector_operations.html#module-vector_operations">module</a>
+</li>
+      </ul></li>
+      <li><a href="vector_operations.html#vector_operations.vector_subtraction">vector_subtraction() (in module vector_operations)</a>
+</li>
+      <li><a href="vector_operations.html#vector_operations.vector_sum_reduction">vector_sum_reduction() (in module vector_operations)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -133,7 +183,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, OsmanAEG.</p>
+    <p>&#169; Copyright 2023, Osman El-Ghotmi.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
@@ -150,7 +200,18 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
 
 </body>
 </html>

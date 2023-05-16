@@ -296,6 +296,16 @@ double Vector_Max_Reduction(std::vector<double> vector_a,
   return vector_max;
 }
 
+///////////////////////////////////////////////////////////////////////
+/// \brief Vector Dot Product.
+double Vector_Dot_Product(std::vector<double> vector_a,
+                          std::vector<double> vector_b,
+                          int platform_index = 0,
+                          int device_index = 0){
+  const auto vector_c = Vector_Element_Multiplication(vector_a, vector_b, platform_index, device_index);
+  return Vector_Sum_Reduction(vector_c, platform_index, device_index);
+}
+
 }
 
 #endif // #ifndef VECTOR_OPERATIONS_H

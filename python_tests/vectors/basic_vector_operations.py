@@ -107,7 +107,7 @@ def basic_tests(N):
 
 ########################################
 ########################################
-## basic tests for vector operations
+## vector reduction operations
 ########################################
 ########################################
 
@@ -152,9 +152,32 @@ def reduction_tests(N):
 
 ########################################
 ########################################
+## advanced vector operations
+########################################
+########################################
+
+# test for vector dot product
+def vector_dot_product(N):
+  print("Running vector dot product test...")
+
+  a = generate_random_vector(-100, 100, N)
+  b = generate_random_vector(-100, 100, N)
+
+  expected_result = sum([x * y for x, y in zip(a, b)])
+
+  a_dot_b = vec_ops.vector_dot_product(a, b)
+  check_single_value(a_dot_b, expected_result)
+
+# run all advanced vector operations
+def advanced_vector_operations(N):
+  vector_dot_product(N)
+
+########################################
+########################################
 ## running tests
 ########################################
 ########################################
 N = 3000
 basic_tests(N)
 reduction_tests(N)
+advanced_vector_operations(N)

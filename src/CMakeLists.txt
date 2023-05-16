@@ -77,3 +77,19 @@ endif()
 #######################################################################
 add_subdirectory(Device)
 add_subdirectory(Vector)
+
+#######################################################################
+## Sphinx documentation
+#######################################################################
+FIND_PROGRAM(SPHINX_API_EXE NAMES sphinx-apidoc)
+FIND_PROGRAM(SPHINX_BUILD_EXE NAMES sphinx-build)
+set(SPHINX_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/../sphinx")
+set(SPHINX_BUILD "${CMAKE_CURRENT_SOURCE_DIR}/../sphinx/_build")
+set(SPHINX_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../build/PySYCL")
+
+add_custom_target(sphinx
+  COMMAND ${SPHINX_API_EXE} -o ${SPHINX_SOURCE} ${SPHINX_MODULE_DIR}
+  COMMAND ${SPHINX_BUILD_EXE} -b html ${SPHINX_SOURCE} ${SPHINX_BUILD}
+  COMMENT "Generating Sphinx documentation"
+)
+
