@@ -83,8 +83,10 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_addition">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_addition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vector_operations.vector_addition" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a vector addition on two python lists and returns the sum.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a vector addition on two python lists and returns the sum.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The first vector to be added.</p>
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector to be added.</p>
@@ -94,24 +96,30 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">list[float]</span></dt><dd><p>The sum of the two input vectors.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list[float]</dt><dd><p>The sum of the two input vectors.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">[5.0, 7.0, 9.0]</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_dot_product">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_dot_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#vector_operations.vector_dot_product" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a vector dot product on two python lists and returns the sum.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a vector dot product on two python lists and returns the sum.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The first vector for dot product.</p>
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector for dot product.</p>
@@ -121,24 +129,30 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">float</span></dt><dd><p>The vector dot product.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>The vector dot product.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_dot_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">32.0</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_element_division">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_element_division</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vector_operations.vector_element_division" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a vector element-wise division on two python lists and returns the product.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a vector element-wise division on two python lists and returns the product.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The first vector for element-wise division (numerator).</p>
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The first vector for element-wise division (denominator).</p>
@@ -148,24 +162,30 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">list[float]</span></dt><dd><p>The vector quotient.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list[float]</dt><dd><p>The vector quotient.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_element_division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">[0.25, 0.4, 0.5]</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_element_multiplication">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_element_multiplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vector_operations.vector_element_multiplication" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a vector element-wise multiplication on two python lists and returns the product.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a vector element-wise multiplication on two python lists and returns the product.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The first vector to be multiplied (element-wise).</p>
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector to be multiplied (element-wise).</p>
@@ -175,24 +195,30 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">list[float]</span></dt><dd><p>The vector product.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list[float]</dt><dd><p>The vector product.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_element_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">[4.0, 10.0, 18.0]</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_max_reduction">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_max_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#vector_operations.vector_max_reduction" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a maximum reduction on an input vector and returns the minimum value.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a maximum reduction on an input vector and returns the minimum value.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector for maximum reduction.</p>
 </dd>
 <dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
@@ -200,23 +226,29 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">float</span></dt><dd><p>The maximum element value in the input vector.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>The maximum element value in the input vector.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_max_reduction</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">3.0</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_min_reduction">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_min_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#vector_operations.vector_min_reduction" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a minimum reduction on an input vector and returns the minimum value.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a minimum reduction on an input vector and returns the minimum value.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector minimum reduction.</p>
 </dd>
 <dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
@@ -224,23 +256,29 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">float</span></dt><dd><p>The minimum element value in the input vector.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>The minimum element value in the input vector.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_min_reduction</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_subtraction">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_subtraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vector_operations.vector_subtraction" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a vector subtraction on two python lists and returns the difference.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a vector subtraction on two python lists and returns the difference.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The first minuend vector.</p>
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second subtrahend vector.</p>
@@ -250,24 +288,30 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">list[float]</span></dt><dd><p>The difference of the two input vectors.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list[float]</dt><dd><p>The difference of the two input vectors.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_subtraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">[-3.0, -3.0, -3.0]</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_sum_reduction">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_sum_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#vector_operations.vector_sum_reduction" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a sum reduction on an input vector and returns the total.</p>
-<dl class="simple">
+<dd><dl>
+<dt>Description</dt><dd><p>Performs a sum reduction on an input vector and returns the total.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector for sum reduction.</p>
 </dd>
 <dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
@@ -275,16 +319,20 @@
 <dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Returns<span class="classifier">float</span></dt><dd><p>The sum of every element in the input vector.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>The sum of every element in the input vector.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
+</dd>
+<dt>Examples</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_operations</span> <span class="k">as</span> <span class="n">vec_ops</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vec_ops</span><span class="o">.</span><span class="n">vector_sum_reduction</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">6.0</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
