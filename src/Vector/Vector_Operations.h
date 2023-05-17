@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include <CL/sycl.hpp>
+#include "../Device/SYCL_Device_Inquiry.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Vector
@@ -40,12 +41,7 @@ std::vector<double> Vector_Addition(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   std::vector<double> vector_c(vector_a.size());
 
@@ -81,12 +77,7 @@ std::vector<double> Vector_Subtraction(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   std::vector<double> vector_c(vector_a.size());
 
@@ -122,12 +113,7 @@ std::vector<double> Vector_Element_Multiplication(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   std::vector<double> vector_c(vector_a.size());
 
@@ -163,12 +149,7 @@ std::vector<double> Vector_Element_Division(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   std::vector<double> vector_c(vector_a.size());
 
@@ -199,12 +180,7 @@ double Vector_Sum_Reduction(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   double vector_sum = 0.0;
 
@@ -234,12 +210,7 @@ double Vector_Min_Reduction(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   double vector_min = 0.0;
 
@@ -269,12 +240,7 @@ double Vector_Max_Reduction(std::vector<double> vector_a,
 
   const size_t N = vector_a.size();
 
-  auto platforms = sycl::platform::get_platforms();
-  auto platform  = platforms[platform_index];
-  auto devices   = platform.get_devices();
-  auto device    = devices[device_index];
-
-  sycl::queue Q(device);
+  auto Q = pysycl::get_queue(platform_index, device_index);
 
   double vector_max = 0.0;
 

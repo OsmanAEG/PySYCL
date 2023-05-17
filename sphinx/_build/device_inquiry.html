@@ -80,17 +80,53 @@
              
   <section id="module-device_inquiry">
 <span id="device-inquiry-module"></span><h1>device_inquiry module<a class="headerlink" href="#module-device_inquiry" title="Permalink to this headline"></a></h1>
-<p>SYCL device inquiry sub-module for PySYCL.</p>
+<dl class="simple">
+<dt>SYCL device inquiry sub-module for PySYCL</dt><dd><p>This sub-module provides available platforms and devices for use.</p>
+</dd>
+</dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="device_inquiry.device_list">
 <span class="sig-prename descclassname"><span class="pre">device_inquiry.</span></span><span class="sig-name descname"><span class="pre">device_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#device_inquiry.device_list" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of available SYCL devices.</p>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns a list of available SYCL devices for a given platform.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>platform_index: int, default = 0</dt><dd><p>Optional: Index for the sycl platform to select.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list</dt><dd><p>A list of available SYCL devices for the given platform.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device_inquiry</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device_inquiry</span><span class="o">.</span><span class="n">device_list</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">[NVIDIA Geforce GTX 1080, NVIDIA Geforce GTX 1080 Ti, NVIDIA Geforce GTX 1080 Ti]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="device_inquiry.platform_list">
 <span class="sig-prename descclassname"><span class="pre">device_inquiry.</span></span><span class="sig-name descname"><span class="pre">platform_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#device_inquiry.platform_list" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a list of available SYCL platforms.</p>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns a list of available SYCL platforms.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list</dt><dd><p>A list of available SYCL platforms.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device_inquiry</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device_inquiry</span><span class="o">.</span><span class="n">platform_list</span><span class="p">()</span>
+<span class="go">[NVIDIA CUDA BACKEND, Intel(R) OpenCL, Intel(R) Level-Zero]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

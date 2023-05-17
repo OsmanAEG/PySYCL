@@ -79,7 +79,10 @@
              
   <section id="module-vector_operations">
 <span id="vector-operations-module"></span><h1>vector_operations module<a class="headerlink" href="#module-vector_operations" title="Permalink to this headline"></a></h1>
-<p>Vector operations sub-module for PySYCL.</p>
+<dl class="simple">
+<dt>Vector operations sub-module for PySYCL</dt><dd><p>This sub-module contains functions that perform simple vector operations and returns the results.</p>
+</dd>
+</dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="vector_operations.vector_addition">
 <span class="sig-prename descclassname"><span class="pre">vector_operations.</span></span><span class="sig-name descname"><span class="pre">vector_addition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vector_operations.vector_addition" title="Permalink to this definition"></a></dt>
@@ -91,9 +94,9 @@
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector to be added.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -124,9 +127,9 @@
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector for dot product.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -157,9 +160,9 @@
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The first vector for element-wise division (denominator).</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -190,9 +193,9 @@
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second vector to be multiplied (element-wise).</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -221,9 +224,9 @@
 <dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector for maximum reduction.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -251,9 +254,9 @@
 <dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector minimum reduction.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -283,9 +286,9 @@
 </dd>
 <dt>vector_b<span class="classifier">list[float]</span></dt><dd><p>The second subtrahend vector.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>
@@ -314,9 +317,9 @@
 <dt>Parameters</dt><dd><dl class="simple">
 <dt>vector_a<span class="classifier">list[float]</span></dt><dd><p>The input vector for sum reduction.</p>
 </dd>
-<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device platform to be used.</p>
+<dt>platform_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device platform to be used.</p>
 </dd>
-<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>optional: The index of the device to be used for a given platform.</p>
+<dt>device_index<span class="classifier">int, default = 0</span></dt><dd><p>Optional: The index of the device to be used for a given platform.</p>
 </dd>
 </dl>
 </dd>

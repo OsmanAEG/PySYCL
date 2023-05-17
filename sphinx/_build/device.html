@@ -80,22 +80,54 @@
              
   <section id="module-device">
 <span id="device-module"></span><h1>device module<a class="headerlink" href="#module-device" title="Permalink to this headline"></a></h1>
-<p>SYCL device selection sub-module for PySYCL.</p>
+<dl class="simple">
+<dt>SYCL device selection sub-module for PySYCL</dt><dd><p>This sub-module is a class object for selecting and investigating a specific device.</p>
+</dd>
+</dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="device.device_select">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">device.</span></span><span class="sig-name descname"><span class="pre">device_select</span></span><a class="headerlink" href="#device.device_select" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
-<p>SYCL device selection class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="device.device_select.device_name">
 <span class="sig-name descname"><span class="pre">device_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#device.device_select" title="device.device_select"><span class="pre">device.device_select</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#device.device_select.device_name" title="Permalink to this definition"></a></dt>
-<dd><p>Output device name.</p>
+<dd><dl>
+<dt>Description</dt><dd><p>This function outputs the selected device name.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>str</dt><dd><p>The name of the selected device.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_queue</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_queue</span><span class="o">.</span><span class="n">device_name</span><span class="p">()</span>
+<span class="go">&#39;Intel(R) Gen9 HD Graphics NEO&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="device.device_select.device_vendor">
 <span class="sig-name descname"><span class="pre">device_vendor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#device.device_select" title="device.device_select"><span class="pre">device.device_select</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#device.device_select.device_vendor" title="Permalink to this definition"></a></dt>
-<dd><p>Output device vendor.</p>
+<dd><dl>
+<dt>Description</dt><dd><p>This function outputs the selected device vendor.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>str</dt><dd><p>The vendor of the selected device.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_queue</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_queue</span><span class="o">.</span><span class="n">device_vendor</span><span class="p">()</span>
+<span class="go">&#39;Intel(R) Corporation&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

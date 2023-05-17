@@ -25,23 +25,55 @@ PYBIND11_MODULE(device, m) {
 
   namespace py = pybind11;
 
-  m.doc() = "SYCL device selection sub-module for PySYCL.";
+  m.doc() = R"delim(
+    SYCL device selection sub-module for PySYCL
+      This sub-module is a class object for selecting and investigating a specific device.
+  )delim";
 
-  py::class_<pysycl::SYCL_Device>(m, "device_select", "SYCL device selection class")
+  py::class_<pysycl::SYCL_Device>(m, "device_select")
     .def(py::init<int, int>(), R"delim(
-      Constructor that selects a SYCL device.
+      Description
+        This is a class for SYCL device selection in PySYCL.
 
-      Args:
-        platform_index (int): Index of the sycl platform to select.
-        device_index (int): Index of the sycl device to select."
+      Constructor Parameters
+        platform_index: int
+          Optional: Index for the sycl platform to select.
+        device_index: int
+          Optional: Index for the sycl device to select."
+
+      Example
+        >>> from pysycl import device
+        >>> gpu_queue = device.device_select(0, 0)
       )delim",
       py::arg("platform_index") = 0,
       py::arg("device_index") = 0)
     .def("device_name", &pysycl::SYCL_Device::device_name, R"delim(
-      Output device name.
+      Description
+        This function outputs the selected device name.
+
+      Returns
+        str
+          The name of the selected device.
+
+      Example
+        >>> from pysycl import device
+        >>> gpu_queue = device.device_select(0, 0)
+        >>> gpu_queue.device_name()
+        'Intel(R) Gen9 HD Graphics NEO'
       )delim")
     .def("device_vendor", &pysycl::SYCL_Device::device_vendor, R"delim(
-      Output device vendor.
+      Description
+        This function outputs the selected device vendor.
+
+      Returns
+        str
+          The vendor of the selected device.
+
+      Example
+        >>> from pysycl import device
+        >>> gpu_queue = device.device_select(0, 0)
+        >>> gpu_queue.device_vendor()
+        'Intel(R) Corporation'
       )delim");
 }
 

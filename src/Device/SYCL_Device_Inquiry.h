@@ -63,6 +63,17 @@ std::vector<std::string> device_list(int platform_index){
   return device_names;
 }
 
+///////////////////////////////////////////////////////////////////////
+/// \brief Function that returns a sycl device queue.
+sycl::queue get_queue(int platform_index = 0, int device_index = 0){
+  auto platforms = sycl::platform::get_platforms();
+  auto selected_platform = platforms[platform_index];
+  auto devices = selected_platform.get_devices();
+  auto selected_device = devices[device_index];
+  sycl::queue q(selected_device);
+  return q;
+}
+
 } // namespace pysycl
 
 #endif // #ifndef SYCL_DEVICE_INQUIRY_H

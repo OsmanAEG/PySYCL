@@ -25,7 +25,10 @@
 PYBIND11_MODULE(vector_operations, m) {
   namespace py = pybind11;
 
-  m.doc() = "Vector operations sub-module for PySYCL.";
+  m.doc() = R"delim(
+    Vector operations sub-module for PySYCL
+      This sub-module contains functions that perform simple vector operations and returns the results.
+  )delim";
 
   m.def("vector_addition", &pysycl::Vector_Addition, R"delim(
     Description
@@ -39,10 +42,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The second vector to be added.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       list[float]
@@ -72,10 +75,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The second subtrahend vector.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       list[float]
@@ -105,10 +108,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The second vector to be multiplied (element-wise).
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       list[float]
@@ -138,10 +141,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The first vector for element-wise division (denominator).
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       list[float]
@@ -168,10 +171,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The input vector for sum reduction.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       float
@@ -196,10 +199,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The input vector minimum reduction.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       float
@@ -224,10 +227,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The input vector for maximum reduction.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       float
@@ -255,10 +258,10 @@ PYBIND11_MODULE(vector_operations, m) {
         The second vector for dot product.
 
       platform_index : int, default = 0
-        optional: The index of the device platform to be used.
+        Optional: The index of the device platform to be used.
 
       device_index : int, default = 0
-        optional: The index of the device to be used for a given platform.
+        Optional: The index of the device to be used for a given platform.
 
     Returns
       float
