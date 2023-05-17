@@ -14,13 +14,11 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../build/PySYCL'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'PySYCL'
 copyright = '2023, Osman El-Ghotmi'
 author = 'Osman El-Ghotmi'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -36,15 +34,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
-
-# -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
-html_logo = "images/PySYCL Logo.png"
 
 html_theme_options = {
   'analytics_id': 'G-XXXXXXXXXX',  #  Provided by Google in your dashboard
@@ -62,6 +51,14 @@ html_theme_options = {
   'includehidden': True,
   'titles_only': False
 }
+
+# -- Options for HTML output -------------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = 'sphinx_rtd_theme'
+html_logo = "images/PySYCL Logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
