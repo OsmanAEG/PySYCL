@@ -21,7 +21,7 @@
 #######################################################################
 option(PYSYCL_Device "Compile the PySYCL Device module" ON)
 if(PYSYCL_Device)
-  PySYCL_add_pybind11_module(device SYCL_Device_PyBind_Module.cpp)
+  PySYCL_add_pybind11_module(device_queue SYCL_Device_PyBind_Module.cpp)
   PySYCL_add_pybind11_module(device_inquiry SYCL_Device_Inquiry_PyBind_Module.cpp)
 endif()
 

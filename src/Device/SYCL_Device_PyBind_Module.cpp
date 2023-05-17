@@ -21,7 +21,7 @@
 #include "SYCL_Device.h"
 #include <pybind11/pybind11.h>
 
-PYBIND11_MODULE(device, m) {
+PYBIND11_MODULE(device_queue, m) {
 
   namespace py = pybind11;
 
@@ -42,8 +42,8 @@ PYBIND11_MODULE(device, m) {
           Optional: Index for the sycl device to select."
 
       Example
-        >>> from pysycl import device
-        >>> gpu_queue = device.device_select(0, 0)
+        >>> from pysycl import device_queue
+        >>> gpu_queue = device_queue.device_select(0, 0)
       )delim",
       py::arg("platform_index") = 0,
       py::arg("device_index") = 0)
@@ -56,8 +56,8 @@ PYBIND11_MODULE(device, m) {
           The name of the selected device.
 
       Example
-        >>> from pysycl import device
-        >>> gpu_queue = device.device_select(0, 0)
+        >>> from pysycl import device_queue
+        >>> gpu_queue = device_queue.device_select(0, 0)
         >>> gpu_queue.device_name()
         'Intel(R) Gen9 HD Graphics NEO'
       )delim")
@@ -70,8 +70,8 @@ PYBIND11_MODULE(device, m) {
           The vendor of the selected device.
 
       Example
-        >>> from pysycl import device
-        >>> gpu_queue = device.device_select(0, 0)
+        >>> from pysycl import device_queue
+        >>> gpu_queue = device_queue.device_select(0, 0)
         >>> gpu_queue.device_vendor()
         'Intel(R) Corporation'
       )delim");

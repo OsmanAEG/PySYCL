@@ -31,6 +31,12 @@ PYBIND11_MODULE(device_inquiry, m) {
   )delim";
 
   m.def("platform_list", &pysycl::platform_list, R"delim(
+    .. figure:: _static/images/platforms.png
+      :scale: 50 %
+      :alt: Common Platforms
+
+      Common Platforms.
+
     Description
       This function returns a list of available SYCL platforms.
 

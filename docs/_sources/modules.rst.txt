@@ -4,7 +4,7 @@ PySYCL
 .. toctree::
    :maxdepth: 4
 
-   device
    device_inquiry
+   device_queue
    pysycl
    vector_operations
