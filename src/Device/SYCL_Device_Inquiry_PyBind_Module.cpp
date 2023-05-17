@@ -35,7 +35,7 @@ PYBIND11_MODULE(device_inquiry, m) {
       :scale: 50 %
       :alt: Common Platforms
 
-      Common Platforms.
+      Common Platforms
 
     Description
       This function returns a list of available SYCL platforms.
@@ -51,6 +51,12 @@ PYBIND11_MODULE(device_inquiry, m) {
   )delim");
 
   m.def("device_list", &pysycl::device_list, R"delim(
+    .. figure:: _static/images/gpu.png
+      :scale: 50 %
+      :alt: Device Selection
+
+      Device Selection(GPU, CPU, FPGA)
+
     Description
       This function returns a list of available SYCL devices for a given platform.
 
