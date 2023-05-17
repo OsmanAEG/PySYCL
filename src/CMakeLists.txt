@@ -92,7 +92,11 @@ set(SPHINX_PAGES "${CMAKE_CURRENT_SOURCE_DIR}/../docs/")
 add_custom_target(sphinx
   COMMAND ${SPHINX_API_EXE} -o ${SPHINX_SOURCE} ${SPHINX_MODULE_DIR}
   COMMAND ${SPHINX_BUILD_EXE} -b html ${SPHINX_SOURCE} ${SPHINX_BUILD}
-  COMMAND cp -r ${SPHINX_PAGES_SOURCE} ${SPHINX_PAGES}
   COMMENT "Generating Sphinx documentation"
+)
+
+add_custom_target(github-pages
+  COMMAND cp -r ${SPHINX_PAGES_SOURCE} ${SPHINX_PAGES}
+  COMMENT "Generating Sphinx documentation for github pages"
 )
 
