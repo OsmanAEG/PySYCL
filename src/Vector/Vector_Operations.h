@@ -22,158 +22,121 @@
 #include <iostream>
 #include <CL/sycl.hpp>
 #include "../Device/SYCL_Device_Inquiry.h"
+#include "../Math/Math_Functions.h"
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Vector
 /// @{
 
 namespace pysycl{
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Function for element-wise vector operations in SYCL.
+///        This function receives two vectors and returns a single
+///        vector.
+/// \tparam Function_T Type of operation to be performed.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param Q SYCL queue.
+/// \param function Operation to be performed.
+/// \return Vector resulting from the operation.
+template <typename Function_T>
+std::vector<double> Vector_Operation(std::vector<double> vector_a,
+                                     std::vector<double> vector_b,
+                                     sycl::queue Q,
+                                     Function_T function){
+  if(vector_a.size() != vector_b.size()){
+    throw std::runtime_error("Error: vectors must have the same size.");
+  }
+
+  const size_t N = vector_a.size();
+
+  std::vector<double> vector_c(vector_a.size());
+
+  {
+    sycl::buffer<double> buffer_a(vector_a);
+    sycl::buffer<double> buffer_b(vector_b);
+    sycl::buffer<double> buffer_c(vector_c);
+
+    Q.submit([&](sycl::handler& h){
+      sycl::accessor acc_a(buffer_a, h, sycl::read_only);
+      sycl::accessor acc_b(buffer_b, h, sycl::read_only);
+      sycl::accessor acc_c(buffer_c, h, sycl::write_only);
+
+      h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
+        acc_c[idx] = function(acc_a[idx], acc_b[idx]);
+      });
+    });
+  }
+
+  return vector_c;
+};
+
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector addition.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Addition(std::vector<double> vector_a,
                                     std::vector<double> vector_b,
                                     int platform_index = 0,
                                     int device_index = 0){
-
-  if(vector_a.size() != vector_b.size()){
-    throw std::runtime_error("Error: vectors must have the same size.");
-  }
-
-  const size_t N = vector_a.size();
-
   auto Q = pysycl::get_queue(platform_index, device_index);
-
-  std::vector<double> vector_c(vector_a.size());
-
-  {
-    sycl::buffer<double> buffer_a(vector_a);
-    sycl::buffer<double> buffer_b(vector_b);
-    sycl::buffer<double> buffer_c(vector_c);
-
-    Q.submit([&](sycl::handler& h){
-      sycl::accessor acc_a(buffer_a, h, sycl::read_only);
-      sycl::accessor acc_b(buffer_b, h, sycl::read_only);
-      sycl::accessor acc_c(buffer_c, h, sycl::write_only);
-
-      h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
-        acc_c[idx] = acc_a[idx] + acc_b[idx];
-      });
-    });
-  }
-
-  return vector_c;
+  auto function = pysycl::add_function<double>();
+  return Vector_Operation(vector_a, vector_b, Q, function);
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector subtraction.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Subtraction(std::vector<double> vector_a,
                                        std::vector<double> vector_b,
                                        int platform_index = 0,
                                        int device_index = 0){
-
-  if(vector_a.size() != vector_b.size()){
-    throw std::runtime_error("Error: vectors must have the same size.");
-  }
-
-  const size_t N = vector_a.size();
-
   auto Q = pysycl::get_queue(platform_index, device_index);
-
-  std::vector<double> vector_c(vector_a.size());
-
-  {
-    sycl::buffer<double> buffer_a(vector_a);
-    sycl::buffer<double> buffer_b(vector_b);
-    sycl::buffer<double> buffer_c(vector_c);
-
-    Q.submit([&](sycl::handler& h){
-      sycl::accessor acc_a(buffer_a, h, sycl::read_only);
-      sycl::accessor acc_b(buffer_b, h, sycl::read_only);
-      sycl::accessor acc_c(buffer_c, h, sycl::write_only);
-
-      h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
-        acc_c[idx] = acc_a[idx] - acc_b[idx];
-      });
-    });
-  }
-
-  return vector_c;
+  auto function = pysycl::subtract_function<double>();
+  return Vector_Operation(vector_a, vector_b, Q, function);
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector element multiplication.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Element_Multiplication(std::vector<double> vector_a,
                                                   std::vector<double> vector_b,
                                                   int platform_index = 0,
                                                   int device_index = 0){
-
-  if(vector_a.size() != vector_b.size()){
-    throw std::runtime_error("Error: vectors must have the same size.");
-  }
-
-  const size_t N = vector_a.size();
-
   auto Q = pysycl::get_queue(platform_index, device_index);
-
-  std::vector<double> vector_c(vector_a.size());
-
-  {
-    sycl::buffer<double> buffer_a(vector_a);
-    sycl::buffer<double> buffer_b(vector_b);
-    sycl::buffer<double> buffer_c(vector_c);
-
-    Q.submit([&](sycl::handler& h){
-      sycl::accessor acc_a(buffer_a, h, sycl::read_only);
-      sycl::accessor acc_b(buffer_b, h, sycl::read_only);
-      sycl::accessor acc_c(buffer_c, h, sycl::write_only);
-
-      h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
-        acc_c[idx] = acc_a[idx] * acc_b[idx];
-      });
-    });
-  }
-
-  return vector_c;
+  auto function = pysycl::multiply_function<double>();
+  return Vector_Operation(vector_a, vector_b, Q, function);
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector element division.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Element_Division(std::vector<double> vector_a,
                                             std::vector<double> vector_b,
                                             int platform_index = 0,
                                             int device_index = 0){
-
-  if(vector_a.size() != vector_b.size()){
-    throw std::runtime_error("Error: vectors must have the same size.");
-  }
-
-  const size_t N = vector_a.size();
-
   auto Q = pysycl::get_queue(platform_index, device_index);
-
-  std::vector<double> vector_c(vector_a.size());
-
-  {
-    sycl::buffer<double> buffer_a(vector_a);
-    sycl::buffer<double> buffer_b(vector_b);
-    sycl::buffer<double> buffer_c(vector_c);
-
-    Q.submit([&](sycl::handler& h){
-      sycl::accessor acc_a(buffer_a, h, sycl::read_only);
-      sycl::accessor acc_b(buffer_b, h, sycl::read_only);
-      sycl::accessor acc_c(buffer_c, h, sycl::write_only);
-
-      h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
-        acc_c[idx] = acc_a[idx] / acc_b[idx];
-      });
-    });
-  }
-
-  return vector_c;
+  auto function = pysycl::divide_function<double>();
+  return Vector_Operation(vector_a, vector_b, Q, function);
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector sum reduction.
+/// \param vector_a Input vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 double Vector_Sum_Reduction(std::vector<double> vector_a,
                             int platform_index = 0,
                             int device_index = 0){
@@ -204,6 +167,9 @@ double Vector_Sum_Reduction(std::vector<double> vector_a,
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector minimum reduction.
+/// \param vector_a Input vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 double Vector_Min_Reduction(std::vector<double> vector_a,
                             int platform_index = 0,
                             int device_index = 0){
@@ -234,6 +200,9 @@ double Vector_Min_Reduction(std::vector<double> vector_a,
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function for vector maximum reduction.
+/// \param vector_a Input vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 double Vector_Max_Reduction(std::vector<double> vector_a,
                             int platform_index = 0,
                             int device_index = 0){
@@ -264,6 +233,10 @@ double Vector_Max_Reduction(std::vector<double> vector_a,
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Vector Dot Product.
+/// \param vector_a First vector.
+/// \param vector_b Second vector.
+/// \param platform_index Index of the sycl platform to select.
+/// \param device_index Index of the sycl device to select.
 double Vector_Dot_Product(std::vector<double> vector_a,
                           std::vector<double> vector_b,
                           int platform_index = 0,
@@ -272,6 +245,6 @@ double Vector_Dot_Product(std::vector<double> vector_a,
   return Vector_Sum_Reduction(vector_c, platform_index, device_index);
 }
 
-}
+} // namespace pysycl
 
 #endif // #ifndef VECTOR_OPERATIONS_H
