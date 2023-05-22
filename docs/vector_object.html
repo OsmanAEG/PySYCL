@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vector_object module &mdash; PySYCL  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #B0B0B0" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PySYCL
+              <img src="_static/pysycl_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">PySYCL</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #B0B0B0" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PySYCL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">vector_object module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/vector_object.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-vector_object">
+<span id="vector-object-module"></span><h1>vector_object module<a class="headerlink" href="#module-vector_object" title="Permalink to this headline"></a></h1>
+<dl class="simple">
+<dt>Vector Object sub-module for PySYCL</dt><dd><p>This sub-module is a class object for creating and manipulating vectors.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="vector_object.vector_object">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vector_object.</span></span><span class="sig-name descname"><span class="pre">vector_object</span></span><a class="headerlink" href="#vector_object.vector_object" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.add_constant">
+<span class="sig-name descname"><span class="pre">add_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.add_constant" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function adds two vectors together.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C: double</dt><dd><p>The constant to be added to the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[5.0, 6.0, 7.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.add_vector">
+<span class="sig-name descname"><span class="pre">add_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">vector_object.vector_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0:</span> <span class="pre">std::vector&lt;double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.add_vector" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function adds two vectors together.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>vector_b: list[float]</dt><dd><p>The vector to be added to the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">add_vector</span><span class="p">(</span><span class="n">vector_b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[5.0, 7.0, 9.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.divide_constant">
+<span class="sig-name descname"><span class="pre">divide_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.divide_constant" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function divides a vector by a constant.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C: double</dt><dd><p>The constant to be divided from the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">divide_constant</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[0.25, 0.5, 0.75]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.divide_vector">
+<span class="sig-name descname"><span class="pre">divide_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">vector_object.vector_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0:</span> <span class="pre">std::vector&lt;double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.divide_vector" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function divides two vectors.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>vector_b: list[float]</dt><dd><p>The vector to be divided from the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">divide_vector</span><span class="p">(</span><span class="n">vector_b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[0.25, 0.4, 0.5]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">std::vector&lt;double,</span> <span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></span><a class="headerlink" href="#vector_object.vector_object.get_data" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function gets the data of the vector.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>list[float]</dt><dd><p>The data of the vector.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[1.0, 2.0, 3.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.multiply_constant">
+<span class="sig-name descname"><span class="pre">multiply_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.multiply_constant" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function multiplies a vector by a constant.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C: double</dt><dd><p>The constant to be multiplied with the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">multiply_constant</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[4.0, 8.0, 12.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.multiply_vector">
+<span class="sig-name descname"><span class="pre">multiply_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">vector_object.vector_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0:</span> <span class="pre">std::vector&lt;double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.multiply_vector" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function multiplies two vectors together.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>vector_b: list[float]</dt><dd><p>The vector to be multiplied with the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">multiply_vector</span><span class="p">(</span><span class="n">vector_b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[4.0, 10.0, 18.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.reset_data">
+<span class="sig-name descname"><span class="pre">reset_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.reset_data" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function resets the data of the vector to zero.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">reset_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[0.0, 0.0, 0.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.set_data">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">vector_object.vector_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0:</span> <span class="pre">std::vector&lt;double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.set_data" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function sets the data of the vector.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>data_in: list[float]</dt><dd><p>The data to be set to the vector.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.subtract_constant">
+<span class="sig-name descname"><span class="pre">subtract_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vector_object.vector_object" title="vector_object.vector_object"><span class="pre">vector_object.vector_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.subtract_constant" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function subtracts a constant from a vector.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C: double</dt><dd><p>The constant to be subtracted from the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">subtract_constant</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[-3.0, -2.0, -1.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vector_object.vector_object.subtract_vector">
+<span class="sig-name descname"><span class="pre">subtract_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">vector_object.vector_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0:</span> <span class="pre">std::vector&lt;double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std::allocator&lt;double&gt;</span> <span class="pre">&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#vector_object.vector_object.subtract_vector" title="Permalink to this definition"></a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function subtracts two vectors.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>vector_b: list[float]</dt><dd><p>The vector to be subtracted from the vector object calling the function.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">vector_object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">vector_object</span><span class="o">.</span><span class="n">vector_object</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">subtract_vector</span><span class="p">(</span><span class="n">vector_b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vector_a</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="go">[-3.0, -3.0, -3.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Osman El-Ghotmi.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
