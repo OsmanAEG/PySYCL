@@ -42,7 +42,7 @@ file(APPEND ${PYSYCL_MODULE_INIT_PY} "##########################################
 if(PYSYCL_USE_MPI)
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "\n")
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "################################################\n")
-  file(APPEND ${PYSYCL_MODULE_INIT_PY} "## Using MPI: Should be importe from mpi4py\n")
+  file(APPEND ${PYSYCL_MODULE_INIT_PY} "## Using MPI: Should be imported from mpi4py\n")
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "################################################\n")
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "from mpi4py import MPI\n")
 endif()

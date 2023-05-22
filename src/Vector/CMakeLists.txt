@@ -22,4 +22,5 @@
 option(PYSYCL_Vector "Compile the PySYCL Vector Operation module" ON)
 if(PYSYCL_Vector)
   PySYCL_add_pybind11_module(vector_operations Vector_Operations_PyBind_Module.cpp)
+  PySYCL_add_pybind11_module(vector_object Vector_Object_PyBind_Module.cpp)
 endif()
