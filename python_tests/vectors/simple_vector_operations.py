@@ -1,8 +1,8 @@
 import sys
-sys.path.insert(1, '../../build/PySYCL')
+sys.path.insert(1, '../../build/')
 
 import random
-from pysycl import vector_operations as vec_ops
+from pysycl import vector
 
 # helper function to check the result of a vector operation
 #   full vector, full values, or full values with tolerance
@@ -59,7 +59,7 @@ def basic_addition(N):
 
   expected_result = [x + y for x, y in zip(a, b)]
 
-  c = vec_ops.vector_addition(a, b)
+  c = vector.vector_addition(a, b)
   check_vector_full_value(c, expected_result)
 
 # basic test for vector subtraction
@@ -71,7 +71,7 @@ def basic_subtraction(N):
 
   expected_result = [x - y for x, y in zip(a, b)]
 
-  c = vec_ops.vector_subtraction(a, b)
+  c = vector.vector_subtraction(a, b)
   check_vector_full_value(c, expected_result)
 
 # basic test for vector element multiplication
@@ -83,7 +83,7 @@ def basic_element_multiplication(N):
 
   expected_result = [x * y for x, y in zip(a, b)]
 
-  c = vec_ops.vector_element_multiplication(a, b)
+  c = vector.vector_element_multiplication(a, b)
   check_vector_full_value(c, expected_result)
 
 # basic test for vector element division
@@ -95,7 +95,7 @@ def basic_element_division(N):
 
   expected_result = [x / y for x, y in zip(a, b)]
 
-  c = vec_ops.vector_element_division(a, b)
+  c = vector.vector_element_division(a, b)
   check_vector_full_value(c, expected_result)
 
 # run all basic tests
@@ -119,7 +119,7 @@ def vector_sum_reduction(N):
 
   expected_result = sum(a)
 
-  a_sum = vec_ops.vector_sum_reduction(a)
+  a_sum = vector.vector_sum_reduction(a)
   check_single_value(a_sum, expected_result)
 
 # test for vector minimum value reduction
@@ -130,7 +130,7 @@ def vector_min_reduction(N):
 
   expected_result = min(a)
 
-  a_min = vec_ops.vector_min_reduction(a)
+  a_min = vector.vector_min_reduction(a)
   check_single_value(a_min, expected_result)
 
 # test for vector maximum value reduction
@@ -141,7 +141,7 @@ def vector_max_reduction(N):
 
   expected_result = max(a)
 
-  a_max = vec_ops.vector_max_reduction(a)
+  a_max = vector.vector_max_reduction(a)
   check_single_value(a_max, expected_result)
 
 # run all reduction tests
@@ -165,7 +165,7 @@ def vector_dot_product(N):
 
   expected_result = sum([x * y for x, y in zip(a, b)])
 
-  a_dot_b = vec_ops.vector_dot_product(a, b)
+  a_dot_b = vector.vector_dot_product(a, b)
   check_single_value(a_dot_b, expected_result)
 
 # run all advanced vector operations

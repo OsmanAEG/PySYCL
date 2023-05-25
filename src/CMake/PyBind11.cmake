@@ -15,7 +15,7 @@
 #######################################################################
 #######################################################################
 
-set(PYTHON_MODULE_NAME "PySYCL")
+set(PYTHON_MODULE_NAME "pysycl")
 
 #######################################################################
 ## Setup PyBind11
@@ -26,7 +26,7 @@ find_package(pybind11 REQUIRED)
 #######################################################################
 ## Setting up the PySYCL python module
 #######################################################################
-set(PYSYCL_MODULE_INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_MODULE_NAME}/pysycl.py")
+set(PYSYCL_MODULE_INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_MODULE_NAME}/__init__.py")
 
 set(PYSYCL_MODULE_INIT_PY_PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
                                       GROUP_EXECUTE GROUP_READ
@@ -63,8 +63,8 @@ function(PySYCL_add_pybind11_module name file)
 
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "\n")
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "################################################\n")
-  file(APPEND ${PYSYCL_MODULE_INIT_PY} "## Import Sub-Module: ${name}\n")
+  file(APPEND ${PYSYCL_MODULE_INIT_PY} "## Import Module: ${name}\n")
   file(APPEND ${PYSYCL_MODULE_INIT_PY} "################################################\n")
-  file(APPEND ${PYSYCL_MODULE_INIT_PY} "import ${name}\n")
+  file(APPEND ${PYSYCL_MODULE_INIT_PY} "from .${name} import *\n")
 
 endfunction()

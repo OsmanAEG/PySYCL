@@ -13,12 +13,12 @@
 import sphinx_rtd_theme
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../build/PySYCL'))
+sys.path.insert(0, os.path.abspath('../build/'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'PySYCL'
+project = 'pysycl'
 copyright = '2023, Osman El-Ghotmi'
 author = 'Osman El-Ghotmi'
 
@@ -28,7 +28,6 @@ author = 'Osman El-Ghotmi'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary']
 
 # Add any paths that contain templates here, relative to this directory.
@@ -55,6 +54,7 @@ html_theme_options = {
   'includehidden': True,
   'titles_only': False
 }
+
 
 # -- Options for HTML output -------------------------------------------------
 

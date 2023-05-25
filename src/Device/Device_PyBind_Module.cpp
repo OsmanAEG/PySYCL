@@ -1,5 +1,5 @@
-#ifndef SYCL_DEVICE_PYBIND_MODULE_CPP
-#define SYCL_DEVICE_PYBIND_MODULE_CPP
+#ifndef DEVICE_PYBIND_MODULE_H
+#define DEVICE_PYBIND_MODULE_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -15,19 +15,22 @@
 
 ///////////////////////////////////////////////////////////////////////
 /// \file
-/// \brief Python module for SYCL device selection in PySYCL.
+/// \brief Python module for device in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 
-#include "SYCL_Device.h"
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+#include "SYCL_Device.h"
+#include "SYCL_Device_Inquiry.h"
 
-PYBIND11_MODULE(device_queue, m) {
+namespace py = pybind11;
 
-  namespace py = pybind11;
+PYBIND11_MODULE(device, m){
+  py::module device_queue = m.def_submodule("device_queue");
 
   m.doc() = R"delim(
-    SYCL device selection sub-module for PySYCL
-      This sub-module is a class object for selecting and investigating a specific device.
+    Device module for PySYCL
+      This module provides classes and functions for selecting SYCL devices.
   )delim";
 
   py::class_<pysycl::SYCL_Device>(m, "device_select")
@@ -75,6 +78,48 @@ PYBIND11_MODULE(device_queue, m) {
         >>> gpu_queue.device_vendor()
         'Intel(R) Corporation'
       )delim");
+
+  /////////////////////////////////////////////////////////////////////
+
+  m.def("platform_list", &pysycl::platform_list, R"delim(
+    .. figure:: _static/images/platforms.png
+      :scale: 50 %
+      :alt: Common Platforms
+
+      Common Platforms
+
+    Description
+      This function returns a list of available SYCL platforms.
+
+    Returns
+      list
+        A list of available SYCL platforms.
+
+    Example
+      >>> from pysycl import device_inquiry
+      >>> device_inquiry.platform_list()
+      [NVIDIA CUDA BACKEND, Intel(R) OpenCL, Intel(R) Level-Zero]
+  )delim")
+  .def("device_list", &pysycl::device_list, R"delim(
+    .. figure:: _static/images/gpu.png
+      :scale: 50 %
+      :alt: Device Selection
+
+      Device Selection(GPU, CPU, FPGA)
+
+    Description
+      This function returns a list of available SYCL devices.
+
+    Returns
+      list
+        A list of available SYCL devices.
+
+    Example
+      >>> from pysycl import device_inquiry
+      >>> device_inquiry.device_list()
+      [Intel(R) Gen9 HD Graphics NEO, Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz]
+  )delim"),
+  py::arg("platform_index") = 0;
 }
 
-#endif // #ifndef SYCL_DEVICE_PYBIND_MODULE_CPP
+#endif // #ifndef DEVICE_PYBIND_MODULE_H

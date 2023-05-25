@@ -1,7 +1,29 @@
-pysycl module
-=============
+PySYCL package
+==============
 
-.. automodule:: pysycl
+Submodules
+----------
+
+PySYCL.device module
+--------------------
+
+.. automodule:: PySYCL.device
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+PySYCL.vector module
+--------------------
+
+.. automodule:: PySYCL.vector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: PySYCL
    :members:
    :undoc-members:
    :show-inheritance:

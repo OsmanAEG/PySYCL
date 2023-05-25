@@ -1,9 +1,9 @@
-.. PySYCL documentation master file, created by
-   sphinx-quickstart on Wed May 17 15:23:00 2023.
+.. pysycl documentation master file, created by
+   sphinx-quickstart on Wed May 24 20:52:17 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PySYCL's documentation!
+Welcome to pysycl's documentation!
 ==================================
 
 .. toctree::

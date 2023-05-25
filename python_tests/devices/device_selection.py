@@ -1,11 +1,10 @@
 import sys
-sys.path.insert(1, '../../build/PySYCL')
+sys.path.insert(1, '../../build/')
 
-from pysycl import device_queue
-from pysycl import device_inquiry
+from pysycl import device
 
 # list of available sycl platforms
-platforms = device_inquiry.platform_list()
+platforms = device.platform_list()
 print("Available platforms: ")
 print("---------------------")
 
@@ -17,7 +16,7 @@ print("")
 # list of available sycl devices for a given platform
 print("Available devices for platform: " + platforms[0])
 print("-----------------------------------------------")
-platform_devices = device_inquiry.device_list(0)
+platform_devices = device.device_list(0)
 
 for platform_device in platform_devices:
   print(platform_device)
@@ -25,7 +24,7 @@ for platform_device in platform_devices:
 print("")
 
 # Create a device selector
-gpu_queue = device_queue.device_select(0, 0)
+gpu_queue = device.device_select(0, 0)
 
 # printing device information
 print("Device information: ")
