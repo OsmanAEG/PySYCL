@@ -1,7 +1,7 @@
-PySYCL
+pysycl
 ======
 
 .. toctree::
    :maxdepth: 4
 
-   PySYCL
+   pysycl
