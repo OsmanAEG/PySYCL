@@ -26,8 +26,6 @@
 namespace py = pybind11;
 
 PYBIND11_MODULE(device, m){
-  py::module device_queue = m.def_submodule("device_queue");
-
   m.doc() = R"delim(
     Device module for PySYCL
       This module provides classes and functions for selecting SYCL devices.
