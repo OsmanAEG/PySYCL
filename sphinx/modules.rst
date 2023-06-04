@@ -1,7 +1,16 @@
-pysycl
-======
+PySYCL Python Module
+====================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
-   pysycl
+   device
+   vector
+   guide
+
+PySYCL External Documentation
+=============================
+.. toctree::
+   :maxdepth: 2
+
+   guide
