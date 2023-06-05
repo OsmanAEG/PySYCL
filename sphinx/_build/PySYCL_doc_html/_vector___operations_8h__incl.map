@@ -1,0 +1,7 @@
+<map id="Vector/Vector_Operations.h" name="Vector/Vector_Operations.h">
+<area shape="rect" id="node1" title="Vector operations in PySYCL. These operations receive two individual vectors and return a single vect..." alt="" coords="69,5,268,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="10,169,90,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="118,169,214,196"/>
+<area shape="rect" id="node4" href="$_s_y_c_l___device___inquiry_8h.html" title="Collecting SYCL device availability and information." alt="" coords="25,80,192,121"/>
+<area shape="rect" id="node5" href="$_math___functions_8h.html" title="Math functions returned in the form of lambda functions." alt="" coords="268,87,453,114"/>
+</map>

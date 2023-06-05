@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classpysycl_1_1_s_y_c_l___device" kind="class" language="C++" prot="public">
+    <compoundname>pysycl::SYCL_Device</compoundname>
+    <includes refid="_s_y_c_l___device_8h" local="no">SYCL_Device.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpysycl_1_1_s_y_c_l___device_1a77baa00848741a23ebd5151fd97b5927" prot="private" static="no" mutable="no">
+        <type>sycl::queue</type>
+        <definition>sycl::queue pysycl::SYCL_Device::sycl_device</definition>
+        <argsstring></argsstring>
+        <name>sycl_device</name>
+        <briefdescription>
+<para>The selected sycl device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="95" column="17" bodyfile="Device/SYCL_Device.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1ab8bd2aa65649a5e947107f485b844560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::SYCL_Device::SYCL_Device</definition>
+        <argsstring>()=default</argsstring>
+        <name>SYCL_Device</name>
+        <briefdescription>
+<para>Default constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="36" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a7dc4fb855558cabaf71de2740b51e65b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::SYCL_Device::SYCL_Device</definition>
+        <argsstring>(const SYCL_Device &amp;)=default</argsstring>
+        <name>SYCL_Device</name>
+        <param>
+          <type>const <ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="40" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a8409f90c13250f8801d94dcc01687756" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::SYCL_Device::SYCL_Device</definition>
+        <argsstring>(SYCL_Device &amp;&amp;)=default</argsstring>
+        <name>SYCL_Device</name>
+        <param>
+          <type><ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="44" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1af82bd5395f0e24297f9ecb8f09753c88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;</type>
+        <definition>SYCL_Device&amp; pysycl::SYCL_Device::operator=</definition>
+        <argsstring>(const SYCL_Device &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy assignment, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>reference to the assigned object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="49" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a1f26d5b2897a6a1973fcfac438250165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;</type>
+        <definition>SYCL_Device&amp; pysycl::SYCL_Device::operator=</definition>
+        <argsstring>(SYCL_Device &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classpysycl_1_1_s_y_c_l___device" kindref="compound">SYCL_Device</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move assignment, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>reference to the assigned object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="54" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a615ce057440ab7e14ebad8d0f59d68f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pysycl::SYCL_Device::device_name</definition>
+        <argsstring>()</argsstring>
+        <name>device_name</name>
+        <briefdescription>
+<para>Output device name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="58" column="15" bodyfile="Device/SYCL_Device.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a9c95ff44cda22de7830f413e5c84e12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string pysycl::SYCL_Device::device_vendor</definition>
+        <argsstring>()</argsstring>
+        <name>device_vendor</name>
+        <briefdescription>
+<para>Output device vendor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="62" column="15" bodyfile="Device/SYCL_Device.h" bodystart="104" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_s_y_c_l___device_1a5695f1876c8f6cd36670da635f3790a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::SYCL_Device::SYCL_Device</definition>
+        <argsstring>(int platform_index=0, int device_index=0)</argsstring>
+        <name>SYCL_Device</name>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor that selects a SYCL device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">platform_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the sycl platform to select. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the sycl device to select. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Device/SYCL_Device.h" line="68" column="3" bodyfile="Device/SYCL_Device.h" bodystart="68" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class representing a SYCL device. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Device/SYCL_Device.h" line="32" column="1" bodyfile="Device/SYCL_Device.h" bodystart="32" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a615ce057440ab7e14ebad8d0f59d68f8" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>device_name</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a9c95ff44cda22de7830f413e5c84e12e" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>device_vendor</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1af82bd5395f0e24297f9ecb8f09753c88" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>operator=</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a1f26d5b2897a6a1973fcfac438250165" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>operator=</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a77baa00848741a23ebd5151fd97b5927" prot="private" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>sycl_device</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1ab8bd2aa65649a5e947107f485b844560" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>SYCL_Device</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a7dc4fb855558cabaf71de2740b51e65b" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>SYCL_Device</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a8409f90c13250f8801d94dcc01687756" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>SYCL_Device</name></member>
+      <member refid="classpysycl_1_1_s_y_c_l___device_1a5695f1876c8f6cd36670da635f3790a3" prot="public" virt="non-virtual"><scope>pysycl::SYCL_Device</scope><name>SYCL_Device</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

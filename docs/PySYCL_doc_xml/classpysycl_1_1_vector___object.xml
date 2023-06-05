@@ -1,0 +1,567 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classpysycl_1_1_vector___object" kind="class" language="C++" prot="public">
+    <compoundname>pysycl::Vector_Object</compoundname>
+    <includes refid="_vector___object_8h" local="no">Vector_Object.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t pysycl::Vector_Object::N</definition>
+        <argsstring></argsstring>
+        <name>N</name>
+        <briefdescription>
+<para>Vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="162" column="10" bodyfile="Vector/Vector_Object.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" prot="private" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* pysycl::Vector_Object::data_device_in</definition>
+        <argsstring></argsstring>
+        <name>data_device_in</name>
+        <briefdescription>
+<para>Vector data input data on device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="166" column="10" bodyfile="Vector/Vector_Object.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" prot="private" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* pysycl::Vector_Object::data_device</definition>
+        <argsstring></argsstring>
+        <name>data_device</name>
+        <briefdescription>
+<para>Vector data on device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="170" column="10" bodyfile="Vector/Vector_Object.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" prot="private" static="no" mutable="no">
+        <type>sycl::queue</type>
+        <definition>sycl::queue pysycl::Vector_Object::device_queue</definition>
+        <argsstring></argsstring>
+        <name>device_queue</name>
+        <briefdescription>
+<para>The selected device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="174" column="15" bodyfile="Vector/Vector_Object.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ae03d87fb6810afb959f7c9272a0a789f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::Vector_Object::Vector_Object</definition>
+        <argsstring>()=default</argsstring>
+        <name>Vector_Object</name>
+        <briefdescription>
+<para>Default constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="38" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1abd2c93a17fad4b6b15c97aa156a28bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::Vector_Object::Vector_Object</definition>
+        <argsstring>(const Vector_Object &amp;)=default</argsstring>
+        <name>Vector_Object</name>
+        <param>
+          <type>const <ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="42" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a728193ccda126b7c809746ef5d03fbd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::Vector_Object::Vector_Object</definition>
+        <argsstring>(Vector_Object &amp;&amp;)=default</argsstring>
+        <name>Vector_Object</name>
+        <param>
+          <type><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move constructor, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="46" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a0ba652ae3f01353ea6adaa62ece40b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;</type>
+        <definition>Vector_Object&amp; pysycl::Vector_Object::operator=</definition>
+        <argsstring>(const Vector_Object &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy assignment, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>reference to the assigned object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="51" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a1be42a64dabbe19dfc6d164ade1fe2f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;</type>
+        <definition>Vector_Object&amp; pysycl::Vector_Object::operator=</definition>
+        <argsstring>(Vector_Object &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move assignment, use compiler generated version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>reference to the assigned object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="56" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::set_data</definition>
+        <argsstring>(std::vector&lt; double &gt; data_in)</argsstring>
+        <name>set_data</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>data_in</declname>
+        </param>
+        <briefdescription>
+<para>Sets the vector to input values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="60" column="8" bodyfile="Vector/Vector_Object.h" bodystart="178" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::reset_data</definition>
+        <argsstring>()</argsstring>
+        <name>reset_data</name>
+        <briefdescription>
+<para>Resets all vector elements to 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="64" column="8" bodyfile="Vector/Vector_Object.h" bodystart="189" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Object::get_data</definition>
+        <argsstring>()</argsstring>
+        <name>get_data</name>
+        <briefdescription>
+<para>Returns the current vector state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Vector state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="69" column="15" bodyfile="Vector/Vector_Object.h" bodystart="200" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Function_type</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::element_vector_operation</definition>
+        <argsstring>(Function_type function, std::vector&lt; double &gt; data_in)</argsstring>
+        <name>element_vector_operation</name>
+        <param>
+          <type>Function_type</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>data_in</declname>
+        </param>
+        <briefdescription>
+<para>Element-wise vector-vector operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="74" column="8" bodyfile="Vector/Vector_Object.h" bodystart="212" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ab300bca4c6600f4a296321caf9a11457" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Function_type</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::element_vector_operation</definition>
+        <argsstring>(Function_type function, double C)</argsstring>
+        <name>element_vector_operation</name>
+        <param>
+          <type>Function_type</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Element-wise vector-constant operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="79" column="8" bodyfile="Vector/Vector_Object.h" bodystart="233" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::add_vector</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_in)</argsstring>
+        <name>add_vector</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_in</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Addition (Vector-Vector) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">vector_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="84" column="8" bodyfile="Vector/Vector_Object.h" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::add_constant</definition>
+        <argsstring>(double C)</argsstring>
+        <name>add_constant</name>
+        <param>
+          <type>double</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Addition (Vector-Constant) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="92" column="8" bodyfile="Vector/Vector_Object.h" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::subtract_vector</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_in)</argsstring>
+        <name>subtract_vector</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_in</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Subtraction (Vector-Vector) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">vector_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="100" column="8" bodyfile="Vector/Vector_Object.h" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::subtract_constant</definition>
+        <argsstring>(double C)</argsstring>
+        <name>subtract_constant</name>
+        <param>
+          <type>double</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Subtraction (Vector-Constant) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="108" column="8" bodyfile="Vector/Vector_Object.h" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::multiply_vector</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_in)</argsstring>
+        <name>multiply_vector</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_in</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Multiplication (Vector-Vector) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">vector_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to be multiplied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="116" column="8" bodyfile="Vector/Vector_Object.h" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::multiply_constant</definition>
+        <argsstring>(double C)</argsstring>
+        <name>multiply_constant</name>
+        <param>
+          <type>double</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Multiplication (Vector-Constant) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant to be multiplied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="124" column="8" bodyfile="Vector/Vector_Object.h" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::divide_vector</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_in)</argsstring>
+        <name>divide_vector</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_in</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Division (Vector-Vector) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">vector_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to be divided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="132" column="8" bodyfile="Vector/Vector_Object.h" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void pysycl::Vector_Object::divide_constant</definition>
+        <argsstring>(double C)</argsstring>
+        <name>divide_constant</name>
+        <param>
+          <type>double</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Vector Element Division (Vector-Constant) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant to be divided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="140" column="8" bodyfile="Vector/Vector_Object.h" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classpysycl_1_1_vector___object_1a626649b50aac046ba0c7b977e1e8e69a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>pysycl::Vector_Object::Vector_Object</definition>
+        <argsstring>(size_t N, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Object</name>
+        <param>
+          <type>size_t</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">platform_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the sycl platform to select. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the sycl device to select. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Vector/Vector_Object.h" line="150" column="3" bodyfile="Vector/Vector_Object.h" bodystart="150" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class defining a Vector Object for use in PySYCL. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Vector/Vector_Object.h" line="34" column="1" bodyfile="Vector/Vector_Object.h" bodystart="34" bodyend="175"/>
+    <listofallmembers>
+      <member refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>add_constant</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>add_vector</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" prot="private" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>data_device</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" prot="private" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>data_device_in</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" prot="private" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>device_queue</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>divide_constant</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>divide_vector</name></member>
+      <member refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>element_vector_operation</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ab300bca4c6600f4a296321caf9a11457" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>element_vector_operation</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>get_data</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>multiply_constant</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>multiply_vector</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" prot="private" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>N</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a0ba652ae3f01353ea6adaa62ece40b27" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>operator=</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a1be42a64dabbe19dfc6d164ade1fe2f9" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>operator=</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>reset_data</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>set_data</name></member>
+      <member refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>subtract_constant</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>subtract_vector</name></member>
+      <member refid="classpysycl_1_1_vector___object_1ae03d87fb6810afb959f7c9272a0a789f" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>Vector_Object</name></member>
+      <member refid="classpysycl_1_1_vector___object_1abd2c93a17fad4b6b15c97aa156a28bb9" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>Vector_Object</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a728193ccda126b7c809746ef5d03fbd7" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>Vector_Object</name></member>
+      <member refid="classpysycl_1_1_vector___object_1a626649b50aac046ba0c7b977e1e8e69a" prot="public" virt="non-virtual"><scope>pysycl::Vector_Object</scope><name>Vector_Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,7 @@
+<map id="Device/SYCL_Device_Inquiry.h" name="Device/SYCL_Device_Inquiry.h">
+<area shape="rect" id="node1" title="Collecting SYCL device availability and information." alt="" coords="205,5,360,47"/>
+<area shape="rect" id="node2" href="$_device___py_bind___module_8cpp.html" title="Python module for device in PySYCL." alt="" coords="5,95,173,136"/>
+<area shape="rect" id="node3" href="$_vector___object_8h.html" title="Vector Object in PySYCL." alt="" coords="198,102,367,129"/>
+<area shape="rect" id="node5" href="$_vector___operations_8h.html" title="Vector operations in PySYCL. These operations receive two individual vectors and return a single vect..." alt="" coords="391,102,590,129"/>
+<area shape="rect" id="node4" href="$_vector___py_bind___module_8cpp.html" title="Python module for vector in PySYCL." alt="" coords="307,184,467,225"/>
+</map>

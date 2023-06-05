@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classpysycl_1_1_s_y_c_l___device" kind="class"><name>pysycl::SYCL_Device</name>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a77baa00848741a23ebd5151fd97b5927" kind="variable"><name>sycl_device</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1ab8bd2aa65649a5e947107f485b844560" kind="function"><name>SYCL_Device</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a7dc4fb855558cabaf71de2740b51e65b" kind="function"><name>SYCL_Device</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a8409f90c13250f8801d94dcc01687756" kind="function"><name>SYCL_Device</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1af82bd5395f0e24297f9ecb8f09753c88" kind="function"><name>operator=</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a1f26d5b2897a6a1973fcfac438250165" kind="function"><name>operator=</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a615ce057440ab7e14ebad8d0f59d68f8" kind="function"><name>device_name</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a9c95ff44cda22de7830f413e5c84e12e" kind="function"><name>device_vendor</name></member>
+    <member refid="classpysycl_1_1_s_y_c_l___device_1a5695f1876c8f6cd36670da635f3790a3" kind="function"><name>SYCL_Device</name></member>
+  </compound>
+  <compound refid="classpysycl_1_1_vector___object" kind="class"><name>pysycl::Vector_Object</name>
+    <member refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kind="variable"><name>N</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" kind="variable"><name>data_device_in</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kind="variable"><name>data_device</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kind="variable"><name>device_queue</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ae03d87fb6810afb959f7c9272a0a789f" kind="function"><name>Vector_Object</name></member>
+    <member refid="classpysycl_1_1_vector___object_1abd2c93a17fad4b6b15c97aa156a28bb9" kind="function"><name>Vector_Object</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a728193ccda126b7c809746ef5d03fbd7" kind="function"><name>Vector_Object</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a0ba652ae3f01353ea6adaa62ece40b27" kind="function"><name>operator=</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a1be42a64dabbe19dfc6d164ade1fe2f9" kind="function"><name>operator=</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" kind="function"><name>set_data</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" kind="function"><name>reset_data</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" kind="function"><name>get_data</name></member>
+    <member refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kind="function"><name>element_vector_operation</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ab300bca4c6600f4a296321caf9a11457" kind="function"><name>element_vector_operation</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" kind="function"><name>add_vector</name></member>
+    <member refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" kind="function"><name>add_constant</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" kind="function"><name>subtract_vector</name></member>
+    <member refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" kind="function"><name>subtract_constant</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" kind="function"><name>multiply_vector</name></member>
+    <member refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" kind="function"><name>multiply_constant</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" kind="function"><name>divide_vector</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" kind="function"><name>divide_constant</name></member>
+    <member refid="classpysycl_1_1_vector___object_1a626649b50aac046ba0c7b977e1e8e69a" kind="function"><name>Vector_Object</name></member>
+  </compound>
+  <compound refid="namespacepysycl" kind="namespace"><name>pysycl</name>
+    <member refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" kind="function"><name>platform_list</name></member>
+    <member refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" kind="function"><name>device_list</name></member>
+    <member refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kind="function"><name>get_queue</name></member>
+    <member refid="namespacepysycl_1ae5f66ba2d2ddc522cb092b1fca015fa5" kind="function"><name>add_function</name></member>
+    <member refid="namespacepysycl_1aeed90e9d7c12f5cb915eb8d0fe5586b3" kind="function"><name>subtract_function</name></member>
+    <member refid="namespacepysycl_1ab54eaad7760b2d4a262d702a22cca24c" kind="function"><name>multiply_function</name></member>
+    <member refid="namespacepysycl_1aa4e82e40c9ee3367cf4ce417cf928119" kind="function"><name>divide_function</name></member>
+    <member refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kind="function"><name>Vector_Operation</name></member>
+    <member refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kind="function"><name>Vector_Addition</name></member>
+    <member refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kind="function"><name>Vector_Subtraction</name></member>
+    <member refid="group___vector_1gafe212cc17352d0535341ef351a818456" kind="function"><name>Vector_Element_Multiplication</name></member>
+    <member refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kind="function"><name>Vector_Element_Division</name></member>
+    <member refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kind="function"><name>Vector_Sum_Reduction</name></member>
+    <member refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kind="function"><name>Vector_Min_Reduction</name></member>
+    <member refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kind="function"><name>Vector_Max_Reduction</name></member>
+    <member refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kind="function"><name>Vector_Dot_Product</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="doxygen__extra_8dox" kind="file"><name>doxygen_extra.dox</name>
+  </compound>
+  <compound refid="doxygen__mainpage_8md" kind="file"><name>doxygen_mainpage.md</name>
+  </compound>
+  <compound refid="_device___py_bind___module_8cpp" kind="file"><name>Device_PyBind_Module.cpp</name>
+    <member refid="_device___py_bind___module_8cpp_1a30f22a77b0bff5ec953187d5bc1d2579" kind="define"><name>DEVICE_PYBIND_MODULE_H</name></member>
+  </compound>
+  <compound refid="_s_y_c_l___device_8h" kind="file"><name>SYCL_Device.h</name>
+  </compound>
+  <compound refid="_s_y_c_l___device___inquiry_8h" kind="file"><name>SYCL_Device_Inquiry.h</name>
+  </compound>
+  <compound refid="_math___functions_8h" kind="file"><name>Math_Functions.h</name>
+  </compound>
+  <compound refid="_vector___object_8h" kind="file"><name>Vector_Object.h</name>
+  </compound>
+  <compound refid="_vector___operations_8h" kind="file"><name>Vector_Operations.h</name>
+  </compound>
+  <compound refid="_vector___py_bind___module_8cpp" kind="file"><name>Vector_PyBind_Module.cpp</name>
+    <member refid="_vector___py_bind___module_8cpp_1aee0d91db14e2472ea4b5ea779eba1be7" kind="define"><name>VECTOR_PYBIND_MODULE_H</name></member>
+  </compound>
+  <compound refid="group___device" kind="group"><name>Device</name>
+  </compound>
+  <compound refid="group___math" kind="group"><name>Math</name>
+  </compound>
+  <compound refid="group___vector" kind="group"><name>Vector</name>
+    <member refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kind="function"><name>Vector_Operation</name></member>
+    <member refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kind="function"><name>Vector_Addition</name></member>
+    <member refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kind="function"><name>Vector_Subtraction</name></member>
+    <member refid="group___vector_1gafe212cc17352d0535341ef351a818456" kind="function"><name>Vector_Element_Multiplication</name></member>
+    <member refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kind="function"><name>Vector_Element_Division</name></member>
+    <member refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kind="function"><name>Vector_Sum_Reduction</name></member>
+    <member refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kind="function"><name>Vector_Min_Reduction</name></member>
+    <member refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kind="function"><name>Vector_Max_Reduction</name></member>
+    <member refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kind="function"><name>Vector_Dot_Product</name></member>
+  </compound>
+  <compound refid="dir_737e998198a830156af4433d00da986d" kind="dir"><name>Device</name>
+  </compound>
+  <compound refid="dir_e68e8157741866f444e17edd764ebbae" kind="dir"><name>/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc</name>
+  </compound>
+  <compound refid="dir_3813464283bee2267f39dcf080a84d74" kind="dir"><name>Math</name>
+  </compound>
+  <compound refid="dir_d2653df67fea485f1bf2e407794c9984" kind="dir"><name>Vector</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

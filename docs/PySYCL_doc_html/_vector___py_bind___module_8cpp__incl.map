@@ -1,0 +1,12 @@
+<map id="Vector/Vector_PyBind_Module.cpp" name="Vector/Vector_PyBind_Module.cpp">
+<area shape="rect" id="node1" title="Python module for vector in PySYCL." alt="" coords="245,5,405,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,164,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,95,303,121"/>
+<area shape="rect" id="node4" href="$_vector___operations_8h.html" title="Vector operations in PySYCL. These operations receive two individual vectors and return a single vect..." alt="" coords="328,95,481,121"/>
+<area shape="rect" id="node9" href="$_vector___object_8h.html" title="Vector Object in PySYCL." alt="" coords="543,95,667,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="318,259,398,285"/>
+<area shape="rect" id="node6" title=" " alt="" coords="557,259,653,285"/>
+<area shape="rect" id="node7" href="$_s_y_c_l___device___inquiry_8h.html" title="Collecting SYCL device availability and information." alt="" coords="521,169,688,211"/>
+<area shape="rect" id="node8" href="$_math___functions_8h.html" title="Math functions returned in the form of lambda functions." alt="" coords="312,177,497,203"/>
+<area shape="rect" id="node10" title=" " alt="" coords="764,177,827,203"/>
+</map>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_737e998198a830156af4433d00da986d" kind="dir">
+    <compoundname>Device</compoundname>
+    <innerfile refid="_device___py_bind___module_8cpp">Device_PyBind_Module.cpp</innerfile>
+    <innerfile refid="_s_y_c_l___device_8h">SYCL_Device.h</innerfile>
+    <innerfile refid="_s_y_c_l___device___inquiry_8h">SYCL_Device_Inquiry.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Device/"/>
+  </compounddef>
+</doxygen>

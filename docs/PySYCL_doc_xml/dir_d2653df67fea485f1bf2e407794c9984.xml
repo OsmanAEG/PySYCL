@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_d2653df67fea485f1bf2e407794c9984" kind="dir">
+    <compoundname>Vector</compoundname>
+    <innerfile refid="_vector___object_8h">Vector_Object.h</innerfile>
+    <innerfile refid="_vector___operations_8h">Vector_Operations.h</innerfile>
+    <innerfile refid="_vector___py_bind___module_8cpp">Vector_PyBind_Module.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Vector/"/>
+  </compounddef>
+</doxygen>

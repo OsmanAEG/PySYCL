@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_vector___object_8h" kind="file" language="C++">
+    <compoundname>Vector_Object.h</compoundname>
+    <includes local="no">CL/sycl.hpp</includes>
+    <includes local="no">vector</includes>
+    <includes refid="_s_y_c_l___device___inquiry_8h" local="yes">../Device/SYCL_Device_Inquiry.h</includes>
+    <includes refid="_math___functions_8h" local="yes">../Math/Math_Functions.h</includes>
+    <includedby refid="_vector___py_bind___module_8cpp" local="yes">Vector/Vector_PyBind_Module.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>CL/sycl.hpp</label>
+      </node>
+      <node id="6">
+        <label>../Math/Math_Functions.h</label>
+        <link refid="_math___functions_8h"/>
+      </node>
+      <node id="1">
+        <label>Vector/Vector_Object.h</label>
+        <link refid="_vector___object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Device/SYCL_Device_Inquiry.h</label>
+        <link refid="_s_y_c_l___device___inquiry_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>Vector/Vector_Object.h</label>
+        <link refid="_vector___object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Vector/Vector_PyBind_Module.cpp</label>
+        <link refid="_vector___py_bind___module_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classpysycl_1_1_vector___object" prot="public">pysycl::Vector_Object</innerclass>
+    <innernamespace refid="namespacepysycl">pysycl</innernamespace>
+    <briefdescription>
+<para>Vector Object in PySYCL. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VECTOR_OBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VECTOR_OBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight><highlight class="comment">//<sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>PySYCL<sp/>software<sp/>for<sp/>SYCL<sp/>development<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Python.<sp/><sp/>It<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>licence.<sp/><sp/>A<sp/>copy<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>license,<sp/>in<sp/>a<sp/>file<sp/>named<sp/>LICENSE.md,<sp/>should<sp/>have<sp/>been</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>with<sp/>this<sp/>file.<sp/><sp/>A<sp/>copy<sp/>of<sp/>this<sp/>license<sp/>is<sp/>also</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>currently<sp/>available<sp/>at<sp/>&quot;http://opensource.org/licenses/MIT&quot;.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>explicitly<sp/>stated,<sp/>all<sp/>contributions<sp/>intentionally<sp/>submitted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>this<sp/>project<sp/>shall<sp/>also<sp/>be<sp/>under<sp/>the<sp/>terms<sp/>and<sp/>conditions<sp/>of<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>license,<sp/>without<sp/>any<sp/>additional<sp/>terms<sp/>or<sp/>conditions.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">///<sp/>\file</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">///<sp/>\brief<sp/>Vector<sp/>Object<sp/>in<sp/>PySYCL.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CL/sycl.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Device/SYCL_Device_Inquiry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/Math_Functions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">///<sp/>\addtogroup<sp/>Vector</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">///<sp/>@{</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepysycl" kindref="compound">pysycl</ref>{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">///<sp/>\brief<sp/>Class<sp/>defining<sp/>a<sp/>Vector<sp/>Object<sp/>for<sp/>use<sp/>in<sp/>PySYCL.</highlight></codeline>
+<codeline lineno="34" refid="classpysycl_1_1_vector___object" refkind="compound"><highlight class="comment"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Default<sp/>constructor,<sp/>use<sp/>compiler<sp/>generated<sp/>version.</highlight></codeline>
+<codeline lineno="38" refid="classpysycl_1_1_vector___object_1ae03d87fb6810afb959f7c9272a0a789f" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ae03d87fb6810afb959f7c9272a0a789f" kindref="member">Vector_Object</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Copy<sp/>constructor,<sp/>use<sp/>compiler<sp/>generated<sp/>version.</highlight></codeline>
+<codeline lineno="42" refid="classpysycl_1_1_vector___object_1abd2c93a17fad4b6b15c97aa156a28bb9" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1abd2c93a17fad4b6b15c97aa156a28bb9" kindref="member">Vector_Object</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Move<sp/>constructor,<sp/>use<sp/>compiler<sp/>generated<sp/>version.</highlight></codeline>
+<codeline lineno="46" refid="classpysycl_1_1_vector___object_1a728193ccda126b7c809746ef5d03fbd7" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1a728193ccda126b7c809746ef5d03fbd7" kindref="member">Vector_Object</ref>(<ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Copy<sp/>assignment,<sp/>use<sp/>compiler<sp/>generated<sp/>version.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/>///<sp/>\return<sp/>reference<sp/>to<sp/>the<sp/>assigned<sp/>object.</highlight></codeline>
+<codeline lineno="51" refid="classpysycl_1_1_vector___object_1a0ba652ae3f01353ea6adaa62ece40b27" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;<sp/><ref refid="classpysycl_1_1_vector___object_1a0ba652ae3f01353ea6adaa62ece40b27" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Move<sp/>assignment,<sp/>use<sp/>compiler<sp/>generated<sp/>version.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/>///<sp/>\return<sp/>reference<sp/>to<sp/>the<sp/>assigned<sp/>object.</highlight></codeline>
+<codeline lineno="56" refid="classpysycl_1_1_vector___object_1a1be42a64dabbe19dfc6d164ade1fe2f9" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;<sp/><ref refid="classpysycl_1_1_vector___object_1a1be42a64dabbe19dfc6d164ade1fe2f9" kindref="member">operator=</ref>(<ref refid="classpysycl_1_1_vector___object" kindref="compound">Vector_Object</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Sets<sp/>the<sp/>vector<sp/>to<sp/>input<sp/>values</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" kindref="member">set_data</ref>(std::vector&lt;double&gt;<sp/>data_in);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Resets<sp/>all<sp/>vector<sp/>elements<sp/>to<sp/>0</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" kindref="member">reset_data</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Returns<sp/>the<sp/>current<sp/>vector<sp/>state</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/>///<sp/>\return<sp/>Vector<sp/>state.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" kindref="member">get_data</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Element-wise<sp/>vector-vector<sp/>operations</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Function_type&gt;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(Function_type<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>std::vector&lt;double&gt;<sp/>data_in);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Element-wise<sp/>vector-constant<sp/>operations</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Function_type&gt;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(Function_type<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Addition<sp/>(Vector-Vector)</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>vector_in<sp/>Vector<sp/>to<sp/>be<sp/>added.</highlight></codeline>
+<codeline lineno="84" refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" kindref="member">add_vector</ref>(std::vector&lt;double&gt;<sp/>vector_in){</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::add_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>vector_in);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Addition<sp/>(Vector-Constant)</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>C<sp/>Constant<sp/>to<sp/>be<sp/>added.</highlight></codeline>
+<codeline lineno="92" refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" kindref="member">add_constant</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C){</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::add_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>C);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Subtraction<sp/>(Vector-Vector)</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>vector_in<sp/>Vector<sp/>to<sp/>be<sp/>subtracted.</highlight></codeline>
+<codeline lineno="100" refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" kindref="member">subtract_vector</ref>(std::vector&lt;double&gt;<sp/>vector_in){</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::subtract_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>vector_in);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Subtraction<sp/>(Vector-Constant)</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>C<sp/>Constant<sp/>to<sp/>be<sp/>subtracted.</highlight></codeline>
+<codeline lineno="108" refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" kindref="member">subtract_constant</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C){</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::subtract_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>C);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Multiplication<sp/>(Vector-Vector)</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>vector_in<sp/>Vector<sp/>to<sp/>be<sp/>multiplied.</highlight></codeline>
+<codeline lineno="116" refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" kindref="member">multiply_vector</ref>(std::vector&lt;double&gt;<sp/>vector_in){</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::multiply_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>vector_in);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Multiplication<sp/>(Vector-Constant)</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>C<sp/>Constant<sp/>to<sp/>be<sp/>multiplied.</highlight></codeline>
+<codeline lineno="124" refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" kindref="member">multiply_constant</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C){</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::multiply_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>C);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Division<sp/>(Vector-Vector)</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>vector_in<sp/>Vector<sp/>to<sp/>be<sp/>divided.</highlight></codeline>
+<codeline lineno="132" refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" kindref="member">divide_vector</ref>(std::vector&lt;double&gt;<sp/>vector_in){</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::divide_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>vector_in);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>Element<sp/>Division<sp/>(Vector-Constant)</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>C<sp/>Constant<sp/>to<sp/>be<sp/>divided.</highlight></codeline>
+<codeline lineno="140" refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" kindref="member">divide_constant</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C){</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::divide_function&lt;double&gt;();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">element_vector_operation</ref>(</highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>C);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Constructor<sp/>for<sp/>Vector_Object.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>N<sp/>Vector<sp/>size.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/>///<sp/>\param[in]<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
+<codeline lineno="150" refid="classpysycl_1_1_vector___object_1a626649b50aac046ba0c7b977e1e8e69a" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1a626649b50aac046ba0c7b977e1e8e69a" kindref="member">Vector_Object</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref><sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Vector<sp/>size<sp/>must<sp/>be<sp/>greater<sp/>than<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref><sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref><sp/>=<sp/>sycl::malloc_device&lt;double&gt;(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>,<sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>size.</highlight></codeline>
+<codeline lineno="162" refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>data<sp/>input<sp/>data<sp/>on<sp/>device.</highlight></codeline>
+<codeline lineno="166" refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" kindref="member">data_device_in</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>Vector<sp/>data<sp/>on<sp/>device.</highlight></codeline>
+<codeline lineno="170" refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/>///<sp/>\brief<sp/>The<sp/>selected<sp/>device.</highlight></codeline>
+<codeline lineno="174" refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/>sycl::queue<sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="177"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="178" refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" kindref="member">Vector_Object::set_data</ref>(std::vector&lt;double&gt;<sp/>data_in){</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data_in.size()<sp/>!=<sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Input<sp/>vector<sp/>size<sp/>does<sp/>not<sp/>match<sp/>vector<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>h.memcpy(<ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>,<sp/>&amp;data_in[0],<sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="188"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="189" refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" kindref="member">Vector_Object::reset_data</ref>(){</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data_device_ptr<sp/>=<sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>h.parallel_for(sycl::range&lt;1&gt;(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>),<sp/>[=](sycl::id&lt;1&gt;<sp/>idx){</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>idx[0];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data_device_ptr[i]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="200" refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" kindref="member">Vector_Object::get_data</ref>(){</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>data_out(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>h.memcpy(&amp;data_out[0],<sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>,<sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data_out;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="210"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Function_type&gt;</highlight></codeline>
+<codeline lineno="212" refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">Vector_Object::element_vector_operation</ref>(Function_type<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/>std::vector&lt;double&gt;<sp/>data_in){</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data_in.size()<sp/>!=<sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Input<sp/>vector<sp/>size<sp/>does<sp/>not<sp/>match<sp/>vector<sp/>size.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>h.memcpy(<ref refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" kindref="member">data_device_in</ref>,<sp/>&amp;data_in[0],<sp/><ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data_device_ptr<sp/>=<sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data_device_in_ptr<sp/>=<sp/><ref refid="classpysycl_1_1_vector___object_1ab75e1dfd536dcdf738322c1e597bde3a" kindref="member">data_device_in</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>h.parallel_for(sycl::range&lt;1&gt;(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>),<sp/>[=](sycl::id&lt;1&gt;<sp/>idx){</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>idx[0];</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data_device_ptr[i]<sp/>=<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">(data_device_ptr[i],<sp/>data_device_in_ptr[i]);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="231"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Function_type&gt;</highlight></codeline>
+<codeline lineno="233" refid="classpysycl_1_1_vector___object_1ab300bca4c6600f4a296321caf9a11457" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classpysycl_1_1_vector___object_1af8bf96878ce9dc0c685e93378d5b5a8f" kindref="member">Vector_Object::element_vector_operation</ref>(Function_type<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C){</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><ref refid="classpysycl_1_1_vector___object_1ab156ed26efbafdac904c2c01f55950b1" kindref="member">device_queue</ref>.submit([&amp;](sycl::handler&amp;<sp/>h){</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data_device_ptr<sp/>=<sp/><ref refid="classpysycl_1_1_vector___object_1a72b082c7ed9860a5a366b2b726ff03c4" kindref="member">data_device</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>h.parallel_for(sycl::range&lt;1&gt;(<ref refid="classpysycl_1_1_vector___object_1a522c6fb0bfd2b7b70e57884e19226257" kindref="member">N</ref>),<sp/>[=](sycl::id&lt;1&gt;<sp/>idx){</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>idx[0];</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data_device_ptr[i]<sp/>=<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">(data_device_ptr[i],<sp/>C);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>pysycl</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="245"><highlight class="comment">///<sp/>@}</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"></highlight><highlight class="comment">//<sp/>end<sp/>&quot;Vector&quot;<sp/>doxygen<sp/>group</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>#ifndef<sp/>VECTOR_OBJECT_H</highlight></codeline>
+    </programlisting>
+    <location file="Vector/Vector_Object.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_98d6b44c4eb2e27a8f858243e072a7cf" kind="dir">
+    <compoundname>/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL</compoundname>
+    <innerdir refid="dir_d5f32435cfcee249dfabff65c6eccc72">/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/sphinx</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,9 @@
+<map id="Device/Device_PyBind_Module.cpp" name="Device/Device_PyBind_Module.cpp">
+<area shape="rect" id="node1" title="Python module for device in PySYCL." alt="" coords="231,5,399,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,164,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,95,303,121"/>
+<area shape="rect" id="node4" href="$_s_y_c_l___device_8h.html" title="SYCL device selection in PySYCL." alt="" coords="327,95,445,121"/>
+<area shape="rect" id="node7" href="$_s_y_c_l___device___inquiry_8h.html" title="Collecting SYCL device availability and information." alt="" coords="468,95,635,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="373,169,453,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="490,169,586,196"/>
+</map>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="doxygen__extra_8dox" kind="file" language="C++">
+    <compoundname>doxygen_extra.dox</compoundname>
+    <innernamespace refid="namespacepysycl">pysycl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">///////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight><highlight class="comment">///////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight><highlight class="comment">///<sp/>\namespace<sp/>pysycl</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight><highlight class="comment">///<sp/>\brief<sp/>The<sp/>main<sp/>namespace<sp/>for<sp/>the<sp/>program,<sp/>pysycl.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight><highlight class="comment">///</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight><highlight class="comment">///<sp/>All<sp/>components<sp/>of<sp/>the<sp/>code<sp/>are<sp/>in<sp/>this<sp/>namespace</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/doxygen_extra.dox"/>
+  </compounddef>
+</doxygen>
