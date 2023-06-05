@@ -5,13 +5,273 @@
     <title>Vector</title>
       <sectiondef kind="func">
       <memberdef kind="function" id="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Function_T</type>
-          </param>
-        </templateparamlist>
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Operation</definition>
+        <definition>std::vector&lt; double &gt; Vector::Vector_Operation</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, sycl::queue Q, Function_T function)</argsstring>
+        <name>Vector_Operation</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>sycl::queue</type>
+          <declname>Q</declname>
+        </param>
+        <param>
+          <type>Function_T</type>
+          <declname>function</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; Vector::Vector_Addition</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Addition</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; Vector::Vector_Subtraction</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Subtraction</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1gafe212cc17352d0535341ef351a818456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; Vector::Vector_Element_Multiplication</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Element_Multiplication</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; Vector::Vector_Element_Division</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Element_Division</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1gad654c20d23fa2c428619536f6f850651" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Vector::Vector_Sum_Reduction</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Sum_Reduction</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Vector::Vector_Min_Reduction</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Min_Reduction</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Vector::Vector_Max_Reduction</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Max_Reduction</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Vector::Vector_Dot_Product</definition>
+        <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
+        <name>Vector_Dot_Product</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_a</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>vector_b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>platform_index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Operation</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, sycl::queue Q, Function_T function)</argsstring>
         <name>Vector_Operation</name>
         <param>
@@ -82,11 +342,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="44" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="44" bodyend="73"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="44" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Addition</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Addition</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Addition</name>
         <param>
@@ -148,11 +408,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="81" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="81" bodyend="88"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="81" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Subtraction</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Subtraction</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Subtraction</name>
         <param>
@@ -214,11 +474,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="96" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="96" bodyend="103"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="96" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gafe212cc17352d0535341ef351a818456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Element_Multiplication</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Element_Multiplication</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Element_Multiplication</name>
         <param>
@@ -280,11 +540,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="111" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="111" bodyend="118"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="111" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Element_Division</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Element_Division</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Element_Division</name>
         <param>
@@ -346,7 +606,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="126" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="126" bodyend="133"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="126" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gad654c20d23fa2c428619536f6f850651" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -400,7 +660,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="140" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="140" bodyend="166"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="140" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -454,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="173" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="173" bodyend="199"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="173" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -508,7 +768,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="206" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="206" bodyend="232"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="206" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -574,7 +834,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="240" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="240" bodyend="246"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="240" bodyend="246"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

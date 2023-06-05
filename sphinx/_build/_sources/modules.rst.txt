@@ -6,7 +6,6 @@ PySYCL Python Module
 
    device
    vector
-   guide
 
 PySYCL External Documentation
 =============================

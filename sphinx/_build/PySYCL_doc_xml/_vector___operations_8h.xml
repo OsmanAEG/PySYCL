@@ -2,58 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="_vector___operations_8h" kind="file" language="C++">
     <compoundname>Vector_Operations.h</compoundname>
-    <includes local="no">iostream</includes>
-    <includes local="no">CL/sycl.hpp</includes>
-    <includes refid="_s_y_c_l___device___inquiry_8h" local="yes">../Device/SYCL_Device_Inquiry.h</includes>
-    <includes refid="_math___functions_8h" local="yes">../Math/Math_Functions.h</includes>
-    <includedby refid="_vector___py_bind___module_8cpp" local="yes">Vector/Vector_PyBind_Module.cpp</includedby>
-    <incdepgraph>
-      <node id="1">
-        <label>Vector/Vector_Operations.h</label>
-        <link refid="_vector___operations_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>CL/sycl.hpp</label>
-      </node>
-      <node id="5">
-        <label>../Math/Math_Functions.h</label>
-        <link refid="_math___functions_8h"/>
-      </node>
-      <node id="4">
-        <label>../Device/SYCL_Device_Inquiry.h</label>
-        <link refid="_s_y_c_l___device___inquiry_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>iostream</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="1">
-        <label>Vector/Vector_Operations.h</label>
-        <link refid="_vector___operations_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>Vector/Vector_PyBind_Module.cpp</label>
-        <link refid="_vector___py_bind___module_8cpp"/>
-      </node>
-    </invincdepgraph>
-    <innernamespace refid="namespacepysycl">pysycl</innernamespace>
     <briefdescription>
-<para>Vector operations in PySYCL. These operations receive two individual vectors and return a single vector. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -101,7 +50,7 @@
 <codeline lineno="41"><highlight class="comment">///<sp/>\param<sp/>function<sp/>Operation<sp/>to<sp/>be<sp/>performed.</highlight></codeline>
 <codeline lineno="42"><highlight class="comment">///<sp/>\return<sp/>Vector<sp/>resulting<sp/>from<sp/>the<sp/>operation.</highlight></codeline>
 <codeline lineno="43"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Function_T&gt;</highlight></codeline>
-<codeline lineno="44" refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" refkind="member"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member">Vector_Operation</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Operation</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sycl::queue<sp/>Q,</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Function_T<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">){</highlight></codeline>
@@ -138,13 +87,13 @@
 <codeline lineno="78"><highlight class="comment">///<sp/>\param<sp/>vector_b<sp/>Second<sp/>vector.</highlight></codeline>
 <codeline lineno="79"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="80"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="81" refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kindref="member">Vector_Addition</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Addition</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::add_function&lt;double&gt;();</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="88"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="90"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
@@ -153,13 +102,13 @@
 <codeline lineno="93"><highlight class="comment">///<sp/>\param<sp/>vector_b<sp/>Second<sp/>vector.</highlight></codeline>
 <codeline lineno="94"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="95"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="96" refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kindref="member">Vector_Subtraction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Subtraction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::subtract_function&lt;double&gt;();</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="103"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="105"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
@@ -168,13 +117,13 @@
 <codeline lineno="108"><highlight class="comment">///<sp/>\param<sp/>vector_b<sp/>Second<sp/>vector.</highlight></codeline>
 <codeline lineno="109"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="110"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="111" refid="group___vector_1gafe212cc17352d0535341ef351a818456" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member">Vector_Element_Multiplication</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Element_Multiplication</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::multiply_function&lt;double&gt;();</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="118"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="120"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
@@ -183,13 +132,13 @@
 <codeline lineno="123"><highlight class="comment">///<sp/>\param<sp/>vector_b<sp/>Second<sp/>vector.</highlight></codeline>
 <codeline lineno="124"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="125"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="126" refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kindref="member">Vector_Element_Division</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Element_Division</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>pysycl::divide_function&lt;double&gt;();</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Operation</ref>(vector_a,<sp/>vector_b,<sp/>Q,<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="133"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="135"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
@@ -197,13 +146,13 @@
 <codeline lineno="137"><highlight class="comment">///<sp/>\param<sp/>vector_a<sp/>Input<sp/>vector.</highlight></codeline>
 <codeline lineno="138"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="139"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="140" refid="group___vector_1gad654c20d23fa2c428619536f6f850651" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member">Vector_Sum_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Sum_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"></highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>vector_a.size();</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"></highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vector_sum<sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
@@ -230,13 +179,13 @@
 <codeline lineno="170"><highlight class="comment">///<sp/>\param<sp/>vector_a<sp/>Input<sp/>vector.</highlight></codeline>
 <codeline lineno="171"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="172"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="173" refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kindref="member">Vector_Min_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Min_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
 <codeline lineno="176"><highlight class="normal"></highlight></codeline>
 <codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>vector_a.size();</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="180"><highlight class="normal"></highlight></codeline>
 <codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vector_min<sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="182"><highlight class="normal"></highlight></codeline>
@@ -263,13 +212,13 @@
 <codeline lineno="203"><highlight class="comment">///<sp/>\param<sp/>vector_a<sp/>Input<sp/>vector.</highlight></codeline>
 <codeline lineno="204"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="205"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="206" refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kindref="member">Vector_Max_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Max_Reduction</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
 <codeline lineno="209"><highlight class="normal"></highlight></codeline>
 <codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>vector_a.size();</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Q<sp/>=<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::get_queue</ref>(platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"></highlight></codeline>
 <codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vector_max<sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"></highlight></codeline>
@@ -297,12 +246,12 @@
 <codeline lineno="237"><highlight class="comment">///<sp/>\param<sp/>vector_b<sp/>Second<sp/>vector.</highlight></codeline>
 <codeline lineno="238"><highlight class="comment">///<sp/>\param<sp/>platform_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>platform<sp/>to<sp/>select.</highlight></codeline>
 <codeline lineno="239"><highlight class="comment">///<sp/>\param<sp/>device_index<sp/>Index<sp/>of<sp/>the<sp/>sycl<sp/>device<sp/>to<sp/>select.</highlight></codeline>
-<codeline lineno="240" refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kindref="member">Vector_Dot_Product</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Dot_Product</ref>(std::vector&lt;double&gt;<sp/>vector_a,</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>vector_b,</highlight></codeline>
 <codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>vector_c<sp/>=<sp/><ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member">Vector_Element_Multiplication</ref>(vector_a,<sp/>vector_b,<sp/>platform_index,<sp/>device_index);</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member">Vector_Sum_Reduction</ref>(vector_c,<sp/>platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>vector_c<sp/>=<sp/><ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Element_Multiplication</ref>(vector_a,<sp/>vector_b,<sp/>platform_index,<sp/>device_index);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">Vector_Sum_Reduction</ref>(vector_c,<sp/>platform_index,<sp/>device_index);</highlight></codeline>
 <codeline lineno="246"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"></highlight></codeline>
 <codeline lineno="248"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>pysycl</highlight><highlight class="normal"></highlight></codeline>

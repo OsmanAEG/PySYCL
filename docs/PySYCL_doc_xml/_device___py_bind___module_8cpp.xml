@@ -2,66 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="_device___py_bind___module_8cpp" kind="file" language="C++">
     <compoundname>Device_PyBind_Module.cpp</compoundname>
-    <includes local="no">pybind11/pybind11.h</includes>
-    <includes local="no">pybind11/stl.h</includes>
-    <includes refid="_s_y_c_l___device_8h" local="yes">SYCL_Device.h</includes>
-    <includes refid="_s_y_c_l___device___inquiry_8h" local="yes">SYCL_Device_Inquiry.h</includes>
-    <incdepgraph>
-      <node id="6">
-        <label>CL/sycl.hpp</label>
-      </node>
-      <node id="4">
-        <label>SYCL_Device.h</label>
-        <link refid="_s_y_c_l___device_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>SYCL_Device_Inquiry.h</label>
-        <link refid="_s_y_c_l___device___inquiry_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>pybind11/pybind11.h</label>
-      </node>
-      <node id="5">
-        <label>iostream</label>
-      </node>
-      <node id="1">
-        <label>Device/Device_PyBind_Module.cpp</label>
-        <link refid="_device___py_bind___module_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>pybind11/stl.h</label>
-      </node>
-    </incdepgraph>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="_device___py_bind___module_8cpp_1a30f22a77b0bff5ec953187d5bc1d2579" prot="public" static="no">
-        <name>DEVICE_PYBIND_MODULE_H</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Device/Device_PyBind_Module.cpp" line="2" column="9" bodyfile="Device/Device_PyBind_Module.cpp" bodystart="2" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
-<para>Python module for device in PySYCL. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -88,8 +29,8 @@
 <codeline lineno="20"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/pybind11.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/stl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_y_c_l___device_8h" kindref="compound">SYCL_Device.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_y_c_l___device___inquiry_8h" kindref="compound">SYCL_Device_Inquiry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SYCL_Device.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SYCL_Device_Inquiry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">py<sp/>=<sp/>pybind11;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
@@ -116,7 +57,7 @@
 <codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;,</highlight></codeline>
 <codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_name&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_s_y_c_l___device_1a615ce057440ab7e14ebad8d0f59d68f8" kindref="member">pysycl::SYCL_Device::device_name</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_name&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_s_y_c_l___device_1a615ce057440ab7e14ebad8d0f59d68f8" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::SYCL_Device::device_name</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>outputs<sp/>the<sp/>selected<sp/>device<sp/>name.</highlight></codeline>
 <codeline lineno="54"><highlight class="stringliteral"></highlight></codeline>
@@ -130,7 +71,7 @@
 <codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>gpu_queue.device_name()</highlight></codeline>
 <codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&apos;Intel(R)<sp/>Gen9<sp/>HD<sp/>Graphics<sp/>NEO&apos;</highlight></codeline>
 <codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_vendor&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_s_y_c_l___device_1a9c95ff44cda22de7830f413e5c84e12e" kindref="member">pysycl::SYCL_Device::device_vendor</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_vendor&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_s_y_c_l___device_1a9c95ff44cda22de7830f413e5c84e12e" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::SYCL_Device::device_vendor</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>outputs<sp/>the<sp/>selected<sp/>device<sp/>vendor.</highlight></codeline>
 <codeline lineno="68"><highlight class="stringliteral"></highlight></codeline>
@@ -147,7 +88,7 @@
 <codeline lineno="79"><highlight class="stringliteral"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="80"><highlight class="comment"><sp/><sp/>/////////////////////////////////////////////////////////////////////</highlight></codeline>
 <codeline lineno="81"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;platform_list&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" kindref="member">pysycl::platform_list</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;platform_list&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::platform_list</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>figure::<sp/>_static/images/platforms.png</highlight></codeline>
 <codeline lineno="84"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>:scale:<sp/>50<sp/>%</highlight></codeline>
 <codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>:alt:<sp/>Common<sp/>Platforms</highlight></codeline>
@@ -166,7 +107,7 @@
 <codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>device_inquiry.platform_list()</highlight></codeline>
 <codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>[NVIDIA<sp/>CUDA<sp/>BACKEND,<sp/>Intel(R)<sp/>OpenCL,<sp/>Intel(R)<sp/>Level-Zero]</highlight></codeline>
 <codeline lineno="100"><highlight class="stringliteral"><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_list&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" kindref="member">pysycl::device_list</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;device_list&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::device_list</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>figure::<sp/>_static/images/gpu.png</highlight></codeline>
 <codeline lineno="103"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>:scale:<sp/>50<sp/>%</highlight></codeline>
 <codeline lineno="104"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>:alt:<sp/>Device<sp/>Selection</highlight></codeline>

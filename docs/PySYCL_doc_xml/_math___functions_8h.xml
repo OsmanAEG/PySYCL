@@ -2,37 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="_math___functions_8h" kind="file" language="C++">
     <compoundname>Math_Functions.h</compoundname>
-    <includedby refid="_vector___object_8h" local="yes">Vector/Vector_Object.h</includedby>
-    <includedby refid="_vector___operations_8h" local="yes">Vector/Vector_Operations.h</includedby>
-    <invincdepgraph>
-      <node id="4">
-        <label>Vector/Vector_Operations.h</label>
-        <link refid="_vector___operations_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>Math/Math_Functions.h</label>
-        <link refid="_math___functions_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>Vector/Vector_Object.h</label>
-        <link refid="_vector___object_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>Vector/Vector_PyBind_Module.cpp</label>
-        <link refid="_vector___py_bind___module_8cpp"/>
-      </node>
-    </invincdepgraph>
-    <innernamespace refid="namespacepysycl">pysycl</innernamespace>
     <briefdescription>
-<para>Math functions returned in the form of lambda functions. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -67,7 +37,7 @@
 <codeline lineno="28"><highlight class="comment">///<sp/>\brief<sp/>Lambda<sp/>function<sp/>that<sp/>returns<sp/>the<sp/>sum<sp/>of<sp/>two<sp/>numbers.</highlight></codeline>
 <codeline lineno="29"><highlight class="comment">///<sp/>\tparam<sp/>T<sp/>Type<sp/>of<sp/>the<sp/>numbers<sp/>to<sp/>be<sp/>added.</highlight></codeline>
 <codeline lineno="30"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="31" refid="namespacepysycl_1ae5f66ba2d2ddc522cb092b1fca015fa5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1ae5f66ba2d2ddc522cb092b1fca015fa5" kindref="member">add_function</ref>(){</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1ae5f66ba2d2ddc522cb092b1fca015fa5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">add_function</ref>(){</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>[](T<sp/>a,<sp/>T<sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>+<sp/>b;<sp/>};</highlight></codeline>
 <codeline lineno="33"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
@@ -75,7 +45,7 @@
 <codeline lineno="36"><highlight class="comment">///<sp/>\brief<sp/>Lambda<sp/>function<sp/>that<sp/>returns<sp/>the<sp/>difference<sp/>of<sp/>two<sp/>numbers.</highlight></codeline>
 <codeline lineno="37"><highlight class="comment">///<sp/>\tparam<sp/>T<sp/>Type<sp/>of<sp/>the<sp/>numbers<sp/>to<sp/>be<sp/>added.</highlight></codeline>
 <codeline lineno="38"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="39" refid="namespacepysycl_1aeed90e9d7c12f5cb915eb8d0fe5586b3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1aeed90e9d7c12f5cb915eb8d0fe5586b3" kindref="member">subtract_function</ref>(){</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1aeed90e9d7c12f5cb915eb8d0fe5586b3" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">subtract_function</ref>(){</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>[](T<sp/>a,<sp/>T<sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>-<sp/>b;<sp/>};</highlight></codeline>
 <codeline lineno="41"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
@@ -83,7 +53,7 @@
 <codeline lineno="44"><highlight class="comment">///<sp/>\brief<sp/>Lambda<sp/>function<sp/>that<sp/>returns<sp/>the<sp/>product<sp/>of<sp/>two<sp/>numbers.</highlight></codeline>
 <codeline lineno="45"><highlight class="comment">///<sp/>\tparam<sp/>T<sp/>Type<sp/>of<sp/>the<sp/>numbers<sp/>to<sp/>be<sp/>added.</highlight></codeline>
 <codeline lineno="46"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="47" refid="namespacepysycl_1ab54eaad7760b2d4a262d702a22cca24c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1ab54eaad7760b2d4a262d702a22cca24c" kindref="member">multiply_function</ref>(){</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1ab54eaad7760b2d4a262d702a22cca24c" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">multiply_function</ref>(){</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>[](T<sp/>a,<sp/>T<sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>*<sp/>b;<sp/>};</highlight></codeline>
 <codeline lineno="49"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
@@ -91,7 +61,7 @@
 <codeline lineno="52"><highlight class="comment">///<sp/>\brief<sp/>Lambda<sp/>function<sp/>that<sp/>returns<sp/>the<sp/>quotient<sp/>of<sp/>two<sp/>numbers.</highlight></codeline>
 <codeline lineno="53"><highlight class="comment">///<sp/>\tparam<sp/>T<sp/>Type<sp/>of<sp/>the<sp/>numbers<sp/>to<sp/>be<sp/>added.</highlight></codeline>
 <codeline lineno="54"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="55" refid="namespacepysycl_1aa4e82e40c9ee3367cf4ce417cf928119" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1aa4e82e40c9ee3367cf4ce417cf928119" kindref="member">divide_function</ref>(){</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="namespacepysycl_1aa4e82e40c9ee3367cf4ce417cf928119" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">divide_function</ref>(){</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>[](T<sp/>a,<sp/>T<sp/>b)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a<sp/>/<sp/>b;<sp/>};</highlight></codeline>
 <codeline lineno="57"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>

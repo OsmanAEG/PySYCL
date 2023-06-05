@@ -7,7 +7,7 @@
       <sectiondef kind="func">
       <memberdef kind="function" id="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; pysycl::platform_list</definition>
+        <definition>std::vector&lt; std::string &gt; pysycl::platform_list</definition>
         <argsstring>()</argsstring>
         <name>platform_list</name>
         <briefdescription>
@@ -17,11 +17,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Device/SYCL_Device_Inquiry.h" line="32" column="13" bodyfile="Device/SYCL_Device_Inquiry.h" bodystart="32" bodyend="45"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Device/SYCL_Device_Inquiry.h" bodystart="32" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1aa743f37417afb11704024adba84a3493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; pysycl::device_list</definition>
+        <definition>std::vector&lt; std::string &gt; pysycl::device_list</definition>
         <argsstring>(int platform_index)</argsstring>
         <name>device_list</name>
         <param>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Device/SYCL_Device_Inquiry.h" line="49" column="13" bodyfile="Device/SYCL_Device_Inquiry.h" bodystart="49" bodyend="64"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Device/SYCL_Device_Inquiry.h" bodystart="49" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>sycl::queue</type>
@@ -59,14 +59,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Device/SYCL_Device_Inquiry.h" line="68" column="13" bodyfile="Device/SYCL_Device_Inquiry.h" bodystart="68" bodyend="75"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Device/SYCL_Device_Inquiry.h" bodystart="68" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1ae5f66ba2d2ddc522cb092b1fca015fa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
         <type>auto</type>
         <definition>auto pysycl::add_function</definition>
         <argsstring>()</argsstring>
@@ -88,14 +83,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Math/Math_Functions.h" line="31" column="6" bodyfile="Math/Math_Functions.h" bodystart="31" bodyend="33"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Math/Math_Functions.h" bodystart="31" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1aeed90e9d7c12f5cb915eb8d0fe5586b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
         <type>auto</type>
         <definition>auto pysycl::subtract_function</definition>
         <argsstring>()</argsstring>
@@ -117,14 +107,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Math/Math_Functions.h" line="39" column="6" bodyfile="Math/Math_Functions.h" bodystart="39" bodyend="41"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Math/Math_Functions.h" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1ab54eaad7760b2d4a262d702a22cca24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
         <type>auto</type>
         <definition>auto pysycl::multiply_function</definition>
         <argsstring>()</argsstring>
@@ -146,14 +131,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Math/Math_Functions.h" line="47" column="6" bodyfile="Math/Math_Functions.h" bodystart="47" bodyend="49"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Math/Math_Functions.h" bodystart="47" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="namespacepysycl_1aa4e82e40c9ee3367cf4ce417cf928119" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
         <type>auto</type>
         <definition>auto pysycl::divide_function</definition>
         <argsstring>()</argsstring>
@@ -175,16 +155,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Math/Math_Functions.h" line="55" column="6" bodyfile="Math/Math_Functions.h" bodystart="55" bodyend="57"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Math/Math_Functions.h" bodystart="55" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga5b23a7f925405b53f39962c2ce4c1501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Function_T</type>
-          </param>
-        </templateparamlist>
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Operation</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Operation</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, sycl::queue Q, Function_T function)</argsstring>
         <name>Vector_Operation</name>
         <param>
@@ -255,11 +230,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="44" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="44" bodyend="73"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="44" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Addition</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Addition</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Addition</name>
         <param>
@@ -321,11 +296,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="81" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="81" bodyend="88"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="81" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Subtraction</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Subtraction</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Subtraction</name>
         <param>
@@ -387,11 +362,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="96" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="96" bodyend="103"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="96" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gafe212cc17352d0535341ef351a818456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Element_Multiplication</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Element_Multiplication</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Element_Multiplication</name>
         <param>
@@ -453,11 +428,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="111" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="111" bodyend="118"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="111" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; pysycl::Vector_Element_Division</definition>
+        <definition>std::vector&lt; double &gt; pysycl::Vector_Element_Division</definition>
         <argsstring>(std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</argsstring>
         <name>Vector_Element_Division</name>
         <param>
@@ -519,7 +494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="126" column="13" bodyfile="Vector/Vector_Operations.h" bodystart="126" bodyend="133"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="126" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gad654c20d23fa2c428619536f6f850651" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -573,7 +548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="140" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="140" bodyend="166"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="140" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -627,7 +602,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="173" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="173" bodyend="199"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="173" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -681,7 +656,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="206" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="206" bodyend="232"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="206" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -747,7 +722,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Vector/Vector_Operations.h" line="240" column="8" bodyfile="Vector/Vector_Operations.h" bodystart="240" bodyend="246"/>
+        <location file="" line="1" column="1" bodyfile="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag:/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/src/Vector/Vector_Operations.h" bodystart="240" bodyend="246"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

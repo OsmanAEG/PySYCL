@@ -2,62 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="_s_y_c_l___device___inquiry_8h" kind="file" language="C++">
     <compoundname>SYCL_Device_Inquiry.h</compoundname>
-    <includes local="no">iostream</includes>
-    <includes local="no">CL/sycl.hpp</includes>
-    <includedby refid="_device___py_bind___module_8cpp" local="yes">Device/Device_PyBind_Module.cpp</includedby>
-    <includedby refid="_vector___object_8h" local="yes">Vector/Vector_Object.h</includedby>
-    <includedby refid="_vector___operations_8h" local="yes">Vector/Vector_Operations.h</includedby>
-    <incdepgraph>
-      <node id="3">
-        <label>CL/sycl.hpp</label>
-      </node>
-      <node id="1">
-        <label>Device/SYCL_Device_Inquiry.h</label>
-        <link refid="_s_y_c_l___device___inquiry_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>iostream</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="5">
-        <label>Vector/Vector_Operations.h</label>
-        <link refid="_vector___operations_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>Vector/Vector_Object.h</label>
-        <link refid="_vector___object_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>Device/SYCL_Device_Inquiry.h</label>
-        <link refid="_s_y_c_l___device___inquiry_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>Vector/Vector_PyBind_Module.cpp</label>
-        <link refid="_vector___py_bind___module_8cpp"/>
-      </node>
-      <node id="2">
-        <label>Device/Device_PyBind_Module.cpp</label>
-        <link refid="_device___py_bind___module_8cpp"/>
-      </node>
-    </invincdepgraph>
-    <innernamespace refid="namespacepysycl">pysycl</innernamespace>
     <briefdescription>
-<para>Collecting SYCL device availability and information. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -93,7 +38,7 @@
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="30"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
 <codeline lineno="31"><highlight class="comment">///<sp/>\brief<sp/>Function<sp/>that<sp/>returns<sp/>a<sp/>list<sp/>of<sp/>available<sp/>SYCL<sp/>platforms.</highlight></codeline>
-<codeline lineno="32" refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" kindref="member">platform_list</ref>(){</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepysycl_1a87f73272c1b9023c7b0cd574d527ffd3" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">platform_list</ref>(){</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>platform_names;</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>platforms<sp/>=<sp/>sycl::platform::get_platforms();</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
@@ -110,7 +55,7 @@
 <codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="47"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
 <codeline lineno="48"><highlight class="comment">///<sp/>\brief<sp/>Function<sp/>that<sp/>returns<sp/>a<sp/>list<sp/>of<sp/>available<sp/>SYCL<sp/>devices.</highlight></codeline>
-<codeline lineno="49" refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" refkind="member"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" kindref="member">device_list</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index){</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepysycl_1aa743f37417afb11704024adba84a3493" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">device_list</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index){</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>device_names;</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>platforms<sp/>=<sp/>sycl::platform::get_platforms();</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>selected_platform<sp/>=<sp/>platforms[platform_index];</highlight></codeline>
@@ -129,7 +74,7 @@
 <codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="66"><highlight class="comment">///////////////////////////////////////////////////////////////////////</highlight></codeline>
 <codeline lineno="67"><highlight class="comment">///<sp/>\brief<sp/>Function<sp/>that<sp/>returns<sp/>a<sp/>sycl<sp/>device<sp/>queue.</highlight></codeline>
-<codeline lineno="68" refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" refkind="member"><highlight class="comment"></highlight><highlight class="normal">sycl::queue<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member">get_queue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"></highlight><highlight class="normal">sycl::queue<sp/><ref refid="namespacepysycl_1a00b26210f29a913df10ccb3b63c13fb5" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">get_queue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>platform_index<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>device_index<sp/>=<sp/>0){</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>platforms<sp/>=<sp/>sycl::platform::get_platforms();</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>selected_platform<sp/>=<sp/>platforms[platform_index];</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>devices<sp/>=<sp/>selected_platform.get_devices();</highlight></codeline>

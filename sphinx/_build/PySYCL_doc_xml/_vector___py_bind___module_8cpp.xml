@@ -2,89 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="_vector___py_bind___module_8cpp" kind="file" language="C++">
     <compoundname>Vector_PyBind_Module.cpp</compoundname>
-    <includes local="no">pybind11/pybind11.h</includes>
-    <includes local="no">pybind11/stl.h</includes>
-    <includes refid="_vector___operations_8h" local="yes">Vector_Operations.h</includes>
-    <includes refid="_vector___object_8h" local="yes">Vector_Object.h</includes>
-    <incdepgraph>
-      <node id="4">
-        <label>Vector_Operations.h</label>
-        <link refid="_vector___operations_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>CL/sycl.hpp</label>
-      </node>
-      <node id="8">
-        <label>../Math/Math_Functions.h</label>
-        <link refid="_math___functions_8h"/>
-      </node>
-      <node id="9">
-        <label>Vector_Object.h</label>
-        <link refid="_vector___object_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>../Device/SYCL_Device_Inquiry.h</label>
-        <link refid="_s_y_c_l___device___inquiry_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>vector</label>
-      </node>
-      <node id="1">
-        <label>Vector/Vector_PyBind_Module.cpp</label>
-        <link refid="_vector___py_bind___module_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>pybind11/pybind11.h</label>
-      </node>
-      <node id="5">
-        <label>iostream</label>
-      </node>
-      <node id="3">
-        <label>pybind11/stl.h</label>
-      </node>
-    </incdepgraph>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="_vector___py_bind___module_8cpp_1aee0d91db14e2472ea4b5ea779eba1be7" prot="public" static="no">
-        <name>VECTOR_PYBIND_MODULE_H</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Vector/Vector_PyBind_Module.cpp" line="2" column="9" bodyfile="Vector/Vector_PyBind_Module.cpp" bodystart="2" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
-<para>Python module for vector in PySYCL. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -111,8 +29,8 @@
 <codeline lineno="20"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/pybind11.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pybind11/stl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_vector___operations_8h" kindref="compound">Vector_Operations.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_vector___object_8h" kindref="compound">Vector_Object.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Vector_Operations.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Vector_Object.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">py<sp/>=<sp/>pybind11;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
@@ -122,7 +40,7 @@
 <codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>module<sp/>contains<sp/>classes<sp/>and<sp/>functions<sp/>that<sp/>perform<sp/>simple<sp/>vector<sp/>operations.</highlight></codeline>
 <codeline lineno="32"><highlight class="stringliteral"><sp/><sp/>)delim&quot;;</highlight></codeline>
 <codeline lineno="33"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_addition&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kindref="member">pysycl::Vector_Addition</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_addition&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga7bfd0f0fdf9ddae44956c1b9449f8943" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Addition</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>vector<sp/>addition<sp/>on<sp/>two<sp/>python<sp/>lists<sp/>and<sp/>returns<sp/>the<sp/>sum.</highlight></codeline>
 <codeline lineno="37"><highlight class="stringliteral"></highlight></codeline>
@@ -155,7 +73,7 @@
 <codeline lineno="64"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_subtraction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kindref="member">pysycl::Vector_Subtraction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_subtraction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga49293a8948584a3f1e7f60c44f85a27c" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Subtraction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>vector<sp/>subtraction<sp/>on<sp/>two<sp/>python<sp/>lists<sp/>and<sp/>returns<sp/>the<sp/>difference.</highlight></codeline>
 <codeline lineno="70"><highlight class="stringliteral"></highlight></codeline>
@@ -188,7 +106,7 @@
 <codeline lineno="97"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_element_multiplication&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member">pysycl::Vector_Element_Multiplication</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_element_multiplication&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gafe212cc17352d0535341ef351a818456" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Element_Multiplication</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>vector<sp/>element-wise<sp/>multiplication<sp/>on<sp/>two<sp/>python<sp/>lists<sp/>and<sp/>returns<sp/>the<sp/>product.</highlight></codeline>
 <codeline lineno="103"><highlight class="stringliteral"></highlight></codeline>
@@ -221,7 +139,7 @@
 <codeline lineno="130"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_element_division&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kindref="member">pysycl::Vector_Element_Division</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_element_division&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gadc8ccf79f5be15b1ed782efd21b1bd5f" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Element_Division</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="135"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>vector<sp/>element-wise<sp/>division<sp/>on<sp/>two<sp/>python<sp/>lists<sp/>and<sp/>returns<sp/>the<sp/>product.</highlight></codeline>
 <codeline lineno="136"><highlight class="stringliteral"></highlight></codeline>
@@ -254,7 +172,7 @@
 <codeline lineno="163"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_sum_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member">pysycl::Vector_Sum_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_sum_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gad654c20d23fa2c428619536f6f850651" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Sum_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="167"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>sum<sp/>reduction<sp/>on<sp/>an<sp/>input<sp/>vector<sp/>and<sp/>returns<sp/>the<sp/>total.</highlight></codeline>
 <codeline lineno="169"><highlight class="stringliteral"></highlight></codeline>
@@ -282,7 +200,7 @@
 <codeline lineno="191"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_min_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kindref="member">pysycl::Vector_Min_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_min_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga363773f976560ac01dbbc23baa98ccc0" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Min_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="196"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>minimum<sp/>reduction<sp/>on<sp/>an<sp/>input<sp/>vector<sp/>and<sp/>returns<sp/>the<sp/>minimum<sp/>value.</highlight></codeline>
 <codeline lineno="197"><highlight class="stringliteral"></highlight></codeline>
@@ -310,7 +228,7 @@
 <codeline lineno="219"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_max_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kindref="member">pysycl::Vector_Max_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_max_reduction&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1ga31e509922e8e5cc38cbd36a38f6e96fe" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Max_Reduction</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="223"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="224"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>maximum<sp/>reduction<sp/>on<sp/>an<sp/>input<sp/>vector<sp/>and<sp/>returns<sp/>the<sp/>minimum<sp/>value.</highlight></codeline>
 <codeline lineno="225"><highlight class="stringliteral"></highlight></codeline>
@@ -338,7 +256,7 @@
 <codeline lineno="247"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_dot_product&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kindref="member">pysycl::Vector_Dot_Product</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>m.def(</highlight><highlight class="stringliteral">&quot;vector_dot_product&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="group___vector_1gad27fb35fc715e166f6a11336cf293b8a" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Dot_Product</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="251"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="252"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Performs<sp/>a<sp/>vector<sp/>dot<sp/>product<sp/>on<sp/>two<sp/>python<sp/>lists<sp/>and<sp/>returns<sp/>the<sp/>sum.</highlight></codeline>
 <codeline lineno="253"><highlight class="stringliteral"></highlight></codeline>
@@ -393,7 +311,7 @@
 <codeline lineno="302"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;N&quot;</highlight><highlight class="normal">),</highlight></codeline>
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;platform_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>py::arg(</highlight><highlight class="stringliteral">&quot;device_index&quot;</highlight><highlight class="normal">)<sp/>=<sp/>0)</highlight></codeline>
-<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;set_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" kindref="member">pysycl::Vector_Object::set_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;set_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a217bbe42ce68ce68f1221d34f83ea18d" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::set_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="306"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="307"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>sets<sp/>the<sp/>data<sp/>of<sp/>the<sp/>vector.</highlight></codeline>
 <codeline lineno="308"><highlight class="stringliteral"></highlight></codeline>
@@ -406,7 +324,7 @@
 <codeline lineno="315"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector<sp/>=<sp/>vector_object.vector_object(3000,<sp/>0,<sp/>0)</highlight></codeline>
 <codeline lineno="316"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector.set_data([1.0,<sp/>2.0,<sp/>3.0])</highlight></codeline>
 <codeline lineno="317"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="318"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;reset_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" kindref="member">pysycl::Vector_Object::reset_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="318"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;reset_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a7db68fb66bd2af3924ee56cb30a0693b" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::reset_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="319"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="320"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>resets<sp/>the<sp/>data<sp/>of<sp/>the<sp/>vector<sp/>to<sp/>zero.</highlight></codeline>
 <codeline lineno="321"><highlight class="stringliteral"></highlight></codeline>
@@ -418,7 +336,7 @@
 <codeline lineno="327"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector.get_data()</highlight></codeline>
 <codeline lineno="328"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[0.0,<sp/>0.0,<sp/>0.0]</highlight></codeline>
 <codeline lineno="329"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="330"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;get_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" kindref="member">pysycl::Vector_Object::get_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="330"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;get_data&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a20cb73c4a8faad0182698e63fccdaa4a" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::get_data</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="331"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="332"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>gets<sp/>the<sp/>data<sp/>of<sp/>the<sp/>vector.</highlight></codeline>
 <codeline lineno="333"><highlight class="stringliteral"></highlight></codeline>
@@ -433,7 +351,7 @@
 <codeline lineno="342"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector.get_data()</highlight></codeline>
 <codeline lineno="343"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[1.0,<sp/>2.0,<sp/>3.0]</highlight></codeline>
 <codeline lineno="344"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="345"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;add_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" kindref="member">pysycl::Vector_Object::add_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="345"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;add_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ae3da95a626954cfbcf1463d9be19d7b2" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::add_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="346"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="347"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>adds<sp/>two<sp/>vectors<sp/>together.</highlight></codeline>
 <codeline lineno="348"><highlight class="stringliteral"></highlight></codeline>
@@ -450,7 +368,7 @@
 <codeline lineno="359"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="360"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[5.0,<sp/>7.0,<sp/>9.0]</highlight></codeline>
 <codeline lineno="361"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="362"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;add_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" kindref="member">pysycl::Vector_Object::add_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="362"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;add_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1aeb15f2d16212072d5c9d6f2861480abf" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::add_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="363"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="364"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>adds<sp/>two<sp/>vectors<sp/>together.</highlight></codeline>
 <codeline lineno="365"><highlight class="stringliteral"></highlight></codeline>
@@ -467,7 +385,7 @@
 <codeline lineno="376"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="377"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[5.0,<sp/>6.0,<sp/>7.0]</highlight></codeline>
 <codeline lineno="378"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="379"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;subtract_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" kindref="member">pysycl::Vector_Object::subtract_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="379"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;subtract_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ae85b4af453157f0b3a1f2b3b77a4bc03" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::subtract_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="380"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="381"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>subtracts<sp/>two<sp/>vectors.</highlight></codeline>
 <codeline lineno="382"><highlight class="stringliteral"></highlight></codeline>
@@ -484,7 +402,7 @@
 <codeline lineno="393"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="394"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[-3.0,<sp/>-3.0,<sp/>-3.0]</highlight></codeline>
 <codeline lineno="395"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="396"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;subtract_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" kindref="member">pysycl::Vector_Object::subtract_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="396"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;subtract_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1adc000c855fc94eded62c351ac8e1a2c1" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::subtract_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="397"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="398"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>subtracts<sp/>a<sp/>constant<sp/>from<sp/>a<sp/>vector.</highlight></codeline>
 <codeline lineno="399"><highlight class="stringliteral"></highlight></codeline>
@@ -501,7 +419,7 @@
 <codeline lineno="410"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="411"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[-3.0,<sp/>-2.0,<sp/>-1.0]</highlight></codeline>
 <codeline lineno="412"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="413"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;multiply_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" kindref="member">pysycl::Vector_Object::multiply_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="413"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;multiply_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ad53ed051526f76e70b93d6d2db7bf096" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::multiply_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="414"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="415"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>multiplies<sp/>two<sp/>vectors<sp/>together.</highlight></codeline>
 <codeline lineno="416"><highlight class="stringliteral"></highlight></codeline>
@@ -518,7 +436,7 @@
 <codeline lineno="427"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="428"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[4.0,<sp/>10.0,<sp/>18.0]</highlight></codeline>
 <codeline lineno="429"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="430"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;multiply_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" kindref="member">pysycl::Vector_Object::multiply_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="430"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;multiply_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1ad5398f3e58ff2b046da19346de06bb7b" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::multiply_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="431"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="432"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>multiplies<sp/>a<sp/>vector<sp/>by<sp/>a<sp/>constant.</highlight></codeline>
 <codeline lineno="433"><highlight class="stringliteral"></highlight></codeline>
@@ -535,7 +453,7 @@
 <codeline lineno="444"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="445"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[4.0,<sp/>8.0,<sp/>12.0]</highlight></codeline>
 <codeline lineno="446"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="447"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;divide_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" kindref="member">pysycl::Vector_Object::divide_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="447"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;divide_vector&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a39582ffa9362c69728aa78f6306cc1fb" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::divide_vector</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="448"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="449"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>divides<sp/>two<sp/>vectors.</highlight></codeline>
 <codeline lineno="450"><highlight class="stringliteral"></highlight></codeline>
@@ -552,7 +470,7 @@
 <codeline lineno="461"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;&gt;<sp/>vector_a.get_data()</highlight></codeline>
 <codeline lineno="462"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[0.25,<sp/>0.4,<sp/>0.5]</highlight></codeline>
 <codeline lineno="463"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>)delim&quot;)</highlight></codeline>
-<codeline lineno="464"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;divide_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" kindref="member">pysycl::Vector_Object::divide_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
+<codeline lineno="464"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>.def(</highlight><highlight class="stringliteral">&quot;divide_constant&quot;</highlight><highlight class="normal">,<sp/>&amp;<ref refid="classpysycl_1_1_vector___object_1a0101115bf2e234f0d8538c5af0fd2e61" kindref="member" external="/mnt/c/Users/Osman/Desktop/Projects/Public Repos/PySYCL/doc/Doxygen.tag">pysycl::Vector_Object::divide_constant</ref>,<sp/>R</highlight><highlight class="stringliteral">&quot;delim(</highlight></codeline>
 <codeline lineno="465"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>Description</highlight></codeline>
 <codeline lineno="466"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>divides<sp/>a<sp/>vector<sp/>by<sp/>a<sp/>constant.</highlight></codeline>
 <codeline lineno="467"><highlight class="stringliteral"></highlight></codeline>
