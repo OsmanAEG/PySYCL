@@ -39,7 +39,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme_options = {
     'collapse_navigation': True,
     'navigation_depth': 4,
-    'github_url': '',
+    'github_url': 'https://github.com/OsmanAEG/PySYCL',
     'navbar_start': ["navbar-logo"],
     'navbar_center': ["navbar-nav"],
     'navbar_end': ["navbar-icon-links"],
