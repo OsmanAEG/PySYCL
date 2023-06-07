@@ -25,6 +25,7 @@
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -35,7 +36,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PySYCL
    </div>
-   <div id="projectbrief">SYCL Based Functionality for Python</div>
+   <div id="projectbrief">SYCL Based Functionality for Python.</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_s_y_c_l___device___inquiry_8h_source.
 <div class="title">SYCL_Device_Inquiry.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SYCL_DEVICE_INQUIRY_H</span></div>
+<a href="_s_y_c_l___device___inquiry_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SYCL_DEVICE_INQUIRY_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SYCL_DEVICE_INQUIRY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">///////////////////////////////////////////////////////////////////////</span></div>
@@ -125,7 +126,7 @@ $(document).ready(function(){initNavTree('_s_y_c_l___device___inquiry_8h_source.
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">///////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/// \brief Function that returns a list of available SYCL platforms.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span>std::vector&lt;std::string&gt; <a class="codeRef" href="namespacepysycl.html#a87f73272c1b9023c7b0cd574d527ffd3">platform_list</a>(){</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3">   32</a></span>&#160;<span class="comment"></span>std::vector&lt;std::string&gt; <a class="code" href="group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3">platform_list</a>(){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::vector&lt;std::string&gt; platform_names;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">auto</span> platforms = sycl::platform::get_platforms();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
@@ -142,7 +143,7 @@ $(document).ready(function(){initNavTree('_s_y_c_l___device___inquiry_8h_source.
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">///////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/// \brief Function that returns a list of available SYCL devices.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>std::vector&lt;std::string&gt; <a class="codeRef" href="namespacepysycl.html#aa743f37417afb11704024adba84a3493">device_list</a>(<span class="keywordtype">int</span> platform_index){</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group___device.html#gaa743f37417afb11704024adba84a3493">   49</a></span>&#160;<span class="comment"></span>std::vector&lt;std::string&gt; <a class="code" href="group___device.html#gaa743f37417afb11704024adba84a3493">device_list</a>(<span class="keywordtype">int</span> platform_index){</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::vector&lt;std::string&gt; device_names;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">auto</span> platforms = sycl::platform::get_platforms();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">auto</span> selected_platform = platforms[platform_index];</div>
@@ -161,7 +162,7 @@ $(document).ready(function(){initNavTree('_s_y_c_l___device___inquiry_8h_source.
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">///////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/// \brief Function that returns a sycl device queue.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span>sycl::queue <a class="codeRef" href="namespacepysycl.html#a00b26210f29a913df10ccb3b63c13fb5">get_queue</a>(<span class="keywordtype">int</span> platform_index = 0, <span class="keywordtype">int</span> device_index = 0){</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="group___device.html#ga00b26210f29a913df10ccb3b63c13fb5">   68</a></span>&#160;<span class="comment"></span>sycl::queue <a class="code" href="group___device.html#ga00b26210f29a913df10ccb3b63c13fb5">get_queue</a>(<span class="keywordtype">int</span> platform_index = 0, <span class="keywordtype">int</span> device_index = 0){</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">auto</span> platforms = sycl::platform::get_platforms();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">auto</span> selected_platform = platforms[platform_index];</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">auto</span> devices = selected_platform.get_devices();</div>
@@ -171,22 +172,19 @@ $(document).ready(function(){initNavTree('_s_y_c_l___device___inquiry_8h_source.
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace pysycl</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/// @}</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span><span class="comment">// end &quot;Device&quot; doxygen group</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef SYCL_DEVICE_INQUIRY_H</span></div>
-<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div></div>
-<div class="ttc" id="anamespacepysycl_html_a00b26210f29a913df10ccb3b63c13fb5"><div class="ttname"><a href="namespacepysycl.html#a00b26210f29a913df10ccb3b63c13fb5">pysycl::get_queue</a></div><div class="ttdeci">sycl::queue get_queue(int platform_index=0, int device_index=0)</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h.html_source#l00068">SYCL_Device_Inquiry.h:68</a></div></div>
-<div class="ttc" id="anamespacepysycl_html_a87f73272c1b9023c7b0cd574d527ffd3"><div class="ttname"><a href="namespacepysycl.html#a87f73272c1b9023c7b0cd574d527ffd3">pysycl::platform_list</a></div><div class="ttdeci">std::vector&lt; std::string &gt; platform_list()</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h.html_source#l00032">SYCL_Device_Inquiry.h:32</a></div></div>
-<div class="ttc" id="anamespacepysycl_html_aa743f37417afb11704024adba84a3493"><div class="ttname"><a href="namespacepysycl.html#aa743f37417afb11704024adba84a3493">pysycl::device_list</a></div><div class="ttdeci">std::vector&lt; std::string &gt; device_list(int platform_index)</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h.html_source#l00049">SYCL_Device_Inquiry.h:49</a></div></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef SYCL_DEVICE_INQUIRY_H</span></div>
+<div class="ttc" id="agroup___device_html_ga00b26210f29a913df10ccb3b63c13fb5"><div class="ttname"><a href="group___device.html#ga00b26210f29a913df10ccb3b63c13fb5">pysycl::get_queue</a></div><div class="ttdeci">sycl::queue get_queue(int platform_index=0, int device_index=0)</div><div class="ttdoc">Function that returns a sycl device queue.</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h_source.html#l00068">SYCL_Device_Inquiry.h:68</a></div></div>
+<div class="ttc" id="agroup___device_html_ga87f73272c1b9023c7b0cd574d527ffd3"><div class="ttname"><a href="group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3">pysycl::platform_list</a></div><div class="ttdeci">std::vector&lt; std::string &gt; platform_list()</div><div class="ttdoc">Function that returns a list of available SYCL platforms.</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h_source.html#l00032">SYCL_Device_Inquiry.h:32</a></div></div>
+<div class="ttc" id="agroup___device_html_gaa743f37417afb11704024adba84a3493"><div class="ttname"><a href="group___device.html#gaa743f37417afb11704024adba84a3493">pysycl::device_list</a></div><div class="ttdeci">std::vector&lt; std::string &gt; device_list(int platform_index)</div><div class="ttdoc">Function that returns a list of available SYCL devices.</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device___inquiry_8h_source.html#l00049">SYCL_Device_Inquiry.h:49</a></div></div>
+<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device_8h_source.html#l00028">SYCL_Device.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_737e998198a830156af4433d00da986d.html">Device</a></li><li class="navelem"><b>SYCL_Device_Inquiry.h</b></li>
-    <li class="footer">Generated on Sun Jun 4 2023 20:59:55 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_737e998198a830156af4433d00da986d.html">Device</a></li><li class="navelem"><a class="el" href="_s_y_c_l___device___inquiry_8h.html">SYCL_Device_Inquiry.h</a></li>
+    <li class="footer">Generated on Tue Jun 6 2023 22:20:20 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

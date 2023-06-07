@@ -25,6 +25,7 @@
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -35,7 +36,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PySYCL
    </div>
-   <div id="projectbrief">SYCL Based Functionality for Python</div>
+   <div id="projectbrief">SYCL Based Functionality for Python.</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_math___functions_8h_source.html','');
 <div class="title">Math_Functions.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MATH_FUNCTIONS_H</span></div>
+<a href="_math___functions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MATH_FUNCTIONS_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MATH_FUNCTIONS_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">///////////////////////////////////////////////////////////////////////</span></div>
@@ -124,7 +125,7 @@ $(document).ready(function(){initNavTree('_math___functions_8h_source.html','');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/// \brief Lambda function that returns the sum of two numbers.</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/// \tparam T Type of the numbers to be added.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">auto</span> <a class="codeRef" href="namespacepysycl.html#ae5f66ba2d2ddc522cb092b1fca015fa5">add_function</a>(){</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="group___math.html#gae5f66ba2d2ddc522cb092b1fca015fa5">   31</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="group___math.html#gae5f66ba2d2ddc522cb092b1fca015fa5">add_function</a>(){</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordflow">return</span> [](T a, T b) { <span class="keywordflow">return</span> a + b; };</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span> </div>
@@ -132,7 +133,7 @@ $(document).ready(function(){initNavTree('_math___functions_8h_source.html','');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/// \brief Lambda function that returns the difference of two numbers.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/// \tparam T Type of the numbers to be added.</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">auto</span> <a class="codeRef" href="namespacepysycl.html#aeed90e9d7c12f5cb915eb8d0fe5586b3">subtract_function</a>(){</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="group___math.html#gaeed90e9d7c12f5cb915eb8d0fe5586b3">   39</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="group___math.html#gaeed90e9d7c12f5cb915eb8d0fe5586b3">subtract_function</a>(){</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> [](T a, T b) { <span class="keywordflow">return</span> a - b; };</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span> </div>
@@ -140,7 +141,7 @@ $(document).ready(function(){initNavTree('_math___functions_8h_source.html','');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/// \brief Lambda function that returns the product of two numbers.</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/// \tparam T Type of the numbers to be added.</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">auto</span> <a class="codeRef" href="namespacepysycl.html#ab54eaad7760b2d4a262d702a22cca24c">multiply_function</a>(){</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="group___math.html#gab54eaad7760b2d4a262d702a22cca24c">   47</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="group___math.html#gab54eaad7760b2d4a262d702a22cca24c">multiply_function</a>(){</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> [](T a, T b) { <span class="keywordflow">return</span> a * b; };</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span> </div>
@@ -148,28 +149,25 @@ $(document).ready(function(){initNavTree('_math___functions_8h_source.html','');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/// \brief Lambda function that returns the quotient of two numbers.</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/// \tparam T Type of the numbers to be added.</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">auto</span> <a class="codeRef" href="namespacepysycl.html#aa4e82e40c9ee3367cf4ce417cf928119">divide_function</a>(){</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="group___math.html#gaa4e82e40c9ee3367cf4ce417cf928119">   55</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="group___math.html#gaa4e82e40c9ee3367cf4ce417cf928119">divide_function</a>(){</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> [](T a, T b) { <span class="keywordflow">return</span> a / b; };</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace pysycl</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">/// @}</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span><span class="comment">// end &quot;Math&quot; doxygen group</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MATH_FUNCTIONS_H</span></div>
-<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div></div>
-<div class="ttc" id="anamespacepysycl_html_aa4e82e40c9ee3367cf4ce417cf928119"><div class="ttname"><a href="namespacepysycl.html#aa4e82e40c9ee3367cf4ce417cf928119">pysycl::divide_function</a></div><div class="ttdeci">auto divide_function()</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h.html_source#l00055">Math_Functions.h:55</a></div></div>
-<div class="ttc" id="anamespacepysycl_html_ab54eaad7760b2d4a262d702a22cca24c"><div class="ttname"><a href="namespacepysycl.html#ab54eaad7760b2d4a262d702a22cca24c">pysycl::multiply_function</a></div><div class="ttdeci">auto multiply_function()</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h.html_source#l00047">Math_Functions.h:47</a></div></div>
-<div class="ttc" id="anamespacepysycl_html_ae5f66ba2d2ddc522cb092b1fca015fa5"><div class="ttname"><a href="namespacepysycl.html#ae5f66ba2d2ddc522cb092b1fca015fa5">pysycl::add_function</a></div><div class="ttdeci">auto add_function()</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h.html_source#l00031">Math_Functions.h:31</a></div></div>
-<div class="ttc" id="anamespacepysycl_html_aeed90e9d7c12f5cb915eb8d0fe5586b3"><div class="ttname"><a href="namespacepysycl.html#aeed90e9d7c12f5cb915eb8d0fe5586b3">pysycl::subtract_function</a></div><div class="ttdeci">auto subtract_function()</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h.html_source#l00039">Math_Functions.h:39</a></div></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MATH_FUNCTIONS_H</span></div>
+<div class="ttc" id="agroup___math_html_gaa4e82e40c9ee3367cf4ce417cf928119"><div class="ttname"><a href="group___math.html#gaa4e82e40c9ee3367cf4ce417cf928119">pysycl::divide_function</a></div><div class="ttdeci">auto divide_function()</div><div class="ttdoc">Lambda function that returns the quotient of two numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h_source.html#l00055">Math_Functions.h:55</a></div></div>
+<div class="ttc" id="agroup___math_html_gab54eaad7760b2d4a262d702a22cca24c"><div class="ttname"><a href="group___math.html#gab54eaad7760b2d4a262d702a22cca24c">pysycl::multiply_function</a></div><div class="ttdeci">auto multiply_function()</div><div class="ttdoc">Lambda function that returns the product of two numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h_source.html#l00047">Math_Functions.h:47</a></div></div>
+<div class="ttc" id="agroup___math_html_gae5f66ba2d2ddc522cb092b1fca015fa5"><div class="ttname"><a href="group___math.html#gae5f66ba2d2ddc522cb092b1fca015fa5">pysycl::add_function</a></div><div class="ttdeci">auto add_function()</div><div class="ttdoc">Lambda function that returns the sum of two numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h_source.html#l00031">Math_Functions.h:31</a></div></div>
+<div class="ttc" id="agroup___math_html_gaeed90e9d7c12f5cb915eb8d0fe5586b3"><div class="ttname"><a href="group___math.html#gaeed90e9d7c12f5cb915eb8d0fe5586b3">pysycl::subtract_function</a></div><div class="ttdeci">auto subtract_function()</div><div class="ttdoc">Lambda function that returns the difference of two numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_math___functions_8h_source.html#l00039">Math_Functions.h:39</a></div></div>
+<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div><div class="ttdef"><b>Definition:</b> <a href="_s_y_c_l___device_8h_source.html#l00028">SYCL_Device.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3813464283bee2267f39dcf080a84d74.html">Math</a></li><li class="navelem"><b>Math_Functions.h</b></li>
-    <li class="footer">Generated on Sun Jun 4 2023 20:59:55 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_3813464283bee2267f39dcf080a84d74.html">Math</a></li><li class="navelem"><a class="el" href="_math___functions_8h.html">Math_Functions.h</a></li>
+    <li class="footer">Generated on Tue Jun 6 2023 22:20:20 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

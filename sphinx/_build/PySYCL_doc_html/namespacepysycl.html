@@ -25,6 +25,7 @@
 <script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -35,7 +36,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PySYCL
    </div>
-   <div id="projectbrief">SYCL Based Functionality for Python</div>
+   <div id="projectbrief">SYCL Based Functionality for Python.</div>
   </td>
  </tr>
  </tbody>
@@ -103,64 +104,69 @@ $(document).ready(function(){initNavTree('namespacepysycl.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="classpysycl_1_1_s_y_c_l___device.html">SYCL_Device</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a SYCL device. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_s_y_c_l___device.html">SYCL_Device</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a SYCL device.  <a href="classpysycl_1_1_s_y_c_l___device.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="classpysycl_1_1_vector___object.html">Vector_Object</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class defining a Vector Object for use in PySYCL. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_vector___object.html">Vector_Object</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class defining a Vector Object for use in PySYCL.  <a href="classpysycl_1_1_vector___object.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a87f73272c1b9023c7b0cd574d527ffd3"><td class="memItemLeft" align="right" valign="top"><a id="a87f73272c1b9023c7b0cd574d527ffd3"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#a87f73272c1b9023c7b0cd574d527ffd3">platform_list</a> ()</td></tr>
-<tr class="memdesc:a87f73272c1b9023c7b0cd574d527ffd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available SYCL platforms. <br /></td></tr>
-<tr class="separator:a87f73272c1b9023c7b0cd574d527ffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa743f37417afb11704024adba84a3493"><td class="memItemLeft" align="right" valign="top"><a id="aa743f37417afb11704024adba84a3493"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#aa743f37417afb11704024adba84a3493">device_list</a> (int platform_index)</td></tr>
-<tr class="memdesc:aa743f37417afb11704024adba84a3493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available SYCL devices. <br /></td></tr>
-<tr class="separator:aa743f37417afb11704024adba84a3493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b26210f29a913df10ccb3b63c13fb5"><td class="memItemLeft" align="right" valign="top"><a id="a00b26210f29a913df10ccb3b63c13fb5"></a>
-sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#a00b26210f29a913df10ccb3b63c13fb5">get_queue</a> (int platform_index=0, int device_index=0)</td></tr>
-<tr class="memdesc:a00b26210f29a913df10ccb3b63c13fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a sycl device queue. <br /></td></tr>
-<tr class="separator:a00b26210f29a913df10ccb3b63c13fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f66ba2d2ddc522cb092b1fca015fa5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#ae5f66ba2d2ddc522cb092b1fca015fa5">add_function</a> ()</td></tr>
-<tr class="memdesc:ae5f66ba2d2ddc522cb092b1fca015fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the sum of two numbers.  <a href="namespacepysycl.html#ae5f66ba2d2ddc522cb092b1fca015fa5">More...</a><br /></td></tr>
-<tr class="separator:ae5f66ba2d2ddc522cb092b1fca015fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#aeed90e9d7c12f5cb915eb8d0fe5586b3">subtract_function</a> ()</td></tr>
-<tr class="memdesc:aeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the difference of two numbers.  <a href="namespacepysycl.html#aeed90e9d7c12f5cb915eb8d0fe5586b3">More...</a><br /></td></tr>
-<tr class="separator:aeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab54eaad7760b2d4a262d702a22cca24c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#ab54eaad7760b2d4a262d702a22cca24c">multiply_function</a> ()</td></tr>
-<tr class="memdesc:ab54eaad7760b2d4a262d702a22cca24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the product of two numbers.  <a href="namespacepysycl.html#ab54eaad7760b2d4a262d702a22cca24c">More...</a><br /></td></tr>
-<tr class="separator:ab54eaad7760b2d4a262d702a22cca24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4e82e40c9ee3367cf4ce417cf928119"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="namespacepysycl.html#aa4e82e40c9ee3367cf4ce417cf928119">divide_function</a> ()</td></tr>
-<tr class="memdesc:aa4e82e40c9ee3367cf4ce417cf928119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the quotient of two numbers.  <a href="namespacepysycl.html#aa4e82e40c9ee3367cf4ce417cf928119">More...</a><br /></td></tr>
-<tr class="separator:aa4e82e40c9ee3367cf4ce417cf928119"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5b23a7f925405b53f39962c2ce4c1501"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#ga5b23a7f925405b53f39962c2ce4c1501">Vector_Operation</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, sycl::queue Q, Function_T function)</td></tr>
+<tr class="memitem:ga87f73272c1b9023c7b0cd574d527ffd3"><td class="memItemLeft" align="right" valign="top">
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3">platform_list</a> ()</td></tr>
+<tr class="memdesc:ga87f73272c1b9023c7b0cd574d527ffd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available SYCL platforms. <br /></td></tr>
+<tr class="separator:ga87f73272c1b9023c7b0cd574d527ffd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa743f37417afb11704024adba84a3493"><td class="memItemLeft" align="right" valign="top">
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#gaa743f37417afb11704024adba84a3493">device_list</a> (int platform_index)</td></tr>
+<tr class="memdesc:gaa743f37417afb11704024adba84a3493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available SYCL devices. <br /></td></tr>
+<tr class="separator:gaa743f37417afb11704024adba84a3493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00b26210f29a913df10ccb3b63c13fb5"><td class="memItemLeft" align="right" valign="top">
+sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga00b26210f29a913df10ccb3b63c13fb5">get_queue</a> (int platform_index=0, int device_index=0)</td></tr>
+<tr class="memdesc:ga00b26210f29a913df10ccb3b63c13fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a sycl device queue. <br /></td></tr>
+<tr class="separator:ga00b26210f29a913df10ccb3b63c13fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5f66ba2d2ddc522cb092b1fca015fa5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae5f66ba2d2ddc522cb092b1fca015fa5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___math.html#gae5f66ba2d2ddc522cb092b1fca015fa5">add_function</a> ()</td></tr>
+<tr class="memdesc:gae5f66ba2d2ddc522cb092b1fca015fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the sum of two numbers.  <a href="group___math.html#gae5f66ba2d2ddc522cb092b1fca015fa5">More...</a><br /></td></tr>
+<tr class="separator:gae5f66ba2d2ddc522cb092b1fca015fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___math.html#gaeed90e9d7c12f5cb915eb8d0fe5586b3">subtract_function</a> ()</td></tr>
+<tr class="memdesc:gaeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the difference of two numbers.  <a href="group___math.html#gaeed90e9d7c12f5cb915eb8d0fe5586b3">More...</a><br /></td></tr>
+<tr class="separator:gaeed90e9d7c12f5cb915eb8d0fe5586b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab54eaad7760b2d4a262d702a22cca24c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gab54eaad7760b2d4a262d702a22cca24c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___math.html#gab54eaad7760b2d4a262d702a22cca24c">multiply_function</a> ()</td></tr>
+<tr class="memdesc:gab54eaad7760b2d4a262d702a22cca24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the product of two numbers.  <a href="group___math.html#gab54eaad7760b2d4a262d702a22cca24c">More...</a><br /></td></tr>
+<tr class="separator:gab54eaad7760b2d4a262d702a22cca24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4e82e40c9ee3367cf4ce417cf928119"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaa4e82e40c9ee3367cf4ce417cf928119"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___math.html#gaa4e82e40c9ee3367cf4ce417cf928119">divide_function</a> ()</td></tr>
+<tr class="memdesc:gaa4e82e40c9ee3367cf4ce417cf928119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lambda function that returns the quotient of two numbers.  <a href="group___math.html#gaa4e82e40c9ee3367cf4ce417cf928119">More...</a><br /></td></tr>
+<tr class="separator:gaa4e82e40c9ee3367cf4ce417cf928119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b23a7f925405b53f39962c2ce4c1501"><td class="memTemplParams" colspan="2">template&lt;typename Function_T &gt; </td></tr>
+<tr class="memitem:ga5b23a7f925405b53f39962c2ce4c1501"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___vector.html#ga5b23a7f925405b53f39962c2ce4c1501">Vector_Operation</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, sycl::queue Q, Function_T function)</td></tr>
 <tr class="memdesc:ga5b23a7f925405b53f39962c2ce4c1501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for element-wise vector operations in SYCL. This function receives two vectors and returns a single vector.  <a href="group___vector.html#ga5b23a7f925405b53f39962c2ce4c1501">More...</a><br /></td></tr>
 <tr class="separator:ga5b23a7f925405b53f39962c2ce4c1501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7bfd0f0fdf9ddae44956c1b9449f8943"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#ga7bfd0f0fdf9ddae44956c1b9449f8943">Vector_Addition</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:ga7bfd0f0fdf9ddae44956c1b9449f8943"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#ga7bfd0f0fdf9ddae44956c1b9449f8943">Vector_Addition</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:ga7bfd0f0fdf9ddae44956c1b9449f8943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector addition.  <a href="group___vector.html#ga7bfd0f0fdf9ddae44956c1b9449f8943">More...</a><br /></td></tr>
 <tr class="separator:ga7bfd0f0fdf9ddae44956c1b9449f8943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49293a8948584a3f1e7f60c44f85a27c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#ga49293a8948584a3f1e7f60c44f85a27c">Vector_Subtraction</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:ga49293a8948584a3f1e7f60c44f85a27c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#ga49293a8948584a3f1e7f60c44f85a27c">Vector_Subtraction</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:ga49293a8948584a3f1e7f60c44f85a27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector subtraction.  <a href="group___vector.html#ga49293a8948584a3f1e7f60c44f85a27c">More...</a><br /></td></tr>
 <tr class="separator:ga49293a8948584a3f1e7f60c44f85a27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafe212cc17352d0535341ef351a818456"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#gafe212cc17352d0535341ef351a818456">Vector_Element_Multiplication</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:gafe212cc17352d0535341ef351a818456"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#gafe212cc17352d0535341ef351a818456">Vector_Element_Multiplication</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:gafe212cc17352d0535341ef351a818456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector element multiplication.  <a href="group___vector.html#gafe212cc17352d0535341ef351a818456">More...</a><br /></td></tr>
 <tr class="separator:gafe212cc17352d0535341ef351a818456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc8ccf79f5be15b1ed782efd21b1bd5f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#gadc8ccf79f5be15b1ed782efd21b1bd5f">Vector_Element_Division</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:gadc8ccf79f5be15b1ed782efd21b1bd5f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#gadc8ccf79f5be15b1ed782efd21b1bd5f">Vector_Element_Division</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:gadc8ccf79f5be15b1ed782efd21b1bd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector element division.  <a href="group___vector.html#gadc8ccf79f5be15b1ed782efd21b1bd5f">More...</a><br /></td></tr>
 <tr class="separator:gadc8ccf79f5be15b1ed782efd21b1bd5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad654c20d23fa2c428619536f6f850651"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#gad654c20d23fa2c428619536f6f850651">Vector_Sum_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:gad654c20d23fa2c428619536f6f850651"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#gad654c20d23fa2c428619536f6f850651">Vector_Sum_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:gad654c20d23fa2c428619536f6f850651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector sum reduction.  <a href="group___vector.html#gad654c20d23fa2c428619536f6f850651">More...</a><br /></td></tr>
 <tr class="separator:gad654c20d23fa2c428619536f6f850651"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga363773f976560ac01dbbc23baa98ccc0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#ga363773f976560ac01dbbc23baa98ccc0">Vector_Min_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:ga363773f976560ac01dbbc23baa98ccc0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#ga363773f976560ac01dbbc23baa98ccc0">Vector_Min_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:ga363773f976560ac01dbbc23baa98ccc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector minimum reduction.  <a href="group___vector.html#ga363773f976560ac01dbbc23baa98ccc0">More...</a><br /></td></tr>
 <tr class="separator:ga363773f976560ac01dbbc23baa98ccc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31e509922e8e5cc38cbd36a38f6e96fe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#ga31e509922e8e5cc38cbd36a38f6e96fe">Vector_Max_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:ga31e509922e8e5cc38cbd36a38f6e96fe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#ga31e509922e8e5cc38cbd36a38f6e96fe">Vector_Max_Reduction</a> (std::vector&lt; double &gt; vector_a, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:ga31e509922e8e5cc38cbd36a38f6e96fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for vector maximum reduction.  <a href="group___vector.html#ga31e509922e8e5cc38cbd36a38f6e96fe">More...</a><br /></td></tr>
 <tr class="separator:ga31e509922e8e5cc38cbd36a38f6e96fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad27fb35fc715e166f6a11336cf293b8a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="group___vector.html#gad27fb35fc715e166f6a11336cf293b8a">Vector_Dot_Product</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
+<tr class="memitem:gad27fb35fc715e166f6a11336cf293b8a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#gad27fb35fc715e166f6a11336cf293b8a">Vector_Dot_Product</a> (std::vector&lt; double &gt; vector_a, std::vector&lt; double &gt; vector_b, int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:gad27fb35fc715e166f6a11336cf293b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector Dot Product.  <a href="group___vector.html#gad27fb35fc715e166f6a11336cf293b8a">More...</a><br /></td></tr>
 <tr class="separator:gad27fb35fc715e166f6a11336cf293b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -173,7 +179,7 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepysycl.html">pysycl</a></li>
-    <li class="footer">Generated on Sun Jun 4 2023 20:59:55 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jun 6 2023 22:20:20 for PySYCL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

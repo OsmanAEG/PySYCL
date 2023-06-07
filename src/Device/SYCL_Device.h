@@ -107,7 +107,4 @@ std::string SYCL_Device::device_vendor() {
 
 } // namespace pysycl
 
-/// @}
-// end "Device" doxygen group
-
 #endif // #ifndef SYCL_DEVICE_H

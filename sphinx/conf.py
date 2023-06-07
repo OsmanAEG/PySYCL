@@ -10,7 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import pydata_sphinx_theme
+import furo
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../build/'))
@@ -39,7 +39,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme_options = {
     'collapse_navigation': True,
     'navigation_depth': 4,
-    'github_url': 'https://github.com/OsmanAEG/PySYCL',
+    'github_url': '',
     'navbar_start': ["navbar-logo"],
     'navbar_center': ["navbar-nav"],
     'navbar_end': ["navbar-icon-links"],
@@ -53,7 +53,7 @@ highlight_language = 'python'
 # a list of builtin themes.
 #
 html_logo = "_static/images/pysycl_logo.png"
-html_theme = "pydata_sphinx_theme"
+html_theme = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

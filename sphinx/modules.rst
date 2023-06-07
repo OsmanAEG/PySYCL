@@ -13,3 +13,7 @@ PySYCL External Documentation
    :maxdepth: 2
 
    guide
+
+PySYCL GitHub Repository
+========================
+`PySYCL Repo <https://github.com/OsmanAEG/PySYCL>`_

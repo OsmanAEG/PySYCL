@@ -58,7 +58,4 @@ auto divide_function(){
 
 } // namespace pysycl
 
-/// @}
-// end "Math" doxygen group
-
 #endif // MATH_FUNCTIONS_H

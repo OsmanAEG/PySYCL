@@ -76,7 +76,4 @@ sycl::queue get_queue(int platform_index = 0, int device_index = 0){
 
 } // namespace pysycl
 
-/// @}
-// end "Device" doxygen group
-
 #endif // #ifndef SYCL_DEVICE_INQUIRY_H

@@ -37,6 +37,6 @@ add_custom_target(doc COMMAND env DOXYGEN_OUTPUT_DIRECTORY=${CMAKE_BINARY_DIR}/.
                       COMMENT
 "Build Doxygen documentation.
      HTML:     ${CMAKE_BINARY_DIR}/../sphinx/_build/${PYSYCL_DOC_DIR}
-     XML:      ${CMAKE_BINARY_DIR}/${PYSYCL_XML_DIR}
+     XML:      ${CMAKE_BINARY_DIR}/../sphinx/_build/${PYSYCL_XML_DIR}
      Output:   ${CMAKE_BINARY_DIR}/doxygen.log
      Warnings: ${CMAKE_BINARY_DIR}/doxygen.err")

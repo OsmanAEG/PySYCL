@@ -242,8 +242,4 @@ void Vector_Object::element_vector_operation(Function_type function, double C){
 
 } // namespace pysycl
 
-/// @}
-// end "Vector" doxygen group
-
-
 #endif // #ifndef VECTOR_OBJECT_H
