@@ -27,7 +27,20 @@ var NAVTREE =
   [ "PySYCL", "index.html", [
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
@@ -37,7 +50,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_device___py_bind___module_8cpp_source.html"
+"_device___py_bind___module_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
