@@ -36,16 +36,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-html_theme_options = {
-    'collapse_navigation': True,
-    'navigation_depth': 4,
-    'github_url': '',
-    'navbar_start': ["navbar-logo"],
-    'navbar_center': ["navbar-nav"],
-    'navbar_end': ["navbar-icon-links"],
-    'navbar_persistent': ["search-button"],
-    'navbar_align': "content"
-}
+html_theme_options = {}
 
 highlight_language = 'python'
 

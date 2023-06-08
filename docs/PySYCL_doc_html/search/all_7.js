@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['platform_5flist_24',['platform_list',['../group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3',1,'pysycl']]],
-  ['pysycl_25',['pysycl',['../namespacepysycl.html',1,'']]]
+  ['operator_3d_25',['operator=',['../group___device.html#gaf82bd5395f0e24297f9ecb8f09753c88',1,'pysycl::SYCL_Device::operator=(const SYCL_Device &amp;)=default'],['../group___device.html#ga1f26d5b2897a6a1973fcfac438250165',1,'pysycl::SYCL_Device::operator=(SYCL_Device &amp;&amp;)=default'],['../group___vector.html#ga0ba652ae3f01353ea6adaa62ece40b27',1,'pysycl::Vector_Object::operator=(const Vector_Object &amp;)=default'],['../group___vector.html#ga1be42a64dabbe19dfc6d164ade1fe2f9',1,'pysycl::Vector_Object::operator=(Vector_Object &amp;&amp;)=default']]]
 ];

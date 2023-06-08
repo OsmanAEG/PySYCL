@@ -25,6 +25,14 @@
 var NAVTREE =
 [
   [ "PySYCL", "index.html", [
+    [ "About", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html", [
+      [ "GitHub", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "User Guide", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Developer Guide", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Installation", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Inquiries", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html#autotoc_md5", null ]
+    ] ],
+    [ "LICENSE", "md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__l_i_c_e_n_s_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

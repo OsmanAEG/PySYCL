@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['style_5fguide_101',['style_guide',['../md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l_doc_style_guide_style_guide.html',1,'']]]
+  ['about_102',['About',['../md__mnt_c__users__osman__desktop__projects__public__repos__py_s_y_c_l__r_e_a_d_m_e.html',1,'']]]
 ];

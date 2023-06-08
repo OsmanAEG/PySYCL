@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['reset_5fdata_26',['reset_data',['../group___vector.html#ga7db68fb66bd2af3924ee56cb30a0693b',1,'pysycl::Vector_Object']]]
+  ['platform_5flist_26',['platform_list',['../group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3',1,'pysycl']]],
+  ['pysycl_27',['pysycl',['../namespacepysycl.html',1,'']]]
 ];
