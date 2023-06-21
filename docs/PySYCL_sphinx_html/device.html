@@ -2,13 +2,14 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="PySYCL: Vector Sub-Module" href="vector.html" /><link rel="prev" title="PySYCL Python Module" href="modules.html" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>PySYCL: Device Sub-Module - PySYCL User Guide</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="_static/css/css-style.css" />
     
@@ -229,12 +230,35 @@
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pysycl.device.device_select">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_select</span></span><a class="headerlink" href="#pysycl.device.device_select" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.device.device_object">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.device.device_object" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl>
+<dt>Description</dt><dd><p>This class creates a PySYCL device object.</p>
+</dd>
+<dt>Default Constructor</dt><dd><p>Constructor that creates a PySYCL device Object</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>platform_index: int</dt><dd><p>Optional: Index for the sycl platform to select.</p>
+</dd>
+<dt>device_index: int</dt><dd><p>Optional: Index for the sycl device to select.”</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>device_object</dt><dd><p>A PySYCL device object.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device_queue</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gpu_queue</span> <span class="o">=</span> <span class="n">device_queue</span><span class="o">.</span><span class="n">device_select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.device.device_select.device_name">
-<span class="sig-name descname"><span class="pre">device_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_select" title="pysycl.device.device_select"><span class="pre">pysycl.device.device_select</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_select.device_name" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.device.device_object.device_name">
+<span class="sig-name descname"><span class="pre">device_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_object.device_name" title="Permalink to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function outputs the selected device name.</p>
 </dd>
@@ -254,8 +278,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.device.device_select.device_vendor">
-<span class="sig-name descname"><span class="pre">device_vendor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_select" title="pysycl.device.device_select"><span class="pre">pysycl.device.device_select</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_select.device_vendor" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.device.device_object.device_vendor">
+<span class="sig-name descname"><span class="pre">device_vendor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_object.device_vendor" title="Permalink to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function outputs the selected device vendor.</p>
 </dd>
@@ -361,9 +385,9 @@
             <ul>
 <li><a class="reference internal" href="#">PySYCL: Device Sub-Module</a><ul>
 <li><a class="reference internal" href="#pysycl.device.device_list"><code class="docutils literal notranslate"><span class="pre">device_list()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.device.device_select"><code class="docutils literal notranslate"><span class="pre">device_select</span></code></a><ul>
-<li><a class="reference internal" href="#pysycl.device.device_select.device_name"><code class="docutils literal notranslate"><span class="pre">device_select.device_name()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.device.device_select.device_vendor"><code class="docutils literal notranslate"><span class="pre">device_select.device_vendor()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.device.device_object"><code class="docutils literal notranslate"><span class="pre">device_object</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.device.device_object.device_name"><code class="docutils literal notranslate"><span class="pre">device_object.device_name()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.device.device_object.device_vendor"><code class="docutils literal notranslate"><span class="pre">device_object.device_vendor()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pysycl.device.platform_list"><code class="docutils literal notranslate"><span class="pre">platform_list()</span></code></a></li>
@@ -382,5 +406,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

@@ -22,12 +22,12 @@ if("$PYSYCL_DOC_DIR}" STREQUAL "")
   message(FATAL_ERROR "PYSYCL_DOC_DIR cannot be blank.")
 endif()
 
-add_custom_target(doc COMMAND env DOXYGEN_OUTPUT_DIRECTORY=${CMAKE_BINARY_DIR}/../docs/
-                              env DOXYGEN_HTML_OUTPUT_DIRECTORY=${PYSYCL_DOC_DIR}
+add_custom_target(doxygen COMMAND env DOXYGEN_OUTPUT_DIRECTORY=${CMAKE_BINARY_DIR}/../docs/
+                                  env DOXYGEN_HTML_OUTPUT_DIRECTORY=${PYSYCL_DOC_DIR}
                                   doxygen Doxyfile > ${CMAKE_BINARY_DIR}/doxygen.log 2> ${CMAKE_BINARY_DIR}/doxygen.err
-                      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/../doc/
+                      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/../doxygen/
                       COMMENT
 "Build Doxygen documentation.
-     HTML:     ${CMAKE_BINARY_DIR}/../sphinx/_build/${PYSYCL_DOC_DIR}
+     HTML:     ${CMAKE_BINARY_DIR}/../docs/${PYSYCL_DOC_DIR}
      Output:   ${CMAKE_BINARY_DIR}/doxygen.log
      Warnings: ${CMAKE_BINARY_DIR}/doxygen.err")

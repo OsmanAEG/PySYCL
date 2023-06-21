@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
   0: "adegmnoprsv",
-  1: "sv",
+  1: "dv",
   2: "p",
-  3: "dmsv",
+  3: "dmv",
   4: "adegmoprsv",
   5: "dns",
-  6: "dmv"
+  6: "dmv",
+  7: "p"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "files",
   4: "functions",
   5: "variables",
-  6: "groups"
+  6: "groups",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Files",
   4: "Functions",
   5: "Variables",
-  6: "Modules"
+  6: "Modules",
+  7: "Pages"
 };
 

@@ -1,12 +1,12 @@
 var _vector___operations_8h =
 [
-    [ "Vector_Addition", "_vector___operations_8h.html#ga7bfd0f0fdf9ddae44956c1b9449f8943", null ],
-    [ "Vector_Dot_Product", "_vector___operations_8h.html#gad27fb35fc715e166f6a11336cf293b8a", null ],
-    [ "Vector_Element_Division", "_vector___operations_8h.html#gadc8ccf79f5be15b1ed782efd21b1bd5f", null ],
-    [ "Vector_Element_Multiplication", "_vector___operations_8h.html#gafe212cc17352d0535341ef351a818456", null ],
-    [ "Vector_Max_Reduction", "_vector___operations_8h.html#ga31e509922e8e5cc38cbd36a38f6e96fe", null ],
-    [ "Vector_Min_Reduction", "_vector___operations_8h.html#ga363773f976560ac01dbbc23baa98ccc0", null ],
-    [ "Vector_Operation", "_vector___operations_8h.html#ga5b23a7f925405b53f39962c2ce4c1501", null ],
-    [ "Vector_Subtraction", "_vector___operations_8h.html#ga49293a8948584a3f1e7f60c44f85a27c", null ],
-    [ "Vector_Sum_Reduction", "_vector___operations_8h.html#gad654c20d23fa2c428619536f6f850651", null ]
+    [ "Vector_Addition", "_vector___operations_8h.html#gaeda8a62dbe288c8bf48a220ca40159b2", null ],
+    [ "Vector_Dot_Product", "_vector___operations_8h.html#ga8a205238fb9cf6e717f0b00bdb5c25a3", null ],
+    [ "Vector_Element_Division", "_vector___operations_8h.html#ga0364d9e0531890d0246ecc34d7e315d8", null ],
+    [ "Vector_Element_Multiplication", "_vector___operations_8h.html#ga3d1223c38e5cb993820c2cdd0b065463", null ],
+    [ "Vector_Max_Reduction", "_vector___operations_8h.html#ga79c6ae510f77f64fbd6654909157dc2d", null ],
+    [ "Vector_Min_Reduction", "_vector___operations_8h.html#ga19afb5f9380305f3f08e0a5e7cbaf6d5", null ],
+    [ "Vector_Operation", "_vector___operations_8h.html#gaf566db7cd6af5edaea0c3e84139f29eb", null ],
+    [ "Vector_Subtraction", "_vector___operations_8h.html#ga36024c6e02be0eb7e103abc1d53ba37b", null ],
+    [ "Vector_Sum_Reduction", "_vector___operations_8h.html#ga7f74a3305d25b644b48d0f04e7edd78b", null ]
 ];

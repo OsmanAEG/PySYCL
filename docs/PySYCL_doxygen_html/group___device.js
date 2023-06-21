@@ -1,26 +1,29 @@
 var group___device =
 [
-    [ "SYCL_Device", "classpysycl_1_1_s_y_c_l___device.html", [
-      [ "SYCL_Device", "group___device.html#gab8bd2aa65649a5e947107f485b844560", null ],
-      [ "SYCL_Device", "group___device.html#ga7dc4fb855558cabaf71de2740b51e65b", null ],
-      [ "SYCL_Device", "group___device.html#ga8409f90c13250f8801d94dcc01687756", null ],
-      [ "SYCL_Device", "group___device.html#ga5695f1876c8f6cd36670da635f3790a3", null ],
-      [ "device_name", "group___device.html#ga615ce057440ab7e14ebad8d0f59d68f8", null ],
-      [ "device_vendor", "group___device.html#ga9c95ff44cda22de7830f413e5c84e12e", null ],
-      [ "operator=", "group___device.html#gaf82bd5395f0e24297f9ecb8f09753c88", null ],
-      [ "operator=", "group___device.html#ga1f26d5b2897a6a1973fcfac438250165", null ],
-      [ "sycl_device", "group___device.html#ga77baa00848741a23ebd5151fd97b5927", null ]
+    [ "pysycl", "namespacepysycl.html", null ],
+    [ "pysycl::Device_Object", "classpysycl_1_1_device___object.html", [
+      [ "Device_Object", "group___device.html#gafcb657dfa49db6ac22c14f8ebb66aeb7", null ],
+      [ "Device_Object", "group___device.html#gaff08c23a91ff39382a4fa9ec543f183e", null ],
+      [ "Device_Object", "group___device.html#gae0f0af2c65b6a911c5a31e4c332c1c91", null ],
+      [ "Device_Object", "group___device.html#ga3c642eee7143f48bbe6126f15096de16", null ],
+      [ "device_name", "group___device.html#gaf7f701382d6656550f2f5f0a87090035", null ],
+      [ "device_vendor", "group___device.html#gae106b724500143eb3fe7e127501dd9b9", null ],
+      [ "get_queue", "group___device.html#ga5e45d9fb07a5f2948a46699792016731", null ],
+      [ "operator=", "group___device.html#ga5e73b643f1e58b5c9331393374d765cb", null ],
+      [ "operator=", "group___device.html#gaf28982ecc53a4bf5698fdab543f2a960", null ],
+      [ "sycl_device", "group___device.html#ga06b2ea6dbb5b715086dacabac6bfc052", null ]
     ] ],
-    [ "device_list", "group___device.html#gaa743f37417afb11704024adba84a3493", null ],
-    [ "device_name", "group___device.html#ga615ce057440ab7e14ebad8d0f59d68f8", null ],
-    [ "device_vendor", "group___device.html#ga9c95ff44cda22de7830f413e5c84e12e", null ],
-    [ "get_queue", "group___device.html#ga00b26210f29a913df10ccb3b63c13fb5", null ],
-    [ "operator=", "group___device.html#gaf82bd5395f0e24297f9ecb8f09753c88", null ],
-    [ "operator=", "group___device.html#ga1f26d5b2897a6a1973fcfac438250165", null ],
-    [ "platform_list", "group___device.html#ga87f73272c1b9023c7b0cd574d527ffd3", null ],
-    [ "SYCL_Device", "group___device.html#gab8bd2aa65649a5e947107f485b844560", null ],
-    [ "SYCL_Device", "group___device.html#ga7dc4fb855558cabaf71de2740b51e65b", null ],
-    [ "SYCL_Device", "group___device.html#ga5695f1876c8f6cd36670da635f3790a3", null ],
-    [ "SYCL_Device", "group___device.html#ga8409f90c13250f8801d94dcc01687756", null ],
-    [ "sycl_device", "group___device.html#ga77baa00848741a23ebd5151fd97b5927", null ]
+    [ "pysycl::device_list", "group___device.html#ga4d97e9ce6eb8a9da5d94b049df4b8193", null ],
+    [ "pysycl::Device_Object::device_name", "group___device.html#gaf7f701382d6656550f2f5f0a87090035", null ],
+    [ "pysycl::Device_Object::Device_Object", "group___device.html#gafcb657dfa49db6ac22c14f8ebb66aeb7", null ],
+    [ "pysycl::Device_Object::Device_Object", "group___device.html#gaff08c23a91ff39382a4fa9ec543f183e", null ],
+    [ "pysycl::Device_Object::Device_Object", "group___device.html#gae0f0af2c65b6a911c5a31e4c332c1c91", null ],
+    [ "pysycl::Device_Object::Device_Object", "group___device.html#ga3c642eee7143f48bbe6126f15096de16", null ],
+    [ "pysycl::Device_Object::device_vendor", "group___device.html#gae106b724500143eb3fe7e127501dd9b9", null ],
+    [ "pysycl::Device_Object::get_queue", "group___device.html#ga5e45d9fb07a5f2948a46699792016731", null ],
+    [ "pysycl::get_queue", "group___device.html#ga00b26210f29a913df10ccb3b63c13fb5", null ],
+    [ "pysycl::Device_Object::operator=", "group___device.html#ga5e73b643f1e58b5c9331393374d765cb", null ],
+    [ "pysycl::Device_Object::operator=", "group___device.html#gaf28982ecc53a4bf5698fdab543f2a960", null ],
+    [ "pysycl::platform_list", "group___device.html#gaaf2d274ce5a15ee8b84c1390ce6d774d", null ],
+    [ "pysycl::Device_Object::sycl_device", "group___device.html#ga06b2ea6dbb5b715086dacabac6bfc052", null ]
 ];

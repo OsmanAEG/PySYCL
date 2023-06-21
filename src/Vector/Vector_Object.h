@@ -21,7 +21,8 @@
 #include <CL/sycl.hpp>
 #include <vector>
 
-#include "../Device/SYCL_Device_Inquiry.h"
+#include "../Device/Device_Object.h"
+#include "../Device/Device_Inquiry.h"
 #include "../Math/Math_Functions.h"
 
 ///////////////////////////////////////////////////////////////////////
@@ -34,8 +35,8 @@ namespace pysycl{
 class Vector_Object {
 public:
   /////////////////////////////////////////////////////////////////////
-  /// \brief Default constructor, use compiler generated version.
-  Vector_Object() = default;
+  /// \brief Default constructor, delete compiler generated version.
+  Vector_Object() = delete;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Copy constructor, use compiler generated version.
@@ -145,15 +146,16 @@ public:
   /////////////////////////////////////////////////////////////////////
   /// \brief Constructor for Vector_Object.
   /// \param[in] N Vector size.
-  /// \param[in] platform_index Index of the sycl platform to select.
-  /// \param[in] device_index Index of the sycl device to select.
-  Vector_Object(size_t N, int platform_index = 0, int device_index = 0){
+  /// \param[in] sycl_device_in SYCL device to use.
+  Vector_Object(size_t N_in, pysycl::Device_Object sycl_device_in):
+    N(N_in),
+    sycl_device(sycl_device_in)
+  {
     if (N < 0) {
       throw std::runtime_error("Vector size must be greater than 0.");
     }
 
-    device_queue = pysycl::get_queue(platform_index, device_index);
-    data_device = sycl::malloc_device<double>(N, device_queue);
+    data_device = sycl::malloc_device<double>(N, sycl_device.get_queue());
   }
 
 private:
@@ -171,7 +173,7 @@ private:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief The selected device.
-  sycl::queue device_queue;
+  pysycl::Device_Object sycl_device;
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -180,29 +182,29 @@ void Vector_Object::set_data(std::vector<double> data_in){
     throw std::runtime_error("Input vector size does not match vector size.");
   }
 
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     h.memcpy(data_device, &data_in[0], N*sizeof(double));
-  });
+  }).wait();
 }
 
 ///////////////////////////////////////////////////////////////////////
 void Vector_Object::reset_data(){
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     const auto data_device_ptr = data_device;
     h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
       const int i = idx[0];
       data_device_ptr[i] = 0.0;
     });
-  });
+  }).wait();
 }
 
 ///////////////////////////////////////////////////////////////////////
 std::vector<double> Vector_Object::get_data(){
   std::vector<double> data_out(N);
 
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     h.memcpy(&data_out[0], data_device, N*sizeof(double));
-  });
+  }).wait();
 
   return data_out;
 }
@@ -214,30 +216,30 @@ void Vector_Object::element_vector_operation(Function_type function, std::vector
     throw std::runtime_error("Input vector size does not match vector size.");
   }
 
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     h.memcpy(data_device_in, &data_in[0], N*sizeof(double));
-  });
+  }).wait();
 
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     const auto data_device_ptr = data_device;
     const auto data_device_in_ptr = data_device_in;
     h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
       const int i = idx[0];
       data_device_ptr[i] = function(data_device_ptr[i], data_device_in_ptr[i]);
     });
-  });
+  }).wait();
 }
 
 ///////////////////////////////////////////////////////////////////////
 template<typename Function_type>
 void Vector_Object::element_vector_operation(Function_type function, double C){
-  device_queue.submit([&](sycl::handler& h){
+  sycl_device.get_queue().submit([&](sycl::handler& h){
     const auto data_device_ptr = data_device;
     h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
       const int i = idx[0];
       data_device_ptr[i] = function(data_device_ptr[i], C);
     });
-  });
+  }).wait();
 }
 
 } // namespace pysycl

@@ -1,5 +1,5 @@
-#ifndef SYCL_DEVICE_INQUIRY_H
-#define SYCL_DEVICE_INQUIRY_H
+#ifndef DEVICE_INQUIRY_H
+#define DEVICE_INQUIRY_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -76,4 +76,4 @@ sycl::queue get_queue(int platform_index = 0, int device_index = 0){
 
 } // namespace pysycl
 
-#endif // #ifndef SYCL_DEVICE_INQUIRY_H
+#endif // #ifndef DEVICE_INQUIRY_H

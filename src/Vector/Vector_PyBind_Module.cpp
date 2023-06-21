@@ -42,27 +42,27 @@ PYBIND11_MODULE(vector, m){
       vector_b : list[float]
         The second vector to be added.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector addition.
 
     Returns
       list[float]
         The sum of the two input vectors.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
       >>> vector_b = [4.0, 5.0, 6.0]
-      >>> vec_ops.vector_addition(a, b)
+      >>> vector.vector_addition(a, b, gpu_queue)
       [5.0, 7.0, 9.0]
   )delim",
   py::arg("vector_a"),
   py::arg("vector_b"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_subtraction", &pysycl::Vector_Subtraction, R"delim(
     Description
@@ -75,27 +75,27 @@ PYBIND11_MODULE(vector, m){
       vector_b : list[float]
         The second subtrahend vector.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector subtraction.
 
     Returns
       list[float]
         The difference of the two input vectors.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
       >>> vector_b = [4.0, 5.0, 6.0]
-      >>> vec_ops.vector_subtraction(a, b)
+      >>> vector.vector_subtraction(a, b, gpu_queue)
       [-3.0, -3.0, -3.0]
   )delim",
   py::arg("vector_a"),
   py::arg("vector_b"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_element_multiplication", &pysycl::Vector_Element_Multiplication, R"delim(
     Description
@@ -108,27 +108,27 @@ PYBIND11_MODULE(vector, m){
       vector_b : list[float]
         The second vector to be multiplied (element-wise).
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       list[float]
         The vector product.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
       >>> vector_b = [4.0, 5.0, 6.0]
-      >>> vec_ops.vector_element_multiplication(a, b)
+      >>> vector.vector_element_multiplication(a, b, gpu_queue)
       [4.0, 10.0, 18.0]
   )delim",
   py::arg("vector_a"),
   py::arg("vector_b"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_element_division", &pysycl::Vector_Element_Division, R"delim(
     Description
@@ -141,27 +141,27 @@ PYBIND11_MODULE(vector, m){
       vector_b : list[float]
         The first vector for element-wise division (denominator).
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       list[float]
           The vector quotient.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
       >>> vector_b = [4.0, 5.0, 6.0]
-      >>> vec_ops.vector_element_division(a, b)
+      >>> vector.vector_element_division(a, b, gpu_queue)
       [0.25, 0.4, 0.5]
   )delim",
   py::arg("vector_a"),
   py::arg("vector_b"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_sum_reduction", &pysycl::Vector_Sum_Reduction, R"delim(
     Description
@@ -171,25 +171,25 @@ PYBIND11_MODULE(vector, m){
       vector_a : list[float]
         The input vector for sum reduction.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       float
         The sum of every element in the input vector.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
-      >>> vec_ops.vector_sum_reduction(a)
+      >>> vector.vector_sum_reduction(a, gpu_queue)
       6.0
   )delim",
   py::arg("vector_a"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_min_reduction", &pysycl::Vector_Min_Reduction, R"delim(
     Description
@@ -199,25 +199,25 @@ PYBIND11_MODULE(vector, m){
       vector_a : list[float]
         The input vector minimum reduction.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       float
         The minimum element value in the input vector.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
-      >>> vec_ops.vector_min_reduction(a)
+      >>> vector.vector_min_reduction(a, gpu_queue)
       1.0
   )delim",
   py::arg("vector_a"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_max_reduction", &pysycl::Vector_Max_Reduction, R"delim(
     Description
@@ -227,25 +227,25 @@ PYBIND11_MODULE(vector, m){
       vector_a : list[float]
         The input vector for maximum reduction.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       float
         The maximum element value in the input vector.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
-      >>> vec_ops.vector_max_reduction(a)
+      >>> vector.vector_max_reduction(a, gpu_queue)
       3.0
   )delim",
   py::arg("vector_a"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   m.def("vector_dot_product", &pysycl::Vector_Dot_Product, R"delim(
     Description
@@ -258,50 +258,52 @@ PYBIND11_MODULE(vector, m){
       vector_b : list[float]
         The second vector for dot product.
 
-      platform_index : int, default = 0
-        Optional: The index of the device platform to be used.
-
-      device_index : int, default = 0
-        Optional: The index of the device to be used for a given platform.
+      device : device_object
+        The device to target in the vector element multiplication.
 
     Returns
       float
         The vector dot product.
 
     Examples
-      >>> from pysycl import vector_operations as vec_ops
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import vector
+      >>> gpu_queue = device.device_select(0, 0)
       >>> vector_a = [1.0, 2.0, 3.0]
       >>> vector_b = [4.0, 5.0, 6.0]
-      >>> vec_ops.vector_dot_product(a, b)
+      >>> vector.vector_dot_product(a, b, gpu_queue)
       32.0
   )delim",
   py::arg("vector_a"),
   py::arg("vector_b"),
-  py::arg("platform_index") = 0,
-  py::arg("device_index") = 0);
+  py::arg("device_object"));
 
   /////////////////////////////////////////////////////////////////////
 
-  py::class_<pysycl::Vector_Object>(m, "vector_object")
-    .def(py::init<int, int, int>(), R"delim(
-      Description
-        This is a class for creating and manipulating vectors in PySYCL.
+  py::class_<pysycl::Vector_Object>(m, "vector_object", R"delim(
+    Description
+      This is a class for creating and manipulating vectors in PySYCL.
+    )delim")
+    .def(py::init<int, pysycl::Device_Object>(), R"delim(
+      Default Constructor
+        Constuctor that creates a PySYCL vector object.
 
       Constructor Parameters
         N: int
           The length of the vector.
-        platform_index: int
-          Optional: Index for the sycl platform to select.
-        device_index: int
-          Optional: Index for the sycl device to select."
+        Device_Object: device_object
+          The device to target when manipulating the vector object.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector = vector_object.vector_object(3000, 0, 0)
       )delim",
       py::arg("N"),
-      py::arg("platform_index") = 0,
-      py::arg("device_index") = 0)
+      py::arg("device_object"))
     .def("set_data", &pysycl::Vector_Object::set_data, R"delim(
       Description
         This function sets the data of the vector.
@@ -311,6 +313,8 @@ PYBIND11_MODULE(vector, m){
           The data to be set to the vector.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector = vector_object.vector_object(3000, 0, 0)
         >>> vector.set_data([1.0, 2.0, 3.0])
@@ -336,6 +340,8 @@ PYBIND11_MODULE(vector, m){
           The data of the vector.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector = vector_object.vector_object(3000, 0, 0)
         >>> vector.set_data([1.0, 2.0, 3.0])
@@ -351,6 +357,8 @@ PYBIND11_MODULE(vector, m){
           The vector to be added to the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -368,6 +376,8 @@ PYBIND11_MODULE(vector, m){
           The constant to be added to the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -385,6 +395,8 @@ PYBIND11_MODULE(vector, m){
           The vector to be subtracted from the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -402,6 +414,8 @@ PYBIND11_MODULE(vector, m){
           The constant to be subtracted from the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -419,6 +433,8 @@ PYBIND11_MODULE(vector, m){
           The vector to be multiplied with the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -436,6 +452,8 @@ PYBIND11_MODULE(vector, m){
           The constant to be multiplied with the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -453,6 +471,8 @@ PYBIND11_MODULE(vector, m){
           The vector to be divided from the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])
@@ -470,6 +490,8 @@ PYBIND11_MODULE(vector, m){
           The constant to be divided from the vector object calling the function.
 
       Example
+        Copy
+        ----
         >>> from pysycl import vector_object
         >>> vector_a = vector_object.vector_object(3000, 0, 0)
         >>> vector_a.set_data([1.0, 2.0, 3.0])

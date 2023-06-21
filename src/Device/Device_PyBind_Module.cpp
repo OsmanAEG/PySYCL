@@ -20,8 +20,8 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include "SYCL_Device.h"
-#include "SYCL_Device_Inquiry.h"
+#include "Device_Object.h"
+#include "Device_Inquiry.h"
 
 namespace py = pybind11;
 
@@ -31,24 +31,33 @@ PYBIND11_MODULE(device, m){
       This module provides classes and functions for selecting SYCL devices.
   )delim";
 
-  py::class_<pysycl::SYCL_Device>(m, "device_select")
+  py::class_<pysycl::Device_Object>(m, "device_object", R"delim(
+    Description
+      This class creates a PySYCL device object.
+    )delim")
     .def(py::init<int, int>(), R"delim(
-      Description
-        This is a class for SYCL device selection in PySYCL.
+      Default Constructor
+        Constructor that creates a PySYCL device Object
 
-      Constructor Parameters
+      Parameters
         platform_index: int
           Optional: Index for the sycl platform to select.
         device_index: int
           Optional: Index for the sycl device to select."
 
+      Returns
+        device_object
+          A PySYCL device object.
+
       Example
+        Copy
+        ----
         >>> from pysycl import device_queue
         >>> gpu_queue = device_queue.device_select(0, 0)
       )delim",
       py::arg("platform_index") = 0,
       py::arg("device_index") = 0)
-    .def("device_name", &pysycl::SYCL_Device::device_name, R"delim(
+    .def("device_name", &pysycl::Device_Object::device_name, R"delim(
       Description
         This function outputs the selected device name.
 
@@ -57,12 +66,14 @@ PYBIND11_MODULE(device, m){
           The name of the selected device.
 
       Example
+        Copy
+        ----
         >>> from pysycl import device_queue
         >>> gpu_queue = device_queue.device_select(0, 0)
         >>> gpu_queue.device_name()
         'Intel(R) Gen9 HD Graphics NEO'
       )delim")
-    .def("device_vendor", &pysycl::SYCL_Device::device_vendor, R"delim(
+    .def("device_vendor", &pysycl::Device_Object::device_vendor, R"delim(
       Description
         This function outputs the selected device vendor.
 
@@ -71,6 +82,8 @@ PYBIND11_MODULE(device, m){
           The vendor of the selected device.
 
       Example
+        Copy
+        ----
         >>> from pysycl import device_queue
         >>> gpu_queue = device_queue.device_select(0, 0)
         >>> gpu_queue.device_vendor()
@@ -94,6 +107,8 @@ PYBIND11_MODULE(device, m){
         A list of available SYCL platforms.
 
     Example
+      Copy
+      ----
       >>> from pysycl import device_inquiry
       >>> device_inquiry.platform_list()
       [NVIDIA CUDA BACKEND, Intel(R) OpenCL, Intel(R) Level-Zero]
@@ -113,6 +128,8 @@ PYBIND11_MODULE(device, m){
         A list of available SYCL devices.
 
     Example
+      Copy
+      ----
       >>> from pysycl import device_inquiry
       >>> device_inquiry.device_list()
       [Intel(R) Gen9 HD Graphics NEO, Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz]

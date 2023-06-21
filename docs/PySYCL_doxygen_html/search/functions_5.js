@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_74',['operator=',['../group___device.html#gaf82bd5395f0e24297f9ecb8f09753c88',1,'pysycl::SYCL_Device::operator=(const SYCL_Device &amp;)=default'],['../group___device.html#ga1f26d5b2897a6a1973fcfac438250165',1,'pysycl::SYCL_Device::operator=(SYCL_Device &amp;&amp;)=default'],['../group___vector.html#ga0ba652ae3f01353ea6adaa62ece40b27',1,'pysycl::Vector_Object::operator=(const Vector_Object &amp;)=default'],['../group___vector.html#ga1be42a64dabbe19dfc6d164ade1fe2f9',1,'pysycl::Vector_Object::operator=(Vector_Object &amp;&amp;)=default']]]
+  ['operator_3d_0',['operator=',['../group___device.html#ga5e73b643f1e58b5c9331393374d765cb',1,'pysycl::Device_Object::operator=(const Device_Object &amp;)=default'],['../group___device.html#gaf28982ecc53a4bf5698fdab543f2a960',1,'pysycl::Device_Object::operator=(Device_Object &amp;&amp;)=default'],['../group___vector.html#gaddcd42364278138860b02cddd4693435',1,'pysycl::Vector_Object::operator=(const Vector_Object &amp;)=default'],['../group___vector.html#gaf452bdae87bf6b78b4239ab5dddf37ad',1,'pysycl::Vector_Object::operator=(Vector_Object &amp;&amp;)=default']]]
 ];

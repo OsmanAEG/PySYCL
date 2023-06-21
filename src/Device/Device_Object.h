@@ -29,29 +29,29 @@ namespace pysycl{
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Class representing a SYCL device.
-class SYCL_Device {
+class Device_Object {
 public:
   /////////////////////////////////////////////////////////////////////
   /// \brief Default constructor, use compiler generated version.
-  SYCL_Device() = default;
+  Device_Object() = default;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Copy constructor, use compiler generated version.
-  SYCL_Device(const SYCL_Device&) = default;
+  Device_Object(const Device_Object&) = default;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Move constructor, use compiler generated version.
-  SYCL_Device(SYCL_Device&&) = default;
+  Device_Object(Device_Object&&) = default;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment, use compiler generated version.
   /// \return reference to the assigned object.
-  SYCL_Device& operator=(const SYCL_Device&) = default;
+  Device_Object& operator=(const Device_Object&) = default;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Move assignment, use compiler generated version.
   /// \return reference to the assigned object.
-  SYCL_Device& operator=(SYCL_Device&&) = default;
+  Device_Object& operator=(Device_Object&&) = default;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Output device name.
@@ -62,10 +62,14 @@ public:
   std::string device_vendor();
 
   /////////////////////////////////////////////////////////////////////
+  /// \brief Return Queue.
+  sycl::queue get_queue();
+
+  /////////////////////////////////////////////////////////////////////
   /// \brief Constructor that selects a SYCL device.
   /// \param[in] platform_index Index of the sycl platform to select.
   /// \param[in] device_index Index of the sycl device to select.
-  SYCL_Device(int platform_index = 0, int device_index = 0) {
+  Device_Object(int platform_index = 0, int device_index = 0) {
     if (platform_index < 0) {
       throw std::runtime_error("platform index must be non-negative.");
     }
@@ -96,13 +100,18 @@ public:
 };
 
 /////////////////////////////////////////////////////////////////////////
-std::string SYCL_Device::device_name() {
+std::string Device_Object::device_name() {
   return sycl_device.get_device().get_info<sycl::info::device::name>();
 }
 
 /////////////////////////////////////////////////////////////////////////
-std::string SYCL_Device::device_vendor() {
+std::string Device_Object::device_vendor() {
   return sycl_device.get_device().get_info<sycl::info::device::vendor>();
+}
+
+/////////////////////////////////////////////////////////////////////////
+sycl::queue Device_Object::get_queue() {
+  return sycl_device;
 }
 
 } // namespace pysycl

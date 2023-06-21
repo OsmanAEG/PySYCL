@@ -21,7 +21,8 @@
 
 #include <iostream>
 #include <CL/sycl.hpp>
-#include "../Device/SYCL_Device_Inquiry.h"
+#include "../Device/Device_Inquiry.h"
+#include "../Device/Device_Object.h"
 #include "../Math/Math_Functions.h"
 
 ///////////////////////////////////////////////////////////////////////
@@ -66,7 +67,7 @@ std::vector<double> Vector_Operation(std::vector<double> vector_a,
       h.parallel_for(sycl::range<1>(N), [=](sycl::id<1> idx){
         acc_c[idx] = function(acc_a[idx], acc_b[idx]);
       });
-    });
+    }).wait();
   }
 
   return vector_c;
@@ -80,11 +81,9 @@ std::vector<double> Vector_Operation(std::vector<double> vector_a,
 /// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Addition(std::vector<double> vector_a,
                                     std::vector<double> vector_b,
-                                    int platform_index = 0,
-                                    int device_index = 0){
-  auto Q = pysycl::get_queue(platform_index, device_index);
+                                    pysycl::Device_Object device){
   auto function = pysycl::add_function<double>();
-  return Vector_Operation(vector_a, vector_b, Q, function);
+  return Vector_Operation(vector_a, vector_b, device.get_queue(), function);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -95,11 +94,9 @@ std::vector<double> Vector_Addition(std::vector<double> vector_a,
 /// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Subtraction(std::vector<double> vector_a,
                                        std::vector<double> vector_b,
-                                       int platform_index = 0,
-                                       int device_index = 0){
-  auto Q = pysycl::get_queue(platform_index, device_index);
+                                       pysycl::Device_Object device){
   auto function = pysycl::subtract_function<double>();
-  return Vector_Operation(vector_a, vector_b, Q, function);
+  return Vector_Operation(vector_a, vector_b, device.get_queue(), function);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -110,11 +107,9 @@ std::vector<double> Vector_Subtraction(std::vector<double> vector_a,
 /// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Element_Multiplication(std::vector<double> vector_a,
                                                   std::vector<double> vector_b,
-                                                  int platform_index = 0,
-                                                  int device_index = 0){
-  auto Q = pysycl::get_queue(platform_index, device_index);
+                                                  pysycl::Device_Object device){
   auto function = pysycl::multiply_function<double>();
-  return Vector_Operation(vector_a, vector_b, Q, function);
+  return Vector_Operation(vector_a, vector_b, device.get_queue(), function);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -125,11 +120,9 @@ std::vector<double> Vector_Element_Multiplication(std::vector<double> vector_a,
 /// \param device_index Index of the sycl device to select.
 std::vector<double> Vector_Element_Division(std::vector<double> vector_a,
                                             std::vector<double> vector_b,
-                                            int platform_index = 0,
-                                            int device_index = 0){
-  auto Q = pysycl::get_queue(platform_index, device_index);
+                                            pysycl::Device_Object device){
   auto function = pysycl::divide_function<double>();
-  return Vector_Operation(vector_a, vector_b, Q, function);
+  return Vector_Operation(vector_a, vector_b, device.get_queue(), function);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -138,12 +131,9 @@ std::vector<double> Vector_Element_Division(std::vector<double> vector_a,
 /// \param platform_index Index of the sycl platform to select.
 /// \param device_index Index of the sycl device to select.
 double Vector_Sum_Reduction(std::vector<double> vector_a,
-                            int platform_index = 0,
-                            int device_index = 0){
+                            pysycl::Device_Object device){
 
   const size_t N = vector_a.size();
-
-  auto Q = pysycl::get_queue(platform_index, device_index);
 
   double vector_sum = 0.0;
 
@@ -151,7 +141,7 @@ double Vector_Sum_Reduction(std::vector<double> vector_a,
     sycl::buffer<double> buffer_a(vector_a);
     sycl::buffer<double> buffer_vector_sum(&vector_sum, 1);
 
-    Q.submit([&](sycl::handler& h){
+    device.get_queue().submit([&](sycl::handler& h){
       sycl::accessor acc_a(buffer_a, h, sycl::read_only);
 
       auto sum_reduction = sycl::reduction(buffer_vector_sum, h, sycl::plus<double>());
@@ -159,7 +149,7 @@ double Vector_Sum_Reduction(std::vector<double> vector_a,
       h.parallel_for(sycl::range<1>(N), sum_reduction, [=](sycl::id<1> idx, auto& sum){
         sum.combine(acc_a[idx]);
       });
-    });
+    }).wait();
   }
 
   return vector_sum;
@@ -171,20 +161,16 @@ double Vector_Sum_Reduction(std::vector<double> vector_a,
 /// \param platform_index Index of the sycl platform to select.
 /// \param device_index Index of the sycl device to select.
 double Vector_Min_Reduction(std::vector<double> vector_a,
-                            int platform_index = 0,
-                            int device_index = 0){
+                            pysycl::Device_Object device){
 
   const size_t N = vector_a.size();
-
-  auto Q = pysycl::get_queue(platform_index, device_index);
-
   double vector_min = 0.0;
 
   {
     sycl::buffer<double> buffer_a(vector_a);
     sycl::buffer<double> buffer_vector_min(&vector_min, 1);
 
-    Q.submit([&](sycl::handler& h){
+    device.get_queue().submit([&](sycl::handler& h){
       sycl::accessor acc_a(buffer_a, h, sycl::read_only);
 
       auto min_reduction = sycl::reduction(buffer_vector_min, h, sycl::minimum<double>());
@@ -192,7 +178,7 @@ double Vector_Min_Reduction(std::vector<double> vector_a,
       h.parallel_for(sycl::range<1>(N), min_reduction, [=](sycl::id<1> idx, auto& min){
         min.combine(acc_a[idx]);
       });
-    });
+    }).wait();
   }
 
   return vector_min;
@@ -204,20 +190,16 @@ double Vector_Min_Reduction(std::vector<double> vector_a,
 /// \param platform_index Index of the sycl platform to select.
 /// \param device_index Index of the sycl device to select.
 double Vector_Max_Reduction(std::vector<double> vector_a,
-                            int platform_index = 0,
-                            int device_index = 0){
+                            pysycl::Device_Object device){
 
   const size_t N = vector_a.size();
-
-  auto Q = pysycl::get_queue(platform_index, device_index);
-
   double vector_max = 0.0;
 
   {
     sycl::buffer<double> buffer_a(vector_a);
     sycl::buffer<double> buffer_vector_max(&vector_max, 1);
 
-    Q.submit([&](sycl::handler& h){
+    device.get_queue().submit([&](sycl::handler& h){
       sycl::accessor acc_a(buffer_a, h, sycl::read_only);
 
       auto max_reduction = sycl::reduction(buffer_vector_max, h, sycl::maximum<double>());
@@ -225,7 +207,7 @@ double Vector_Max_Reduction(std::vector<double> vector_a,
       h.parallel_for(sycl::range<1>(N), max_reduction, [=](sycl::id<1> idx, auto& max){
         max.combine(acc_a[idx]);
       });
-    });
+    }).wait();
   }
 
   return vector_max;
@@ -239,10 +221,9 @@ double Vector_Max_Reduction(std::vector<double> vector_a,
 /// \param device_index Index of the sycl device to select.
 double Vector_Dot_Product(std::vector<double> vector_a,
                           std::vector<double> vector_b,
-                          int platform_index = 0,
-                          int device_index = 0){
-  const auto vector_c = Vector_Element_Multiplication(vector_a, vector_b, platform_index, device_index);
-  return Vector_Sum_Reduction(vector_c, platform_index, device_index);
+                          pysycl::Device_Object device){
+  const auto vector_c = Vector_Element_Multiplication(vector_a, vector_b, device);
+  return Vector_Sum_Reduction(vector_c, device);
 }
 
 } // namespace pysycl
