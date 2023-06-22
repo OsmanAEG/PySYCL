@@ -81,10 +81,10 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Vector Element Addition (Vector-Vector)
-  /// \param[in] vector_in Vector to be added.
-  void add_vector(std::vector<double> vector_in){
+  /// \param[in] data_in Vector to be added.
+  void add_vector(std::vector<double> data_in){
     auto function = pysycl::add_function<double>();
-    element_vector_operation(function, vector_in);
+    element_vector_operation(function, data_in);
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -97,10 +97,10 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Vector Element Subtraction (Vector-Vector)
-  /// \param[in] vector_in Vector to be subtracted.
-  void subtract_vector(std::vector<double> vector_in){
+  /// \param[in] data_in Vector to be subtracted.
+  void subtract_vector(std::vector<double> data_in){
     auto function = pysycl::subtract_function<double>();
-    element_vector_operation(function, vector_in);
+    element_vector_operation(function, data_in);
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -113,10 +113,10 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Vector Element Multiplication (Vector-Vector)
-  /// \param[in] vector_in Vector to be multiplied.
-  void multiply_vector(std::vector<double> vector_in){
+  /// \param[in] data_in Vector to be multiplied.
+  void multiply_vector(std::vector<double> data_in){
     auto function = pysycl::multiply_function<double>();
-    element_vector_operation(function, vector_in);
+    element_vector_operation(function, data_in);
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -129,10 +129,10 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Vector Element Division (Vector-Vector)
-  /// \param[in] vector_in Vector to be divided.
-  void divide_vector(std::vector<double> vector_in){
+  /// \param[in] data_in Vector to be divided.
+  void divide_vector(std::vector<double> data_in){
     auto function = pysycl::divide_function<double>();
-    element_vector_operation(function, vector_in);
+    element_vector_operation(function, data_in);
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -156,6 +156,7 @@ public:
     }
 
     data_device = sycl::malloc_device<double>(N, sycl_device.get_queue());
+    data_device_in = sycl::malloc_device<double>(N, sycl_device.get_queue());
   }
 
 private:
@@ -211,7 +212,8 @@ std::vector<double> Vector_Object::get_data(){
 
 ///////////////////////////////////////////////////////////////////////
 template<typename Function_type>
-void Vector_Object::element_vector_operation(Function_type function, std::vector<double> data_in){
+void Vector_Object::element_vector_operation(Function_type function,
+                                             std::vector<double> data_in){
   if (data_in.size() != N) {
     throw std::runtime_error("Input vector size does not match vector size.");
   }
