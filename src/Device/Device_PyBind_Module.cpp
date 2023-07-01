@@ -20,8 +20,10 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include "Device_Object.h"
 #include "Device_Inquiry.h"
+#include "Device_Object.h"
+
+#include <CL/sycl.hpp>
 
 namespace py = pybind11;
 
@@ -31,6 +33,9 @@ PYBIND11_MODULE(device, m){
       This module provides classes and functions for selecting SYCL devices.
   )delim";
 
+  /////////////////////////////////////////////////////////////////////
+  // Device class and functions
+  /////////////////////////////////////////////////////////////////////
   py::class_<pysycl::Device_Object>(m, "device_object", R"delim(
     Description
       This class creates a PySYCL device object.
@@ -52,8 +57,8 @@ PYBIND11_MODULE(device, m){
       Example
         Copy
         ----
-        >>> from pysycl import device_queue
-        >>> gpu_queue = device_queue.device_select(0, 0)
+        >>> from pysycl import device
+        >>> default_device = device.device_object(0, 0)
       )delim",
       py::arg("platform_index") = 0,
       py::arg("device_index") = 0)
@@ -68,10 +73,8 @@ PYBIND11_MODULE(device, m){
       Example
         Copy
         ----
-        >>> from pysycl import device_queue
-        >>> gpu_queue = device_queue.device_select(0, 0)
-        >>> gpu_queue.device_name()
-        'Intel(R) Gen9 HD Graphics NEO'
+        >>> print(device_obj.device_name())
+        NVIDIA GeForce RTX 3060 Laptop GPU
       )delim")
     .def("device_vendor", &pysycl::Device_Object::device_vendor, R"delim(
       Description
@@ -84,12 +87,12 @@ PYBIND11_MODULE(device, m){
       Example
         Copy
         ----
-        >>> from pysycl import device_queue
-        >>> gpu_queue = device_queue.device_select(0, 0)
-        >>> gpu_queue.device_vendor()
-        'Intel(R) Corporation'
+        >>> print(device_obj.device_name())
+        NVIDIA Corporation
       )delim");
 
+  /////////////////////////////////////////////////////////////////////
+  // Device inquiry functions
   /////////////////////////////////////////////////////////////////////
 
   m.def("platform_list", &pysycl::platform_list, R"delim(
@@ -109,9 +112,9 @@ PYBIND11_MODULE(device, m){
     Example
       Copy
       ----
-      >>> from pysycl import device_inquiry
-      >>> device_inquiry.platform_list()
-      [NVIDIA CUDA BACKEND, Intel(R) OpenCL, Intel(R) Level-Zero]
+      >>> from pysycl import device
+      >>> print(device.platform_list())
+      ['NVIDIA CUDA BACKEND ( platform index = 0)']
   )delim")
   .def("device_list", &pysycl::device_list, R"delim(
     .. figure:: _static/images/gpu.png
@@ -130,9 +133,9 @@ PYBIND11_MODULE(device, m){
     Example
       Copy
       ----
-      >>> from pysycl import device_inquiry
-      >>> device_inquiry.device_list()
-      [Intel(R) Gen9 HD Graphics NEO, Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz]
+      >>> from pysycl import device
+      >>> print(device.device_list(0))
+      ['NVIDIA GeForce RTX 3060 Laptop GPU ( device index = 0)']
   )delim"),
   py::arg("platform_index") = 0;
 }

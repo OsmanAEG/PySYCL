@@ -12,14 +12,6 @@ pysycl.device module
    :undoc-members:
    :show-inheritance:
 
-pysycl.vector module
---------------------
-
-.. automodule:: pysycl.vector
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

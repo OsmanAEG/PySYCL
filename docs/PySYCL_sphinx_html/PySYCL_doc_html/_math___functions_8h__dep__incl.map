@@ -1,6 +1,0 @@
-<map id="Math/Math_Functions.h" name="Math/Math_Functions.h">
-<area shape="rect" id="node1" title="Math functions returned in the form of lambda functions." alt="" coords="107,5,281,32"/>
-<area shape="rect" id="node2" href="$_vector___object_8h.html" title="Vector Object in PySYCL." alt="" coords="5,80,175,107"/>
-<area shape="rect" id="node4" href="$_vector___operations_8h.html" title="Vector operations in PySYCL. These operations receive two individual vectors and return a single vect..." alt="" coords="199,80,397,107"/>
-<area shape="rect" id="node3" href="$_vector___py_bind___module_8cpp.html" title="Python module for vector in PySYCL." alt="" coords="114,155,274,196"/>
-</map>

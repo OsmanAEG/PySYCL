@@ -63,7 +63,7 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Return Queue.
-  sycl::queue get_queue();
+  sycl::queue queue();
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Constructor that selects a SYCL device.
@@ -110,7 +110,7 @@ std::string Device_Object::device_vendor() {
 }
 
 /////////////////////////////////////////////////////////////////////////
-sycl::queue Device_Object::get_queue() {
+sycl::queue Device_Object::queue() {
   return sycl_device;
 }
 

@@ -2,7 +2,6 @@ PySYCL Python Module
 ====================
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
 
-   device
-   vector
+  device
