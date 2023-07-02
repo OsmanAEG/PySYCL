@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['n_0',['N',['../group___vector.html#ga522c6fb0bfd2b7b70e57884e19226257',1,'pysycl::Vector_Object']]]
+  ['m_0',['M',['../group___array2_d.html#ga19072bbea575653b6701ac0aca727959',1,'pysycl::Array2D_Object']]]
 ];

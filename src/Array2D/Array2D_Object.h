@@ -20,7 +20,7 @@
 
 #include <CL/sycl.hpp>
 #include <vector>
-//#include <random>
+#include <random>
 
 #include "../Device/Device_Object.h"
 
@@ -34,8 +34,8 @@ namespace pysycl {
 class Array2D_Object {
 public:
   /////////////////////////////////////////////////////////////////////
-  /// \brief Default constructor, use compiler generated version.
-  Array2D_Object() = default;
+  /// \brief Default constructor, delete compiler generated version.
+  Array2D_Object() = delete;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Copy constructor, use compiler generated version.
@@ -53,6 +53,26 @@ public:
   /// \brief Move assignment operator, use compiler generated version.
   /// \return Reference to the assigned object.
   Array2D_Object &operator=(Array2D_Object &&) = default;
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get the number of rows in the array.
+  /// \return Number of rows in the array.
+  size_t get_rows() const { return M; }
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get the number of columns in the array.
+  /// \return Number of columns in the array.
+  size_t get_columns() const { return N; }
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get the array device.
+  /// \return Device the array is on.
+  pysycl::Device_Object get_device() const { return device; }
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get the pointer to the array on device.
+  /// \return Pointer to the array on device.
+  float* get_data_device() const { return data_device; }
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Copy data from device to host.
@@ -73,15 +93,15 @@ public:
   void fill(float value);
 
   /////////////////////////////////////////////////////////////////////
-  /// \brief Fill the array on device with random values.
-  void fill_random(float min_val = 0.0, float max_val = 1.0);
-
-  /////////////////////////////////////////////////////////////////////
   /// \brief Fill an element of the array on host with a given value.
   /// \param[in] i Row index of the element to fill.
   /// \param[in] j Column index of the element to fill.
   /// \param[in] value Value to fill the array with.
   void fill_element_host(size_t i, size_t j, float value);
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Fill the array on host with random values.
+  void fill_random_host(float min_val = 0.0, float max_val = 1.0);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Sum reduction
@@ -105,7 +125,7 @@ public:
   /// \param[in] init Initial value for all elements in the array.
   /// \param[in] device SYCL device to use for allocation.
   Array2D_Object(size_t M_in, size_t N_in, pysycl::Device_Object device_in) :
-          M(M_in), N(N_in), Q(device_in.queue()) {
+          M(M_in), N(N_in), device(device_in), Q(device_in.queue()) {
     // Allocate the array.
     data_host.resize(M*N);
     data_device = sycl::malloc_device<float>(M*N, Q);
@@ -119,6 +139,10 @@ private:
   /////////////////////////////////////////////////////////////////////
   /// \brief Number of columns in the array.
   size_t N;
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief SYCL device to use for allocation and computation.
+  pysycl::Device_Object device;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Device queue to use for allocation and computation.
@@ -166,21 +190,21 @@ void Array2D_Object::fill(float value) {
 }
 
 ///////////////////////////////////////////////////////////////////////
-void Array2D_Object::fill_random(float min_val = 0.0, float max_val = 1.0) {
-  Q.submit([&](sycl::handler &h){
-    float range = max_val - min_val;
-    const auto data_device_ptr = data_device;
-    h.parallel_for(M*N, [=](sycl::id<1> idx){
-      float random_value = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
-      data_device_ptr[idx] = (random_value * range) + min_val;
-    });
-  }).wait();
-}
-
-///////////////////////////////////////////////////////////////////////
 void Array2D_Object::fill_element_host(size_t i, size_t j, float value) {
   data_host[i*N + j] = value;
 }
+
+///////////////////////////////////////////////////////////////////////
+void Array2D_Object::fill_random_host(float min_val, float max_val) {
+  float range = max_val - min_val;
+  for (size_t i = 0; i < M; ++i) {
+    for (size_t j = 0; j < N; ++j) {
+      float random_value = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+      data_host[i*N + j] = (random_value * range) + min_val;
+    }
+  }
+}
+
 
 ///////////////////////////////////////////////////////////////////////
 float Array2D_Object::sum_reduction() {

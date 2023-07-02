@@ -5,3 +5,4 @@ PySYCL Python Module
   :maxdepth: 2
 
   device
+  array2D

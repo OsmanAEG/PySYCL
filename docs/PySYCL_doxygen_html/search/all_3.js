@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['get_5fdata_0',['get_data',['../group___vector.html#ga20cb73c4a8faad0182698e63fccdaa4a',1,'pysycl::Vector_Object']]],
-  ['get_5fqueue_1',['get_queue',['../group___device.html#ga5e45d9fb07a5f2948a46699792016731',1,'pysycl::Device_Object::get_queue()'],['../group___device.html#ga00b26210f29a913df10ccb3b63c13fb5',1,'pysycl::get_queue()']]]
+  ['fill_0',['fill',['../group___array2_d.html#ga3f3eb7288844f2b574cae5d05f00f7ba',1,'pysycl::Array2D_Object']]],
+  ['fill_5felement_5fhost_1',['fill_element_host',['../group___array2_d.html#ga33291e9e7cac727e4e10ceaa07c5f241',1,'pysycl::Array2D_Object']]],
+  ['fill_5frandom_5fhost_2',['fill_random_host',['../group___array2_d.html#gaeeb099f88d4c15d24ea66265119a1cba',1,'pysycl::Array2D_Object']]]
 ];

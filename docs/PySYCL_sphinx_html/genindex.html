@@ -158,6 +158,7 @@
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">PySYCL Python Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of PySYCL Python Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array2D.html">PySYCL: Array2D Sub-Module</a></li>
 </ul>
 </li>
 </ul>
@@ -196,8 +197,32 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#D"><strong>D</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#P"><strong>P</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#S"><strong>S</strong></a></div>
 </section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object">array2D_object (class in pysycl.array2D)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.copy_device_to_host">copy_device_to_host() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.copy_host_to_device">copy_host_to_device() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
 <section id="D" class="genindex-section">
   <h2>D</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
@@ -216,15 +241,53 @@
   </tr></table>
 </section>
 
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.fill">fill() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.fill_element_host">fill_element_host() (pysycl.array2D.array2D_object method)</a>
+</li>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.fill_random_host">fill_random_host() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.get_columns">get_columns() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.get_host_data">get_host_data() (pysycl.array2D.array2D_object method)</a>
+</li>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.get_rows">get_rows() (pysycl.array2D.array2D_object method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
 <section id="M" class="genindex-section">
   <h2>M</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.max_reduction">max_reduction() (pysycl.array2D.array2D_object method)</a>
+</li>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.min_reduction">min_reduction() (pysycl.array2D.array2D_object method)</a>
+</li>
         <li>
     module
 
         <ul>
           <li><a href="pysycl.html#module-pysycl">pysycl</a>
+</li>
+          <li><a href="array2D.html#module-pysycl.array2D">pysycl.array2D</a>
 </li>
           <li><a href="device.html#module-pysycl.device">pysycl.device</a>, <a href="pysycl.html#module-pysycl.device">[1]</a>
 </li>
@@ -249,12 +312,29 @@
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li>
+    pysycl.array2D
+
+        <ul>
+          <li><a href="array2D.html#module-pysycl.array2D">module</a>
+</li>
+        </ul></li>
+        <li>
     pysycl.device
 
         <ul>
           <li><a href="device.html#module-pysycl.device">module</a>, <a href="pysycl.html#module-pysycl.device">[1]</a>
 </li>
         </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array2D.html#pysycl.array2D.array2D_object.sum_reduction">sum_reduction() (pysycl.array2D.array2D_object method)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>

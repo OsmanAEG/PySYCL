@@ -1,6 +1,5 @@
 var modules =
 [
-    [ "Device", "group___device.html", "group___device" ],
-    [ "Math", "group___math.html", "group___math" ],
-    [ "Vector", "group___vector.html", "group___vector" ]
+    [ "Array2D", "group___array2_d.html", "group___array2_d" ],
+    [ "Device", "group___device.html", "group___device" ]
 ];

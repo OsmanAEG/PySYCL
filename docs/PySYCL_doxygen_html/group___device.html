@@ -159,9 +159,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gae106b724500143eb3fe7e127501dd9b9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#gae106b724500143eb3fe7e127501dd9b9">pysycl::Device_Object::device_vendor</a> ()</td></tr>
 <tr class="memdesc:gae106b724500143eb3fe7e127501dd9b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output device vendor.  <br /></td></tr>
 <tr class="separator:gae106b724500143eb3fe7e127501dd9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e45d9fb07a5f2948a46699792016731"><td class="memItemLeft" align="right" valign="top">sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga5e45d9fb07a5f2948a46699792016731">pysycl::Device_Object::get_queue</a> ()</td></tr>
-<tr class="memdesc:ga5e45d9fb07a5f2948a46699792016731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Queue.  <br /></td></tr>
-<tr class="separator:ga5e45d9fb07a5f2948a46699792016731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga028cf4ee1e46e5d0949bcc0a55bc5eca"><td class="memItemLeft" align="right" valign="top">sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga028cf4ee1e46e5d0949bcc0a55bc5eca">pysycl::Device_Object::queue</a> ()</td></tr>
+<tr class="memdesc:ga028cf4ee1e46e5d0949bcc0a55bc5eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Queue.  <br /></td></tr>
+<tr class="separator:ga028cf4ee1e46e5d0949bcc0a55bc5eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3c642eee7143f48bbe6126f15096de16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga3c642eee7143f48bbe6126f15096de16">pysycl::Device_Object::Device_Object</a> (int platform_index=0, int device_index=0)</td></tr>
 <tr class="memdesc:ga3c642eee7143f48bbe6126f15096de16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that selects a SYCL device.  <br /></td></tr>
 <tr class="separator:ga3c642eee7143f48bbe6126f15096de16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -285,29 +285,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ga5e45d9fb07a5f2948a46699792016731" name="ga5e45d9fb07a5f2948a46699792016731"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5e45d9fb07a5f2948a46699792016731">&#9670;&#160;</a></span>get_queue() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sycl::queue pysycl::Device_Object::get_queue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return Queue. </p>
-
-<p class="definition">Definition at line <a class="el" href="_device___object_8h_source.html#l00113">113</a> of file <a class="el" href="_device___object_8h_source.html">Device_Object.h</a>.</p>
-
-</div>
-</div>
 <a id="ga00b26210f29a913df10ccb3b63c13fb5" name="ga00b26210f29a913df10ccb3b63c13fb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga00b26210f29a913df10ccb3b63c13fb5">&#9670;&#160;</a></span>get_queue() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00b26210f29a913df10ccb3b63c13fb5">&#9670;&#160;</a></span>get_queue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,6 +396,27 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ga028cf4ee1e46e5d0949bcc0a55bc5eca" name="ga028cf4ee1e46e5d0949bcc0a55bc5eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga028cf4ee1e46e5d0949bcc0a55bc5eca">&#9670;&#160;</a></span>queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sycl::queue pysycl::Device_Object::queue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return Queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="_device___object_8h_source.html#l00113">113</a> of file <a class="el" href="_device___object_8h_source.html">Device_Object.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga06b2ea6dbb5b715086dacabac6bfc052" name="ga06b2ea6dbb5b715086dacabac6bfc052"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga06b2ea6dbb5b715086dacabac6bfc052">&#9670;&#160;</a></span>sycl_device</h2>
@@ -449,7 +449,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jun 21 2023 18:26:52 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jul 1 2023 18:54:43 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

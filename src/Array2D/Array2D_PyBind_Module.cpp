@@ -23,6 +23,7 @@
 #include <pybind11/numpy.h>
 
 #include "Array2D_Object.h"
+#include "Array2D_Operations.h"
 #include "../Device/Device_Object.h"
 
 namespace py = pybind11;
@@ -67,6 +68,54 @@ PYBIND11_MODULE(array2D, m){
       py::arg("M"),
       py::arg("N"),
       py::arg("device"))
+    .def("get_rows", &pysycl::Array2D_Object::get_rows, R"delim(
+      Description
+        Get the number of rows in the array.
+
+      Parameters
+        None
+
+      Returns
+        int
+          Number of rows in the array.
+
+      Example
+        Copy
+        ----
+        >>> M = arr.get_rows()
+      )delim")
+    .def("get_columns", &pysycl::Array2D_Object::get_columns, R"delim(
+      Description
+        Get the number of columns in the array.
+
+      Parameters
+        None
+
+      Returns
+        int
+          Number of columns in the array.
+
+      Example
+        Copy
+        ----
+        >>> N = arr.get_columns()
+      )delim")
+    .def("get_device", &pysycl::Array2D_Object::get_device, R"delim(
+      Description
+        Get the SYCL device used for allocation and calculation.
+
+      Parameters
+        None
+
+      Returns
+        pysycl.device_object
+          SYCL device used for allocation and calculation.
+
+      Example
+        Copy
+        ----
+        >>> Q = arr.get_device()
+      )delim")
     .def("copy_device_to_host", &pysycl::Array2D_Object::copy_device_to_host, R"delim(
       Description
         Copies the data from the device to the host.
@@ -154,6 +203,26 @@ PYBIND11_MODULE(array2D, m){
       py::arg("value"),
       py::arg("i"),
       py::arg("j"))
+    .def("fill_random_host", &pysycl::Array2D_Object::fill_random_host, R"delim(
+      Description
+        Fills the array with random values.
+
+      Parameters
+        min : float
+          Minimum value for the random number generator.
+        max : float
+          Maximum value for the random number generator.
+
+      Returns
+        None
+
+      Example
+        Copy
+        ----
+        >>> arr.fill_random_host(-20.0, 10.0)
+      )delim",
+      py::arg("min"),
+      py::arg("max"))
     .def("sum_reduction", &pysycl::Array2D_Object::sum_reduction, R"delim(
       Description
         Sums the elements in the array.
@@ -202,6 +271,91 @@ PYBIND11_MODULE(array2D, m){
         ----
         >>> arr_max = arr.max_reduction()
       )delim");
+
+  /////////////////////////////////////////////////////////////////////
+  // Array2D_Operations functions
+  /////////////////////////////////////////////////////////////////////
+  m.def("add", &pysycl::add_Arrays2D, R"delim(
+    Description
+      Adds two arrays together.
+
+    Parameters
+      arr1 : pysycl.Array2D
+        First array to add.
+      arr2 : pysycl.Array2D
+        Second array to add.
+      A : float (Optional: Default = 1.0)
+        Weighting for the first array.
+      B : float (Optional: Default = 1.0)
+        Weighting for the second array.
+
+    Returns
+      pysycl.Array2D
+        Array containing the sum of the two input arrays.
+
+    Example
+      Copy
+      ----
+      >>> arr_sum = pysycl.add(arr1, arr2)
+
+    )delim",
+    py::arg("arr1"),
+    py::arg("arr2"),
+    py::arg("A") = 1.0,
+    py::arg("B") = 1.0)
+  .def("subtract", &pysycl::subtract_Arrays2D, R"delim(
+    Description
+      Subtracts two arrays.
+
+    Parameters
+      arr1 : pysycl.Array2D
+        First array to subtract.
+      arr2 : pysycl.Array2D
+        Second array to subtract.
+      A : float (Optional: Default = 1.0)
+        Weighting for the first array.
+      B : float (Optional: Default = 1.0)
+        Weighting for the second array.
+
+    Returns
+      pysycl.Array2D
+        Array containing the difference of the two input arrays.
+
+    Example
+      Copy
+      ----
+      >>> arr_diff = pysycl.subtract(arr1, arr2)
+
+    )delim",
+    py::arg("arr1"),
+    py::arg("arr2"),
+    py::arg("A") = 1.0,
+    py::arg("B") = 1.0)
+  .def("multiply", &pysycl::multiply_Arrays2D, R"delim(
+    Description
+      Multiplies two arrays together.
+
+    Parameters
+      arr1 : pysycl.Array2D
+        First array to multiply.
+      arr2 : pysycl.Array2D
+        Second array to multiply.
+      A : float (Optional: Default = 1.0)
+        Weighting for the array multiplication.
+
+    Returns
+      pysycl.Array2D
+        Array containing the product of the two input arrays.
+
+    Example
+      Copy
+      ----
+      >>> arr_prod = pysycl.multiply(arr1, arr2)
+
+    )delim",
+    py::arg("arr1"),
+    py::arg("arr2"),
+    py::arg("A") = 1.0);
 }
 
 #endif // #ifndef ARRAY2D_PYBIND_MODULE_H

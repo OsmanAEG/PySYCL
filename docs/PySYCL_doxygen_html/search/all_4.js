@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['math_0',['Math',['../group___math.html',1,'']]],
-  ['math_5ffunctions_2eh_1',['Math_Functions.h',['../_math___functions_8h.html',1,'']]],
-  ['multiply_5fconstant_2',['multiply_constant',['../group___vector.html#gad5398f3e58ff2b046da19346de06bb7b',1,'pysycl::Vector_Object']]],
-  ['multiply_5ffunction_3',['multiply_function',['../group___math.html#gab54eaad7760b2d4a262d702a22cca24c',1,'pysycl']]],
-  ['multiply_5fvector_4',['multiply_vector',['../group___vector.html#gad53ed051526f76e70b93d6d2db7bf096',1,'pysycl::Vector_Object']]]
+  ['get_5fcolumns_0',['get_columns',['../group___array2_d.html#ga6ef7f86f6d0378c5d709e8313a929db2',1,'pysycl::Array2D_Object']]],
+  ['get_5fhost_5fdata_1',['get_host_data',['../group___array2_d.html#ga3124554b3bdda2330e0b74e85b6049d9',1,'pysycl::Array2D_Object']]],
+  ['get_5fqueue_2',['get_queue',['../group___device.html#ga00b26210f29a913df10ccb3b63c13fb5',1,'pysycl']]],
+  ['get_5frows_3',['get_rows',['../group___array2_d.html#gae071fb7486c21d2366ede438b8feb060',1,'pysycl::Array2D_Object']]]
 ];
