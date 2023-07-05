@@ -1,5 +1,5 @@
-#ifndef SYCL_DEVICE_H
-#define SYCL_DEVICE_H
+#ifndef DEVICE_OBJECT_H
+#define DEVICE_OBJECT_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -15,7 +15,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 /// \file
-/// \brief SYCL device selection in PySYCL.
+/// \brief Device object for device selection in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -28,7 +28,7 @@
 namespace pysycl{
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Class representing a SYCL device.
+/// \brief Class representing a device object.
 class Device_Object {
 public:
   /////////////////////////////////////////////////////////////////////
@@ -66,6 +66,10 @@ public:
   sycl::queue queue() const;
 
   /////////////////////////////////////////////////////////////////////
+  /// \brief Wait for all queues to finish.
+  void wait();
+
+  /////////////////////////////////////////////////////////////////////
   /// \brief Constructor that selects a SYCL device.
   /// \param[in] platform_index Index of the sycl platform to select.
   /// \param[in] device_index Index of the sycl device to select.
@@ -90,28 +94,33 @@ public:
       throw std::runtime_error("device index out of range.");
     }
 
-    sycl_device = sycl::queue(devices[device_index]);
+    Q = sycl::queue(devices[device_index]);
   }
 
   private:
     /////////////////////////////////////////////////////////////////////
     /// \brief The selected sycl device.
-    sycl::queue sycl_device;
+    sycl::queue Q;
 };
 
 /////////////////////////////////////////////////////////////////////////
 std::string Device_Object::device_name() {
-  return sycl_device.get_device().get_info<sycl::info::device::name>();
+  return Q.get_device().get_info<sycl::info::device::name>();
 }
 
 /////////////////////////////////////////////////////////////////////////
 std::string Device_Object::device_vendor() {
-  return sycl_device.get_device().get_info<sycl::info::device::vendor>();
+  return Q.get_device().get_info<sycl::info::device::vendor>();
 }
 
 /////////////////////////////////////////////////////////////////////////
 sycl::queue Device_Object::queue() const {
-  return sycl_device;
+  return Q;
+}
+
+/////////////////////////////////////////////////////////////////////////
+void Device_Object::wait() {
+  Q.wait();
 }
 
 } // namespace pysycl

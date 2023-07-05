@@ -112,9 +112,9 @@ def subtract_test():
 # Time testing multiply
 ###############################################
 def multiply_test():
-	M = 8000
-	N = 7000
-	P = 6000
+	M = 800
+	N = 700
+	P = 600
 
 	Q = device.device_object(0, 0)
 
@@ -133,16 +133,24 @@ def multiply_test():
 
 	# test
 	start = time.time()
-	arr2D_3 = array2D.multiply(arr2D_1, arr2D_2)
+	arr2D_3 = array2D.matmul(arr2D_1, arr2D_2)
+	Q.wait()
 	end = time.time()
+
+	#arr2D_3.copy_device_to_host()
+	#result = arr2D_3.get_host_data()
+
+	#print(result)
 
 	print("Time to multiply array2D: ", end - start)
 
-	start = time.time()
-	np2D_3 = np.matmul(np2D_1, np2D_2)
-	end = time.time()
+	#start = time.time()
+	#np2D_3 = np.matmul(np2D_1, np2D_2)
+	#end = time.time()
 
-	print("Time to multiply numpy array: ", end - start)
+	#print(np2D_3)
+
+	#print("Time to multiply numpy array: ", end - start)
 
 ###############################################
 ###############################################

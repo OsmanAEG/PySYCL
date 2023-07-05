@@ -89,6 +89,21 @@ PYBIND11_MODULE(device, m){
         ----
         >>> print(device_obj.device_name())
         NVIDIA Corporation
+      )delim")
+      .def("wait", &pysycl::Device_Object::wait, R"delim(
+      Description
+        This function waits for the device to finish executing all submitted commands.
+
+      Parameters
+        None
+
+      Returns
+        None
+
+      Example
+        Copy
+        ----
+        >>> device_obj.wait()
       )delim");
 
   /////////////////////////////////////////////////////////////////////

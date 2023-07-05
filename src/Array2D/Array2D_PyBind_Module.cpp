@@ -331,7 +331,7 @@ PYBIND11_MODULE(array2D, m){
     py::arg("arr2"),
     py::arg("A") = 1.0,
     py::arg("B") = 1.0)
-  .def("multiply", &pysycl::multiply_Arrays2D, R"delim(
+  .def("matmul", &pysycl::matmul_Arrays2D, R"delim(
     Description
       Multiplies two arrays together.
 
@@ -350,7 +350,7 @@ PYBIND11_MODULE(array2D, m){
     Example
       Copy
       ----
-      >>> arr_prod = pysycl.multiply(arr1, arr2)
+      >>> arr_prod = pysycl.matmul(arr1, arr2)
 
     )delim",
     py::arg("arr1"),

@@ -8,7 +8,7 @@
 // distributed with this file.  A copy of this license is also
 // currently available at "http://opensource.org/licenses/MIT".
 //
-// Unless explicitly stated, all contributions intentionally submitted
+// Unless explicitly stated, all contributions size_tentionally submitted
 // to this project shall also be under the terms and conditions of this
 // license, without any additional terms or conditions.
 ///////////////////////////////////////////////////////////////////////
@@ -70,8 +70,8 @@ public:
   pysycl::Device_Object get_device() const { return device; }
 
   /////////////////////////////////////////////////////////////////////
-  /// \brief Get the pointer to the array on device.
-  /// \return Pointer to the array on device.
+  /// \brief Get the posize_ter to the array on device.
+  /// \return Posize_ter to the array on device.
   float* get_data_device() const { return data_device; }
 
   /////////////////////////////////////////////////////////////////////

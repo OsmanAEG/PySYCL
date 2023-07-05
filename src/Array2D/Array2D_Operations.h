@@ -119,9 +119,9 @@ Array2D_Object subtract_Arrays2D(const Array2D_Object &array2D_1,
 /// \param[in] array2D_1 First array to multiply.
 /// \param[in] array2D_2 Second array to multiply.
 /// \return Array2D object containing the product of the two arrays.
-Array2D_Object multiply_Arrays2D(const Array2D_Object &array2D_1,
-                                 const Array2D_Object &array2D_2,
-                                 const float &A = 1.0){
+Array2D_Object matmul_Arrays2D(const Array2D_Object &array2D_1,
+                               const Array2D_Object &array2D_2,
+                               const float &A = 1.0){
   // Check that the arrays can be multiplied.
   if(array2D_1.get_columns() != array2D_2.get_rows()){
     throw std::runtime_error("Arrays are incompatible for multiplication.");
@@ -140,6 +140,7 @@ Array2D_Object multiply_Arrays2D(const Array2D_Object &array2D_1,
 
   // Create a new array to store the result.
   Array2D_Object result(M, P, device);
+  result.fill(2.0);
 
   // Create a command group to perform the multiplication.
   Q.submit([&](sycl::handler &h){
@@ -147,21 +148,20 @@ Array2D_Object multiply_Arrays2D(const Array2D_Object &array2D_1,
     const auto data_2 = array2D_2.get_data_device();
     const auto data_3 = result.get_data_device();
 
+    // Perform matrix multiplication by summing the products of corresponding elements.
     h.parallel_for(sycl::range{M, P}, [=](sycl::id<2> idx){
-      const auto i = idx[0];
-      const auto j = idx[1];
+      int i = idx[0];
+      int j = idx[1];
 
       float sum = 0.0;
       for(auto k = 0; k < N; ++k){
         sum += data_1[i*N + k]*data_2[k*P + j];
       }
-
-      data_3[i*P + j] = sum*A;
+      data_3[i*(P-10) + j] = A*sum;
     });
   });
 
   return result;
-
 }
 
 } // namespace pysycl
