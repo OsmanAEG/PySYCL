@@ -1,13 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "acdfgmnopqs",
+  0: "acdfgmnopqsw",
   1: "ad",
   2: "p",
   3: "ad",
-  4: "acdfgmopqs",
-  5: "dmnqs",
-  6: "ad",
-  7: "p"
+  4: "acdfgmopqsw",
+  5: "dmnq",
+  6: "ad"
 };
 
 var indexSectionNames =
@@ -18,8 +17,7 @@ var indexSectionNames =
   3: "files",
   4: "functions",
   5: "variables",
-  6: "groups",
-  7: "pages"
+  6: "groups"
 };
 
 var indexSectionLabels =
@@ -30,7 +28,6 @@ var indexSectionLabels =
   3: "Files",
   4: "Functions",
   5: "Variables",
-  6: "Modules",
-  7: "Pages"
+  6: "Modules"
 };
 

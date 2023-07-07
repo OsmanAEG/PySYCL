@@ -22,8 +22,7 @@
 #include <pybind11/stl.h>
 #include <pybind11/numpy.h>
 
-#include "Array2D_Object.h"
-#include "Array2D_Operations.h"
+#include "Array2D_Explicit.h"
 #include "../Device/Device_Object.h"
 
 namespace py = pybind11;
@@ -31,331 +30,173 @@ namespace py = pybind11;
 PYBIND11_MODULE(array2D, m){
   m.doc() = R"delim(
     Array2D module in PySYCL
-      This module contains the Array2D class for use in PySYCL.
+      This module contains the classes and functions that pertain to the
+      creation of PySYCL 2D array objects and their manipulation.
   )delim";
 
-  /////////////////////////////////////////////////////////////////////
-  // Array2D class and functions
-  /////////////////////////////////////////////////////////////////////
-  py::class_<pysycl::Array2D_Object>(m, "array2D_object", R"delim(
+  /////////////////////////////////////////////////////////////////////////////
+  // Array2D_Explicit class and functions
+  /////////////////////////////////////////////////////////////////////////////
+  py::class_<pysycl::Array2D_Explicit>(m, "array2D_explicit", R"delim(
     Description
-      This class creates a PySYCL Array2D object.
+      This class is used to create a 2D array object in PySYCL. It is the
+      explicit version of the Array2D class, meaning that the user has to
+      explicitly move data between the host and device.
+  )delim")
+  .def(py::init<int, int, pysycl::Device_Object>(), R"delim(
+    Description
+      Constructor for the Array2D_Explicit class.
+
+    Constructor Parameters
+      rows : int
+        Number of rows in the array.
+      cols : int
+        Number of columns in the array.
+      device : pysycl.device.device_object
+        SYCL device object to use for allocation and manipulation.
+
+    Returns
+      array2D_explicit
+        array2D_explicity object in pysycl.array2D.
+
+    Example
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+    )delim",
+    py::arg("rows"),
+    py::arg("cols"),
+    py::arg("device"))
+  .def("number_of_rows", &pysycl::Array2D_Explicit::number_of_rows, R"delim(
+    Description
+      Get the number of rows in the array.
+
+    Parameters
+      None
+
+    Returns
+      int
+        Number of rows in the array.
+
+    Example
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> arr2D.get_rows()
+      10
     )delim")
-    .def(py::init<int, int, pysycl::Device_Object>(), R"delim(
-      Description
-        Constructor that creates an Array2D object in PySYCL.
-
-      Constructor Parameters
-        M : int
-          Number of rows in the array.
-        N : int
-          Number of columns in the array.
-        device : pysycl.device_object
-          SYCL device to use for allocation and calculation.
-
-      Returns
-        Array2D
-          Array2D object in PySYCL.
-
-      Example
-        Copy
-        ----
-        >>> from pysycl import device
-        >>> from pysycl import array2D
-        >>> Q = device.device_object()
-        >>> arr = array2D.array2D(10, 8, Q)
-      )delim",
-      py::arg("M"),
-      py::arg("N"),
-      py::arg("device"))
-    .def("get_rows", &pysycl::Array2D_Object::get_rows, R"delim(
-      Description
-        Get the number of rows in the array.
-
-      Parameters
-        None
-
-      Returns
-        int
-          Number of rows in the array.
-
-      Example
-        Copy
-        ----
-        >>> M = arr.get_rows()
-      )delim")
-    .def("get_columns", &pysycl::Array2D_Object::get_columns, R"delim(
-      Description
-        Get the number of columns in the array.
-
-      Parameters
-        None
-
-      Returns
-        int
-          Number of columns in the array.
-
-      Example
-        Copy
-        ----
-        >>> N = arr.get_columns()
-      )delim")
-    .def("get_device", &pysycl::Array2D_Object::get_device, R"delim(
-      Description
-        Get the SYCL device used for allocation and calculation.
-
-      Parameters
-        None
-
-      Returns
-        pysycl.device_object
-          SYCL device used for allocation and calculation.
-
-      Example
-        Copy
-        ----
-        >>> Q = arr.get_device()
-      )delim")
-    .def("copy_device_to_host", &pysycl::Array2D_Object::copy_device_to_host, R"delim(
-      Description
-        Copies the data from the device to the host.
-
-      Parameters
-        None
-
-      Returns
-        None
-
-      Example
-        Copy
-        ----
-        >>> arr.copy_device_to_host()
-      )delim")
-    .def("copy_host_to_device", &pysycl::Array2D_Object::copy_host_to_device, R"delim(
-      Description
-        Copies the data from the host to the device.
-
-      Parameters
-        None
-
-      Returns
-        None
-
-      Example
-        Copy
-        ----
-        >>> arr.copy_host_to_device()
-      )delim")
-    .def("get_host_data", &pysycl::Array2D_Object::get_host_data, R"delim(
-      Description
-        Returns the host data as a numpy array.
-
-      Parameters
-        None
-
-      Returns
-        numpy.ndarray
-          Numpy array containing the host data.
-
-      Example
-        Copy
-        ----
-        >>> arr.copy_device_to_host()
-        >>> py_arr = arr.get_host_data()
-      )delim")
-    .def("fill", &pysycl::Array2D_Object::fill, R"delim(
-      Description
-        Fills the array with a given value.
-
-      Parameters
-        value : float
-          Value to fill the array with.
-
-      Returns
-        None
-
-      Example
-        Copy
-        ----
-        >>> arr.fill(5.0)
-      )delim",
-      py::arg("value"))
-    .def("fill_element_host", &pysycl::Array2D_Object::fill_element_host, R"delim(
-      Description
-        Fills a single element in the array with a given value.
-
-      Parameters
-        i : int
-          Row index of the element to fill.
-        j : int
-          Column index of the element to fill.
-        value : float
-          Value to fill the array with.
-
-      Returns
-        None
-
-      Example
-        Copy
-        ----
-        >>> arr.fill_element_host(6, 4, 8.0)
-      )delim",
-      py::arg("value"),
-      py::arg("i"),
-      py::arg("j"))
-    .def("fill_random_host", &pysycl::Array2D_Object::fill_random_host, R"delim(
-      Description
-        Fills the array with random values.
-
-      Parameters
-        min : float
-          Minimum value for the random number generator.
-        max : float
-          Maximum value for the random number generator.
-
-      Returns
-        None
-
-      Example
-        Copy
-        ----
-        >>> arr.fill_random_host(-20.0, 10.0)
-      )delim",
-      py::arg("min"),
-      py::arg("max"))
-    .def("sum_reduction", &pysycl::Array2D_Object::sum_reduction, R"delim(
-      Description
-        Sums the elements in the array.
-
-      Parameters
-        None
-
-      Returns
-        float
-          Sum of the elements in the array.
-
-      Example
-        Copy
-        ----
-        >>> arr_sum = arr.sum_reduction()
-      )delim")
-    .def("min_reduction", &pysycl::Array2D_Object::min_reduction, R"delim(
-      Description
-        Finds the minimum value in the array.
-
-      Parameters
-        None
-
-      Returns
-        float
-          Minimum value in the array.
-
-      Example
-        Copy
-        ----
-        >>> arr_min = arr.min_reduction()
-      )delim")
-    .def("max_reduction", &pysycl::Array2D_Object::max_reduction, R"delim(
-      Description
-        Finds the maximum value in the array.
-
-      Parameters
-        None
-
-      Returns
-        float
-          Maximum value in the array.
-
-      Example
-        Copy
-        ----
-        >>> arr_max = arr.max_reduction()
-      )delim");
-
-  /////////////////////////////////////////////////////////////////////
-  // Array2D_Operations functions
-  /////////////////////////////////////////////////////////////////////
-  m.def("add", &pysycl::add_Arrays2D, R"delim(
+  .def("number_of_cols", &pysycl::Array2D_Explicit::number_of_cols, R"delim(
     Description
-      Adds two arrays together.
+      Get the number of columns in the array.
 
     Parameters
-      arr1 : pysycl.Array2D
-        First array to add.
-      arr2 : pysycl.Array2D
-        Second array to add.
-      A : float (Optional: Default = 1.0)
-        Weighting for the first array.
-      B : float (Optional: Default = 1.0)
-        Weighting for the second array.
+      None
 
     Returns
-      pysycl.Array2D
-        Array containing the sum of the two input arrays.
+      int
+        Number of columns in the array.
 
     Example
       Copy
       ----
-      >>> arr_sum = pysycl.add(arr1, arr2)
-
-    )delim",
-    py::arg("arr1"),
-    py::arg("arr2"),
-    py::arg("A") = 1.0,
-    py::arg("B") = 1.0)
-  .def("subtract", &pysycl::subtract_Arrays2D, R"delim(
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> arr2D.get_cols()
+      8
+    )delim")
+  .def("get_device", &pysycl::Array2D_Explicit::get_device, R"delim(
     Description
-      Subtracts two arrays.
+      Get the SYCL device object associated with the array.
 
     Parameters
-      arr1 : pysycl.Array2D
-        First array to subtract.
-      arr2 : pysycl.Array2D
-        Second array to subtract.
-      A : float (Optional: Default = 1.0)
-        Weighting for the first array.
-      B : float (Optional: Default = 1.0)
-        Weighting for the second array.
+      None
 
     Returns
-      pysycl.Array2D
-        Array containing the difference of the two input arrays.
+      pysycl.device.device_object
+        SYCL device object associated with the array.
 
     Example
       Copy
       ----
-      >>> arr_diff = pysycl.subtract(arr1, arr2)
-
-    )delim",
-    py::arg("arr1"),
-    py::arg("arr2"),
-    py::arg("A") = 1.0,
-    py::arg("B") = 1.0)
-  .def("matmul", &pysycl::matmul_Arrays2D, R"delim(
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> Q_arr2D = arr2D.get_device()
+    )delim")
+  .def("copy_host_to_device", &pysycl::Array2D_Explicit::copy_host_to_device, R"delim(
     Description
-      Multiplies two arrays together.
+      Copy the host array to the device array.
 
     Parameters
-      arr1 : pysycl.Array2D
-        First array to multiply.
-      arr2 : pysycl.Array2D
-        Second array to multiply.
-      A : float (Optional: Default = 1.0)
-        Weighting for the array multiplication.
+      None
 
     Returns
-      pysycl.Array2D
-        Array containing the product of the two input arrays.
+      None
 
     Example
       Copy
       ----
-      >>> arr_prod = pysycl.matmul(arr1, arr2)
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> arr2D.copy_host_to_device()
+    )delim")
+  .def("copy_device_to_host", &pysycl::Array2D_Explicit::copy_device_to_host, R"delim(
+    Description
+      Copy the device array to the host array.
 
+    Parameters
+      None
+
+    Returns
+      None
+
+    Example
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> arr2D.copy_device_to_host()
+    )delim")
+  .def("set_host_value", &pysycl::Array2D_Explicit::set_host_value, R"delim(
+    Description
+      Set the value of an element in the host array.
+
+    Parameters
+      row : int
+        Row index of the element to set.
+      col : int
+        Column index of the element to set.
+      value : float
+        Value to set the element to.
+
+    Returns
+      None
+
+    Example
+      Copy
+      ----
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D = array2D.array2D_explicit(10, 8, Q)
+      >>> arr2D.set_host_value(2, 3, 5.0)
     )delim",
-    py::arg("arr1"),
-    py::arg("arr2"),
-    py::arg("A") = 1.0);
+    py::arg("row"),
+    py::arg("col"),
+    py::arg("value"));
 }
 
-#endif // #ifndef ARRAY2D_PYBIND_MODULE_H
+#endif // ARRAY2D_PYBIND_MODULE_H

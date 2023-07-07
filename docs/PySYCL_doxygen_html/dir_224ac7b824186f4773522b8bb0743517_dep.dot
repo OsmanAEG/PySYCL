@@ -1,12 +1,9 @@
-digraph "Array2D"
-{
- // INTERACTIVE_SVG=YES
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
-  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+digraph "Array2D" {
+  bgcolor=transparent;
   compound=true
-  dir_224ac7b824186f4773522b8bb0743517 [label="Array2D", fillcolor="#f5e8eb", color="grey25", style="filled,bold", URL="dir_224ac7b824186f4773522b8bb0743517.html",tooltip=""];
-  dir_737e998198a830156af4433d00da986d [label="Device", fillcolor="#f5e8eb", color="grey25", style="filled", URL="dir_737e998198a830156af4433d00da986d.html",tooltip=""];
-  dir_224ac7b824186f4773522b8bb0743517->dir_737e998198a830156af4433d00da986d [headlabel="3", labeldistance=1.5 headhref="dir_000000_000001.html" color="steelblue1" fontcolor="steelblue1"];
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_224ac7b824186f4773522b8bb0743517 [shape=box, label="Array2D", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_224ac7b824186f4773522b8bb0743517.html"];
+  dir_737e998198a830156af4433d00da986d [shape=box label="Device" URL="dir_737e998198a830156af4433d00da986d.html"];
+  dir_224ac7b824186f4773522b8bb0743517->dir_737e998198a830156af4433d00da986d [headlabel="3", labeldistance=1.5 headhref="dir_000001_000002.html"];
 }
