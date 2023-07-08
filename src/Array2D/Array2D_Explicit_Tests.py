@@ -104,7 +104,7 @@ class TestArray2D_Explicit(unittest.TestCase):
     Q = device.device_object(0, 0)
 
     ###########################################################
-    # Test Array2D_Explicit init (return value tests)
+    # Test Array2D_Explicit init (return rows tests)
     #   The following tests should pass
     try:
       A = self.array2D_explicit_init(100, 100, Q)
@@ -135,7 +135,7 @@ class TestArray2D_Explicit(unittest.TestCase):
     Q = device.device_object(0, 0)
 
     ###########################################################
-    # Test Array2D_Explicit init (return value tests)
+    # Test Array2D_Explicit init (return cols tests)
     #   The following tests should pass
     try:
       A = self.array2D_explicit_init(100, 100, Q)
@@ -155,15 +155,115 @@ class TestArray2D_Explicit(unittest.TestCase):
 
   def test_array2D_explicit_get_device(self):
     print("\nTESTING THE ARRAY2D_EXPLICIT GET DEVICE")
+    """
+    Test Array2D_Explicit get_device
+    :returns: None
+    :raises: AssertionError
+    """
+
+    ###########################################################
+    # Device for testing
+    Q = device.device_object(0, 0)
+    Q_name = Q.device_name()
+
+    ###########################################################
+    # Test Array2D_Explicit i (return device tests)
+    #   The following tests should pass
     try:
-      Q = device.device_object(0, 0)
-      Q_name = Q.device_name()
       A = self.array2D_explicit_init(100, 100, Q)
-      self.assertEqual(A.get_device().device_name(), Q.device_name())
+      A_Q_name = A.get_device().device_name()
+      self.assertEqual(A_Q_name, Q_name)
     except:
       raise AssertionError("Array2D_Explicit failed to return device correctly.")
 
-  def test_array2D_explicit_get_value(self):
+  def test_array2D_explicit_data_movement(self):
+    print("\nTESTING THE ARRAY2D_EXPLICIT DATA MOVEMENT")
+    """
+    Test Array2D_Explicit data movement
+    :returns: None
+    :raises: AssertionError
+    """
+
+    ###########################################################
+    # Device for testing
+    Q = device.device_object(0, 0)
+
+    ###########################################################
+    # Test Array2D_Explicit data movement
+    #   The following tests should pass
+    try:
+      A = self.array2D_explicit_init(100, 100, Q)
+      A.copy_host_to_device()
+    except:
+      raise AssertionError("Array2D_Explicit failed to copy host to device.")
+
+    try:
+      A = self.array2D_explicit_init(100, 100, Q)
+      A.copy_device_to_host()
+    except:
+      raise AssertionError("Array2D_Explicit failed to copy device to host.")
+
+  def test_array2D_explicit_set_return(self):
+    print("\nTESTING THE ARRAY2D_EXPLICIT SET AND GET")
+    """
+    Test Array2D_Explicit set and get
+    :returns: None
+    :raises: AssertionError
+    """
+
+    ###########################################################
+    # Device for testing
+    Q = device.device_object(0, 0)
+
+    ###########################################################
+    # Test Array2D_Explicit set and get
+    #   The following tests should pass
+    try:
+      A = self.array2D_explicit_init(100, 100, Q)
+      A.set_host_value(10, 10, 1)
+      A_py_ij = A.get_host_value(10, 10)
+      self.assertEqual(A_py_ij, 1)
+    except:
+      raise AssertionError("Array2D_Explicit failed to set and get correctly.")
+
+    try:
+      A = self.array2D_explicit_init(78, 34, Q)
+      A.set_host_value(12, 19, -1.83)
+      A_py_ij = A.get_host_value(12, 19)
+      self.assertAlmostEqual(A_py_ij, -1.83)
+    except:
+      raise AssertionError("Array2D_Explicit failed to set and get correctly.")
+
+  def test_array2D_explicit_set_return(self):
+    print("\nTESTING THE ARRAY2D_EXPLICIT SET AND RETURN")
+    """
+    Test Array2D_Explicit set and return
+    :returns: None
+    :raises: AssertionError
+    """
+
+    ###########################################################
+    # Device for testing
+    Q = device.device_object(0, 0)
+
+    ###########################################################
+    # Test Array2D_Explicit set and return
+    #   The following tests should pass
+    try:
+      A = self.array2D_explicit_init(100, 100, Q)
+      A.set_host_value(10, 10, 1)
+      A_py = A.get_host_data()
+      self.assertEqual(A_py[10][10], 1)
+    except:
+      raise AssertionError("Array2D_Explicit failed to set and return correctly.")
+
+    try:
+      A = self.array2D_explicit_init(78, 34, Q)
+      A.set_host_value(12, 19, -1.83)
+      A_py = A.get_host_data()
+      self.assertAlmostEqual(A_py[12][19], -1.83)
+    except:
+      raise AssertionError("Array2D_Explicit failed to set and return correctly.")
 
 if __name__ == '__main__':
   unittest.main()

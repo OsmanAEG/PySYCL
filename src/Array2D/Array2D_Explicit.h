@@ -105,6 +105,23 @@ public:
   /// \param[in] value Value to set the element to.
   void set_host_value(int row, int col, float value);
 
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get the value of an element in the array on the host.
+  /// \param[in] row Row index of the element to get.
+  /// \param[in] col Column index of the element to get.
+  /// \return Value of the element.
+  float get_host_value(int row, int col) const;
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Return host data as a 2D vector.
+  /// \return Host data as a 2D vector.
+  std::vector<std::vector<float>> get_host_data() const;
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get data pointer on the device.
+  /// \return Data pointer on the device.
+  float* get_data_ptr() const{return device_data;}
+
 private:
   /////////////////////////////////////////////////////////////////////
   /// \brief Number of rows in the array.
@@ -172,7 +189,33 @@ void pysycl::Array2D_Explicit::copy_device_to_host() {
 void pysycl::Array2D_Explicit::set_host_value(int row,
                                               int col,
                                               float value) {
+  if(row < 0 || row >= rows || col < 0 || col >= cols){
+    throw std::runtime_error("Array2D_Explicit: row or col out of bounds");
+  }
   host_data[row*cols + col] = value;
+}
+
+///////////////////////////////////////////////////////////////////////
+// Get the value of an element in the array on the host.
+float pysycl::Array2D_Explicit::get_host_value(int row, int col) const {
+  if(row < 0 || row >= rows || col < 0 || col >= cols){
+    throw std::runtime_error("Array2D_Explicit: row or col out of bounds");
+  }
+  return host_data[row*cols + col];
+}
+
+///////////////////////////////////////////////////////////////////////
+// Return host data as a 2D vector.
+std::vector<std::vector<float>> pysycl::Array2D_Explicit::get_host_data() const {
+  std::vector<std::vector<float>> host_data_2d(rows, std::vector<float>(cols));
+
+  for(int i = 0; i < rows; i++){
+    for(int j = 0; j < cols; j++){
+      host_data_2d[i][j] = host_data[i*cols + j];
+    }
+  }
+
+  return host_data_2d;
 }
 
 #endif // ARRAY2D_EXPLICIT_H

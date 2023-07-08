@@ -8,6 +8,7 @@ sys.path.insert(1, '../../../build/')
 from pysycl import device
 from pysycl import array2D
 import numpy as np
+import random
 import time
 
 ###############################################
@@ -15,7 +16,7 @@ import time
 ###############################################
 def fill_test():
 	# set up
-	M = 10000
+	'''M = 10000
 	N = 10000
 
 	Q = device.device_object(0, 0)
@@ -160,4 +161,33 @@ def multiply_test():
 #fill_test()
 #add_test()
 #subtract_test()
-multiply_test()
+multiply_test()'''
+
+M = 5
+N = 3
+
+Q = device.device_object(0, 0)
+
+arr2D_1 = array2D.array2D_shared(M, N, Q)
+arr2D_2 = array2D.array2D_shared(M, N, Q)
+
+np2D_1 = np.zeros((M, N))
+np2D_2 = np.zeros((M, N))
+
+for i in range(M):
+  for j in range(N):
+    rand1 = random.uniform(0.0, 100.0)
+    rand2 = random.uniform(0.0, 100.0)
+
+    arr2D_1.set_value(i, j, rand1)
+    arr2D_2.set_value(i, j, rand2)
+
+    np2D_1[i][j] = rand1
+    np2D_2[i][j] = rand2
+
+arr2D_r = array2D.add_array2D(arr2D_1, arr2D_2)
+A_r_np  = np2D_1 + np2D_2
+
+A_r_sycl = arr2D_r.get_data()
+
+
