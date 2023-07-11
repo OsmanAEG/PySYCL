@@ -188,6 +188,7 @@ for i in range(M):
 arr2D_r = array2D.add_array2D(arr2D_1, arr2D_2)
 A_r_np  = np2D_1 + np2D_2
 
+Q.wait()
 A_r_sycl = arr2D_r.get_data()
 
 
