@@ -24,6 +24,7 @@
 #include <vector>
 
 #include "../Device/Device_Object.h"
+#include "../Math/Math_Functions.h"
 #include "Array2D_Explicit.h"
 #include "Array2D_Shared.h"
 
@@ -32,17 +33,19 @@
 /// @{
 namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
-/// \brief Add two Array2D objects together.
-/// \param[in] arr2D_1 First Array2D to add.
-/// \param[in] arr2D_2 Second Array2D to add.
+/// \brief Array2D-Array2D - element-wise operation.
+/// \param[in] arr2D_1 First Array2D for operation.
+/// \param[in] arr2D_2 Second Array2D for operation.
+/// \param[in] op The operation to perform.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
-/// \return The result of the addition.
-template <typename Array2D_type>
-Array2D_type add_Array2D(const Array2D_type &arr2D_1,
-                         const Array2D_type &arr2D_2,
-                         const float &A = 1.0f,
-                         const float &B = 1.0f) {
+/// \return The result of the operation.
+template <typename Array2D_type, typename Operation_type>
+Array2D_type Array2D_Element_Wise_Operation(const Array2D_type &arr2D_1,
+                                            const Array2D_type &arr2D_2,
+                                            const Operation_type &op,
+                                            const float &A = 1.0f,
+                                            const float &B = 1.0f) {
   // Check that the two arrays are the same size
   if (arr2D_1.number_of_rows() != arr2D_2.number_of_rows() ||
       arr2D_1.number_of_cols() != arr2D_2.number_of_cols()) {
@@ -73,13 +76,76 @@ Array2D_type add_Array2D(const Array2D_type &arr2D_1,
       int i = idx[0];
       int j = idx[1];
 
-      data_r[i*cols + j] = A*data_1[i*cols + j] + B*data_2[i*cols + j];
+      data_r[i*cols + j] = op(A*data_1[i*cols + j], B*data_2[i*cols + j]);
     });
   });
 
   return result;
 }
 
+///////////////////////////////////////////////////////////////////////
+/// \brief Add two Array2D objects together.
+/// \param[in] arr2D_1 First Array2D to add.
+/// \param[in] arr2D_2 Second Array2D to add.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \return The result of the addition.
+template <typename Array2D_type>
+Array2D_type add_el_Array2D(const Array2D_type &arr2D_1,
+                            const Array2D_type &arr2D_2,
+                            const float &A = 1.0f,
+                            const float &B = 1.0f) {
+  auto function = pysycl::add_function<float>();
+  return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
+}
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Add two Array2D objects together.
+/// \param[in] arr2D_1 First Array2D to add.
+/// \param[in] arr2D_2 Second Array2D to add.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \return The result of the addition.
+template <typename Array2D_type>
+Array2D_type subtract_el_Array2D(const Array2D_type &arr2D_1,
+                                 const Array2D_type &arr2D_2,
+                                 const float &A = 1.0f,
+                                 const float &B = 1.0f) {
+  auto function = pysycl::subtract_function<float>();
+  return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
+}
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Add two Array2D objects together.
+/// \param[in] arr2D_1 First Array2D to add.
+/// \param[in] arr2D_2 Second Array2D to add.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \return The result of the addition.
+template <typename Array2D_type>
+Array2D_type multiply_el_Array2D(const Array2D_type &arr2D_1,
+                                 const Array2D_type &arr2D_2,
+                                 const float &A = 1.0f,
+                                 const float &B = 1.0f) {
+  auto function = pysycl::multiply_function<float>();
+  return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
+}
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Add two Array2D objects together.
+/// \param[in] arr2D_1 First Array2D to add.
+/// \param[in] arr2D_2 Second Array2D to add.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \return The result of the addition.
+template <typename Array2D_type>
+Array2D_type divide_el_Array2D(const Array2D_type &arr2D_1,
+                               const Array2D_type &arr2D_2,
+                               const float &A = 1.0f,
+                               const float &B = 1.0f) {
+  auto function = pysycl::divide_function<float>();
+  return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
+}
 /// @} end "Array2D" doxygen group
 } // namespace pysycl
 

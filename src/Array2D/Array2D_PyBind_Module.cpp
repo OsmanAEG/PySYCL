@@ -450,7 +450,11 @@ PYBIND11_MODULE(array2D, m){
   /////////////////////////////////////////////////////////////////////////////
   // Array2D Operational functions
   /////////////////////////////////////////////////////////////////////////////
-  m.def("add_array2D", &pysycl::add_Array2D<Array2D_Explicit_type>, R"delim(
+
+  /////// Element-wise functions //////////////////////////////////////////////
+
+  // Add two 2D arrays together (basic)
+  m.def("add_el_array2D", &pysycl::add_el_Array2D<Array2D_Explicit_type>, R"delim(
     Description
       Add two 2D arrays together.
 
@@ -475,17 +479,146 @@ PYBIND11_MODULE(array2D, m){
       >>> from pysycl import device
       >>> from pysycl import array2D
       >>> Q = device.device_object()
-      >>> arr2D_1 = array2D.add_array2D(10, 8, Q)
-      >>> arr2D_2 = array2D.add_array2D(10, 8, Q)
-      >>> arr2D_3 = array2D.add_array2D(arr2D_1, arr2D_2)
+      >>> arr2D_1 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_2 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_3 = array2D.add_el_array2D(arr2D_1, arr2D_2)
     )delim",
     py::arg("arr2D_1"),
     py::arg("arr2D_2"),
     py::arg("A") = 1.0f,
     py::arg("B") = 1.0f);
 
-  m.def("add_array2D", &pysycl::add_Array2D<Array2D_Shared_type>, R"delim(
+  m.def("add_el_array2D", &pysycl::add_el_Array2D<Array2D_Shared_type>, R"delim(
     add_array2D: shared version.
+  )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  // Subtract two 2D arrays together (basic)
+  m.def("subtract_el_array2D", &pysycl::subtract_el_Array2D<Array2D_Explicit_type>, R"delim(
+    Description
+      Subtract two 2D arrays together.
+
+    Parameters
+      arr2D_1 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        First array to subtract.
+      arr2D_2 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Second array to subtract.
+      A : float (optional)
+        Scalar value to multiply the first array by.
+      B : float (optional)
+        Scalar value to multiply the second array by.
+
+    Returns
+      pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Array containing the result of the subtraction.
+
+    Example
+      Copy
+      ----
+      >>> import numpy as np
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D_1 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_2 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_3 = array2D.subtract_el_array2D(arr2D_1, arr2D_2)
+    )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  m.def("subtract_el_array2D", &pysycl::subtract_el_Array2D<Array2D_Shared_type>, R"delim(
+    subtract_array2D: shared version.
+  )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  // Multiply two 2D arrays together (basic)
+  m.def("multiply_el_array2D", &pysycl::multiply_el_Array2D<Array2D_Explicit_type>, R"delim(
+    Description
+      Multiply two 2D arrays together.
+
+    Parameters
+      arr2D_1 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        First array to multiply.
+      arr2D_2 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Second array to multiply.
+      A : float (optional)
+        Scalar value to multiply the first array by.
+      B : float (optional)
+        Scalar value to multiply the second array by.
+
+    Returns
+      pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Array containing the result of the multiply.
+
+    Example
+      Copy
+      ----
+      >>> import numpy as np
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D_1 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_2 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_3 = array2D.multiply_el_array2D(arr2D_1, arr2D_2)
+    )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  m.def("multiply_el_array2D", &pysycl::multiply_el_Array2D<Array2D_Shared_type>, R"delim(
+    multiply_array2D: shared version.
+  )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  // Divide two 2D arrays together (basic)
+  m.def("divide_el_array2D", &pysycl::divide_el_Array2D<Array2D_Explicit_type>, R"delim(
+    Description
+      Divide two 2D arrays together.
+
+    Parameters
+      arr2D_1 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        First array to divide.
+      arr2D_2 : pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Second array to divide.
+      A : float (optional)
+        Scalar value to divide the first array by.
+      B : float (optional)
+        Scalar value to divide the second array by.
+
+    Returns
+      pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared
+        Array containing the result of the divide.
+
+    Example
+      Copy
+      ----
+      >>> import numpy as np
+      >>> from pysycl import device
+      >>> from pysycl import array2D
+      >>> Q = device.device_object()
+      >>> arr2D_1 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_2 = array2D.array2D_shared(10, 8, Q)
+      >>> arr2D_3 = array2D.divide_el_array2D(arr2D_1, arr2D_2)
+    )delim",
+    py::arg("arr2D_1"),
+    py::arg("arr2D_2"),
+    py::arg("A") = 1.0f,
+    py::arg("B") = 1.0f);
+
+  m.def("divide_el_array2D", &pysycl::divide_el_Array2D<Array2D_Shared_type>, R"delim(
+    divide_array2D: shared version.
   )delim",
     py::arg("arr2D_1"),
     py::arg("arr2D_2"),
