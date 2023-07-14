@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['m_28',['M',['../group___array2_d.html#ga19072bbea575653b6701ac0aca727959',1,'pysycl::Array2D_Object']]],
-  ['matmul_5farrays2d_29',['matmul_Arrays2D',['../group___array2_d.html#ga7754b8d69a94d4a4dbc2af9ed37a52f6',1,'pysycl']]],
-  ['max_5freduction_30',['max_reduction',['../group___array2_d.html#ga9348078b38e98f0c385fe68b3cab3d23',1,'pysycl::Array2D_Object']]],
-  ['min_5freduction_31',['min_reduction',['../group___array2_d.html#ga5315cd33e0f5bac366ec424343bb2936',1,'pysycl::Array2D_Object']]]
+  ['math_40',['Math',['../group___math.html',1,'']]],
+  ['math_5ffunctions_2eh_41',['Math_Functions.h',['../_math___functions_8h.html',1,'']]],
+  ['multiply_5farray2d_42',['multiply_Array2D',['../group___array2_d.html#ga078c4f6faf5038439de0e55c8ae95a8c',1,'pysycl']]],
+  ['multiply_5ffunction_43',['multiply_function',['../namespacepysycl.html#ab54eaad7760b2d4a262d702a22cca24c',1,'pysycl']]]
 ];

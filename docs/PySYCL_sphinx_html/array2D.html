@@ -200,80 +200,105 @@
           <section id="module-pysycl.array2D">
 <span id="pysycl-array2d-sub-module"></span><h1>PySYCL: Array2D Sub-Module<a class="headerlink" href="#module-pysycl.array2D" title="Permalink to this heading">#</a></h1>
 <dl class="simple">
-<dt>Array2D module in PySYCL</dt><dd><p>This module contains the Array2D class for use in PySYCL.</p>
+<dt>Array2D module for PySYCL</dt><dd><p>This module provides classes and functions for creating and
+manipulating 2D arrays in PySYCL.</p>
 </dd>
 </dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pysycl.array2D.add">
-<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.add" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Adds two arrays together.</p>
+<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>add(arr2D_1: pysycl.array2D.array2D_explicit, arr2D_2: pysycl.array2D.array2D_explicit, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_explicit</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Add two 2D arrays together.</p>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
-<dt>arr1<span class="classifier">pysycl.Array2D</span></dt><dd><p>First array to add.</p>
+<dt>arr2D_1<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>First array to add.</p>
 </dd>
-<dt>arr2<span class="classifier">pysycl.Array2D</span></dt><dd><p>Second array to add.</p>
+<dt>arr2D_2<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>Second array to add.</p>
 </dd>
-<dt>A<span class="classifier">float (Optional: Default = 1.0)</span></dt><dd><p>Weighting for the first array.</p>
+<dt>A<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the first array by.</p>
 </dd>
-<dt>B<span class="classifier">float (Optional: Default = 1.0)</span></dt><dd><p>Weighting for the second array.</p>
+<dt>B<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the second array by.</p>
 </dd>
 </dl>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>pysycl.Array2D</dt><dd><p>Array containing the sum of the two input arrays.</p>
+<dt>pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</dt><dd><p>Array containing the result of the addition.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_sum</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_1</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_2</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_3</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">arr2D_1</span><span class="p">,</span> <span class="n">arr2D_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+</div></blockquote>
+</li>
+<li><p>add(arr2D_1: pysycl.array2D.array2D_shared, arr2D_2: pysycl.array2D.array2D_shared, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_shared</p>
+<blockquote>
+<div><p>add shared version.</p>
+</div></blockquote>
+</li>
+</ol>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">array2D_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.array2D_object" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">array2D_explicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.array2D_explicit" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <dl>
-<dt>Description</dt><dd><p>This class creates a PySYCL Array2D object.</p>
+<dt>Description</dt><dd><p>This class is used to create a 2D array object in PySYCL. It is the
+explicit version of the Array2D class, meaning that the user has to
+explicitly move data between the host and device.</p>
 </dd>
-<dt>Description</dt><dd><p>Constructor that creates an Array2D object in PySYCL.</p>
+<dt>Description</dt><dd><p>Constructor for the Array2D_Explicit class.</p>
 </dd>
 <dt>Constructor Parameters</dt><dd><dl class="simple">
-<dt>M<span class="classifier">int</span></dt><dd><p>Number of rows in the array.</p>
+<dt>rows<span class="classifier">int</span></dt><dd><p>Number of rows in the array.</p>
 </dd>
-<dt>N<span class="classifier">int</span></dt><dd><p>Number of columns in the array.</p>
+<dt>cols<span class="classifier">int</span></dt><dd><p>Number of columns in the array.</p>
 </dd>
-<dt>device<span class="classifier">pysycl.device_object</span></dt><dd><p>SYCL device to use for allocation and calculation.</p>
+<dt>device<span class="classifier">pysycl.device.device_object</span></dt><dd><p>SYCL device object to use for allocation and manipulation.</p>
 </dd>
 </dl>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>Array2D</dt><dd><p>Array2D object in PySYCL.</p>
+<dt>array2D_explicit</dt><dd><p>array2D_explicity object in pysycl.array2D.</p>
 </dd>
 </dl>
 </dd>
 <dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.copy_device_to_host">
-<span class="sig-name descname"><span class="pre">copy_device_to_host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.copy_device_to_host" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.copy_device_to_host">
+<span class="sig-name descname"><span class="pre">copy_device_to_host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.copy_device_to_host" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Copies the data from the device to the host.</p>
+<dt>Description</dt><dd><p>Copy the device array to the host array.</p>
 </dd>
 <dt>Parameters</dt><dd><p>None</p>
 </dd>
 <dt>Returns</dt><dd><p>None</p>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">copy_device_to_host</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">copy_device_to_host</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -281,16 +306,20 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.copy_host_to_device">
-<span class="sig-name descname"><span class="pre">copy_host_to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.copy_host_to_device" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.copy_host_to_device">
+<span class="sig-name descname"><span class="pre">copy_host_to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.copy_host_to_device" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Copies the data from the host to the device.</p>
+<dt>Description</dt><dd><p>Copy the host array to the device array.</p>
 </dd>
 <dt>Parameters</dt><dd><p>None</p>
 </dd>
 <dt>Returns</dt><dd><p>None</p>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">copy_host_to_device</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">copy_host_to_device</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -298,19 +327,23 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.fill">
-<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.fill" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.get_device">
+<span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.get_device" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Fills the array with a given value.</p>
+<dt>Description</dt><dd><p>Get the SYCL device object associated with the array.</p>
 </dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>value<span class="classifier">float</span></dt><dd><p>Value to fill the array with.</p>
+<dt>Parameters</dt><dd><p>None</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>pysycl.device.device_object</dt><dd><p>SYCL device object associated with the array.</p>
 </dd>
 </dl>
 </dd>
-<dt>Returns</dt><dd><p>None</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q_arr2D</span> <span class="o">=</span> <span class="n">arr2D</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -318,23 +351,35 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.fill_element_host">
-<span class="sig-name descname"><span class="pre">fill_element_host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.fill_element_host" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.get_host_data">
+<span class="sig-name descname"><span class="pre">get_host_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.get_host_data" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Fills a single element in the array with a given value.</p>
+<dt>Description</dt><dd><p>Get the host array data.</p>
 </dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>i<span class="classifier">int</span></dt><dd><p>Row index of the element to fill.</p>
+<dt>Parameters</dt><dd><p>None</p>
 </dd>
-<dt>j<span class="classifier">int</span></dt><dd><p>Column index of the element to fill.</p>
-</dd>
-<dt>value<span class="classifier">float</span></dt><dd><p>Value to fill the array with.</p>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>Numpy array containing the host array data.</p>
 </dd>
 </dl>
 </dd>
-<dt>Returns</dt><dd><p>None</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">fill_element_host</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">host_data</span> <span class="o">=</span> <span class="n">arr2D</span><span class="o">.</span><span class="n">get_host_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">host_data</span><span class="p">)</span>
+<span class="go">[[0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]]</span>
 </pre></div>
 </div>
 </dd>
@@ -342,30 +387,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.fill_random_host">
-<span class="sig-name descname"><span class="pre">fill_random_host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.fill_random_host" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Fills the array with random values.</p>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>min<span class="classifier">float</span></dt><dd><p>Minimum value for the random number generator.</p>
-</dd>
-<dt>max<span class="classifier">float</span></dt><dd><p>Maximum value for the random number generator.</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns</dt><dd><p>None</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">fill_random_host</span><span class="p">(</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.get_columns">
-<span class="sig-name descname"><span class="pre">get_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.get_columns" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.number_of_cols">
+<span class="sig-name descname"><span class="pre">number_of_cols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.number_of_cols" title="Permalink to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>Get the number of columns in the array.</p>
 </dd>
@@ -376,7 +399,12 @@
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">get_columns</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_cols</span><span class="p">()</span>
+<span class="go">8</span>
 </pre></div>
 </div>
 </dd>
@@ -384,49 +412,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.get_device">
-<span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.get_device" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Get the SYCL device used for allocation and calculation.</p>
-</dd>
-<dt>Parameters</dt><dd><p>None</p>
-</dd>
-<dt>Returns</dt><dd><dl class="simple">
-<dt>pysycl.device_object</dt><dd><p>SYCL device used for allocation and calculation.</p>
-</dd>
-</dl>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.get_host_data">
-<span class="sig-name descname"><span class="pre">get_host_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.get_host_data" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Returns the host data as a numpy array.</p>
-</dd>
-<dt>Parameters</dt><dd><p>None</p>
-</dd>
-<dt>Returns</dt><dd><dl class="simple">
-<dt>numpy.ndarray</dt><dd><p>Numpy array containing the host data.</p>
-</dd>
-</dl>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">copy_device_to_host</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">py_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">get_host_data</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.get_rows">
-<span class="sig-name descname"><span class="pre">get_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.get_rows" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.number_of_rows">
+<span class="sig-name descname"><span class="pre">number_of_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_explicit" title="pysycl.array2D.array2D_explicit"><span class="pre">pysycl.array2D.array2D_explicit</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.number_of_rows" title="Permalink to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>Get the number of rows in the array.</p>
 </dd>
@@ -437,7 +424,12 @@
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">get_rows</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_rows</span><span class="p">()</span>
+<span class="go">10</span>
 </pre></div>
 </div>
 </dd>
@@ -445,19 +437,133 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.max_reduction">
-<span class="sig-name descname"><span class="pre">max_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.max_reduction" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_explicit.set_host_value">
+<span class="sig-name descname"><span class="pre">set_host_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.array2D_explicit.set_host_value" title="Permalink to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>set_host_value(self: pysycl.array2D.array2D_explicit, row: int, col: int, value: float) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Set the value of an element in the host array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>row<span class="classifier">int</span></dt><dd><p>Row index of the element to set.</p>
+</dd>
+<dt>col<span class="classifier">int</span></dt><dd><p>Column index of the element to set.</p>
+</dd>
+<dt>value<span class="classifier">float</span></dt><dd><p>Value to set the element to.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><p>None</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">set_host_value</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>set_host_value(self: pysycl.array2D.array2D_explicit, row: int, col: int, value: float) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Set the value of an element in the host array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>row<span class="classifier">int</span></dt><dd><p>Row index of the element to set.</p>
+</dd>
+<dt>col<span class="classifier">int</span></dt><dd><p>Column index of the element to set.</p>
+</dd>
+<dt>value<span class="classifier">float</span></dt><dd><p>Value to set the element to.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><p>None</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_explicit</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_host_value</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">array2D_shared</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.array2D_shared" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl>
+<dt>Description</dt><dd><p>This class is used to create a 2D array object in PySYCL. It is the
+shared memory version of the Array2D class. It is used to create a 2D
+array that is shared between the host and device. Data movement between
+the host and device is done implicitly.</p>
+</dd>
+<dt>Description</dt><dd><p>Constructor for the Array2D_Shared class.</p>
+</dd>
+<dt>Constructor Parameters</dt><dd><dl class="simple">
+<dt>rows<span class="classifier">int</span></dt><dd><p>Number of rows in the array.</p>
+</dd>
+<dt>cols<span class="classifier">int</span></dt><dd><p>Number of columns in the array.</p>
+</dd>
+<dt>device<span class="classifier">pysycl.device.device_object</span></dt><dd><p>SYCL device object to use for allocation and manipulation.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>array2D_shared</dt><dd><p>array2D_shared object in pysycl.array2D.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.get_data" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Finds the maximum value in the array.</p>
+<dt>Description</dt><dd><p>Get the host array data.</p>
 </dd>
 <dt>Parameters</dt><dd><p>None</p>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>float</dt><dd><p>Maximum value in the array.</p>
+<dt>numpy.ndarray</dt><dd><p>Numpy array containing the host array data.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_max</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">max_reduction</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">arr2D</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">[[0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]</span>
+<span class="go"> [0. 0. 0. 0. 0. 0. 0. 0.]]</span>
 </pre></div>
 </div>
 </dd>
@@ -465,19 +571,23 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.min_reduction">
-<span class="sig-name descname"><span class="pre">min_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.min_reduction" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.get_device">
+<span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.device.device_object" title="pysycl.device.device_object"><span class="pre">pysycl.device.device_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.get_device" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Finds the minimum value in the array.</p>
+<dt>Description</dt><dd><p>Get the SYCL device object associated with the array.</p>
 </dd>
 <dt>Parameters</dt><dd><p>None</p>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>float</dt><dd><p>Minimum value in the array.</p>
+<dt>pysycl.device.device_object</dt><dd><p>SYCL device object associated with the array.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_min</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">min_reduction</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q_arr2D</span> <span class="o">=</span> <span class="n">arr2D</span><span class="o">.</span><span class="n">get_device</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -485,19 +595,105 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array2D.array2D_object.sum_reduction">
-<span class="sig-name descname"><span class="pre">sum_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_object.sum_reduction" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.get_value" title="Permalink to this definition">#</a></dt>
 <dd><dl>
-<dt>Description</dt><dd><p>Sums the elements in the array.</p>
+<dt>Description</dt><dd><p>Set the value of an element in the host array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>row<span class="classifier">int</span></dt><dd><p>Row index of the element to set.</p>
+</dd>
+<dt>col<span class="classifier">int</span></dt><dd><p>Column index of the element to set.</p>
+</dd>
+<dt>value<span class="classifier">float</span></dt><dd><p>Value to set the element to.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><p>None</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.number_of_cols">
+<span class="sig-name descname"><span class="pre">number_of_cols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.number_of_cols" title="Permalink to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>Get the number of columns in the array.</p>
 </dd>
 <dt>Parameters</dt><dd><p>None</p>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>float</dt><dd><p>Sum of the elements in the array.</p>
+<dt>int</dt><dd><p>Number of columns in the array.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_sum</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum_reduction</span><span class="p">()</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_cols</span><span class="p">()</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.number_of_rows">
+<span class="sig-name descname"><span class="pre">number_of_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.number_of_rows" title="Permalink to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>Get the number of rows in the array.</p>
+</dd>
+<dt>Parameters</dt><dd><p>None</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>int</dt><dd><p>Number of rows in the array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">get_rows</span><span class="p">()</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array2D.array2D_shared.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_shared" title="pysycl.array2D.array2D_shared"><span class="pre">pysycl.array2D.array2D_shared</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array2D.array2D_shared.set_value" title="Permalink to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>Set the value of an element in the host array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>row<span class="classifier">int</span></dt><dd><p>Row index of the element to set.</p>
+</dd>
+<dt>col<span class="classifier">int</span></dt><dd><p>Column index of the element to set.</p>
+</dd>
+<dt>value<span class="classifier">float</span></dt><dd><p>Value to set the element to.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><p>None</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -507,59 +703,144 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pysycl.array2D.matmul">
-<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.matmul" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Multiplies two arrays together.</p>
+<dt class="sig sig-object py" id="pysycl.array2D.div">
+<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.div" title="Permalink to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>div(arr2D_1: pysycl.array2D.array2D_explicit, arr2D_2: pysycl.array2D.array2D_explicit, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_explicit</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Divide two 2D arrays together.</p>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
-<dt>arr1<span class="classifier">pysycl.Array2D</span></dt><dd><p>First array to multiply.</p>
+<dt>arr2D_1<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>First array to divide.</p>
 </dd>
-<dt>arr2<span class="classifier">pysycl.Array2D</span></dt><dd><p>Second array to multiply.</p>
+<dt>arr2D_2<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>Second array to divide.</p>
 </dd>
-<dt>A<span class="classifier">float (Optional: Default = 1.0)</span></dt><dd><p>Weighting for the array multiplication.</p>
+<dt>A<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to divide the first array by.</p>
+</dd>
+<dt>B<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to divide the second array by.</p>
 </dd>
 </dl>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>pysycl.Array2D</dt><dd><p>Array containing the product of the two input arrays.</p>
+<dt>pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</dt><dd><p>Array containing the result of the divide.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_prod</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_1</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_2</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_3</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">arr2D_1</span><span class="p">,</span> <span class="n">arr2D_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+</div></blockquote>
+</li>
+<li><p>div(arr2D_1: pysycl.array2D.array2D_shared, arr2D_2: pysycl.array2D.array2D_shared, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_shared</p>
+<blockquote>
+<div><p>div: shared version.</p>
+</div></blockquote>
+</li>
+</ol>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pysycl.array2D.subtract">
-<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">subtract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pysycl.array2D.array2D_object" title="pysycl.array2D.array2D_object"><span class="pre">pysycl.array2D.array2D_object</span></a></span></span><a class="headerlink" href="#pysycl.array2D.subtract" title="Permalink to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>Subtracts two arrays.</p>
+<dt class="sig sig-object py" id="pysycl.array2D.mul">
+<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.mul" title="Permalink to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>mul(arr2D_1: pysycl.array2D.array2D_explicit, arr2D_2: pysycl.array2D.array2D_explicit, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_explicit</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Multiply two 2D arrays together.</p>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
-<dt>arr1<span class="classifier">pysycl.Array2D</span></dt><dd><p>First array to subtract.</p>
+<dt>arr2D_1<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>First array to multiply.</p>
 </dd>
-<dt>arr2<span class="classifier">pysycl.Array2D</span></dt><dd><p>Second array to subtract.</p>
+<dt>arr2D_2<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>Second array to multiply.</p>
 </dd>
-<dt>A<span class="classifier">float (Optional: Default = 1.0)</span></dt><dd><p>Weighting for the first array.</p>
+<dt>A<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the first array by.</p>
 </dd>
-<dt>B<span class="classifier">float (Optional: Default = 1.0)</span></dt><dd><p>Weighting for the second array.</p>
+<dt>B<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the second array by.</p>
 </dd>
 </dl>
 </dd>
 <dt>Returns</dt><dd><dl class="simple">
-<dt>pysycl.Array2D</dt><dd><p>Array containing the difference of the two input arrays.</p>
+<dt>pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</dt><dd><p>Array containing the result of the multiply.</p>
 </dd>
 </dl>
 </dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr_diff</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_1</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_2</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_3</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">arr2D_1</span><span class="p">,</span> <span class="n">arr2D_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+</div></blockquote>
+</li>
+<li><p>mul(arr2D_1: pysycl.array2D.array2D_shared, arr2D_2: pysycl.array2D.array2D_shared, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_shared</p>
+<blockquote>
+<div><p>mul: shared version.</p>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysycl.array2D.sub">
+<span class="sig-prename descclassname"><span class="pre">pysycl.array2D.</span></span><span class="sig-name descname"><span class="pre">sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array2D.sub" title="Permalink to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>sub(arr2D_1: pysycl.array2D.array2D_explicit, arr2D_2: pysycl.array2D.array2D_explicit, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_explicit</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>Subtract two 2D arrays together.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>arr2D_1<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>First array to subtract.</p>
+</dd>
+<dt>arr2D_2<span class="classifier">pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</span></dt><dd><p>Second array to subtract.</p>
+</dd>
+<dt>A<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the first array by.</p>
+</dd>
+<dt>B<span class="classifier">float (optional)</span></dt><dd><p>Scalar value to multiply the second array by.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>pysycl.array2D.array2D_explicit or pysycl.array2D.array2D_shared</dt><dd><p>Array containing the result of the subtraction.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">device</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysycl</span> <span class="kn">import</span> <span class="n">array2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_object</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_1</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_2</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">array2D_shared</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr2D_3</span> <span class="o">=</span> <span class="n">array2D</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">arr2D_1</span><span class="p">,</span> <span class="n">arr2D_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>sub(arr2D_1: pysycl.array2D.array2D_shared, arr2D_2: pysycl.array2D.array2D_shared, A: float = 1.0, B: float = 1.0) -&gt; pysycl.array2D.array2D_shared</p>
+<blockquote>
+<div><p>sub: shared version.</p>
+</div></blockquote>
+</li>
+</ol>
 </dd></dl>
 
 </section>
@@ -613,23 +894,28 @@
             <ul>
 <li><a class="reference internal" href="#">PySYCL: Array2D Sub-Module</a><ul>
 <li><a class="reference internal" href="#pysycl.array2D.add"><code class="docutils literal notranslate"><span class="pre">add()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object"><code class="docutils literal notranslate"><span class="pre">array2D_object</span></code></a><ul>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.copy_device_to_host"><code class="docutils literal notranslate"><span class="pre">array2D_object.copy_device_to_host()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.copy_host_to_device"><code class="docutils literal notranslate"><span class="pre">array2D_object.copy_host_to_device()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.fill"><code class="docutils literal notranslate"><span class="pre">array2D_object.fill()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.fill_element_host"><code class="docutils literal notranslate"><span class="pre">array2D_object.fill_element_host()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.fill_random_host"><code class="docutils literal notranslate"><span class="pre">array2D_object.fill_random_host()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.get_columns"><code class="docutils literal notranslate"><span class="pre">array2D_object.get_columns()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.get_device"><code class="docutils literal notranslate"><span class="pre">array2D_object.get_device()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.get_host_data"><code class="docutils literal notranslate"><span class="pre">array2D_object.get_host_data()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.get_rows"><code class="docutils literal notranslate"><span class="pre">array2D_object.get_rows()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.max_reduction"><code class="docutils literal notranslate"><span class="pre">array2D_object.max_reduction()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.min_reduction"><code class="docutils literal notranslate"><span class="pre">array2D_object.min_reduction()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.array2D_object.sum_reduction"><code class="docutils literal notranslate"><span class="pre">array2D_object.sum_reduction()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit"><code class="docutils literal notranslate"><span class="pre">array2D_explicit</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.copy_device_to_host"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.copy_device_to_host()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.copy_host_to_device"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.copy_host_to_device()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.get_device"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.get_device()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.get_host_data"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.get_host_data()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.number_of_cols"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.number_of_cols()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.number_of_rows"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.number_of_rows()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_explicit.set_host_value"><code class="docutils literal notranslate"><span class="pre">array2D_explicit.set_host_value()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pysycl.array2D.matmul"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array2D.subtract"><code class="docutils literal notranslate"><span class="pre">subtract()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared"><code class="docutils literal notranslate"><span class="pre">array2D_shared</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.get_data"><code class="docutils literal notranslate"><span class="pre">array2D_shared.get_data()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.get_device"><code class="docutils literal notranslate"><span class="pre">array2D_shared.get_device()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.get_value"><code class="docutils literal notranslate"><span class="pre">array2D_shared.get_value()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.number_of_cols"><code class="docutils literal notranslate"><span class="pre">array2D_shared.number_of_cols()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.number_of_rows"><code class="docutils literal notranslate"><span class="pre">array2D_shared.number_of_rows()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.array2D_shared.set_value"><code class="docutils literal notranslate"><span class="pre">array2D_shared.set_value()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pysycl.array2D.div"><code class="docutils literal notranslate"><span class="pre">div()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.mul"><code class="docutils literal notranslate"><span class="pre">mul()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array2D.sub"><code class="docutils literal notranslate"><span class="pre">sub()</span></code></a></li>
 </ul>
 </li>
 </ul>

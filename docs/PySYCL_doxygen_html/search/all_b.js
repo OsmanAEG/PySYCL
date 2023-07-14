@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['wait_40',['wait',['../group___device.html#ga7399dba5bdd9b6d50b2c19ffe56c67d3',1,'pysycl::Device_Object']]]
+  ['set_5fhost_5fvalue_52',['set_host_value',['../group___array2_d.html#ga59b902a56273517232e8d50a5dee3f4d',1,'pysycl::Array2D_Explicit']]],
+  ['set_5fvalue_53',['set_value',['../group___array2_d.html#gad863a60c6dff0e6130026a30286b88c5',1,'pysycl::Array2D_Shared']]],
+  ['subtract_5farray2d_54',['subtract_Array2D',['../group___array2_d.html#gaf43e97e6deecf6fc38eff0f103a98575',1,'pysycl']]],
+  ['subtract_5ffunction_55',['subtract_function',['../namespacepysycl.html#aeed90e9d7c12f5cb915eb8d0fe5586b3',1,'pysycl']]]
 ];

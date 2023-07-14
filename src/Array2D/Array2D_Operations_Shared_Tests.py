@@ -39,7 +39,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Addition Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Addition Operation Failed for Array2D_Shared Objects!")
 
     try:
       M = 6
@@ -51,7 +51,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Addition Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Addition Operation Failed for Array2D_Shared Objects!")
 
   def test_sub(self):
     print("\nTESTING THE SUBTRACTION OF TWO ARRAY2D SHARED OBJECTS")
@@ -77,7 +77,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Subtraction Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Subtraction Operation Failed for Array2D_Shared Objects!")
 
     try:
       M = 6
@@ -89,7 +89,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Subtraction Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Subtraction Operation Failed for Array2D_Shared Objects!")
 
   def test_mul(self):
     print("\nTESTING THE MULTIPLICATION OF TWO ARRAY2D SHARED OBJECTS")
@@ -115,7 +115,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Multiplication Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Multiplication Operation Failed for Array2D_Shared Objects!")
 
     try:
       M = 6
@@ -127,7 +127,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Multiplication Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Multiplication Operation Failed for Array2D_Shared Objects!")
 
   def test_div(self):
     print("\nTESTING THE DIVISION OF TWO ARRAY2D SHARED OBJECTS")
@@ -153,7 +153,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Division Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Division Operation Failed for Array2D_Shared Objects!")
 
     try:
       M = 6
@@ -165,7 +165,7 @@ class TestArray2D_Operations_Shared(unittest.TestCase):
       C_arr2D = C_arr2D_obj.get_data()
       check_elements_equal(C_arr2D, C_np, M, N)
     except:
-      raise AssertionError("Divison Operation Failed for Array2D_Shared Objects")
+      raise AssertionError("Divison Operation Failed for Array2D_Shared Objects!")
 
 if __name__ == '__main__':
   unittest.main()

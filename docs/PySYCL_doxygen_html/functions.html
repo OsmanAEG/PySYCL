@@ -93,31 +93,39 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>Array2D_Object()
-: <a class="el" href="group___array2_d.html#ga16d9e31f719e37d800aa9f5f375aca37">pysycl::Array2D_Object</a>
+<li>Array2D_Explicit()
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#ab682f82427ce9b179fcc82613aa671a2">pysycl::Array2D_Explicit</a>
+</li>
+<li>Array2D_Shared()
+: <a class="el" href="classpysycl_1_1_array2_d___shared.html#a1d0067ab2bf5f0f1670de21af55b963e">pysycl::Array2D_Shared</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>cols
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a36680575d2745c4d570ec28a2729b066">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#a6e23c9909d7046a76aec5e2f28466e26">pysycl::Array2D_Shared</a>
+</li>
 <li>copy_device_to_host()
-: <a class="el" href="group___array2_d.html#ga5c02488fe2339ac941b37ace52ed437c">pysycl::Array2D_Object</a>
+: <a class="el" href="group___array2_d.html#ga66cc117915882bf5e7ef4b7782fbd628">pysycl::Array2D_Explicit</a>
 </li>
 <li>copy_host_to_device()
-: <a class="el" href="group___array2_d.html#gabfdf7b50315d160331bbdbc83a37b902">pysycl::Array2D_Object</a>
+: <a class="el" href="group___array2_d.html#ga04ca9b4a3c957f6b1fe2ff92c30d40d8">pysycl::Array2D_Explicit</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
-<li>data_device
-: <a class="el" href="group___array2_d.html#ga282fc0690b62b1dada1a1a700cf091c8">pysycl::Array2D_Object</a>
-</li>
-<li>data_host
-: <a class="el" href="group___array2_d.html#ga0c5d899e841366251079008882e1b372">pysycl::Array2D_Object</a>
+<li>data
+: <a class="el" href="classpysycl_1_1_array2_d___shared.html#a4acd818eb8e1c9a0a19714afd9edbb81">pysycl::Array2D_Shared</a>
 </li>
 <li>device
-: <a class="el" href="group___array2_d.html#gabd97374dd31dfee43257c702bd7169f9">pysycl::Array2D_Object</a>
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a6eeb1c9bf90e3fec48405f9406f20f07">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#a75742005b3686c9038cbcfa09ab5447f">pysycl::Array2D_Shared</a>
+</li>
+<li>device_data
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#aee32c262412bcf6b0e4421dd671a3c10">pysycl::Array2D_Explicit</a>
 </li>
 <li>device_name()
 : <a class="el" href="group___device.html#gaf7f701382d6656550f2f5f0a87090035">pysycl::Device_Object</a>
@@ -131,61 +139,53 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>fill()
-: <a class="el" href="group___array2_d.html#ga3f3eb7288844f2b574cae5d05f00f7ba">pysycl::Array2D_Object</a>
-</li>
-<li>fill_element_host()
-: <a class="el" href="group___array2_d.html#ga33291e9e7cac727e4e10ceaa07c5f241">pysycl::Array2D_Object</a>
-</li>
-<li>fill_random_host()
-: <a class="el" href="group___array2_d.html#gaeeb099f88d4c15d24ea66265119a1cba">pysycl::Array2D_Object</a>
-</li>
-</ul>
-
-
 <h3><a id="index_g"></a>- g -</h3><ul>
-<li>get_columns()
-: <a class="el" href="group___array2_d.html#ga6ef7f86f6d0378c5d709e8313a929db2">pysycl::Array2D_Object</a>
+<li>get_data()
+: <a class="el" href="group___array2_d.html#ga5e2c551eeedc8921954a04b298e6d655">pysycl::Array2D_Shared</a>
 </li>
-<li>get_data_device()
-: <a class="el" href="group___array2_d.html#ga8403293f1ac85976c5d2bdcaa2ae2b3d">pysycl::Array2D_Object</a>
+<li>get_data_ptr()
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a8e91746de2cd226c4dae46c9699418de">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#aed716e0524c380aeccedd130fbbeddb4">pysycl::Array2D_Shared</a>
 </li>
 <li>get_device()
-: <a class="el" href="group___array2_d.html#gadcf13b6af5612e11f41eebfe394ac985">pysycl::Array2D_Object</a>
+: <a class="el" href="group___array2_d.html#ga958946740a764141a46a1f776d81e0b6">pysycl::Array2D_Explicit</a>
+, <a class="el" href="group___array2_d.html#ga30a2986a7b7c799381ce2cd130510b8e">pysycl::Array2D_Shared</a>
 </li>
 <li>get_host_data()
-: <a class="el" href="group___array2_d.html#ga3124554b3bdda2330e0b74e85b6049d9">pysycl::Array2D_Object</a>
+: <a class="el" href="group___array2_d.html#gad5f9af286cb8e6253782d937fc2cbcfd">pysycl::Array2D_Explicit</a>
 </li>
-<li>get_rows()
-: <a class="el" href="group___array2_d.html#gae071fb7486c21d2366ede438b8feb060">pysycl::Array2D_Object</a>
+<li>get_host_value()
+: <a class="el" href="group___array2_d.html#ga88ef04ed16e95f8a051bdeea22f3bdb0">pysycl::Array2D_Explicit</a>
+</li>
+<li>get_value()
+: <a class="el" href="group___array2_d.html#gaad42342e4fd110967628fac665c1894d">pysycl::Array2D_Shared</a>
 </li>
 </ul>
 
 
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>M
-: <a class="el" href="group___array2_d.html#ga19072bbea575653b6701ac0aca727959">pysycl::Array2D_Object</a>
-</li>
-<li>max_reduction()
-: <a class="el" href="group___array2_d.html#ga9348078b38e98f0c385fe68b3cab3d23">pysycl::Array2D_Object</a>
-</li>
-<li>min_reduction()
-: <a class="el" href="group___array2_d.html#ga5315cd33e0f5bac366ec424343bb2936">pysycl::Array2D_Object</a>
+<h3><a id="index_h"></a>- h -</h3><ul>
+<li>host_data
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#abd2d539460f51c17205568c2a539c6b2">pysycl::Array2D_Explicit</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
-<li>N
-: <a class="el" href="group___array2_d.html#gaaaa85ef0d484e274507cd0d859b3c101">pysycl::Array2D_Object</a>
+<li>number_of_cols()
+: <a class="el" href="group___array2_d.html#ga4d57fe2ecf23ddff72d0596d8bf5fa0d">pysycl::Array2D_Explicit</a>
+, <a class="el" href="group___array2_d.html#ga21c5043d1d1fcad8c03ff7eba0917fc4">pysycl::Array2D_Shared</a>
+</li>
+<li>number_of_rows()
+: <a class="el" href="group___array2_d.html#gad724a68b3d0bc0f65a0e0e175e1bdeac">pysycl::Array2D_Explicit</a>
+, <a class="el" href="group___array2_d.html#ga0124bcf15552cafe293e888c42e9e4a6">pysycl::Array2D_Shared</a>
 </li>
 </ul>
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>operator=()
-: <a class="el" href="group___array2_d.html#gabdf0722f3464ebedd327ddfa8eea5eca">pysycl::Array2D_Object</a>
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a3538d49a7133b1f42cc914ad76afebdb">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#a60bdb0b40289275786fabe74b80ccc6c">pysycl::Array2D_Shared</a>
 , <a class="el" href="group___device.html#ga4ef130bcb15c8bcd5cc1b72eede32962">pysycl::Device_Object</a>
 </li>
 </ul>
@@ -193,7 +193,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 <h3><a id="index_q"></a>- q -</h3><ul>
 <li>Q
-: <a class="el" href="group___array2_d.html#ga77b8be74282c66af224a66a81d742f69">pysycl::Array2D_Object</a>
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a296fcc7b31ac0d7d2e56a0d3b9045417">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#a9fb9fd9f50229d44485f39710e543845">pysycl::Array2D_Shared</a>
 , <a class="el" href="group___device.html#ga2fb3c62abfabbcd065deb1a03259b218">pysycl::Device_Object</a>
 </li>
 <li>queue()
@@ -202,9 +203,20 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
+<h3><a id="index_r"></a>- r -</h3><ul>
+<li>rows
+: <a class="el" href="classpysycl_1_1_array2_d___explicit.html#a60f185420ce3e5e777f87766d4ffe5eb">pysycl::Array2D_Explicit</a>
+, <a class="el" href="classpysycl_1_1_array2_d___shared.html#a9c108a4f9f80cae5adbcb5a57d9027f6">pysycl::Array2D_Shared</a>
+</li>
+</ul>
+
+
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>sum_reduction()
-: <a class="el" href="group___array2_d.html#ga1b1ad301172aa90e6020f138fc085dfa">pysycl::Array2D_Object</a>
+<li>set_host_value()
+: <a class="el" href="group___array2_d.html#ga59b902a56273517232e8d50a5dee3f4d">pysycl::Array2D_Explicit</a>
+</li>
+<li>set_value()
+: <a class="el" href="group___array2_d.html#gad863a60c6dff0e6130026a30286b88c5">pysycl::Array2D_Shared</a>
 </li>
 </ul>
 
@@ -219,7 +231,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Jul 6 2023 12:38:45 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 14 2023 18:22:17 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

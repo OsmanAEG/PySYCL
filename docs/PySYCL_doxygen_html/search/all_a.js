@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['subtract_5farrays2d_38',['subtract_Arrays2D',['../group___array2_d.html#ga7d6d6dd51b22ce9fc84b4f554f14c3fd',1,'pysycl']]],
-  ['sum_5freduction_39',['sum_reduction',['../group___array2_d.html#ga1b1ad301172aa90e6020f138fc085dfa',1,'pysycl::Array2D_Object']]]
+  ['rows_51',['rows',['../classpysycl_1_1_array2_d___explicit.html#a60f185420ce3e5e777f87766d4ffe5eb',1,'pysycl::Array2D_Explicit::rows()'],['../classpysycl_1_1_array2_d___shared.html#a9c108a4f9f80cae5adbcb5a57d9027f6',1,'pysycl::Array2D_Shared::rows()']]]
 ];

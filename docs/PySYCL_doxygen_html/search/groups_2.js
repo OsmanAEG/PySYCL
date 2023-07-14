@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector_0',['Vector',['../group___vector.html',1,'']]]
+  ['math_116',['Math',['../group___math.html',1,'']]]
 ];

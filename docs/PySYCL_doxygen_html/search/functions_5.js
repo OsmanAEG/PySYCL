@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['matmul_5farrays2d_67',['matmul_Arrays2D',['../group___array2_d.html#ga7754b8d69a94d4a4dbc2af9ed37a52f6',1,'pysycl']]],
-  ['max_5freduction_68',['max_reduction',['../group___array2_d.html#ga9348078b38e98f0c385fe68b3cab3d23',1,'pysycl::Array2D_Object']]],
-  ['min_5freduction_69',['min_reduction',['../group___array2_d.html#ga5315cd33e0f5bac366ec424343bb2936',1,'pysycl::Array2D_Object']]]
+  ['number_5fof_5fcols_97',['number_of_cols',['../group___array2_d.html#ga4d57fe2ecf23ddff72d0596d8bf5fa0d',1,'pysycl::Array2D_Explicit::number_of_cols()'],['../group___array2_d.html#ga21c5043d1d1fcad8c03ff7eba0917fc4',1,'pysycl::Array2D_Shared::number_of_cols()']]],
+  ['number_5fof_5frows_98',['number_of_rows',['../group___array2_d.html#gad724a68b3d0bc0f65a0e0e175e1bdeac',1,'pysycl::Array2D_Explicit::number_of_rows()'],['../group___array2_d.html#ga0124bcf15552cafe293e888c42e9e4a6',1,'pysycl::Array2D_Shared::number_of_rows()']]]
 ];

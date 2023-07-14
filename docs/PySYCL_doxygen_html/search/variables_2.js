@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['n_80',['N',['../group___array2_d.html#gaaaa85ef0d484e274507cd0d859b3c101',1,'pysycl::Array2D_Object']]]
+  ['host_5fdata_111',['host_data',['../classpysycl_1_1_array2_d___explicit.html#abd2d539460f51c17205568c2a539c6b2',1,'pysycl::Array2D_Explicit']]]
 ];
