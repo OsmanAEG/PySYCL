@@ -84,65 +84,65 @@ Array2D_type Array2D_Element_Wise_Operation(const Array2D_type &arr2D_1,
 }
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Add two Array2D objects together.
+/// \brief Add the elements of two Array2D objects.
 /// \param[in] arr2D_1 First Array2D to add.
 /// \param[in] arr2D_2 Second Array2D to add.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
 /// \return The result of the addition.
 template <typename Array2D_type>
-Array2D_type add_el_Array2D(const Array2D_type &arr2D_1,
-                            const Array2D_type &arr2D_2,
-                            const float &A = 1.0f,
-                            const float &B = 1.0f) {
+Array2D_type add_Array2D(const Array2D_type &arr2D_1,
+                         const Array2D_type &arr2D_2,
+                         const float &A = 1.0f,
+                         const float &B = 1.0f) {
   auto function = pysycl::add_function<float>();
   return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
 }
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Add two Array2D objects together.
-/// \param[in] arr2D_1 First Array2D to add.
-/// \param[in] arr2D_2 Second Array2D to add.
+/// \brief Subtract the elements two Array2D objects.
+/// \param[in] arr2D_1 First Array2D to subtract.
+/// \param[in] arr2D_2 Second Array2D to subtract.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
-/// \return The result of the addition.
+/// \return The result of the subtraction.
 template <typename Array2D_type>
-Array2D_type subtract_el_Array2D(const Array2D_type &arr2D_1,
-                                 const Array2D_type &arr2D_2,
-                                 const float &A = 1.0f,
-                                 const float &B = 1.0f) {
+Array2D_type subtract_Array2D(const Array2D_type &arr2D_1,
+                              const Array2D_type &arr2D_2,
+                              const float &A = 1.0f,
+                              const float &B = 1.0f) {
   auto function = pysycl::subtract_function<float>();
   return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
 }
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Add two Array2D objects together.
-/// \param[in] arr2D_1 First Array2D to add.
-/// \param[in] arr2D_2 Second Array2D to add.
+/// \brief Multiply the elements of two Array2D objects.
+/// \param[in] arr2D_1 First Array2D to multiply.
+/// \param[in] arr2D_2 Second Array2D to multiply.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
-/// \return The result of the addition.
+/// \return The result of the multiplication.
 template <typename Array2D_type>
-Array2D_type multiply_el_Array2D(const Array2D_type &arr2D_1,
-                                 const Array2D_type &arr2D_2,
-                                 const float &A = 1.0f,
-                                 const float &B = 1.0f) {
+Array2D_type multiply_Array2D(const Array2D_type &arr2D_1,
+                              const Array2D_type &arr2D_2,
+                              const float &A = 1.0f,
+                              const float &B = 1.0f) {
   auto function = pysycl::multiply_function<float>();
   return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
 }
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Add two Array2D objects together.
-/// \param[in] arr2D_1 First Array2D to add.
-/// \param[in] arr2D_2 Second Array2D to add.
+/// \brief Divide the elements of two Array2D objects.
+/// \param[in] arr2D_1 First Array2D to divide.
+/// \param[in] arr2D_2 Second Array2D to divide.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
-/// \return The result of the addition.
+/// \return The result of the division.
 template <typename Array2D_type>
-Array2D_type divide_el_Array2D(const Array2D_type &arr2D_1,
-                               const Array2D_type &arr2D_2,
-                               const float &A = 1.0f,
-                               const float &B = 1.0f) {
+Array2D_type divide_Array2D(const Array2D_type &arr2D_1,
+                            const Array2D_type &arr2D_2,
+                            const float &A = 1.0f,
+                            const float &B = 1.0f) {
   auto function = pysycl::divide_function<float>();
   return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
 }

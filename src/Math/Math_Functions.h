@@ -56,6 +56,20 @@ auto divide_function(){
   return [](T a, T b) { return a / b; };
 }
 
+///////////////////////////////////////////////////////////////////////
+/// \brief Lamdba function that returns the dot product of two vectors.
+/// \tparam T Type of the numbers to be added.
+template <typename Scalar_type, typename Int_type>
+auto dot_product_function(){
+  return [](Scalar_type* a, Scalar_type* b, Int_type N){
+    auto sum = 0.0;
+    for (auto i = 0; i < N; ++i){
+      sum += a[i] * b[i];
+    }
+    return sum;
+  };
+}
+
 } // namespace pysycl
 
 /// @}

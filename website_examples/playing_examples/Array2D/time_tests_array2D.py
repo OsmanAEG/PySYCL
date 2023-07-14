@@ -163,8 +163,8 @@ def multiply_test():
 #subtract_test()
 multiply_test()'''
 
-M = 5
-N = 3
+M = 50
+N = 30
 
 Q = device.device_object(0, 0)
 
@@ -185,7 +185,7 @@ for i in range(M):
     np2D_1[i][j] = rand1
     np2D_2[i][j] = rand2
 
-arr2D_r = array2D.add_array2D(arr2D_1, arr2D_2)
+arr2D_r = array2D.add(arr2D_1, arr2D_2)
 A_r_np  = np2D_1 + np2D_2
 
 Q.wait()
