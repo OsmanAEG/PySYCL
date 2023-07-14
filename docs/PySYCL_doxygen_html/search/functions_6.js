@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['operator_3d_99',['operator=',['../classpysycl_1_1_array2_d___explicit.html#a3538d49a7133b1f42cc914ad76afebdb',1,'pysycl::Array2D_Explicit::operator=(const Array2D_Explicit &amp;)=default'],['../classpysycl_1_1_array2_d___explicit.html#a6f222b30f7477c19768824a3db37105e',1,'pysycl::Array2D_Explicit::operator=(Array2D_Explicit &amp;&amp;)=default'],['../classpysycl_1_1_array2_d___shared.html#a60bdb0b40289275786fabe74b80ccc6c',1,'pysycl::Array2D_Shared::operator=(const Array2D_Shared &amp;)=default'],['../classpysycl_1_1_array2_d___shared.html#ac22efeec295888f28fa159477be705a5',1,'pysycl::Array2D_Shared::operator=(Array2D_Shared &amp;&amp;)=default'],['../group___device.html#ga4ef130bcb15c8bcd5cc1b72eede32962',1,'pysycl::Device_Object::operator=(const Device_Object &amp;)=default'],['../group___device.html#ga23f97745470825b49f75ba2adc361bab',1,'pysycl::Device_Object::operator=(Device_Object &amp;&amp;)=default']]]
-];
