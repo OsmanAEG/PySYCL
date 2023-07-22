@@ -40,10 +40,46 @@ namespace pysycl {
 /// \param[in] B Constant multiplier for the second Array2D.
 /// \return The result of the operation.
 template <typename Array2D_type>
+Array2D_type basic_matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
+                                                 const Array2D_type &arr2D_2,
+                                                 const float &A = 1.0f,
+                                                 const float &B = 1.0f,){
+  Q.submit([&](sycl::handler &h){
+    const auto data_1 = arr2D_1.get_data_ptr();
+    const auto data_2 = arr2D_2.get_data_ptr();
+    const auto data_r = result.get_data_ptr();
+
+    h.parallel_for(sycl::range<2>(M, P), [=](sycl::id<2> idx){
+      const auto i = idx[0];
+      const auto j = idx[1];
+
+      float c_ij = 0.0f;
+
+      for(int k = 0; k < N; ++k) {
+        c_ij += data_1[i*N + k] * data_2[k*P + j];
+      }
+
+      data_r[i*P + j] = c_ij;
+    });
+  });
+
+  return result;
+}
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Array2D Mat-Mul (Product Element-Wise Operation).
+/// \param[in] arr2D_1 First Array2D for operation.
+/// \param[in] arr2D_2 Second Array2D for operation.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \return The result of the operation.
+template <typename Array2D_type>
 Array2D_type matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
                                            const Array2D_type &arr2D_2,
                                            const float &A = 1.0f,
-                                           const float &B = 1.0f) {
+                                           const float &B = 1.0f,
+                                           const int &b = 4,
+                                           std::string kernel_key = "default"){
   // Check that the two arrays are the same size
   if (arr2D_1.number_of_cols() != arr2D_2.number_of_rows()) {
     throw std::runtime_error("Array2D objects have incompatible dimensions!");
@@ -65,26 +101,15 @@ Array2D_type matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
   // Create a new Array2D object to store the result
   Array2D_type result(M, P, device);
 
-  Q.submit([&](sycl::handler &h){
-    const auto data_1 = arr2D_1.get_data_ptr();
-    const auto data_2 = arr2D_2.get_data_ptr();
-    const auto data_r = result.get_data_ptr();
-
-    h.parallel_for(sycl::range<2>(M, P), [=](sycl::id<2> idx){
-      const auto i = idx[0];
-      const auto j = idx[1];
-
-      float c_ij = 0.0f;
-
-      for(int k = 0; k < N; ++k) {
-        c_ij += data_1[i*N + k] * data_2[k*P + j];
-      }
-
-      data_r[i*P + j] = c_ij;
-    });
-  });
-
-  return result;
+  if(kernel_key == "default"){
+    return Array2D_basic_matrix_multiplication(arr2D_1, arr2D_2, function, A, B);
+  }
+  else if(kernel_key == "nd"){
+    return Array2D_matrix_multiplication_Array2D_ND(arr2D_1, arr2D_2, function, A, B, b);
+  }
+  else{
+    throw std::runtime_error("Invalid kernel key.");
+  }
 }
 
 } // namespace pysycl

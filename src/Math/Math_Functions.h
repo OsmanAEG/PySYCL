@@ -34,7 +34,7 @@ auto add_function(){
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Lambda function that returns the difference of two numbers.
-/// \tparam T Type of the numbers to be added.
+/// \tparam T Type of the numbers to be subtracted.
 template <typename T>
 auto subtract_function(){
   return [](T a, T b) { return a - b; };
@@ -42,7 +42,7 @@ auto subtract_function(){
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Lambda function that returns the product of two numbers.
-/// \tparam T Type of the numbers to be added.
+/// \tparam T Type of the numbers to be multiplied.
 template <typename T>
 auto multiply_function(){
   return [](T a, T b) { return a * b; };
@@ -50,7 +50,7 @@ auto multiply_function(){
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Lambda function that returns the quotient of two numbers.
-/// \tparam T Type of the numbers to be added.
+/// \tparam T Type of the numbers to be divided.
 template <typename T>
 auto divide_function(){
   return [](T a, T b) { return a / b; };

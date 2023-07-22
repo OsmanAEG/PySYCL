@@ -94,12 +94,13 @@ Array2D_type Array2D_Element_Wise_Operation(const Array2D_type &arr2D_1,
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
 /// \return The result of the operation.
-template <int b, typename Array2D_type, typename Operation_type>
+template <typename Array2D_type, typename Operation_type>
 Array2D_type Array2D_Element_Wise_Operation_ND(const Array2D_type &arr2D_1,
                                                const Array2D_type &arr2D_2,
                                                const Operation_type &op,
                                                const float &A = 1.0f,
-                                               const float &B = 1.0f) {
+                                               const float &B = 1.0f,
+                                               int b = 4) {
   // Check that the two arrays are the same size
   if (arr2D_1.number_of_rows() != arr2D_2.number_of_rows() ||
       arr2D_1.number_of_cols() != arr2D_2.number_of_cols()) {
@@ -163,7 +164,7 @@ Array2D_type add_Array2D(const Array2D_type &arr2D_1,
     return Array2D_Element_Wise_Operation(arr2D_1, arr2D_2, function, A, B);
   }
   else if(kernel_key == "nd"){
-    return Array2D_Element_Wise_Operation_ND<b>(arr2D_1, arr2D_2, function, A, B);
+    return Array2D_Element_Wise_Operation_ND(arr2D_1, arr2D_2, function, A, B, b);
   }
   else{
     throw std::runtime_error("Invalid kernel key.");
@@ -212,6 +213,8 @@ Array2D_type multiply_Array2D(const Array2D_type &arr2D_1,
 /// \param[in] arr2D_2 Second Array2D to divide.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
+/// \param[in] b Local workgroup size.
+/// \param[in] kernel_key The kernel key to use.
 /// \return The result of the division.
 template <typename Array2D_type>
 Array2D_type divide_Array2D(const Array2D_type &arr2D_1,

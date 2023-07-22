@@ -32,9 +32,7 @@ using Array2D_Shared_type   = pysycl::Array2D_Shared;
 ///////////////////////////////////////////////////////////////////////
 void array2dmatrixmultiplication_module(py::module& m){
   // Multiply two 2D arrays together (basic)
-  m.def("matmul",
-        &pysycl::matrix_multiplication_Array2D<Array2D_Explicit_type>,
-        R"delim(
+  m.def("matmul", &pysycl::matrix_multiplication_Array2D<Array2D_Explicit_type>, R"delim(
     Description
       Multiply two 2D arrays together.
 
@@ -65,18 +63,20 @@ void array2dmatrixmultiplication_module(py::module& m){
     )delim",
     py::arg("arr2D_1"),
     py::arg("arr2D_2"),
-    py::arg("A")=1.0,
-    py::arg("B")=1.0);
+    py::arg("A")=1.0f,
+    py::arg("B")=1.0f,
+    py::arg("b") = 4,
+    py::arg("kernel_key") = std::string("default"));
 
-    m.def("matmul",
-          &pysycl::matrix_multiplication_Array2D<Array2D_Shared_type>,
-          R"delim(
+  m.def("matmul", &pysycl::matrix_multiplication_Array2D<Array2D_Shared_type>, R"delim(
     matmul: shared version
   )delim",
-    py::arg("arr2D_1"),
-    py::arg("arr2D_2"),
-    py::arg("A")=1.0,
-    py::arg("B")=1.0);
+  py::arg("arr2D_1"),
+  py::arg("arr2D_2"),
+  py::arg("A")=1.0f,
+  py::arg("B")=1.0f,
+  py::arg("b") = 4,
+  py::arg("kernel_key") = std::string("default"));
 }
 
 #endif // ARRAY2D_MATRIX_MULTIPLICATION_PYTHON_MODULE_H
