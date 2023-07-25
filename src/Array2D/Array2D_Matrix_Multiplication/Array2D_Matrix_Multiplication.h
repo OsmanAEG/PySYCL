@@ -40,10 +40,15 @@ namespace pysycl {
 /// \param[in] B Constant multiplier for the second Array2D.
 /// \return The result of the operation.
 template <typename Array2D_type>
-Array2D_type basic_matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
-                                                 const Array2D_type &arr2D_2,
-                                                 const float &A = 1.0f,
-                                                 const float &B = 1.0f,){
+void basic_matrix_multiplication_Array2D(sycl::queue Q,
+                                         const Array2D_type &arr2D_1,
+                                         const Array2D_type &arr2D_2,
+                                         Array2D_type &result,
+                                         const int &M,
+                                         const int &N,
+                                         const int &P,
+                                         const float &A = 1.0f,
+                                         const float &B = 1.0f){
   Q.submit([&](sycl::handler &h){
     const auto data_1 = arr2D_1.get_data_ptr();
     const auto data_2 = arr2D_2.get_data_ptr();
@@ -62,8 +67,6 @@ Array2D_type basic_matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
       data_r[i*P + j] = c_ij;
     });
   });
-
-  return result;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -102,11 +105,12 @@ Array2D_type matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
   Array2D_type result(M, P, device);
 
   if(kernel_key == "default"){
-    return Array2D_basic_matrix_multiplication(arr2D_1, arr2D_2, function, A, B);
+    basic_matrix_multiplication_Array2D(Q, arr2D_1, arr2D_2, result, M, N, P, A, B);
+    return result;
   }
-  else if(kernel_key == "nd"){
-    return Array2D_matrix_multiplication_Array2D_ND(arr2D_1, arr2D_2, function, A, B, b);
-  }
+  //else if(kernel_key == "nd"){
+  //  return Array2D_matrix_multiplication_Array2D_ND(arr2D_1, arr2D_2, A, B, b);
+  //}
   else{
     throw std::runtime_error("Invalid kernel key.");
   }
