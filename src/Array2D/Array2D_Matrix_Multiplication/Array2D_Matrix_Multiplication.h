@@ -33,7 +33,7 @@
 /// @{
 namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
-/// \brief Array2D Mat-Mul (Product Element-Wise Operation).
+/// \brief Array2D Mat-Mul.
 /// \param[in] arr2D_1 First Array2D for operation.
 /// \param[in] arr2D_2 Second Array2D for operation.
 /// \param[in] A Constant multiplier for the first Array2D.
@@ -70,11 +70,57 @@ void basic_matrix_multiplication_Array2D(sycl::queue Q,
 }
 
 ///////////////////////////////////////////////////////////////////////
-/// \brief Array2D Mat-Mul (Product Element-Wise Operation).
+/// \brief Array2D Mat-Mul (ND-Range).
 /// \param[in] arr2D_1 First Array2D for operation.
 /// \param[in] arr2D_2 Second Array2D for operation.
 /// \param[in] A Constant multiplier for the first Array2D.
 /// \param[in] B Constant multiplier for the second Array2D.
+/// \param[in] b Local work group size.
+/// \return The result of the operation.
+template <typename Array2D_type>
+void Array2D_matrix_multiplication_Array2D_ND(sycl::queue Q,
+                                         const Array2D_type &arr2D_1,
+                                         const Array2D_type &arr2D_2,
+                                         Array2D_type &result,
+                                         const int &M,
+                                         const int &N,
+                                         const int &P,
+                                         const float &A = 1.0f,
+                                         const float &B = 1.0f,
+                                         const int &b = 4){
+  Q.submit([&](sycl::handler &h){
+    const auto data_1 = arr2D_1.get_data_ptr();
+    const auto data_2 = arr2D_2.get_data_ptr();
+    const auto data_r = result.get_data_ptr();
+
+    auto global = sycl::range<2>(M, P);
+    auto local = sycl::range<2>(b, b);
+
+    h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
+      const int i = it.get_global_id(0);
+      const int j = it.get_global_id(1);
+
+      double sum = 0.0;
+
+      for(int k = 0; k < N; ++k){
+        sum += data_1[i*N + k] * data_2[k*P + j];
+      }
+
+      data_r[i*P + j] = sum;
+    });
+  });
+}
+
+
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Array2D Mat-Mul (Handler).
+/// \param[in] arr2D_1 First Array2D for operation.
+/// \param[in] arr2D_2 Second Array2D for operation.
+/// \param[in] A Constant multiplier for the first Array2D.
+/// \param[in] B Constant multiplier for the second Array2D.
+/// \param[in] b Local work group size.
+/// \param[in] kernel_key The kernel key to use for the operation.
 /// \return The result of the operation.
 template <typename Array2D_type>
 Array2D_type matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
@@ -108,9 +154,11 @@ Array2D_type matrix_multiplication_Array2D(const Array2D_type &arr2D_1,
     basic_matrix_multiplication_Array2D(Q, arr2D_1, arr2D_2, result, M, N, P, A, B);
     return result;
   }
-  //else if(kernel_key == "nd"){
-  //  return Array2D_matrix_multiplication_Array2D_ND(arr2D_1, arr2D_2, A, B, b);
-  //}
+  else if(kernel_key == "nd"){
+    Array2D_matrix_multiplication_Array2D_ND(Q, arr2D_1, arr2D_2,
+                                             result, M, N, P, A, B, b);
+    return result;
+  }
   else{
     throw std::runtime_error("Invalid kernel key.");
   }
