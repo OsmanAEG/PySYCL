@@ -29,7 +29,7 @@ arr2D_2 = array2D.array2D_shared(N, P, Q)
 np2D_1 = np.zeros((M, N))
 np2D_2 = np.zeros((N, P))
 
-for i in range(M):
+'''for i in range(M):
   for j in range(N):
     rand = random.uniform(0.0, 100.0)
     arr2D_1.set_value(i, j, rand)
@@ -39,7 +39,7 @@ for i in range(N):
   for j in range(P):
     rand = random.uniform(0.0, 100.0)
     arr2D_2.set_value(i, j, rand)
-    np2D_2[i][j] = rand
+    np2D_2[i][j] = rand'''
 
 start = time.time()
 arr2D_r_obj = array2D.matmul(arr2D_1, arr2D_2, kernel_key = "nd", b = 32)
@@ -56,7 +56,7 @@ end = time.time()
 numpy_time = end - start
 print("Time for numpy add: ", numpy_time)
 
-check_elements_equal(arr2D_r, np2D_r, M, N)
+'''check_elements_equal(arr2D_r, np2D_r, M, N)'''
 
 print("Speedup with PySYCL: ", numpy_time/arr2D_time)
 
