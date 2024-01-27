@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PySYCL</title>
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="script.js"></script>
+  <style>
+   .main-section {
+      text-align: center;
+    }
+    .main-section img {
+      max-width: 30%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .equals-section {
+      text-align: center;
+    }
+    .equals-section img {
+      max-width: 40%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .about-text {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .description .box,
+    .equals-section,
+    .main-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .description .box::before,
+    .description .box::after,
+    .equals-section::before,
+    .equals-section::after,
+    .main-section::before,
+    .main-section::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #3388ff;
+      transition: width 0.5s;
+    }
+    .description .box::before,
+    .equals-section::before,
+    .main-section::before {
+      top: 0;
+    }
+    .description .box::after,
+    .equals-section::after,
+    .main-section::after {
+      bottom: 0;
+    }
+    .description .box:hover::before,
+    .description .box:hover::after,
+    .equals-section:hover::before,
+    .equals-section:hover::after,
+    .main-section:hover::before,
+    .main-section:hover::after {
+      width: 100%;
+    }
+    .description .box::before,
+    .description .box::after,
+    .equals-section::before,
+    .equals-section::after,
+    .main-section::before,
+    .main-section::after {
+      transition-timing-function: ease-out;
+    }
+    .description .box:not(:hover)::before,
+    .description .box:not(:hover)::after,
+    .equals-section:not(:hover)::before,
+    .equals-section:not(:hover)::after,
+    .main-section:not(:hover)::before,
+    .main-section:not(:hover)::after {
+      left: auto;
+      right: 0;
+      transition-timing-function: ease-in;
+    }
+  </style>
+</head>
+<body>
+  <section class="main-section">
+    <div class="logo-container">
+      <img src="../images/pysycl_main.png" alt="PySYCL Main">
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="boxes">
+      <div class="box">
+        <h2>
+          Target GPUs
+        </h2>
+        <p>
+          PySYCL enables Python users to write code that can be executed on
+          hardware accelerators such as GPUs, FPGAs, and other devices that
+          support the SYCL standard.
+        </p>
+      </div>
+      <div class="box">
+        <h2>
+          Pythonic Syntax
+        </h2>
+        <p>
+          PySYCL provides a Pythonic syntax for writing code that can be
+          executed on hardware accelerators.
+        </p>
+      </div>
+      <div class="box">
+        <h2>
+          Speed Up Your Code
+        </h2>
+        <p>
+          PySYCL enables Python users to speed up their code by orders of magnitude via
+          C++ backend that is written in the SYCL standard.
+        </p>
+      </div>
+      <div class="box">
+        <h2>
+          Simple Modules
+        </h2>
+        <p>
+          PySYCL facilitates the paralelization of Python code by providing
+          simple to use modules that can be imported into Python scripts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="equals-section">
+    <img src="../images/pysycl_equals.png" alt="PySYCL Equals">
+    <h2>
+      About PySYCL
+    </h2>
+    <p class="about-text">
+      PySYCL is a Python abstraction layer for SYCL.
+      The objective is to provide a simple and easy to use interface for SYCL functionalities
+      within a Python programming environment. The project is currently in its early
+      stages of development and is not yet ready for production use.
+    </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

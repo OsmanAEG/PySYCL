@@ -21,5 +21,5 @@
 #######################################################################
 option(PYSYCL_Array2D "Compile the PySYCL Array2D module" ON)
 if(PYSYCL_Array2D)
-  PySYCL_add_pybind11_module(array2D Array2D_Python_Module.cpp)
+  PySYCL_add_pybind11_module(array_2d Array2D_Python_Module.cpp)
 endif()

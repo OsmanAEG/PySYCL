@@ -17,61 +17,30 @@
 /// \file
 /// \brief Python module for device inquiry in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
 #include "Device_Inquiry.h"
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
-// Device inquiry functions
+// Device class and functions
 ///////////////////////////////////////////////////////////////////////
-
-void deviceinquiry_module(py::module& m){
-  m.def("platform_list", &pysycl::platform_list, R"delim(
-    .. figure:: _static/images/platforms.png
-      :scale: 50 %
-      :alt: Common Platforms
-
-      Common Platforms
-
+void device_inquiry_module(py::module& m){
+  m.def("get_device_list", &pysycl::get_device_list, R"delim(
     Description
-      This function returns a list of available SYCL platforms.
+      This function returns a list of all available devices.
 
     Returns
-      list
-        A list of available SYCL platforms.
+      A list of available PySYCL devices.
 
     Example
-      Copy
-      ----
-      >>> from pysycl import device
-      >>> print(device.platform_list())
-      ['NVIDIA CUDA BACKEND ( platform index = 0)']
-  )delim")
-  .def("device_list", &pysycl::device_list, R"delim(
-    .. figure:: _static/images/gpu.png
-      :scale: 50 %
-      :alt: Device Selection
-
-      Device Selection(GPU, CPU, FPGA)
-
-    Description
-      This function returns a list of available SYCL devices.
-
-    Returns
-      list
-        A list of available SYCL devices.
-
-    Example
-      Copy
-      ----
-      >>> from pysycl import device
-      >>> print(device.device_list(0))
-      ['NVIDIA GeForce RTX 3060 Laptop GPU ( device index = 0)']
-  )delim"),
-  py::arg("platform_index") = 0;
+      >>> import pysycl
+      >>> my_devices = device.device_inquiry()
+      >>> print(my_devices)
+      ['NVIDIA GeForce RTX 3060 Laptop GPU [0, 0]']
+  )delim");
 }
 
-#endif // DEVICE_INQUIRY_PYTHON_MODULE_H
+#endif //DEVICE_INQUIRY_PYTHON_MODULE_H

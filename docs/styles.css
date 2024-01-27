@@ -1,4 +1,4 @@
-body {
+body{
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +6,7 @@ body {
   color: #ffffff;
 }
 
-header {
+header{
   background-color: #222222;
   padding: 10px;
   display: flex;
@@ -14,61 +14,61 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo{
   margin-right: 20px;
 }
 
-.logo img {
+.logo img{
   max-height: 100px;
 }
 
-nav ul {
+nav ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+nav ul li{
   display: inline;
   margin-right: 10px;
 }
 
-nav ul li a {
+nav ul li a{
   color: #ffffff;
   text-decoration: none;
   padding: 5px;
 }
 
-nav ul li a:hover {
-  color: #3388ff; /* Lighter blue color for the hover state */
+nav ul li a:hover{
+  color: #3388ff;
 }
 
-nav ul li a.selected {
-  color: #0000ff; /* Blue color for the selected state */
+nav ul li a.selected{
+  color: #0000ff;
 }
 
-section {
+section{
   background-color: #444444;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-h1, h2 {
+h1, h2{
   color: #ffffff;
-  font-weight: bold; /* Added font-weight to make titles bold */
-  text-align: center; /* Added text-align to center-align titles */
+  font-weight: bold;
+  text-align: center;
 }
 
-h1 {
-  font-size: 25px; /* Increased font size for the header title */
+h1{
+  font-size: 25px;
   line-height: 0;
 }
 
-h2 {
-  font-size: 28px; /* Increased font size for section titles */
+h2{
+  font-size: 28px;
 }
 
-.boxes {
+.boxes{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +76,7 @@ h2 {
   margin-top: 20px;
 }
 
-.box {
+.box{
   width: 200px;
   height: 200px;
   background-color: #444444;
@@ -87,36 +87,36 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.box:hover {
+.box:hover{
   background-color: #3388ff;
 }
 
-.box h2 {
+.box h2{
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.box p {
+.box p{
   font-size: 14px;
 }
 
-.nav-current a {
+.nav-current a{
   color: #3388ff;
 }
 
-.footer {
+.footer{
   background-color: #191919;
   padding: 20px;
   text-align: center;
 }
 
-.footer a {
+.footer a{
   color: #3388ff;
   text-decoration: none;
 }
 
-.github-icon {
+.github-icon{
   justify-content: center;
   align-items: center;
   padding-left: 100px;

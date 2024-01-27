@@ -1,6 +1,3 @@
-#ifndef DEVICE_PYTHON_MODULE_H
-#define DEVICE_PYTHON_MODULE_H
-
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
 // Python.  It is licensed under the MIT licence.  A copy of
@@ -17,10 +14,9 @@
 /// \file
 /// \brief Python module for device in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-
 #include <pybind11/pybind11.h>
 
-#include "Device_Object_Python_Module.h"
+#include "Device_Instance_Python_Module.h"
 #include "Device_Inquiry_Python_Module.h"
 
 namespace py = pybind11;
@@ -33,10 +29,8 @@ PYBIND11_MODULE(device, m){
   m.doc() = R"delim(
     Device module for PySYCL
       This module provides classes and functions for selecting SYCL devices.
-  )delim";
+    )delim";
 
-  deviceobject_module(m);
-  deviceinquiry_module(m);
+  device_instance_module(m);
+  device_inquiry_module(m);
 }
-
-#endif // DEVICE_PYTHON_MODULE_H
