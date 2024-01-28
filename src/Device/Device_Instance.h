@@ -62,7 +62,7 @@ public:
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Returns the device queue.
-  auto get_queue();
+  auto get_queue() const;
 
   /////////////////////////////////////////////////////////////////////
   /// \brief Returns the platform index.
@@ -132,7 +132,7 @@ auto Device_Instance::vendor() {
 }
 
 /////////////////////////////////////////////////////////////////////////
-auto Device_Instance::get_queue() {
+auto Device_Instance::get_queue() const {
   return Q;
 }
 

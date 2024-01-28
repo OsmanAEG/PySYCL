@@ -53,21 +53,9 @@ void array_2d_module(py::module& m){
           >>> import pysycl
           >>> A = pysycl.array_2d.array_2d_init(10, 12)
       )delim",
-      py::arg("cols"),
       py::arg("rows"),
+      py::arg("cols"),
       py::arg("device"))
-    .def("num_cols", &pysycl::Array2D::num_cols, R"delim(
-      Description
-        This function returns the number of columns.
-
-      Returns
-        The number of columns.
-
-      Example
-        >>> rows = A.num_cols()
-        >>> print(cols)
-        12
-      )delim")
     .def("num_rows", &pysycl::Array2D::num_rows, R"delim(
       Description
         This function returns the number of rows.
@@ -78,7 +66,32 @@ void array_2d_module(py::module& m){
       Example
         >>> rows = A.num_rows()
         >>> print(rows)
+        12
+      )delim")
+    .def("num_cols", &pysycl::Array2D::num_cols, R"delim(
+      Description
+        This function returns the number of columns.
+
+      Returns
+        The number of columns.
+
+      Example
+        >>> rows = A.num_cols()
+        >>> print(cols)
         10
+      )delim")
+    .def("fill", &pysycl::Array2D::fill, R"delim(
+      Description
+        This function fills the array with a constant value
+
+      Parameters
+        C : double
+          Some scalar constant.
+
+      Example
+        >>> A.fill(45.0)
+        >>> print(A[9, 7])
+        45.0
       )delim")
     .def("__getitem__", [](pysycl::Array2D &self, std::pair<int, int> index){
       return self(index.first, index.second);}, R"delim(
@@ -101,10 +114,27 @@ void array_2d_module(py::module& m){
         Points to an element in memory for editing.
 
       Example
-        A[2, 4] = 6.0
-        print(A[2, 4])
+        >>> A[2, 4] = 6.0
+        >>> print(A[2, 4])
         6.0
-      )delim");
+      )delim")
+    .def("__add__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
+      return self + other;}, R"delim(
+      Description
+        This operator adds two arrays and returns a third one.
+
+      Returns
+        The sums of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> C = A + B
+        >>> print(C[2, 4])
+        9.0
+    )delim");
 }
 
 #endif //ARRAY2D_PYTHON_MODULE_H
