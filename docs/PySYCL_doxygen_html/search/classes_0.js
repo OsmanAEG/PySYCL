@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['device_5finstance_15',['Device_Instance',['../classpysycl_1_1_device___instance.html',1,'pysycl']]]
+  ['array2d_34',['Array2D',['../classpysycl_1_1_array2_d.html',1,'pysycl']]]
 ];

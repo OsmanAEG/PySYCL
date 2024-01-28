@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['q_29',['Q',['../group___device.html#ga64f4163d091013ece5a2fc71c6adf691',1,'pysycl::Device_Instance']]]
+  ['cols_61',['cols',['../classpysycl_1_1_array2_d.html#aeb8aac1202947c13110f00dc9747b40a',1,'pysycl::Array2D']]]
 ];

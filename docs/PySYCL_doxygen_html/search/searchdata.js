@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "dgopqw",
-  1: "d",
+  0: "acdfgnopqrv",
+  1: "ad",
   2: "p",
-  3: "d",
-  4: "dgoqw",
-  5: "q",
-  6: "d"
+  3: "ad",
+  4: "adfgnov",
+  5: "cdpqr",
+  6: "d",
+  7: "ad"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "files",
   4: "functions",
   5: "variables",
-  6: "groups"
+  6: "typedefs",
+  7: "groups"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Files",
   4: "Functions",
   5: "Variables",
-  6: "Modules"
+  6: "Typedefs",
+  7: "Modules"
 };
 
