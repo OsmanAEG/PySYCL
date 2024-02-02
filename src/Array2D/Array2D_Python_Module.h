@@ -134,7 +134,24 @@ void array_2d_module(py::module& m){
         >>> C = A + B
         >>> print(C[2, 4])
         9.0
-    )delim");
+      )delim")
+    .def("__sub__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
+      return self - other;}, R"delim(
+      Description
+        This operator adds two arrays and returns a third one.
+
+      Returns
+        The sums of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> C = A - B
+        >>> print(C[2, 4])
+        3.0
+      )delim");
 }
 
 #endif //ARRAY2D_PYTHON_MODULE_H

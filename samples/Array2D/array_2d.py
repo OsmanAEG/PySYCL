@@ -18,7 +18,7 @@ A[2, 4] = 6.0
 B[2, 4] = 3.0
 
 # matrix addition
-C = A + B
+C = A - B
 
 print(C[2, 4])
 
