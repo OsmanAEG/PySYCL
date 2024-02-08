@@ -135,13 +135,26 @@ void array_2d_module(py::module& m){
         >>> print(C[2, 4])
         9.0
       )delim")
+    .def("__iadd__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self + other;}, R"delim(
+      Description
+        This operator adds an array to self.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> A += B
+        >>> print([2, 4])
+        9.0
+      )delim")
     .def("__sub__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
       return self - other;}, R"delim(
       Description
-        This operator adds two arrays and returns a third one.
+        This operator subtracts two arrays and returns a third one.
 
       Returns
-        The sums of two arrays.
+        The subtraction of two arrays.
 
       Example
         >>> A = pysycl.array_2d.array_2d_init(10, 12)
@@ -151,6 +164,88 @@ void array_2d_module(py::module& m){
         >>> C = A - B
         >>> print(C[2, 4])
         3.0
+      )delim")
+    .def("__isub__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self - other;}, R"delim(
+      Description
+        This operator subtracts two arrays and returns a third one.
+
+      Returns
+        The subtraction of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> A -= B
+        >>> print(A[2, 4])
+        3.0
+      )delim")
+    .def("__mul__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
+      return self * other;}, R"delim(
+      Description
+        This operator multiplies two arrays and returns a third one.
+
+      Returns
+        The product of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> C = A * B
+        >>> print(C[2, 4])
+        18.0
+      )delim")
+    .def("__imul__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self * other;}, R"delim(
+      Description
+        This operator multiplied two arrays and returns a third one.
+
+      Returns
+        The product of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> A *= B
+        >>> print(A[2, 4])
+        18.0
+      )delim")
+    .def("__truediv__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
+      return self / other;}, R"delim(
+      Description
+        This operator divides two arrays and returns a third one.
+
+      Returns
+        The division result of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> C = A / B
+        >>> print(C[2, 4])
+        2.0
+      )delim")
+    .def("__itruediv__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self / other;}, R"delim(
+      Description
+        This operator divides two arrays and returns a third one.
+
+      Returns
+        The division result of two arrays.
+
+      Example
+        >>> A = pysycl.array_2d.array_2d_init(10, 12)
+        >>> B = pysycl.array_2d.array_2d_init(10, 12)
+        >>> A[2, 4] = 6.0
+        >>> B[2, 4] = 3.0
+        >>> A *= B
+        >>> print(A[2, 4])
+        2.0
       )delim");
 }
 
