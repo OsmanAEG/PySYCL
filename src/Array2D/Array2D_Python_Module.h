@@ -93,160 +93,18 @@ void array_2d_module(py::module& m){
         >>> print(A[9, 7])
         45.0
       )delim")
-    .def("__getitem__", [](pysycl::Array2D &self, std::pair<int, int> index){
-      return self(index.first, index.second);}, R"delim(
-      Description
-        This is a read-only operator that reads into memory at the given index.
-
-      Returns
-        The value at the provided index.
-
-      Example
-        print(A[2, 4])
-        0.0
-      )delim")
-    .def("__setitem__", [](pysycl::Array2D &self, std::pair<int, int> index, double value){
-      self(index.first, index.second) = value;}, R"delim(
-      Description
-        This operator edits memory at the given index.
-
-      Returns
-        Points to an element in memory for editing.
-
-      Example
-        >>> A[2, 4] = 6.0
-        >>> print(A[2, 4])
-        6.0
-      )delim")
-    .def("__add__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
-      return self + other;}, R"delim(
-      Description
-        This operator adds two arrays and returns a third one.
-
-      Returns
-        The sums of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> C = A + B
-        >>> print(C[2, 4])
-        9.0
-      )delim")
-    .def("__iadd__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self + other;}, R"delim(
-      Description
-        This operator adds an array to self.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> A += B
-        >>> print([2, 4])
-        9.0
-      )delim")
-    .def("__sub__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
-      return self - other;}, R"delim(
-      Description
-        This operator subtracts two arrays and returns a third one.
-
-      Returns
-        The subtraction of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> C = A - B
-        >>> print(C[2, 4])
-        3.0
-      )delim")
-    .def("__isub__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self - other;}, R"delim(
-      Description
-        This operator subtracts two arrays and returns a third one.
-
-      Returns
-        The subtraction of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> A -= B
-        >>> print(A[2, 4])
-        3.0
-      )delim")
-    .def("__mul__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
-      return self * other;}, R"delim(
-      Description
-        This operator multiplies two arrays and returns a third one.
-
-      Returns
-        The product of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> C = A * B
-        >>> print(C[2, 4])
-        18.0
-      )delim")
-    .def("__imul__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self * other;}, R"delim(
-      Description
-        This operator multiplied two arrays and returns a third one.
-
-      Returns
-        The product of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> A *= B
-        >>> print(A[2, 4])
-        18.0
-      )delim")
-    .def("__truediv__", [](pysycl::Array2D &self, pysycl::Array2D &other) -> pysycl::Array2D {
-      return self / other;}, R"delim(
-      Description
-        This operator divides two arrays and returns a third one.
-
-      Returns
-        The division result of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> C = A / B
-        >>> print(C[2, 4])
-        2.0
-      )delim")
-    .def("__itruediv__", [](pysycl::Array2D &self, pysycl::Array2D &other){return self / other;}, R"delim(
-      Description
-        This operator divides two arrays and returns a third one.
-
-      Returns
-        The division result of two arrays.
-
-      Example
-        >>> A = pysycl.array_2d.array_2d_init(10, 12)
-        >>> B = pysycl.array_2d.array_2d_init(10, 12)
-        >>> A[2, 4] = 6.0
-        >>> B[2, 4] = 3.0
-        >>> A *= B
-        >>> print(A[2, 4])
-        2.0
-      )delim");
+    .def("__getitem__", [](pysycl::Array2D &self, std::pair<int, int> idx){
+      return self(idx.first, idx.second);})
+    .def("__setitem__", [](pysycl::Array2D &self, std::pair<int, int> idx, double val){
+      self(idx.first, idx.second) = val;})
+    .def("__add__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a + b;})
+    .def("__iadd__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a + b;})
+    .def("__sub__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a - b;})
+    .def("__isub__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a - b;})
+    .def("__mul__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a * b;})
+    .def("__imul__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a * b;})
+    .def("__truediv__",  [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a / b;})
+    .def("__itruediv__", [](pysycl::Array2D &a, pysycl::Array2D &b){return a / b;});
 }
 
 #endif //ARRAY2D_PYTHON_MODULE_H

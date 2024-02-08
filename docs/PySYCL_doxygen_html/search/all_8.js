@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['q_31',['Q',['../classpysycl_1_1_array2_d.html#afb9a022617c917b54b273ab203109780',1,'pysycl::Array2D::Q()'],['../group___device.html#ga64f4163d091013ece5a2fc71c6adf691',1,'pysycl::Device_Instance::Q()']]]
+  ['platform_5fidx_38',['platform_idx',['../group___device.html#gab9b208c263a41e33e44d9d5655b66579',1,'pysycl::Device_Instance']]],
+  ['pysycl_39',['pysycl',['../namespacepysycl.html',1,'']]]
 ];

@@ -107,7 +107,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gad78e74ab16956b393935a371e0aa6c4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f">pysycl::Array2D::num_rows</a> () const</td></tr>
-<tr class="memdesc:gad78e74ab16956b393935a371e0aa6c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator+ for matrix addition (adjusting the current array)  <a href="group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f">More...</a><br /></td></tr>
+<tr class="memdesc:gad78e74ab16956b393935a371e0aa6c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f">More...</a><br /></td></tr>
 <tr class="separator:gad78e74ab16956b393935a371e0aa6c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga628c80a85cb0367d604f3ad0728630c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4">pysycl::Array2D::num_cols</a> () const</td></tr>
 <tr class="memdesc:ga628c80a85cb0367d604f3ad0728630c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4">More...</a><br /></td></tr>
@@ -119,6 +119,10 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gad5ef9a2130aa6f8875a5beeb8a412cc7">pysycl::Array2D::fill</a> (const double C)</td></tr>
 <tr class="memdesc:gad5ef9a2130aa6f8875a5beeb8a412cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the device with a specific value. <br /></td></tr>
 <tr class="separator:gad5ef9a2130aa6f8875a5beeb8a412cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="memItemLeft" align="right" valign="top"><a id="gac4bf4ee7bd0a2d532ac57620294db73c"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gac4bf4ee7bd0a2d532ac57620294db73c">pysycl::Array2D::binary_matrix_operations</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B, <a class="el" href="classpysycl_1_1_array2_d.html#aeb0160dec1a746ca3d1485f861f830af">binary_operations</a> op, bool edit_self)</td></tr>
+<tr class="memdesc:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform binary matrix operations. <br /></td></tr>
+<tr class="separator:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -140,7 +144,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00201">201</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00256">256</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -162,7 +166,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00196">196</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00251">251</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -181,10 +185,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
       </table>
 </div><div class="memdoc">
 
-<p>Overloaded operator+ for matrix addition (adjusting the current array) </p>
-<p>Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p><dl class="section return"><dt>Returns</dt><dd>Number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
+<p>Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00191">191</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00246">246</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +197,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 27 2024 20:32:42 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Feb 8 2024 06:53:32 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
