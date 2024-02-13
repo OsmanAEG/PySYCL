@@ -1,5 +1,5 @@
-#ifndef ARRAY2D_SHARED_H
-#define ARRAY2D_SHARED_H
+#ifndef ARRAY2D_H
+#define ARRAY2D_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -204,6 +204,11 @@ public:
   double* get_data_ptr();
 
   ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the device from Array2D.
+  /// \return The Array2D device instance.
+  pysycl::Device_Instance get_device();
+
+  ///////////////////////////////////////////////////////////////////////
   /// \brief Fill the device with a specific value
   void fill(const double C);
 
@@ -255,6 +260,11 @@ int pysycl::Array2D::num_cols() const {
 /////////////////////////////////////////////////////////////////////////
 double* pysycl::Array2D::get_data_ptr(){
   return data;
+}
+
+/////////////////////////////////////////////////////////////////////////
+pysycl::Device_Instance pysycl::Array2D::get_device(){
+  return device;
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -352,4 +362,4 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
   }
 }
 
-#endif // ARRAY2D_SHARED_H
+#endif // ARRAY2D_H

@@ -1,5 +1,5 @@
-#ifndef DEVICE_INQUIRY_PYTHON_MODULE_H
-#define DEVICE_INQUIRY_PYTHON_MODULE_H
+#ifndef MATRIX_MULTIPLICATION_PYTHON_MODULE_H
+#define MATRIX_MULTIPLICATION_PYTHON_MODULE_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -15,32 +15,21 @@
 
 ///////////////////////////////////////////////////////////////////////
 /// \file
-/// \brief Python module for device inquiry in PySYCL.
+/// \brief Python module for a matrix multiplication in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "Device_Inquiry.h"
+#include "Matrix_Multiplication.h"
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
-// Device inquiry function
+// Matrix multiplication function
 ///////////////////////////////////////////////////////////////////////
-void device_inquiry_module(py::module& m){
-  m.def("get_device_list", &pysycl::get_device_list, R"delim(
-    Description
-      This function returns a list of all available devices.
-
-    Returns
-      A list of available PySYCL devices.
-
-    Example
-      >>> import pysycl
-      >>> my_devices = device.device_inquiry()
-      >>> print(my_devices)
-      ['NVIDIA GeForce RTX 3060 Laptop GPU [0, 0]']
+void matmul_module(py::module& m){
+  m.def("matmul", &pysycl::matmul, R"delim(
   )delim");
 }
 
-#endif //DEVICE_INQUIRY_PYTHON_MODULE_H
+#endif //MATRIX_MULTIPLICATION_PYTHON_MODULE_H

@@ -26,11 +26,13 @@
 
 namespace py = pybind11;
 
+using Array2D_T = pysycl::Array2D;
+
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
 void array_2d_module(py::module& m){
-  py::class_<pysycl::Array2D>(m, "array_2d_init", R"delim(
+  py::class_<Array2D_T>(m, "array_2d_init", R"delim(
     Description
       This class creates a PySYCL array_2d object.
     )delim")
@@ -56,7 +58,7 @@ void array_2d_module(py::module& m){
       py::arg("rows"),
       py::arg("cols"),
       py::arg("device"))
-    .def("num_rows", &pysycl::Array2D::num_rows, R"delim(
+    .def("num_rows", &Array2D_T::num_rows, R"delim(
       Description
         This function returns the number of rows.
 
@@ -68,7 +70,7 @@ void array_2d_module(py::module& m){
         >>> print(rows)
         12
       )delim")
-    .def("num_cols", &pysycl::Array2D::num_cols, R"delim(
+    .def("num_cols", &Array2D_T::num_cols, R"delim(
       Description
         This function returns the number of columns.
 
@@ -80,7 +82,7 @@ void array_2d_module(py::module& m){
         >>> print(cols)
         10
       )delim")
-    .def("fill", &pysycl::Array2D::fill, R"delim(
+    .def("fill", &Array2D_T::fill, R"delim(
       Description
         This function fills the array with a constant value
 
@@ -93,18 +95,18 @@ void array_2d_module(py::module& m){
         >>> print(A[9, 7])
         45.0
       )delim")
-    .def("__getitem__", [](pysycl::Array2D &self, std::pair<int, int> idx){
+    .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
-    .def("__setitem__", [](pysycl::Array2D &self, std::pair<int, int> idx, double val){
+    .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, double val){
       self(idx.first, idx.second) = val;})
-    .def("__add__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a + b;})
-    .def("__iadd__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a + b;})
-    .def("__sub__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a - b;})
-    .def("__isub__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a - b;})
-    .def("__mul__",      [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a * b;})
-    .def("__imul__",     [](pysycl::Array2D &a, pysycl::Array2D &b){return a * b;})
-    .def("__truediv__",  [](pysycl::Array2D &a, pysycl::Array2D &b) -> pysycl::Array2D {return a / b;})
-    .def("__itruediv__", [](pysycl::Array2D &a, pysycl::Array2D &b){return a / b;});
+    .def("__add__",      [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a + b;})
+    .def("__iadd__",     [](Array2D_T &a, Array2D_T &b){return a + b;})
+    .def("__sub__",      [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a - b;})
+    .def("__isub__",     [](Array2D_T &a, Array2D_T &b){return a - b;})
+    .def("__mul__",      [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a * b;})
+    .def("__imul__",     [](Array2D_T &a, Array2D_T &b){return a * b;})
+    .def("__truediv__",  [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a / b;})
+    .def("__itruediv__", [](Array2D_T &a, Array2D_T &b){return a / b;});
 }
 
 #endif //ARRAY2D_PYTHON_MODULE_H
