@@ -2,11 +2,9 @@
 The purpose of this software is to deliver SYCL based functionalities for use within Python development environments. The objective being to facilitate GPU targetted development.
 
 # Website
-Find the official website at:
 https://osmanaeg.github.io/PySYCL/
 
 # User Guide
-Find the official PySYCL user guide at:
 https://osmanaeg.github.io/PySYCL/user-guide.html
 
 # Developer Guide
