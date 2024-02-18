@@ -35,23 +35,19 @@ namespace pysycl {
 Array2D matmul(Array2D& A, Array2D& B){
   if(A.num_cols() != B.num_rows()) throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
 
-  const auto platform_idx = A.get_device().get_platform_index();
-  const auto device_idx = A.get_device().get_device_index();
+  const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
+  const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
 
-  if(platform_idx != B.get_device().get_platform_index() || device_idx != B.get_device().get_device_index()){
-    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
-  }
+  if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
 
   const auto M = A.num_rows();
   const auto N = A.num_cols();
   const auto P = B.num_cols();
 
   const size_t wg_size = sqrt(A.get_device().get_max_workgroup_size());
-  Device_Instance device = Device_Instance(platform_idx, device_idx);
 
-  Array2D C = Array2D(M, P, device);
-
-  auto Q = device.get_queue();
+  Array2D C(M, P, A.get_device());
+  auto Q = A.get_device().get_queue();
 
   Q.submit([&](sycl::handler& h){
     const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;
@@ -60,9 +56,9 @@ Array2D matmul(Array2D& A, Array2D& B){
     sycl::range<2> global{global_size_M, global_size_P};
     sycl::range<2> local{wg_size, wg_size};
 
-    auto data_1 = A.get_data_ptr();
-    auto data_2 = B.get_data_ptr();
-    auto data_new = C.get_data_ptr();
+    auto data_1   = A.get_device_data_ptr();
+    auto data_2   = B.get_device_data_ptr();
+    auto data_new = C.get_device_data_ptr();
 
     h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
       const auto i = it.get_global_id(0);

@@ -95,6 +95,20 @@ void array_2d_module(py::module& m){
         >>> print(A[9, 7])
         45.0
       )delim")
+    .def("mem_to_gpu", &Array2D_T::mem_to_gpu, R"delim(
+      Description
+        This function copies array memory from CPU to GPU
+
+      Example
+        >>> A.mem_to_gpu()
+      )delim")
+    .def("mem_to_cpu", &Array2D_T::mem_to_cpu, R"delim(
+      Description
+        This function copies array memory from GPU to CPU
+
+      Example
+        >>> A.mem_to_cpu()
+      )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
     .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, double val){

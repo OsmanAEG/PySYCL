@@ -7,8 +7,8 @@ import pysycl
 Q = pysycl.device.device_instance(0, 0)
 
 # output the device name
-print(Q.device_name())
+print(Q.name())
 
 # output the device vendor
-print(Q.device_vendor())
+print(Q.vendor())
 

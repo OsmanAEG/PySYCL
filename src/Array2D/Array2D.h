@@ -46,34 +46,39 @@ public:
   Array2D(const Array2D& og) :
       rows(og.rows),
       cols(og.cols),
+      data_host(og.data_host),
       device(og.device),
       Q(og.Q){
-    data = sycl::malloc_shared<double>(rows*cols, Q);
-    std::copy_n(og.data, rows*cols, data);
+        data_device = sycl::malloc_device<double>(rows*cols, Q);
+        Q.memcpy(data_device, og.data_device, rows*cols*sizeof(double)).wait();
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move constructor.
   Array2D(Array2D&& og) noexcept :
-      data(og.data),
       rows(og.rows),
       cols(og.cols),
+      data_host(std::move(og.data_host)),
+      data_device(og.data_device),
       Q(std::move(og.Q)),
       device(std::move(og.device)){
-    og.data = nullptr;
+        og.data_device = nullptr;
+        og.rows = 0;
+        og.cols = 0;
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment operator.
   Array2D& operator=(const Array2D& og){
     if(this != &og){
-      sycl::free(data, Q);
+      data_host = og.data_host;
+      sycl::free(data_device, Q);
       rows = og.rows;
       cols = og.cols;
       device = og.device;
       Q = og.Q;
-      data = sycl::malloc_shared<double>(rows*cols, Q);
-      std::copy_n(og.data, rows*cols, data);
+      data_device = sycl::malloc_device<double>(rows*cols, Q);
+      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(double)).wait();
     }
 
     return *this;
@@ -83,13 +88,16 @@ public:
   /// \brief Move assignment operator.
   Array2D& operator=(Array2D&& og) noexcept{
     if(this != &og){
-      sycl::free(data, Q);
-      data = og.data;
+      data_host = std::move(og.data_host);
+      sycl::free(data_device, Q);
+      data_device = og.data_device;
+      og.data_device = nullptr;
       rows = og.rows;
       cols = og.cols;
       Q = std::move(og.Q);
       device = std::move(og.device);
-      og.data = nullptr;
+      rows = 0;
+      cols = 0;
     }
 
     return *this;
@@ -98,9 +106,9 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Destructor.
   ~Array2D(){
-    if (data){
-      sycl::free(data, Q);
-      data = nullptr;
+    if(data_device){
+      sycl::free(data_device, Q);
+      data_device = nullptr;
     }
   }
 
@@ -109,27 +117,30 @@ public:
   /// \param[in] rows Number of rows in the array.
   /// \param[in] cols Number of columns in the array.
   Array2D(int rows_in, int cols_in, Device_T device_in = Device_T(0, 0)) :
-      rows(rows_in), cols(cols_in), device(device_in),
+      rows(rows_in),
+      cols(cols_in),
+      data_host(rows*cols),
+      device(device_in),
     Q(device_in.get_queue()){
     if(rows <= 0 || cols <= 0){
       throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
     }
 
-    data = sycl::malloc_shared<double>(rows*cols, Q);
+    data_device = sycl::malloc_device<double>(rows*cols, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() direct element access
   double& operator()(int i, int j) {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
-    return data[i*cols + j];
+    return data_host[i*cols + j];
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() read-only element access
   const double& operator()(int i, int j) const {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
-    return data[i*cols + j];
+    return data_host[i*cols + j];
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -200,13 +211,26 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array2D.
-  /// \return Pointer to Array2D data.
-  double* get_data_ptr();
+  /// \return Pointer to Array2D host data.
+  std::vector<double> get_host_data_vector();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the data pointer from Array2D.
+  /// \return Pointer to Array2D device data.
+  double* get_device_data_ptr();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy memory from the CPU to the GPU.
+  void mem_to_gpu();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy memory from the GPU to the CPU
+  void mem_to_cpu();
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the device from Array2D.
   /// \return The Array2D device instance.
-  pysycl::Device_Instance get_device();
+  pysycl::Device_Instance& get_device();
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Fill the device with a specific value
@@ -222,16 +246,20 @@ private:
   int cols;
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Pointer to data stored in the array.
-  double* data;
+  /// \brief Vector for data stored in host memory.
+  std::vector<double> data_host;
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Device SYCL queue.
-  sycl::queue Q;
+  /// \brief Pointer to data stored in device memory.
+  double* data_device;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Device that will store and handle Array2D memory and operations
   Device_T device;
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Device SYCL queue.
+  sycl::queue Q;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Defining enumerations of binary operations
@@ -258,12 +286,29 @@ int pysycl::Array2D::num_cols() const {
 }
 
 /////////////////////////////////////////////////////////////////////////
-double* pysycl::Array2D::get_data_ptr(){
-  return data;
+std::vector<double> pysycl::Array2D::get_host_data_vector(){
+  return data_host;
 }
 
 /////////////////////////////////////////////////////////////////////////
-pysycl::Device_Instance pysycl::Array2D::get_device(){
+double* pysycl::Array2D::get_device_data_ptr(){
+  return data_device;
+}
+
+/////////////////////////////////////////////////////////////////////////
+/// \brief Copy memory from the CPU to the GPU.
+void pysycl::Array2D::mem_to_gpu(){
+  Q.memcpy(data_device, &data_host[0], rows*cols*sizeof(double)).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+/// \brief Copy memory from the GPU to the CPU
+void pysycl::Array2D::mem_to_cpu(){
+  Q.memcpy(&data_host[0], data_device, rows*cols*sizeof(double)).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+pysycl::Device_Instance& pysycl::Array2D::get_device(){
   return device;
 }
 
@@ -276,7 +321,7 @@ void pysycl::Array2D::fill(const double C){
     const size_t global_size_cols = ((cols + B - 1)/B)*B;
     const auto M = rows;
     const auto N = cols;
-    const auto A = data;
+    const auto A = data_device;
 
     sycl::range<2> global{global_size_rows, global_size_cols};
     sycl::range<2> local{B, B};
@@ -312,9 +357,7 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
 
   const size_t wg_size = sqrt(this->device.get_max_workgroup_size());
 
-  Array2D* C;
-
-  if(!edit_self) C = new Array2D(rows, cols, this->device);
+  Array2D C = edit_self ? *this : Array2D(rows, cols, this->device);
 
   Q.submit([&](sycl::handler& h){
     const size_t global_size_rows = ((rows + wg_size - 1)/wg_size)*wg_size;
@@ -323,9 +366,9 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
     sycl::range<2> global{global_size_rows, global_size_cols};
     sycl::range<2> local{wg_size, wg_size};
 
-    auto data_1   = this->get_data_ptr();
-    auto data_2   = B.get_data_ptr();
-    auto data_new = edit_self ? data_1 : C->get_data_ptr();
+    auto data_1   = this->get_device_data_ptr();
+    auto data_2   = B.get_device_data_ptr();
+    auto data_new = C.get_device_data_ptr();
 
     h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
       const auto i = it.get_global_id(0);
@@ -353,13 +396,7 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
     });
   }).wait();
 
-  if(edit_self){
-    return *this;
-  }else{
-    pysycl::Array2D result = *C;
-    delete C;
-    return result;
-  }
+  return C;
 }
 
 #endif // ARRAY2D_H

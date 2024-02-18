@@ -17,10 +17,12 @@ A.fill(1.0)
 B.fill(2.0)
 
 C = A / B
+C.mem_to_cpu()
 
 print("C[30, 50] = " + str(C[30, 50]))
 
 print("Now compute C /= A")
 C /= A
+C.mem_to_cpu()
 
 print("C[30, 50] = " + str(C[30, 50]) + "\n")

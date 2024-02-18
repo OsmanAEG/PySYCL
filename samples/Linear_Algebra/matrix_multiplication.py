@@ -8,9 +8,9 @@ import pysycl
 device = pysycl.device.device_instance(0, 0)
 
 # Matrix dimensions
-M = 1000
-N = 1000
-P = 1000
+M = 3000
+N = 3000
+P = 3000
 
 np.random.seed(35)
 A_np = np.random.rand(M, N).astype(np.float32)
@@ -27,6 +27,9 @@ for i in range(N):
   for j in range(P):
     B_ps[i, j] = B_np[i, j]
 
+A_ps.mem_to_gpu()
+B_ps.mem_to_gpu()
+
 start_time_np = time.time()
 C_np = np.matmul(A_np, B_np)
 end_time_np = time.time()
@@ -39,6 +42,8 @@ pysycl_duration = end_time_ps - start_time_ps
 
 print("numpy time: {:.2f} seconds".format(numpy_duration))
 print("pysycl time: {:.2f} seconds".format(pysycl_duration))
+
+C_ps.mem_to_cpu()
 
 print("C_np[30, 50] = ", C_np[30, 50])
 print("C_ps[30, 50] = ", C_ps[30, 50])
