@@ -161,6 +161,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">PySYCL Python Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of PySYCL Python Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array_2d.html">PySYCL: Array2D Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">PySYCL: Linear Algebra Sub-Module</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +202,121 @@
 <h1>pysycl package<a class="headerlink" href="#pysycl-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-pysycl.array_2d">
+<span id="pysycl-array-2d-module"></span><h2>pysycl.array_2d module<a class="headerlink" href="#module-pysycl.array_2d" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>Array2D module for PySYCL</dt><dd><p>This module provides classes and functions for creating PySYCL 2D arrays.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array_2d.</span></span><span class="sig-name descname"><span class="pre">array_2d_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self:</span> <span class="pre">pysycl.array_2d.array_2d_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device:</span> <span class="pre">pysycl::Device_Instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array_2d.array_2d_init" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl>
+<dt>Description</dt><dd><p>This class creates a PySYCL array_2d object.</p>
+</dd>
+<dt>Default Constructor</dt><dd><p>Constructor that creates a 2D PySYCL array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl>
+<dt>cols: int</dt><dd><p>Number of columns.</p>
+</dd>
+<dt>rows: int</dt><dd><p>Number of rows.</p>
+</dd>
+<dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
+</dd>
+<dt>Returns</dt><dd><p>A PySYCL 2D array.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d</span><span class="o">.</span><span class="n">array_2d_init</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.fill" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function fills the array with a constant value</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C<span class="classifier">double</span></dt><dd><p>Some scalar constant.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">45.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="go">45.0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.mem_to_cpu">
+<span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.mem_to_cpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from GPU to CPU</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.mem_to_gpu">
+<span class="sig-name descname"><span class="pre">mem_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.mem_to_gpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from CPU to GPU</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_gpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.num_cols">
+<span class="sig-name descname"><span class="pre">num_cols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.num_cols" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns the number of columns.</p>
+</dd>
+<dt>Returns</dt><dd><p>The number of columns.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">num_cols</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.num_rows">
+<span class="sig-name descname"><span class="pre">num_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.num_rows" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns the number of rows.</p>
+</dd>
+<dt>Returns</dt><dd><p>The number of rows.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">num_rows</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-pysycl.device">
 <span id="pysycl-device-module"></span><h2>pysycl.device module<a class="headerlink" href="#module-pysycl.device" title="Link to this heading">#</a></h2>
@@ -285,6 +401,18 @@
 </dd></dl>
 
 </section>
+<section id="module-pysycl.linalg">
+<span id="pysycl-linalg-module"></span><h2>pysycl.linalg module<a class="headerlink" href="#module-pysycl.linalg" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>Linear Algebra module for PySYCL</dt><dd><p>This module provides classes and functions for linear algebra related calculations.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pysycl.linalg.matmul">
+<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="module-pysycl">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pysycl" title="Link to this heading">#</a></h2>
 </section>
@@ -329,6 +457,17 @@
             <ul>
 <li><a class="reference internal" href="#">pysycl package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pysycl.array_2d">pysycl.array_2d module</a><ul>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init"><code class="docutils literal notranslate"><span class="pre">array_2d_init</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.fill"><code class="docutils literal notranslate"><span class="pre">array_2d_init.fill()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_2d_init.mem_to_cpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_2d_init.mem_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.num_cols"><code class="docutils literal notranslate"><span class="pre">array_2d_init.num_cols()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.num_rows"><code class="docutils literal notranslate"><span class="pre">array_2d_init.num_rows()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pysycl.device">pysycl.device module</a><ul>
 <li><a class="reference internal" href="#pysycl.device.device_instance"><code class="docutils literal notranslate"><span class="pre">device_instance</span></code></a><ul>
 <li><a class="reference internal" href="#pysycl.device.device_instance.name"><code class="docutils literal notranslate"><span class="pre">device_instance.name()</span></code></a></li>
@@ -336,6 +475,10 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#pysycl.device.get_device_list"><code class="docutils literal notranslate"><span class="pre">get_device_list()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pysycl.linalg">pysycl.linalg module</a><ul>
+<li><a class="reference internal" href="#pysycl.linalg.matmul"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pysycl">Module contents</a></li>

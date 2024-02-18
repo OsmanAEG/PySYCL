@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="PySYCL: Array2D Sub-Module" href="array_2d.html" /><link rel="prev" title="PySYCL Python Module" href="modules.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="PySYCL: Array2D Sub-Module" href="array_2d.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>PySYCL: Device Sub-Module - PySYCL User Guide</title>
+        <title>PySYCL: Linear Algebra Sub-Module - PySYCL User Guide</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=82a976d7" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -159,9 +159,9 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">PySYCL Python Module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of PySYCL Python Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PySYCL: Device Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array_2d.html">PySYCL: Array2D Sub-Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linalg.html">PySYCL: Linear Algebra Sub-Module</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PySYCL: Linear Algebra Sub-Module</a></li>
 </ul>
 </li>
 </ul>
@@ -198,87 +198,16 @@
           </label>
         </div>
         <article role="main">
-          <section id="module-pysycl.device">
-<span id="pysycl-device-sub-module"></span><h1>PySYCL: Device Sub-Module<a class="headerlink" href="#module-pysycl.device" title="Link to this heading">#</a></h1>
+          <section id="module-pysycl.linalg">
+<span id="pysycl-linear-algebra-sub-module"></span><h1>PySYCL: Linear Algebra Sub-Module<a class="headerlink" href="#module-pysycl.linalg" title="Link to this heading">#</a></h1>
 <dl class="simple">
-<dt>Device module for PySYCL</dt><dd><p>This module provides classes and functions for selecting SYCL devices.</p>
+<dt>Linear Algebra module for PySYCL</dt><dd><p>This module provides classes and functions for linear algebra related calculations.</p>
 </dd>
 </dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="pysycl.device.device_instance">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.device.device_instance" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<dl>
-<dt>Description</dt><dd><p>This class creates a PySYCL device instance.</p>
-</dd>
-<dt>Default Constructor</dt><dd><p>Constructor that creates a PySYCL device instance.</p>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>platform_index: int</dt><dd><p>Optional: Index for the sycl platform to select.</p>
-</dd>
-<dt>device_index: int</dt><dd><p>Optional: Index for the sycl device to select.</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns</dt><dd><p>A PySYCL device instance.</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_device</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">device_instance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.device.device_instance.name">
-<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_instance.name" title="Link to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>This function returns the device name.</p>
-</dd>
-<dt>Returns</dt><dd><p>The PySYCL device name.</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_device</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-<span class="go">NVIDIA GeForce RTX 3060 Laptop GPU</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.device.device_instance.vendor">
-<span class="sig-name descname"><span class="pre">vendor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pysycl.device.device_instance.vendor" title="Link to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>This function returns the device vendor.</p>
-</dd>
-<dt>Returns</dt><dd><p>The PySYCL device vendor.</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_device</span><span class="o">.</span><span class="n">vendor</span><span class="p">())</span>
-<span class="go">NVIDIA Corporation</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
-<dt class="sig sig-object py" id="pysycl.device.get_device_list">
-<span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">get_device_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pysycl.device.get_device_list" title="Link to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>This function returns a list of all available devices.</p>
-</dd>
-<dt>Returns</dt><dd><p>A list of available PySYCL devices.</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_devices</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">device_inquiry</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_devices</span><span class="p">)</span>
-<span class="go">[&#39;NVIDIA GeForce RTX 3060 Laptop GPU [0, 0]&#39;]</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="pysycl.linalg.matmul">
+<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 </section>
 
@@ -287,23 +216,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="array_2d.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">PySYCL: Array2D Sub-Module</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="modules.html">
+          
+          <a class="prev-page" href="array_2d.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">PySYCL Python Module</div>
+                <div class="title">PySYCL: Array2D Sub-Module</div>
                 
               </div>
             </a>
@@ -337,13 +258,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">PySYCL: Device Sub-Module</a><ul>
-<li><a class="reference internal" href="#pysycl.device.device_instance"><code class="docutils literal notranslate"><span class="pre">device_instance</span></code></a><ul>
-<li><a class="reference internal" href="#pysycl.device.device_instance.name"><code class="docutils literal notranslate"><span class="pre">device_instance.name()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.device.device_instance.vendor"><code class="docutils literal notranslate"><span class="pre">device_instance.vendor()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pysycl.device.get_device_list"><code class="docutils literal notranslate"><span class="pre">get_device_list()</span></code></a></li>
+<li><a class="reference internal" href="#">PySYCL: Linear Algebra Sub-Module</a><ul>
+<li><a class="reference internal" href="#pysycl.linalg.matmul"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
 </ul>
 </li>
 </ul>

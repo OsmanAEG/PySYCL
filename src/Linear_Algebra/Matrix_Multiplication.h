@@ -66,7 +66,7 @@ Array2D matmul(Array2D& A, Array2D& B){
 
       if(i >= M || j >= P) return;
 
-      double c_ij = 0.0;
+      float c_ij = 0.0;
 
       for(int n = 0; n < N; ++n){
         c_ij += data_1[i*N + n]*data_2[n*P + j];

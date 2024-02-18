@@ -6,3 +6,4 @@ PySYCL Python Module
 
   device
   array_2d
+  linalg

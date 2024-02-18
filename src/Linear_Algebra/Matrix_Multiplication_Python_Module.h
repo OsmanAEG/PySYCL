@@ -29,6 +29,22 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 void matmul_module(py::module& m){
   m.def("matmul", &pysycl::matmul, R"delim(
+    Description
+      This function performs matrix multiplication.
+
+    Parameters
+      A : Array2D
+        First array in the multiplication.
+      B : Array2D
+        Second array in the multiplication.
+
+    Returns
+      The result of the matrix multiplication.
+
+    Example
+      >>> rows = A.num_rows()
+      >>> print(rows)
+      12
   )delim");
 }
 

@@ -84,10 +84,10 @@ void array_2d_module(py::module& m){
       )delim")
     .def("fill", &Array2D_T::fill, R"delim(
       Description
-        This function fills the array with a constant value
+        This function fills the array with a constant value.
 
       Parameters
-        C : double
+        C : float
           Some scalar constant.
 
       Example
@@ -97,21 +97,35 @@ void array_2d_module(py::module& m){
       )delim")
     .def("mem_to_gpu", &Array2D_T::mem_to_gpu, R"delim(
       Description
-        This function copies array memory from CPU to GPU
+        This function copies array memory from CPU to GPU.
 
       Example
         >>> A.mem_to_gpu()
       )delim")
     .def("mem_to_cpu", &Array2D_T::mem_to_cpu, R"delim(
       Description
-        This function copies array memory from GPU to CPU
+        This function copies array memory from GPU to CPU.
 
       Example
         >>> A.mem_to_cpu()
       )delim")
+    .def("matmul", &Array2D_T::matmul, R"delim(
+      Description
+        This function evaluates a matrix multiplication.
+
+      Parameters
+        A : pysycl.array2D
+          The first matrix for multiplication.
+
+        B : pysycl.array2D
+          The second matrix for multiplication.
+
+      Example
+        >>> A.mem_to_gpu()
+      )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
-    .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, double val){
+    .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, float val){
       self(idx.first, idx.second) = val;})
     .def("__add__",      [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a + b;})
     .def("__iadd__",     [](Array2D_T &a, Array2D_T &b){return a + b;})

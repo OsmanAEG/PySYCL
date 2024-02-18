@@ -26,6 +26,3 @@ C += A
 C.mem_to_cpu()
 
 print("C[30, 50] = " + str(C[30, 50]) + "\n")
-
-
-

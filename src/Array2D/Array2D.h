@@ -49,8 +49,8 @@ public:
       data_host(og.data_host),
       device(og.device),
       Q(og.Q){
-        data_device = sycl::malloc_device<double>(rows*cols, Q);
-        Q.memcpy(data_device, og.data_device, rows*cols*sizeof(double)).wait();
+        data_device = sycl::malloc_device<float>(rows*cols, Q);
+        Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -77,8 +77,8 @@ public:
       cols = og.cols;
       device = og.device;
       Q = og.Q;
-      data_device = sycl::malloc_device<double>(rows*cols, Q);
-      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(double)).wait();
+      data_device = sycl::malloc_device<float>(rows*cols, Q);
+      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
     }
 
     return *this;
@@ -126,19 +126,19 @@ public:
       throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
     }
 
-    data_device = sycl::malloc_device<double>(rows*cols, Q);
+    data_device = sycl::malloc_device<float>(rows*cols, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() direct element access
-  double& operator()(int i, int j) {
+  float& operator()(int i, int j) {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
     return data_host[i*cols + j];
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() read-only element access
-  const double& operator()(int i, int j) const {
+  const float& operator()(int i, int j) const {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
     return data_host[i*cols + j];
   }
@@ -212,12 +212,12 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array2D.
   /// \return Pointer to Array2D host data.
-  std::vector<double> get_host_data_vector();
+  std::vector<float> get_host_data_vector();
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array2D.
   /// \return Pointer to Array2D device data.
-  double* get_device_data_ptr();
+  float* get_device_data_ptr();
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy memory from the CPU to the GPU.
@@ -234,7 +234,13 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Fill the device with a specific value
-  void fill(const double C);
+  void fill(const float C);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function to matrix multiplication
+  /// \param[in] A The first Array2D that is being multiplied.
+  /// \param[in] B The second Array2D that is being multiplied.
+  void matmul(Array2D& A, Array2D& B);
 
 private:
   ///////////////////////////////////////////////////////////////////////
@@ -247,11 +253,11 @@ private:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Vector for data stored in host memory.
-  std::vector<double> data_host;
+  std::vector<float> data_host;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Pointer to data stored in device memory.
-  double* data_device;
+  float* data_device;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Device that will store and handle Array2D memory and operations
@@ -286,25 +292,25 @@ int pysycl::Array2D::num_cols() const {
 }
 
 /////////////////////////////////////////////////////////////////////////
-std::vector<double> pysycl::Array2D::get_host_data_vector(){
+std::vector<float> pysycl::Array2D::get_host_data_vector(){
   return data_host;
 }
 
 /////////////////////////////////////////////////////////////////////////
-double* pysycl::Array2D::get_device_data_ptr(){
+float* pysycl::Array2D::get_device_data_ptr(){
   return data_device;
 }
 
 /////////////////////////////////////////////////////////////////////////
 /// \brief Copy memory from the CPU to the GPU.
 void pysycl::Array2D::mem_to_gpu(){
-  Q.memcpy(data_device, &data_host[0], rows*cols*sizeof(double)).wait();
+  Q.memcpy(data_device, &data_host[0], rows*cols*sizeof(float)).wait();
 }
 
 /////////////////////////////////////////////////////////////////////////
 /// \brief Copy memory from the GPU to the CPU
 void pysycl::Array2D::mem_to_cpu(){
-  Q.memcpy(&data_host[0], data_device, rows*cols*sizeof(double)).wait();
+  Q.memcpy(&data_host[0], data_device, rows*cols*sizeof(float)).wait();
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -313,7 +319,7 @@ pysycl::Device_Instance& pysycl::Array2D::get_device(){
 }
 
 /////////////////////////////////////////////////////////////////////////
-void pysycl::Array2D::fill(const double C){
+void pysycl::Array2D::fill(const float C){
   const size_t B = sqrt(device.get_max_workgroup_size());
 
   Q.submit([&](sycl::handler& h){
@@ -397,6 +403,68 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
   }).wait();
 
   return C;
+}
+
+///////////////////////////////////////////////////////////////////////
+/// \brief Matrix multiplication function
+/// \param[in] A The first Array2D that is being multiplied.
+/// \param[in] B The second Array2D that is being multiplied.
+/// \return The Array2D product of the matrix multiplication.
+void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
+  if(A.num_cols() != B.num_rows()){
+    throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+  }
+
+  if(rows != A.num_rows() || cols != B.num_cols()){
+    throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+  }
+
+  const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
+  const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
+
+  if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+
+  if(device.get_platform_index() != A.get_device().get_platform_index()){
+    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+  }
+
+  if(device.get_device_index() != A.get_device().get_device_index()){
+    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+  }
+
+  const auto M = A.num_rows();
+  const auto N = A.num_cols();
+  const auto P = B.num_cols();
+
+  const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
+  Q.submit([&](sycl::handler& h){
+    const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;
+    const size_t global_size_P = ((P + wg_size - 1)/wg_size)*wg_size;
+
+    sycl::range<2> global{global_size_M, global_size_P};
+    sycl::range<2> local{wg_size, wg_size};
+
+    auto data_1   = A.get_device_data_ptr();
+    auto data_2   = B.get_device_data_ptr();
+
+    auto data_device_ptr = data_device;
+
+    h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
+      const auto i = it.get_global_id(0);
+      const auto j = it.get_global_id(1);
+
+      if(i >= M || j >= P) return;
+
+      float c_ij = 0.0;
+
+      for(int n = 0; n < N; ++n){
+        c_ij += data_1[i*N + n]*data_2[n*P + j];
+      }
+
+      data_device_ptr[i*P + j] = c_ij;
+    });
+  }).wait();
 }
 
 #endif // ARRAY2D_H
