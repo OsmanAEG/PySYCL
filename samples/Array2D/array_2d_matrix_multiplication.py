@@ -8,9 +8,9 @@ import pysycl
 device = pysycl.device.device_instance(0, 0)
 
 # matrix dimensions
-M = 3000
-N = 3000
-P = 3000
+M = 4000
+N = 800
+P = 2500
 
 # initialize numpy and pysycl arrays
 A_np = np.full((M, N), 8.0)

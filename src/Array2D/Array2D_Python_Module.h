@@ -92,9 +92,11 @@ void array_2d_module(py::module& m){
 
       Example
         >>> A.fill(45.0)
+        >>> A.mem_to_cpu()
         >>> print(A[9, 7])
         45.0
-      )delim")
+      )delim",
+      py::arg("C"))
     .def("mem_to_gpu", &Array2D_T::mem_to_gpu, R"delim(
       Description
         This function copies array memory from CPU to GPU.
@@ -121,7 +123,23 @@ void array_2d_module(py::module& m){
           The second matrix for multiplication.
 
       Example
-        >>> A.mem_to_gpu()
+        >>> import pysycl
+        >>>
+        >>> M = 4000
+        >>> N = 800
+        >>> P = 2500
+        >>>
+        >>> A = pysycl.array_2d_init(M, N)
+        >>> B = pysycl.array_2d_init(N, P)
+        >>> C = pysycl.array_2d_init(M, P)
+        >>>
+        >>> A.fill(8.0)
+        >>> B.fill(3.0)
+        >>> C.matmul(A, B)
+        >>>
+        >>> C.mem_to_cpu()
+        >>> print(C[30, 50])
+        19200.0
       )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})

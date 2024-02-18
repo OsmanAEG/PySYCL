@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_65',['name',['../group___device.html#ga535336d3a6bc41aeedeaf97d5c859342',1,'pysycl::Device_Instance']]],
-  ['num_5fcols_66',['num_cols',['../group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4',1,'pysycl::Array2D']]],
-  ['num_5frows_67',['num_rows',['../group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f',1,'pysycl::Array2D']]]
+  ['matmul_80',['matmul',['../group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3',1,'pysycl::Array2D::matmul()'],['../group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0',1,'pysycl::matmul()']]],
+  ['mem_5fto_5fcpu_81',['mem_to_cpu',['../group___array2_d.html#ga8968777c21247d4d07749825639ff404',1,'pysycl::Array2D']]],
+  ['mem_5fto_5fgpu_82',['mem_to_gpu',['../group___array2_d.html#gafa1d20cdb2a9009d72722c894a2fecae',1,'pysycl::Array2D']]]
 ];

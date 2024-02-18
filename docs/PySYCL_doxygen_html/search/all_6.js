@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['name_25',['name',['../group___device.html#ga535336d3a6bc41aeedeaf97d5c859342',1,'pysycl::Device_Instance']]],
-  ['num_5fcols_26',['num_cols',['../group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4',1,'pysycl::Array2D']]],
-  ['num_5frows_27',['num_rows',['../group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f',1,'pysycl::Array2D']]]
+  ['linear_5falgebra_28',['Linear_Algebra',['../group___linear___algebra.html',1,'']]],
+  ['linear_5falgebra_5fpython_5fmodule_2ecpp_29',['Linear_Algebra_Python_Module.cpp',['../_linear___algebra___python___module_8cpp.html',1,'']]]
 ];

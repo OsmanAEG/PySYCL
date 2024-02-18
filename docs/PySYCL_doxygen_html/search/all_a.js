@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rows_41',['rows',['../classpysycl_1_1_array2_d.html#a1958b20ad69815e45a2f2ef213f285db',1,'pysycl::Array2D']]]
+  ['platform_5fidx_48',['platform_idx',['../group___device.html#gab9b208c263a41e33e44d9d5655b66579',1,'pysycl::Device_Instance']]],
+  ['pysycl_49',['pysycl',['../namespacepysycl.html',1,'']]]
 ];

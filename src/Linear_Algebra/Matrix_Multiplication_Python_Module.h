@@ -30,21 +30,32 @@ namespace py = pybind11;
 void matmul_module(py::module& m){
   m.def("matmul", &pysycl::matmul, R"delim(
     Description
-      This function performs matrix multiplication.
+      This function evaluates a matrix multiplication and returns the result.
 
     Parameters
-      A : Array2D
-        First array in the multiplication.
-      B : Array2D
-        Second array in the multiplication.
+      A : pysycl.array2D
+        The first matrix for multiplication.
 
-    Returns
-      The result of the matrix multiplication.
+      B : pysycl.array2D
+        The second matrix for multiplication.
 
     Example
-      >>> rows = A.num_rows()
-      >>> print(rows)
-      12
+      >>> import pysycl
+      >>>
+      >>> M = 4000
+      >>> N = 800
+      >>> P = 2500
+      >>>
+      >>> A = pysycl.array_2d_init(M, N)
+      >>> B = pysycl.array_2d_init(N, P)
+      >>>
+      >>> A.fill(8.0)
+      >>> B.fill(3.0)
+      >>> C = pysycl.linalg.matmul(A, B)
+      >>>
+      >>> C.mem_to_cpu()
+      >>> print(C[30, 50])
+      19200.0
   )delim");
 }
 

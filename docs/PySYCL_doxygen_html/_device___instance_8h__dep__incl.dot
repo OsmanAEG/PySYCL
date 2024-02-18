@@ -12,9 +12,16 @@ digraph "Device/Device_Instance.h"
   Node3 [label="Array2D/Array2D_Python\l_Module.h",height=0.2,width=0.4,color="black",URL="$_array2_d___python___module_8h.html",tooltip="Python module for an array_2d object in PySYCL."];
   Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="Array2D/Array2D_Python\l_Module.cpp",height=0.2,width=0.4,color="black",URL="$_array2_d___python___module_8cpp.html",tooltip="Python module for array_2d in PySYCL."];
-  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="Device/Device_Instance\l_Python_Module.h",height=0.2,width=0.4,color="black",URL="$_device___instance___python___module_8h.html",tooltip="Python module for device instance in PySYCL."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Linear_Algebra/Matrix\l_Multiplication.h",height=0.2,width=0.4,color="black",URL="$_matrix___multiplication_8h.html",tooltip="Matrix Multiplication in PySYCL."];
   Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="Device/Device_Python\l_Module.cpp",height=0.2,width=0.4,color="black",URL="$_device___python___module_8cpp.html",tooltip="Python module for device in PySYCL."];
+  Node6 [label="Linear_Algebra/Matrix\l_Multiplication_Python\l_Module.h",height=0.2,width=0.4,color="black",URL="$_matrix___multiplication___python___module_8h.html",tooltip="Python module for a matrix multiplication in PySYCL."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Linear_Algebra/Linear\l_Algebra_Python_Module.cpp",height=0.2,width=0.4,color="black",URL="$_linear___algebra___python___module_8cpp.html",tooltip="Python module for linalg in PySYCL."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Device/Device_Instance\l_Python_Module.h",height=0.2,width=0.4,color="black",URL="$_device___instance___python___module_8h.html",tooltip="Python module for device instance in PySYCL."];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Device/Device_Python\l_Module.cpp",height=0.2,width=0.4,color="black",URL="$_device___python___module_8cpp.html",tooltip="Python module for device in PySYCL."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }
