@@ -19,8 +19,10 @@ var group___array2_d =
       [ "get_device_data_ptr", "group___array2_d.html#gaab52d1ee3359ae8386595fda7eedf2c6", null ],
       [ "get_host_data_vector", "group___array2_d.html#ga0533232108f0262ee88bca5f5d15e2c6", null ],
       [ "matmul", "group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3", null ],
+      [ "max", "group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be", null ],
       [ "mem_to_cpu", "group___array2_d.html#ga8968777c21247d4d07749825639ff404", null ],
       [ "mem_to_gpu", "group___array2_d.html#gafa1d20cdb2a9009d72722c894a2fecae", null ],
+      [ "min", "group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d", null ],
       [ "num_cols", "group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4", null ],
       [ "num_rows", "group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f", null ],
       [ "operator()", "classpysycl_1_1_array2_d.html#acf5e2271641ffeaeeadeefa7146688f7", null ],
@@ -35,6 +37,7 @@ var group___array2_d =
       [ "operator/=", "classpysycl_1_1_array2_d.html#aa06f9f66388fdb455cf4dfa6fbc0ca06", null ],
       [ "operator=", "classpysycl_1_1_array2_d.html#a1edde0742bcf565e1c9fef756e976bf6", null ],
       [ "operator=", "classpysycl_1_1_array2_d.html#a14e8c8096fb729cd2d1d0d6260ce02e9", null ],
+      [ "sum", "group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e", null ],
       [ "cols", "classpysycl_1_1_array2_d.html#aeb8aac1202947c13110f00dc9747b40a", null ],
       [ "data_device", "classpysycl_1_1_array2_d.html#a6b302fdb538a29b6bfbbc077cd1496bf", null ],
       [ "data_host", "classpysycl_1_1_array2_d.html#ae7cecda037513d6ca9c3d266cfa4ff6f", null ],
@@ -48,8 +51,11 @@ var group___array2_d =
     [ "get_device_data_ptr", "group___array2_d.html#gaab52d1ee3359ae8386595fda7eedf2c6", null ],
     [ "get_host_data_vector", "group___array2_d.html#ga0533232108f0262ee88bca5f5d15e2c6", null ],
     [ "matmul", "group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3", null ],
+    [ "max", "group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be", null ],
     [ "mem_to_cpu", "group___array2_d.html#ga8968777c21247d4d07749825639ff404", null ],
     [ "mem_to_gpu", "group___array2_d.html#gafa1d20cdb2a9009d72722c894a2fecae", null ],
+    [ "min", "group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d", null ],
     [ "num_cols", "group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4", null ],
-    [ "num_rows", "group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f", null ]
+    [ "num_rows", "group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f", null ],
+    [ "sum", "group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e", null ]
 ];

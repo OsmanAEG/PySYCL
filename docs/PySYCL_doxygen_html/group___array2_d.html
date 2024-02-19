@@ -138,8 +138,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <tr class="memdesc:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform binary matrix operations. <br /></td></tr>
 <tr class="separator:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3">pysycl::Array2D::matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to matrix multiplication.  <a href="group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3">More...</a><br /></td></tr>
+<tr class="memdesc:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for matrix multiplication.  <a href="group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3">More...</a><br /></td></tr>
 <tr class="separator:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7faab6a1eaee9495bddc96a09ae443be"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be">pysycl::Array2D::max</a> ()</td></tr>
+<tr class="memdesc:ga7faab6a1eaee9495bddc96a09ae443be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the maximum element value in the array.  <a href="group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be">More...</a><br /></td></tr>
+<tr class="separator:ga7faab6a1eaee9495bddc96a09ae443be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d">pysycl::Array2D::min</a> ()</td></tr>
+<tr class="memdesc:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the minimum element value in the array.  <a href="group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d">More...</a><br /></td></tr>
+<tr class="separator:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e">pysycl::Array2D::sum</a> ()</td></tr>
+<tr class="memdesc:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the sum of all element values in the array.  <a href="group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e">More...</a><br /></td></tr>
+<tr class="separator:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -161,7 +170,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the device from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> device instance. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00317">317</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00333">333</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +192,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> device data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00300">300</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00316">316</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +214,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> host data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00295">295</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00311">311</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -235,20 +244,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
       </table>
 </div><div class="memdoc">
 
-<p>Function to matrix multiplication. </p>
-<p>Matrix multiplication function.</p>
+<p>Function for matrix multiplication. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>The first <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>The second <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>The first <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>The second <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> product of the matrix multiplication. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00413">413</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00425">425</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="ga7faab6a1eaee9495bddc96a09ae443be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7faab6a1eaee9495bddc96a09ae443be">&#9670;&nbsp;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto pysycl::Array2D::max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that finds the maximum element value in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum element value in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00483">483</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="ga7dc0099e8751a6bb8905aa584ef8546d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7dc0099e8751a6bb8905aa584ef8546d">&#9670;&nbsp;</a></span>min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto pysycl::Array2D::min </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that finds the minimum element value in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Minimum element value in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00514">514</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -270,7 +319,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00290">290</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00306">306</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +341,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00285">285</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00301">301</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="ga45cafb1cb8876d754a557d5f93bbc60e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45cafb1cb8876d754a557d5f93bbc60e">&#9670;&nbsp;</a></span>sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto pysycl::Array2D::sum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that finds the sum of all element values in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Sum of all element values in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00545">545</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +372,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Feb 18 2024 17:17:42 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 18 2024 20:47:39 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

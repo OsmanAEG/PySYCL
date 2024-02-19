@@ -237,10 +237,26 @@ public:
   void fill(const float C);
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Function to matrix multiplication
+  /// \brief Function for matrix multiplication
   /// \param[in] A The first Array2D that is being multiplied.
   /// \param[in] B The second Array2D that is being multiplied.
   void matmul(Array2D& A, Array2D& B);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the maximum element value in the array
+  /// \return Maximum element value in the array
+  auto max();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the minimum element value in the array
+  /// \return Minimum element value in the array
+  auto min();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the sum of all element values in the
+  ///        array
+  /// \return Sum of all element values in the array
+  auto sum();
 
 private:
   ///////////////////////////////////////////////////////////////////////
@@ -405,11 +421,7 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
   return C;
 }
 
-///////////////////////////////////////////////////////////////////////
-/// \brief Matrix multiplication function
-/// \param[in] A The first Array2D that is being multiplied.
-/// \param[in] B The second Array2D that is being multiplied.
-/// \return The Array2D product of the matrix multiplication.
+/////////////////////////////////////////////////////////////////////////
 void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
   if(A.num_cols() != B.num_rows()){
     throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
@@ -465,6 +477,99 @@ void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
       data_device_ptr[i*P + j] = c_ij;
     });
   }).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array2D::max(){
+  float max_val = 0;
+  sycl::buffer<float> max_buf{&max_val, 1};
+
+  const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
+  Q.submit([&](sycl::handler& h){
+    const auto max_reduction = sycl::reduction(max_buf, h, sycl::maximum<float>());
+
+    const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{wg_size};
+
+    auto data_device_ptr = data_device;
+    const size_t N = rows*cols;
+
+    h.parallel_for(sycl::nd_range<1>(global, local), max_reduction, [=](sycl::nd_item<1> it, auto& max_el){
+      const auto idx = it.get_global_id();
+      if(idx >= N) return;
+
+      max_el.combine(data_device_ptr[idx]);
+    });
+  }).wait();
+
+  sycl::host_accessor max_val_host{max_buf, sycl::read_only};
+  max_val = max_val_host[0];
+
+  return max_val;
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array2D::min(){
+  float min_val = 0;
+  sycl::buffer<float> min_buf{&min_val, 1};
+
+  const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
+  Q.submit([&](sycl::handler& h){
+    const auto min_reduction = sycl::reduction(min_buf, h, sycl::minimum<float>());
+
+    const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{wg_size};
+
+    auto data_device_ptr = data_device;
+    const size_t N = rows*cols;
+
+    h.parallel_for(sycl::nd_range<1>(global, local), min_reduction, [=](sycl::nd_item<1> it, auto& min_el){
+      const auto idx = it.get_global_id();
+      if(idx >= N) return;
+
+      min_el.combine(data_device_ptr[idx]);
+    });
+  }).wait();
+
+  sycl::host_accessor min_val_host{min_buf, sycl::read_only};
+  min_val = min_val_host[0];
+
+  return min_val;
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array2D::sum(){
+  float sum_val = 0;
+  sycl::buffer<float> sum_buf{&sum_val, 1};
+
+  const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
+  Q.submit([&](sycl::handler& h){
+    const auto sum_reduction = sycl::reduction(sum_buf, h, sycl::plus<float>());
+
+    const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{wg_size};
+
+    auto data_device_ptr = data_device;
+    const size_t N = rows*cols;
+
+    h.parallel_for(sycl::nd_range<1>(global, local), sum_reduction, [=](sycl::nd_item<1> it, auto& sum_el){
+      const auto idx = it.get_global_id();
+      if(idx >= N) return;
+
+      sum_el.combine(data_device_ptr[idx]);
+    });
+  }).wait();
+
+  sycl::host_accessor sum_val_host{sum_buf, sycl::read_only};
+  sum_val = sum_val_host[0];
+
+  return sum_val;
 }
 
 #endif // ARRAY2D_H

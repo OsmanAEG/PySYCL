@@ -141,6 +141,36 @@ void array_2d_module(py::module& m){
         >>> print(C[30, 50])
         19200.0
       )delim")
+    .def("max", &Array2D_T::max, R"delim(
+      Description
+        This function find the maximum element in the array.
+
+      Returns
+        The maximum element value.
+
+      Example
+        >>> A.max()
+      )delim")
+    .def("min", &Array2D_T::min, R"delim(
+      Description
+        This function find the minimum element in the array.
+
+      Returns
+        The minimum element value.
+
+      Example
+        >>> A.min()
+      )delim")
+    .def("sum", &Array2D_T::sum, R"delim(
+      Description
+        This function find the sum of elements in the array.
+
+      Returns
+        The sum of all array elements.
+
+      Example
+        >>> A.sum()
+      )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
     .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, float val){

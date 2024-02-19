@@ -293,6 +293,21 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.max" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function find the maximum element in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The maximum element value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.mem_to_cpu">
 <span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.mem_to_cpu" title="Link to this definition">#</a></dt>
 <dd><dl>
@@ -312,6 +327,21 @@
 <dt>Description</dt><dd><p>This function copies array memory from CPU to GPU.</p>
 </dd>
 <dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_gpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.min" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function find the minimum element in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The minimum element value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -346,6 +376,21 @@
 <dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">num_rows</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 <span class="go">12</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_2d.array_2d_init.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_2d.array_2d_init" title="pysycl.array_2d.array_2d_init"><span class="pre">pysycl.array_2d.array_2d_init</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d_init.sum" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function find the sum of elements in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The sum of all array elements.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
@@ -528,10 +573,13 @@
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init"><code class="docutils literal notranslate"><span class="pre">array_2d_init</span></code></a><ul>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.fill"><code class="docutils literal notranslate"><span class="pre">array_2d_init.fill()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.matmul"><code class="docutils literal notranslate"><span class="pre">array_2d_init.matmul()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.max"><code class="docutils literal notranslate"><span class="pre">array_2d_init.max()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_2d_init.mem_to_cpu()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_2d_init.mem_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.min"><code class="docutils literal notranslate"><span class="pre">array_2d_init.min()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.num_cols"><code class="docutils literal notranslate"><span class="pre">array_2d_init.num_cols()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.num_rows"><code class="docutils literal notranslate"><span class="pre">array_2d_init.num_rows()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_2d.array_2d_init.sum"><code class="docutils literal notranslate"><span class="pre">array_2d_init.sum()</span></code></a></li>
 </ul>
 </li>
 </ul>

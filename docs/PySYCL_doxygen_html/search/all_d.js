@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vendor_52',['vendor',['../group___device.html#ga1f043e1708912f6e0542beac4157fdf9',1,'pysycl::Device_Instance']]]
+  ['sum_54',['sum',['../group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e',1,'pysycl::Array2D']]]
 ];
