@@ -149,7 +149,7 @@ void array_2d_module(py::module& m){
         The maximum element value.
 
       Example
-        >>> A.max()
+        >>> max = A.max()
       )delim")
     .def("min", &Array2D_T::min, R"delim(
       Description
@@ -159,7 +159,7 @@ void array_2d_module(py::module& m){
         The minimum element value.
 
       Example
-        >>> A.min()
+        >>> min = A.min()
       )delim")
     .def("sum", &Array2D_T::sum, R"delim(
       Description
@@ -169,7 +169,7 @@ void array_2d_module(py::module& m){
         The sum of all array elements.
 
       Example
-        >>> A.sum()
+        >>> sum = A.sum()
       )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
