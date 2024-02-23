@@ -15,9 +15,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 /// \file
-/// \brief Array2D in PySYCL. This is the shared version of the
-///        Array2D class. It is used when the user wants to implicitly
-///        control memory movement between the host and device.
+/// \brief Array2D in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 #include <CL/sycl.hpp>
 #include <vector>

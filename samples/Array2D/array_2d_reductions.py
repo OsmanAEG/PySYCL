@@ -9,7 +9,6 @@ M = 5
 N = 3
 
 A = pysycl.array_2d.array_2d_init(M, N, device)
-B = pysycl.array_2d.array_2d_init(M, N, device)
 
 for i in range(M):
   for j in range(N):

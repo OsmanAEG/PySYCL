@@ -32,7 +32,7 @@ using Array2D_T = pysycl::Array2D;
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
 void array_2d_module(py::module& m){
-  py::class_<Array2D_T>(m, "array_2d_init", R"delim(
+  py::class_<Array2D_T>(m, "array_2d", R"delim(
     Description
       This class creates a PySYCL array_2d object.
     )delim")
