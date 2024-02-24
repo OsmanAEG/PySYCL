@@ -54,7 +54,58 @@ void array_1d_module(py::module& m){
           >>> A = pysycl.array_1d.array_1d_init(10)
       )delim",
       py::arg("size"),
-      py::arg("device"));
+      py::arg("device"))
+    .def("get_size", &Array1D_T::get_size, R"delim(
+      Description
+        This function returns the number of elements.
+
+      Returns
+        The number of elements.
+
+      Example
+        >>> size = A.get_size()
+        >>> print(size)
+        10
+      )delim")
+    .def("fill", &Array1D_T::fill, R"delim(
+      Description
+        This function fills the array with a constant value.
+
+      Parameters
+        C : float
+          Some scalar constant.
+
+      Example
+        >>> A.fill(45.0)
+        >>> A.mem_to_cpu()
+        >>> print(A[9])
+        45.0
+      )delim",
+      py::arg("C"))
+    .def("mem_to_gpu", &Array1D_T::mem_to_gpu, R"delim(
+      Description
+        This function copies array memory from CPU to GPU.
+
+      Example
+        >>> A.mem_to_gpu()
+      )delim")
+    .def("mem_to_cpu", &Array1D_T::mem_to_cpu, R"delim(
+      Description
+        This function copies array memory from GPU to CPU.
+
+      Example
+        >>> A.mem_to_cpu()
+      )delim")
+    .def("__getitem__",  [](Array1D_T &self, int i){return self(i);})
+    .def("__setitem__",  [](Array1D_T &self, int i, float val){self(i) = val;})
+    .def("__add__",      [](Array1D_T &a, Array1D_T &b) -> Array1D_T {return a + b;})
+    .def("__iadd__",     [](Array1D_T &a, Array1D_T &b){return a + b;})
+    .def("__sub__",      [](Array1D_T &a, Array1D_T &b) -> Array1D_T {return a - b;})
+    .def("__isub__",     [](Array1D_T &a, Array1D_T &b){return a - b;})
+    .def("__mul__",      [](Array1D_T &a, Array1D_T &b) -> Array1D_T {return a * b;})
+    .def("__imul__",     [](Array1D_T &a, Array1D_T &b){return a * b;})
+    .def("__truediv__",  [](Array1D_T &a, Array1D_T &b) -> Array1D_T {return a / b;})
+    .def("__itruediv__", [](Array1D_T &a, Array1D_T &b){return a / b;});
 }
 
 #endif //ARRAY1D_PYTHON_MODULE_H

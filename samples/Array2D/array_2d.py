@@ -4,8 +4,8 @@ sys.path.insert(1, '../../build/')
 import pysycl
 
 device = pysycl.device.device_instance(0, 0)
-A = pysycl.array_2d.array_2d_init(10, 12, device)
-B = pysycl.array_2d.array_2d_init(10, 12, device)
+A = pysycl.array_2d(10, 12, device)
+B = pysycl.array_2d(10, 12, device)
 
 # get number of rows
 print("Number of rows in A: " + str(A.num_rows()))

@@ -133,6 +133,94 @@ public:
     return data_host[i];
   }
 
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator+ for vector addition (creating a new array).
+  /// \param[in] B The Array1D that is being added.
+  /// \return Array1D representing the sum of the addition.
+  Array1D operator+(Array1D& B){return binary_vector_operations(B, binary_operations::ADD, false);}
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator+= for vector addition (edits self).
+  /// \param[in] B The Array1D that is being added to self.
+  Array1D& operator+=(Array1D& B){
+    binary_vector_operations(B, binary_operations::ADD, true);
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator- for vector subtraction (creating a new array).
+  /// \param[in] B The Array1D that is being subtracted.
+  /// \return Array1D representing the difference of the subtraction.
+  Array1D operator-(Array1D& B){return binary_vector_operations(B, binary_operations::SUBTRACT, false);}
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator-= for vector subtraction (edits self).
+  /// \param[in] B The Array2D that is being subtracted.
+  Array1D& operator-=(Array1D& B){
+    binary_vector_operations(B, binary_operations::SUBTRACT, true);
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator* for element-wise multiplication (creating a new array).
+  /// \param[in] B The Array1D that is being multiplied.
+  /// \return Array1D representing the product of the multiplication.
+  Array1D operator*(Array1D& B){return binary_vector_operations(B, binary_operations::MULTIPLY, false);}
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator*= for element-wise multiplication (edits self).
+  /// \param[in] B The Array1D that is being multiplied.
+  Array1D& operator*=(Array1D& B){
+    binary_vector_operations(B, binary_operations::MULTIPLY, true);
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator/ for element-wise division (creating a new array).
+  /// \param[in] B The Array1D that is being divided.
+  /// \return Array1D representing the result of the division.
+  Array1D operator/(Array1D& B){return binary_vector_operations(B, binary_operations::DIVIDE, false);}
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Overloaded operator/= for element-wise division (edits self).
+  /// \param[in] B The Array2D that is being divided.
+  Array1D& operator/=(Array1D& B){
+    binary_vector_operations(B, binary_operations::DIVIDE, true);
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the number of elements in the Array1D.
+  /// \return Number of elements in the Array1D.
+  int get_size() const;
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the data pointer from Array1D.
+  /// \return Pointer to Array1D host data.
+  std::vector<float> get_host_data_vector();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the data pointer from Array1D.
+  /// \return Pointer to Array1D device data.
+  float* get_device_data_ptr();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy memory from the CPU to the GPU.
+  void mem_to_gpu();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy memory from the GPU to the CPU
+  void mem_to_cpu();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Get the device from Array1D.
+  /// \return The Array1D device instance.
+  pysycl::Device_Instance& get_device();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Fill the device with a specific value
+  void fill(const float C);
+
 private:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Number of elements in the array.
@@ -153,10 +241,132 @@ private:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Device SYCL queue.
   sycl::queue Q;
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Defining enumerations of binary operations
+  enum class binary_operations{ADD, SUBTRACT, MULTIPLY, DIVIDE};
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function to perform binary matrix operations
+  Array1D binary_vector_operations(Array1D& B, binary_operations op, bool edit_self);
 }; // class Array1D
 
 /// @} // end "Array1D" doxygen group
 
 } // namespace pysycl
+
+/////////////////////////////////////////////////////////////////////////
+int pysycl::Array1D::get_size() const {
+  return size;
+}
+
+/////////////////////////////////////////////////////////////////////////
+std::vector<float> pysycl::Array1D::get_host_data_vector(){
+  return data_host;
+}
+
+/////////////////////////////////////////////////////////////////////////
+float* pysycl::Array1D::get_device_data_ptr(){
+  return data_device;
+}
+
+/////////////////////////////////////////////////////////////////////////
+/// \brief Copy memory from the CPU to the GPU.
+void pysycl::Array1D::mem_to_gpu(){
+  Q.memcpy(data_device, &data_host[0], size*sizeof(float)).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+/// \brief Copy memory from the GPU to the CPU
+void pysycl::Array1D::mem_to_cpu(){
+  Q.memcpy(&data_host[0], data_device, size*sizeof(float)).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+pysycl::Device_Instance& pysycl::Array1D::get_device(){
+  return device;
+}
+
+/////////////////////////////////////////////////////////////////////////
+void pysycl::Array1D::fill(const float C){
+  const size_t B = device.get_max_workgroup_size();
+
+  Q.submit([&](sycl::handler& h){
+    const size_t global_size = ((size + B - 1)/B)*B;
+    const auto N = size;
+    const auto A = data_device;
+
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{B};
+
+    h.parallel_for(sycl::nd_range<1>(global, local), [=](sycl::nd_item<1> it){
+      const auto i = it.get_global_id();
+
+      if(i >= N) return;
+
+      A[i] = C;
+    });
+  }).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
+                                                          binary_operations op,
+                                                          bool edit_self){
+  const auto rows = this->get_size();
+
+  if(size != B.get_size()){
+    throw std::runtime_error("ERROR: Incompatible Array1D dimensions.");
+  }
+
+  const auto platform_idx = this->device.get_platform_index();
+  const auto device_idx = this->device.get_device_index();
+
+  if(platform_idx != B.device.get_platform_index() || device_idx != B.device.get_device_index()){
+    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+  }
+
+  const size_t wg_size = this->device.get_max_workgroup_size();
+
+  Array1D C = edit_self ? *this : Array1D(size, this->device);
+
+  Q.submit([&](sycl::handler& h){
+    const size_t global_size = ((size + wg_size - 1)/wg_size)*wg_size;
+    const auto N = size;
+
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{wg_size};
+
+    auto data_1   = this->get_device_data_ptr();
+    auto data_2   = B.get_device_data_ptr();
+    auto data_new = C.get_device_data_ptr();
+
+    h.parallel_for(sycl::nd_range<1>(global, local), [=](sycl::nd_item<1> it){
+      const auto i = it.get_global_id();
+
+      if(i >= N) return;
+
+      switch(op){
+        case binary_operations::ADD:
+          data_new[i] = data_1[i] + data_2[i];
+          break;
+
+        case binary_operations::SUBTRACT:
+          data_new[i] = data_1[i] - data_2[i];
+          break;
+
+        case binary_operations::MULTIPLY:
+          data_new[i] = data_1[i] * data_2[i];
+          break;
+
+        case binary_operations::DIVIDE:
+          data_new[i] = data_1[i] / data_2[i];
+          break;
+      }
+    });
+  }).wait();
+
+  return C;
+}
 
 #endif // ARRAY1D_H
