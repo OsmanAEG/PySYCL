@@ -121,3 +121,103 @@ h2{
   align-items: center;
   padding-left: 100px;
 }
+
+.main-section {
+  text-align: center;
+}
+.main-section img {
+  max-width: 30%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.equals-section {
+  text-align: center;
+}
+.equals-section img {
+  max-width: 40%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.about-text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.description .box,
+.equals-section,
+.main-section {
+  position: relative;
+  overflow: hidden;
+}
+.description .box::before,
+.description .box::after,
+.equals-section::before,
+.equals-section::after,
+.main-section::before,
+.main-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #3388ff;
+  transition: width 0.5s;
+}
+.description .box::before,
+.equals-section::before,
+.main-section::before {
+  top: 0;
+}
+.description .box::after,
+.equals-section::after,
+.main-section::after {
+  bottom: 0;
+}
+.description .box:hover::before,
+.description .box:hover::after,
+.equals-section:hover::before,
+.equals-section:hover::after,
+.main-section:hover::before,
+.main-section:hover::after {
+  width: 100%;
+}
+.description .box::before,
+.description .box::after,
+.equals-section::before,
+.equals-section::after,
+.main-section::before,
+.main-section::after {
+  transition-timing-function: ease-out;
+}
+.description .box:not(:hover)::before,
+.description .box:not(:hover)::after,
+.equals-section:not(:hover)::before,
+.equals-section:not(:hover)::after,
+.main-section:not(:hover)::before,
+.main-section:not(:hover)::after {
+  left: auto;
+  right: 0;
+  transition-timing-function: ease-in;
+}
+
+.installation-section{
+  text-align: center;
+}
+
+.installation-section img{
+  max-width: 20%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.installation-text{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.installation-section{
+  position: relative;
+  overflow: hidden;
+}

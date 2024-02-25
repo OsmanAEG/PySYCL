@@ -241,19 +241,18 @@ public:
   void matmul(Array2D& A, Array2D& B);
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Function that finds the maximum element value in the array
-  /// \return Maximum element value in the array
+  /// \brief Function that finds the maximum value in the array
+  /// \return Maximum value in the array
   auto max();
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Function that finds the minimum element value in the array
-  /// \return Minimum element value in the array
+  /// \brief Function that finds the minimum value in the array
+  /// \return Minimum value in the array
   auto min();
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Function that finds the sum of all element values in the
-  ///        array
-  /// \return Sum of all element values in the array
+  /// \brief Function that finds the sum of all values in the array
+  /// \return Sum of all values in the array
   auto sum();
 
 private:
@@ -289,6 +288,10 @@ private:
   /// \brief Function to perform binary matrix operations
   Array2D binary_matrix_operations(Array2D& B, binary_operations op, bool edit_self);
 
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function to perform reduction operations
+  template<typename Operation_T>
+  auto reductions(Operation_T op);
 }; // class Array2D
 
 /// @} // end "Array2D" doxygen group
@@ -478,14 +481,15 @@ void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
 }
 
 /////////////////////////////////////////////////////////////////////////
-auto pysycl::Array2D::max(){
-  float max_val = 0;
-  sycl::buffer<float> max_buf{&max_val, 1};
+template<typename Operation_T>
+auto pysycl::Array2D::reductions(Operation_T op){
+  float val = 0;
+  sycl::buffer<float> buf{&val, 1};
 
-  const size_t wg_size = sqrt(device.get_max_workgroup_size());
+  const size_t wg_size = device.get_max_workgroup_size();
 
   Q.submit([&](sycl::handler& h){
-    const auto max_reduction = sycl::reduction(max_buf, h, sycl::maximum<float>());
+    const auto reduction_func = sycl::reduction(buf, h, op);
 
     const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
     sycl::range<1> global{global_size};
@@ -494,80 +498,33 @@ auto pysycl::Array2D::max(){
     auto data_device_ptr = data_device;
     const size_t N = rows*cols;
 
-    h.parallel_for(sycl::nd_range<1>(global, local), max_reduction, [=](sycl::nd_item<1> it, auto& max_el){
+    h.parallel_for(sycl::nd_range<1>(global, local), reduction_func, [=](sycl::nd_item<1> it, auto& el){
       const auto idx = it.get_global_id();
       if(idx >= N) return;
 
-      max_el.combine(data_device_ptr[idx]);
+      el.combine(data_device_ptr[idx]);
     });
   }).wait();
 
-  sycl::host_accessor max_val_host{max_buf, sycl::read_only};
-  max_val = max_val_host[0];
+  sycl::host_accessor val_host{buf, sycl::read_only};
+  val = val_host[0];
 
-  return max_val;
+  return val;
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array2D::max(){
+  return reductions(sycl::maximum<float>());
 }
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array2D::min(){
-  float min_val = 0;
-  sycl::buffer<float> min_buf{&min_val, 1};
-
-  const size_t wg_size = sqrt(device.get_max_workgroup_size());
-
-  Q.submit([&](sycl::handler& h){
-    const auto min_reduction = sycl::reduction(min_buf, h, sycl::minimum<float>());
-
-    const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
-    sycl::range<1> global{global_size};
-    sycl::range<1> local{wg_size};
-
-    auto data_device_ptr = data_device;
-    const size_t N = rows*cols;
-
-    h.parallel_for(sycl::nd_range<1>(global, local), min_reduction, [=](sycl::nd_item<1> it, auto& min_el){
-      const auto idx = it.get_global_id();
-      if(idx >= N) return;
-
-      min_el.combine(data_device_ptr[idx]);
-    });
-  }).wait();
-
-  sycl::host_accessor min_val_host{min_buf, sycl::read_only};
-  min_val = min_val_host[0];
-
-  return min_val;
+  return reductions(sycl::minimum<float>());
 }
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array2D::sum(){
-  float sum_val = 0;
-  sycl::buffer<float> sum_buf{&sum_val, 1};
-
-  const size_t wg_size = sqrt(device.get_max_workgroup_size());
-
-  Q.submit([&](sycl::handler& h){
-    const auto sum_reduction = sycl::reduction(sum_buf, h, sycl::plus<float>());
-
-    const size_t global_size = ((rows*cols + wg_size - 1)/wg_size)*wg_size;
-    sycl::range<1> global{global_size};
-    sycl::range<1> local{wg_size};
-
-    auto data_device_ptr = data_device;
-    const size_t N = rows*cols;
-
-    h.parallel_for(sycl::nd_range<1>(global, local), sum_reduction, [=](sycl::nd_item<1> it, auto& sum_el){
-      const auto idx = it.get_global_id();
-      if(idx >= N) return;
-
-      sum_el.combine(data_device_ptr[idx]);
-    });
-  }).wait();
-
-  sycl::host_accessor sum_val_host{sum_buf, sycl::read_only};
-  sum_val = sum_val_host[0];
-
-  return sum_val;
+  return reductions(sycl::plus<float>());
 }
 
 #endif // ARRAY2D_H

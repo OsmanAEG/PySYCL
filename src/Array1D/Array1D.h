@@ -221,6 +221,21 @@ public:
   /// \brief Fill the device with a specific value
   void fill(const float C);
 
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the maximum value in the array
+  /// \return Maximum value in the array
+  auto max();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the minimum value in the array
+  /// \return Minimum value in the array
+  auto min();
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that finds the sum of all value in the array
+  /// \return Sum of all values in the array
+  auto sum();
+
 private:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Number of elements in the array.
@@ -367,6 +382,53 @@ pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
   }).wait();
 
   return C;
+}
+
+/////////////////////////////////////////////////////////////////////////
+template<typename Operation_T>
+auto pysycl::Array1D::reductions(Operation_T op){
+  float val = 0;
+  sycl::buffer<float> buf{&val, 1};
+
+  const size_t wg_size = device.get_max_workgroup_size();
+
+  Q.submit([&](sycl::handler& h){
+    const auto reduction_func = sycl::reduction(buf, h, op);
+
+    const size_t global_size = ((size + wg_size - 1)/wg_size)*wg_size;
+    sycl::range<1> global{global_size};
+    sycl::range<1> local{wg_size};
+
+    auto data_device_ptr = data_device;
+    const size_t N = size;
+
+    h.parallel_for(sycl::nd_range<1>(global, local), reduction_func, [=](sycl::nd_item<1> it, auto& el){
+      const auto idx = it.get_global_id();
+      if(idx >= N) return;
+
+      el.combine(data_device_ptr[idx]);
+    });
+  }).wait();
+
+  sycl::host_accessor val_host{buf, sycl::read_only};
+  val = val_host[0];
+
+  return val;
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array1D::max(){
+  return reductions(sycl::maximum<float>());
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array1D::min(){
+  return reductions(sycl::minimum<float>());
+}
+
+/////////////////////////////////////////////////////////////////////////
+auto pysycl::Array1D::sum(){
+  return reductions(sycl::plus<float>());
 }
 
 #endif // ARRAY1D_H
