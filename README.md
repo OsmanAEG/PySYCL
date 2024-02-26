@@ -16,7 +16,7 @@ This project is still currently under development. Eventually there will be offi
 # Inquiries
 I will include contact information here for any inquires about the project.
 
-![PySYCL Logo](https://github.com/OsmanAEG/PySYCL/assets/79581083/572d2cb7-39c6-475b-9209-323f417caaf4)
-
 # Logo Attribution
 <a href="https://www.vecteezy.com/free-png/bike">Bike PNGs by Vecteezy</a>
+
+![PySYCL Logo](https://github.com/OsmanAEG/PySYCL/assets/79581083/572d2cb7-39c6-475b-9209-323f417caaf4)
