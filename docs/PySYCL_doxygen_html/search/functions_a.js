@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7earray2d_103',['~Array2D',['../classpysycl_1_1_array2_d.html#a5e573a31e3046627ea649bfe766202b2',1,'pysycl::Array2D']]]
+  ['vendor_120',['vendor',['../group___device.html#ga1f043e1708912f6e0542beac4157fdf9',1,'pysycl::Device_Instance']]]
 ];
