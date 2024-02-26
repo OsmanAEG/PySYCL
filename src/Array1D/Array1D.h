@@ -20,8 +20,12 @@
 #include <CL/sycl.hpp>
 #include <vector>
 #include <cmath>
+#include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
 
 #include "../Device/Device_Instance.h"
+
+namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Array2D
@@ -105,18 +109,39 @@ public:
   }
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Constructor for the Array1D class.
-  /// \param[in] size Number of elements in the array.
+  /// \brief Basic constructor that takes in the size and device of
+  ///        the array.
+  /// \param[in] size_in Number of elements in the array.
+  /// \param[in] device_in Number of elements in the array (Optional).
   Array1D(int size_in, Device_T device_in = Device_T(0, 0)) :
-      size(size_in),
-      data_host(size),
-      device(device_in),
+    size(size_in),
+    data_host(size),
+    device(device_in),
     Q(device_in.get_queue()){
-    if(size <= 0){
-      throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
-    }
+      if(size <= 0) throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
+      data_device = sycl::malloc_device<float>(size, Q);
+  }
 
-    data_device = sycl::malloc_device<float>(size, Q);
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Constructor that takes in a numpy array.
+  /// \param[in] np_array_in Number of elements in the array.
+  /// \param[in] device_in Number of elements in the array (Optional).
+  Array1D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
+    device(device_in),
+    Q(device_in.get_queue()){
+      if(np_array_in.ndim() != 1) throw std::runtime_error("The input numpy array must be 1D.");
+
+      auto unchecked = np_array_in.unchecked<1>();
+      size = unchecked.shape(0);
+      data_host.resize(size);
+
+      if(size <= 0) throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
+
+      for(int i = 0; i < size; ++i){
+        data_host[i] = unchecked(i);
+      }
+
+      data_device = sycl::malloc_device<float>(size, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -264,6 +289,11 @@ private:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function to perform binary matrix operations
   Array1D binary_vector_operations(Array1D& B, binary_operations op, bool edit_self);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function to perform reduction operations
+  template<typename Operation_T>
+  auto reductions(Operation_T op, float val = 0.0);
 }; // class Array1D
 
 /// @} // end "Array1D" doxygen group
@@ -386,8 +416,7 @@ pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
 
 /////////////////////////////////////////////////////////////////////////
 template<typename Operation_T>
-auto pysycl::Array1D::reductions(Operation_T op){
-  float val = 0;
+auto pysycl::Array1D::reductions(Operation_T op, float val){
   sycl::buffer<float> buf{&val, 1};
 
   const size_t wg_size = device.get_max_workgroup_size();
@@ -418,12 +447,12 @@ auto pysycl::Array1D::reductions(Operation_T op){
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array1D::max(){
-  return reductions(sycl::maximum<float>());
+  return reductions(sycl::maximum<float>(), std::numeric_limits<float>::lowest());
 }
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array1D::min(){
-  return reductions(sycl::minimum<float>());
+  return reductions(sycl::minimum<float>(), std::numeric_limits<float>::max());
 }
 
 /////////////////////////////////////////////////////////////////////////

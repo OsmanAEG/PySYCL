@@ -58,6 +58,27 @@ void array_2d_module(py::module& m){
       py::arg("rows"),
       py::arg("cols"),
       py::arg("device"))
+    .def(py::init<py::array_t<float>, pysycl::Device_Instance>(), R"delim(
+      NumPy Constructor
+        Constructor that creates a 2D PySYCL array from a 2D NumPy array.
+
+      Parameters
+        np_arr: numpy.array()
+          numpy array.
+        device:
+          Optional: The target PySYCL device.
+
+        Returns
+          A PySYCL 2D array.
+
+        Example
+          >>> import pysycl
+          >>> import numpy as np
+          >>> A_np = np.array()
+          >>> A = pysycl.array_1d.array_1d_init(10)
+      )delim",
+      py::arg("np_arr"),
+      py::arg("device"))
     .def("num_rows", &Array2D_T::num_rows, R"delim(
       Description
         This function returns the number of rows.
@@ -143,17 +164,17 @@ void array_2d_module(py::module& m){
       )delim")
     .def("max", &Array2D_T::max, R"delim(
       Description
-        This function find the maximum element in the array.
+        This function finds the maximum value in the array.
 
       Returns
-        The maximum element value.
+        The maximum value.
 
       Example
         >>> max = A.max()
       )delim")
     .def("min", &Array2D_T::min, R"delim(
       Description
-        This function find the minimum element in the array.
+        This function finds the minimum value in the array.
 
       Returns
         The minimum element value.
@@ -163,10 +184,10 @@ void array_2d_module(py::module& m){
       )delim")
     .def("sum", &Array2D_T::sum, R"delim(
       Description
-        This function find the sum of elements in the array.
+        This function finds the sum of all element values in the array.
 
       Returns
-        The sum of all array elements.
+        The sum of all element values.
 
       Example
         >>> sum = A.sum()

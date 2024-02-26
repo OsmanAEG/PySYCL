@@ -55,6 +55,26 @@ void array_1d_module(py::module& m){
       )delim",
       py::arg("size"),
       py::arg("device"))
+    .def(py::init<py::array_t<float>, pysycl::Device_Instance>(), R"delim(
+      NumPy Constructor
+        Constructor that creates a 1D PySYCL array from a 1D NumPy array.
+
+      Parameters
+        np_arr: numpy.array()
+          numpy array.
+        device:
+          Optional: The target PySYCL device.
+
+        Returns
+          A PySYCL 1D array.
+
+        Example
+          >>> import pysycl
+          >>> import numpy as np
+          >>> A = pysycl.array_1d(np.random.rand(N).astype(np.float32))
+      )delim",
+      py::arg("np_arr"),
+      py::arg("device"))
     .def("get_size", &Array1D_T::get_size, R"delim(
       Description
         This function returns the number of elements.
@@ -95,6 +115,36 @@ void array_1d_module(py::module& m){
 
       Example
         >>> A.mem_to_cpu()
+      )delim")
+    .def("max", &Array1D_T::max, R"delim(
+      Description
+        This function finds the maximum value in the array.
+
+      Returns
+        The maximum value.
+
+      Example
+        >>> max = A.max()
+      )delim")
+    .def("min", &Array1D_T::min, R"delim(
+      Description
+        This function finds the minimum value in the array.
+
+      Returns
+        The minimum element value.
+
+      Example
+        >>> min = A.min()
+      )delim")
+    .def("sum", &Array1D_T::sum, R"delim(
+      Description
+        This function finds the sum of all element values in the array.
+
+      Returns
+        The sum of all element values.
+
+      Example
+        >>> sum = A.sum()
       )delim")
     .def("__getitem__",  [](Array1D_T &self, int i){return self(i);})
     .def("__setitem__",  [](Array1D_T &self, int i, float val){self(i) = val;})

@@ -20,8 +20,12 @@
 #include <CL/sycl.hpp>
 #include <vector>
 #include <cmath>
+#include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
 
 #include "../Device/Device_Instance.h"
+
+namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Array2D
@@ -115,16 +119,39 @@ public:
   /// \param[in] rows Number of rows in the array.
   /// \param[in] cols Number of columns in the array.
   Array2D(int rows_in, int cols_in, Device_T device_in = Device_T(0, 0)) :
-      rows(rows_in),
-      cols(cols_in),
-      data_host(rows*cols),
-      device(device_in),
+    rows(rows_in),
+    cols(cols_in),
+    data_host(rows*cols),
+    device(device_in),
     Q(device_in.get_queue()){
-    if(rows <= 0 || cols <= 0){
-      throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
-    }
+      if(rows <= 0 || cols <= 0){
+        throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
+      }
 
-    data_device = sycl::malloc_device<float>(rows*cols, Q);
+      data_device = sycl::malloc_device<float>(rows*cols, Q);
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Constructor that takes in a numpy array.
+  /// \param[in] np_array_in Number of elements in the array.
+  /// \param[in] device_in Number of elements in the array (Optional).
+  Array2D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
+    device(device_in),
+    Q(device_in.get_queue()){
+      if(np_array_in.ndim() != 2) throw std::runtime_error("The input numpy array must be 2D.");
+
+      auto unchecked = np_array_in.unchecked<2>();
+      rows = unchecked.shape(0);
+      cols = unchecked.shape(1);
+      data_host.resize(rows*cols);
+
+      for(int i = 0; i < rows; ++i){
+        for(int j = 0; j < cols; ++j){
+          data_host[i*cols + j] = unchecked(i, j);
+        }
+      }
+
+      data_device = sycl::malloc_device<float>(rows*cols, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -291,7 +318,7 @@ private:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function to perform reduction operations
   template<typename Operation_T>
-  auto reductions(Operation_T op);
+  auto reductions(Operation_T op, float val = 0.0);
 }; // class Array2D
 
 /// @} // end "Array2D" doxygen group
@@ -482,8 +509,7 @@ void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
 
 /////////////////////////////////////////////////////////////////////////
 template<typename Operation_T>
-auto pysycl::Array2D::reductions(Operation_T op){
-  float val = 0;
+auto pysycl::Array2D::reductions(Operation_T op, float val){
   sycl::buffer<float> buf{&val, 1};
 
   const size_t wg_size = device.get_max_workgroup_size();
@@ -514,12 +540,12 @@ auto pysycl::Array2D::reductions(Operation_T op){
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array2D::max(){
-  return reductions(sycl::maximum<float>());
+  return reductions(sycl::maximum<float>(), std::numeric_limits<float>::lowest());
 }
 
 /////////////////////////////////////////////////////////////////////////
 auto pysycl::Array2D::min(){
-  return reductions(sycl::minimum<float>());
+  return reductions(sycl::minimum<float>(), std::numeric_limits<float>::max());
 }
 
 /////////////////////////////////////////////////////////////////////////
