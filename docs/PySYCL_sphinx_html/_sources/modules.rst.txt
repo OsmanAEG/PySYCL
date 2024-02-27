@@ -4,6 +4,7 @@ PySYCL Python Module
 .. toctree::
   :maxdepth: 2
 
-  device
+  array_1d
   array_2d
+  device
   linalg

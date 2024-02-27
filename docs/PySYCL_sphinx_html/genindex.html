@@ -157,8 +157,9 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">PySYCL Python Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of PySYCL Python Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array_1d.html">PySYCL: Array1D Sub-Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array_2d.html">PySYCL: Array2D Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linalg.html">PySYCL: Linear Algebra Sub-Module</a></li>
 </ul>
 </li>
@@ -204,6 +205,10 @@
   <h2>A</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d">array_1d (class in pysycl.array_1d)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="array_2d.html#pysycl.array_2d.array_2d">array_2d (class in pysycl.array_2d)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d">[1]</a>
 </li>
     </ul></td>
@@ -224,8 +229,12 @@
   <h2>F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.fill">fill() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.fill">[1]</a>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.fill">fill() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.fill">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.fill">[1]</a>
 </li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -235,6 +244,10 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="device.html#pysycl.device.get_device_list">get_device_list() (in module pysycl.device)</a>, <a href="pysycl.html#pysycl.device.get_device_list">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.get_size">get_size() (pysycl.array_1d.array_1d method)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -250,21 +263,39 @@
           <li><a href="array_2d.html#pysycl.array_2d.array_2d.matmul">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.matmul">[1]</a>
 </li>
         </ul></li>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.max">max() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.max">[1]</a>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.max">max() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.max">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.max">[1]</a>
 </li>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.mem_to_cpu">mem_to_cpu() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.mem_to_cpu">[1]</a>
+        </ul></li>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.mem_to_cpu">mem_to_cpu() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.mem_to_cpu">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.mem_to_cpu">[1]</a>
 </li>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.mem_to_gpu">mem_to_gpu() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.mem_to_gpu">[1]</a>
+        </ul></li>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.mem_to_gpu">mem_to_gpu() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.mem_to_gpu">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.mem_to_gpu">[1]</a>
 </li>
+        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.min">min() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.min">[1]</a>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.min">min() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.min">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.min">[1]</a>
 </li>
+        </ul></li>
         <li>
     module
 
         <ul>
           <li><a href="pysycl.html#module-pysycl">pysycl</a>
+</li>
+          <li><a href="array_1d.html#module-pysycl.array_1d">pysycl.array_1d</a>
 </li>
           <li><a href="array_2d.html#module-pysycl.array_2d">pysycl.array_2d</a>, <a href="pysycl.html#module-pysycl.array_2d">[1]</a>
 </li>
@@ -305,6 +336,13 @@
 </li>
         </ul></li>
         <li>
+    pysycl.array_1d
+
+        <ul>
+          <li><a href="array_1d.html#module-pysycl.array_1d">module</a>
+</li>
+        </ul></li>
+        <li>
     pysycl.array_2d
 
         <ul>
@@ -335,8 +373,12 @@
   <h2>S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="array_2d.html#pysycl.array_2d.array_2d.sum">sum() (pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.sum">[1]</a>
+        <li><a href="array_1d.html#pysycl.array_1d.array_1d.sum">sum() (pysycl.array_1d.array_1d method)</a>
+
+        <ul>
+          <li><a href="array_2d.html#pysycl.array_2d.array_2d.sum">(pysycl.array_2d.array_2d method)</a>, <a href="pysycl.html#pysycl.array_2d.array_2d.sum">[1]</a>
 </li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
