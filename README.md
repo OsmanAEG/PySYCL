@@ -1,5 +1,5 @@
 # About
-The purpose of this software is to deliver SYCL based functionalities for use within Python development environments. The objective being to facilitate GPU targetted development.
+PySYCL is an open-source Python interface for SYCL that enables Python applications to leverage SYCL-based functionalities for heterogeneous computing.
 
 # Website
 https://osmanaeg.github.io/PySYCL/
@@ -16,4 +16,4 @@ This project is still currently under development. Eventually there will be offi
 # Inquiries
 I will include contact information here for any inquires about the project.
 
-![pysycl_logo](https://github.com/OsmanAEG/PySYCL/assets/79581083/d341a92d-f8a5-480b-a4b5-a9ebc1bc6e6b)
+![pysycl_equals](https://github.com/OsmanAEG/PySYCL/assets/79581083/ba5a297e-0941-4034-bb34-1bf97b4c7e91)
