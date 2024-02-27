@@ -16,4 +16,4 @@ This project is still currently under development. Eventually there will be offi
 # Inquiries
 I will include contact information here for any inquires about the project.
 
-![PySYCL Logo](https://github.com/OsmanAEG/PySYCL/sphinx/_static/images/pysycl_logo.png)
+![pysycl_logo](https://github.com/OsmanAEG/PySYCL/assets/79581083/d341a92d-f8a5-480b-a4b5-a9ebc1bc6e6b)
