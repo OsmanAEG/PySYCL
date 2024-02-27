@@ -16,8 +16,8 @@ np.random.seed(35)
 A_np = np.random.rand(M, N).astype(np.float32)
 B_np = np.random.rand(N, P).astype(np.float32)
 
-A_ps = pysycl.array_2d.array_2d_init(M, N, device)
-B_ps = pysycl.array_2d.array_2d_init(N, P, device)
+B_ps = pysycl.array_2d(N, P, device)
+A_ps = pysycl.array_2d(M, N, device)
 
 for i in range(M):
   for j in range(N):
