@@ -39,6 +39,9 @@ void matmul_module(py::module& m){
       B : pysycl.array2D
         The second matrix for multiplication.
 
+      wg_size : int
+        Optional: Work group size
+
     Example
       >>> import pysycl
       >>>
@@ -46,8 +49,8 @@ void matmul_module(py::module& m){
       >>> N = 800
       >>> P = 2500
       >>>
-      >>> A = pysycl.array_2d_init(M, N)
-      >>> B = pysycl.array_2d_init(N, P)
+      >>> A = pysycl.array_2d(M, N)
+      >>> B = pysycl.array_2d(N, P)
       >>>
       >>> A.fill(8.0)
       >>> B.fill(3.0)
@@ -56,7 +59,31 @@ void matmul_module(py::module& m){
       >>> C.mem_to_cpu()
       >>> print(C[30, 50])
       19200.0
-  )delim");
+  )delim",
+  py::arg("A"),
+  py::arg("B"),
+  py::arg("wg_size") = 4);
+
+  m.def("tiled_matmul", &pysycl::tiled_matmul, R"delim(
+    Description
+      This function evaluates a matrix multiplication and returns the result.
+
+    Parameters
+      A : pysycl.array2D
+        The first matrix for multiplication.
+
+      B : pysycl.array2D
+        The second matrix for multiplication.
+
+      wg_size : int
+        Optional: Work group size
+
+    Example
+      >>> C = pysycl.linalg.tiled_matmul(A, B)
+  )delim",
+  py::arg("A"),
+  py::arg("B"),
+  py::arg("wg_size") = 4);
 }
 
 #endif //MATRIX_MULTIPLICATION_PYTHON_MODULE_H

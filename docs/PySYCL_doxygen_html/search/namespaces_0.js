@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pysycl_70',['pysycl',['../namespacepysycl.html',1,'']]]
+  ['pysycl_71',['pysycl',['../namespacepysycl.html',1,'']]]
 ];

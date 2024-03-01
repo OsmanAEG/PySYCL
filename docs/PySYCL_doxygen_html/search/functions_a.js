@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vendor_120',['vendor',['../group___device.html#ga1f043e1708912f6e0542beac4157fdf9',1,'pysycl::Device_Instance']]]
+  ['tiled_5fmatmul_121',['tiled_matmul',['../group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824',1,'pysycl']]]
 ];

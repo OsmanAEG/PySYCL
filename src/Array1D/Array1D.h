@@ -46,6 +46,7 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy constructor.
   Array1D(const Array1D& og) :
+<<<<<<< Updated upstream
       size(og.size),
       data_host(og.data_host),
       device(og.device),
@@ -53,11 +54,20 @@ public:
   {
         data_device = sycl::malloc_device<float>(size, Q);
         Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
+=======
+    size(og.size),
+    data_host(og.data_host),
+    device(og.device),
+    Q(og.Q){
+      data_device = sycl::malloc_device<float>(size, Q);
+      Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
+>>>>>>> Stashed changes
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move constructor.
   Array1D(Array1D&& og) noexcept :
+<<<<<<< Updated upstream
       size(og.size),
       data_host(std::move(og.data_host)),
       data_device(og.data_device),
@@ -66,6 +76,15 @@ public:
   {
         og.data_device = nullptr;
         og.size = 0;
+=======
+    size(og.size),
+    data_host(std::move(og.data_host)),
+    data_device(og.data_device),
+    Q(std::move(og.Q)),
+    device(std::move(og.device)){
+      og.data_device = nullptr;
+      og.size = 0;
+>>>>>>> Stashed changes
   }
 
   ///////////////////////////////////////////////////////////////////////

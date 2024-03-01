@@ -102,6 +102,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gab9a70bc1da8704593a22527b40464fc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">pysycl::matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
 <tr class="memdesc:gab9a70bc1da8704593a22527b40464fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication function.  <a href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">More...</a><br /></td></tr>
 <tr class="separator:gab9a70bc1da8704593a22527b40464fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">pysycl::tiled_matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:ga614d9fab6633d53a8f54cc18a93c5824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">More...</a><br /></td></tr>
+<tr class="separator:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -145,12 +148,52 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga614d9fab6633d53a8f54cc18a93c5824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga614d9fab6633d53a8f54cc18a93c5824">&#9670;&nbsp;</a></span>tiled_matmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> pysycl::tiled_matmul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>B</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tiled Matrix multiplication function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>The first <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>The second <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> that is being multiplied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> product of the matrix multiplication. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_matrix___multiplication_8h_source.html#l00087">87</a> of file <a class="el" href="_matrix___multiplication_8h_source.html">Matrix_Multiplication.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Feb 26 2024 20:31:42 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
