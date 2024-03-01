@@ -50,7 +50,8 @@ public:
       cols(og.cols),
       data_host(og.data_host),
       device(og.device),
-      Q(og.Q){
+      Q(og.Q)
+  {
         data_device = sycl::malloc_device<float>(rows*cols, Q);
         Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
   }
@@ -63,7 +64,8 @@ public:
       data_host(std::move(og.data_host)),
       data_device(og.data_device),
       Q(std::move(og.Q)),
-      device(std::move(og.device)){
+      device(std::move(og.device))
+  {
         og.data_device = nullptr;
         og.rows = 0;
         og.cols = 0;
@@ -72,16 +74,14 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment operator.
   Array2D& operator=(const Array2D& og){
-    if(this != &og){
-      data_host = og.data_host;
-      sycl::free(data_device, Q);
-      rows = og.rows;
-      cols = og.cols;
-      device = og.device;
-      Q = og.Q;
-      data_device = sycl::malloc_device<float>(rows*cols, Q);
-      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
-    }
+    data_host = og.data_host;
+    sycl::free(data_device, Q);
+    rows = og.rows;
+    cols = og.cols;
+    device = og.device;
+    Q = og.Q;
+    data_device = sycl::malloc_device<float>(rows*cols, Q);
+    Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
 
     return *this;
   }
@@ -89,18 +89,16 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move assignment operator.
   Array2D& operator=(Array2D&& og) noexcept{
-    if(this != &og){
-      data_host = std::move(og.data_host);
-      sycl::free(data_device, Q);
-      data_device = og.data_device;
-      og.data_device = nullptr;
-      rows = og.rows;
-      cols = og.cols;
-      Q = std::move(og.Q);
-      device = std::move(og.device);
-      rows = 0;
-      cols = 0;
-    }
+    data_host = std::move(og.data_host);
+    sycl::free(data_device, Q);
+    data_device = og.data_device;
+    og.data_device = nullptr;
+    rows = og.rows;
+    cols = og.cols;
+    Q = std::move(og.Q);
+    device = std::move(og.device);
+    rows = 0;
+    cols = 0;
 
     return *this;
   }
@@ -123,7 +121,8 @@ public:
     cols(cols_in),
     data_host(rows*cols),
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(rows <= 0 || cols <= 0){
         throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
       }
@@ -137,7 +136,8 @@ public:
   /// \param[in] device_in Number of elements in the array (Optional).
   Array2D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(np_array_in.ndim() != 2) throw std::runtime_error("The input numpy array must be 2D.");
 
       auto unchecked = np_array_in.unchecked<2>();

@@ -49,7 +49,8 @@ public:
       size(og.size),
       data_host(og.data_host),
       device(og.device),
-      Q(og.Q){
+      Q(og.Q)
+  {
         data_device = sycl::malloc_device<float>(size, Q);
         Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
   }
@@ -61,7 +62,8 @@ public:
       data_host(std::move(og.data_host)),
       data_device(og.data_device),
       Q(std::move(og.Q)),
-      device(std::move(og.device)){
+      device(std::move(og.device))
+  {
         og.data_device = nullptr;
         og.size = 0;
   }
@@ -69,15 +71,13 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment operator.
   Array1D& operator=(const Array1D& og){
-    if(this != &og){
-      data_host = og.data_host;
-      sycl::free(data_device, Q);
-      size = og.size;
-      device = og.device;
-      Q = og.Q;
-      data_device = sycl::malloc_device<float>(size, Q);
-      Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
-    }
+    data_host = og.data_host;
+    sycl::free(data_device, Q);
+    size = og.size;
+    device = og.device;
+    Q = og.Q;
+    data_device = sycl::malloc_device<float>(size, Q);
+    Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
 
     return *this;
   }
@@ -85,16 +85,14 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move assignment operator.
   Array1D& operator=(Array1D&& og) noexcept{
-    if(this != &og){
-      data_host = std::move(og.data_host);
-      sycl::free(data_device, Q);
-      data_device = og.data_device;
-      og.data_device = nullptr;
-      size = og.size;
-      Q = std::move(og.Q);
-      device = std::move(og.device);
-      size = 0;
-    }
+    data_host = std::move(og.data_host);
+    sycl::free(data_device, Q);
+    data_device = og.data_device;
+    og.data_device = nullptr;
+    size = og.size;
+    Q = std::move(og.Q);
+    device = std::move(og.device);
+    size = 0;
 
     return *this;
   }
@@ -117,7 +115,8 @@ public:
     size(size_in),
     data_host(size),
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(size <= 0) throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
       data_device = sycl::malloc_device<float>(size, Q);
   }
@@ -128,7 +127,8 @@ public:
   /// \param[in] device_in Number of elements in the array (Optional).
   Array1D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(np_array_in.ndim() != 1) throw std::runtime_error("The input numpy array must be 1D.");
 
       auto unchecked = np_array_in.unchecked<1>();
