@@ -33,8 +33,13 @@ namespace py = pybind11;
 namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
 /// \brief Array1D class for PySYCL
+template<typename Scalar_type>
 class Array1D {
 public:
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Defining the device scalar type.
+  using Scalar_T = Scalar_type;
+
   ///////////////////////////////////////////////////////////////////////
   /// \brief Defining the device type.
   using Device_T = pysycl::Device_Instance;
@@ -49,9 +54,10 @@ public:
       size(og.size),
       data_host(og.data_host),
       device(og.device),
-      Q(og.Q){
-        data_device = sycl::malloc_device<float>(size, Q);
-        Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
+      Q(og.Q)
+  {
+        data_device = sycl::malloc_device<Scalar_T>(size, Q);
+        Q.memcpy(data_device, og.data_device, size*sizeof(Scalar_T)).wait();
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -69,32 +75,26 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment operator.
   Array1D& operator=(const Array1D& og){
-    if(this != &og){
-      data_host = og.data_host;
-      sycl::free(data_device, Q);
-      size = og.size;
-      device = og.device;
-      Q = og.Q;
-      data_device = sycl::malloc_device<float>(size, Q);
-      Q.memcpy(data_device, og.data_device, size*sizeof(float)).wait();
-    }
+    data_host = og.data_host;
+    sycl::free(data_device, Q);
+    size = og.size;
+    device = og.device;
+    Q = og.Q;
+    data_device = sycl::malloc_device<Scalar_T>(size, Q);
+    Q.memcpy(data_device, og.data_device, size*sizeof(Scalar_T)).wait();
 
     return *this;
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move assignment operator.
-  Array1D& operator=(Array1D&& og) noexcept{
-    if(this != &og){
-      data_host = std::move(og.data_host);
-      sycl::free(data_device, Q);
-      data_device = og.data_device;
-      og.data_device = nullptr;
-      size = og.size;
-      Q = std::move(og.Q);
-      device = std::move(og.device);
-      size = 0;
-    }
+  Array1D& operator=(Array1D&& og) noexcept {
+    data_host = std::move(og.data_host);
+    sycl::free(data_device, Q);
+    data_device = std::exchange(og.data_device, nullptr);
+    size = std::exchange(og.size, 0);
+    Q = std::move(og.Q);
+    device = std::move(og.device);
 
     return *this;
   }
@@ -102,10 +102,11 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Destructor.
   ~Array1D(){
-    if(data_device){
+    if(data_device) {
       sycl::free(data_device, Q);
-      data_device = nullptr;
     }
+
+    data_device = nullptr;
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -117,18 +118,20 @@ public:
     size(size_in),
     data_host(size),
     device(device_in),
-    Q(device_in.get_queue()){
-      if(size <= 0) throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
-      data_device = sycl::malloc_device<float>(size, Q);
+    Q(device_in.get_queue())
+  {
+    if(size <= 0) throw std::runtime_error("ERROR IN ARRAY1D: number of elements must be > 0.");
+    data_device = sycl::malloc_device<Scalar_T>(size, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Constructor that takes in a numpy array.
   /// \param[in] np_array_in Number of elements in the array.
   /// \param[in] device_in Number of elements in the array (Optional).
-  Array1D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
+  Array1D(py::array_t<Scalar_T> np_array_in, Device_T device_in = Device_T(0, 0)) :
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(np_array_in.ndim() != 1) throw std::runtime_error("The input numpy array must be 1D.");
 
       auto unchecked = np_array_in.unchecked<1>();
@@ -141,19 +144,19 @@ public:
         data_host[i] = unchecked(i);
       }
 
-      data_device = sycl::malloc_device<float>(size, Q);
+      data_device = sycl::malloc_device<Scalar_T>(size, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() direct element access
-  float& operator()(int i) {
+  Scalar_T& operator()(int i) {
     if(i < 0 || i >= size) throw std::out_of_range("Array1D access out of range");
     return data_host[i];
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() read-only element access
-  const float& operator()(int i) const {
+  const Scalar_T& operator()(int i) const {
     if(i < 0 || i >= size) throw std::out_of_range("Array1D access out of range");
     return data_host[i];
   }
@@ -162,13 +165,17 @@ public:
   /// \brief Overloaded operator+ for vector addition (creating a new array).
   /// \param[in] B The Array1D that is being added.
   /// \return Array1D representing the sum of the addition.
-  Array1D operator+(Array1D& B){return binary_vector_operations(B, binary_operations::ADD, false);}
+  Array1D operator+(const Array1D& B) const {
+    auto res = Array1D(size, this->device);
+    binary_vector_operations<BinaryOperation::ADD>(B, res);
+    return res;
+  }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator+= for vector addition (edits self).
   /// \param[in] B The Array1D that is being added to self.
-  Array1D& operator+=(Array1D& B){
-    binary_vector_operations(B, binary_operations::ADD, true);
+  Array1D& operator+=(const Array1D& B) {
+    binary_vector_operations<BinaryOperation::ADD>(B, *this);
     return *this;
   }
 
@@ -176,13 +183,17 @@ public:
   /// \brief Overloaded operator- for vector subtraction (creating a new array).
   /// \param[in] B The Array1D that is being subtracted.
   /// \return Array1D representing the difference of the subtraction.
-  Array1D operator-(Array1D& B){return binary_vector_operations(B, binary_operations::SUBTRACT, false);}
+  Array1D operator-(const Array1D& B) const {
+    auto res = Array1D(size, this->device);
+    binary_vector_operations<BinaryOperation::SUBTRACT>(B, res);
+    return res;
+  }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator-= for vector subtraction (edits self).
   /// \param[in] B The Array2D that is being subtracted.
-  Array1D& operator-=(Array1D& B){
-    binary_vector_operations(B, binary_operations::SUBTRACT, true);
+  Array1D& operator-=(const Array1D& B) {
+    binary_vector_operations<BinaryOperation::SUBTRACT>(B, *this);
     return *this;
   }
 
@@ -190,13 +201,17 @@ public:
   /// \brief Overloaded operator* for element-wise multiplication (creating a new array).
   /// \param[in] B The Array1D that is being multiplied.
   /// \return Array1D representing the product of the multiplication.
-  Array1D operator*(Array1D& B){return binary_vector_operations(B, binary_operations::MULTIPLY, false);}
+  Array1D operator*(const Array1D& B) const {
+    auto res = Array1D(size, this->device);
+    binary_vector_operations<BinaryOperation::MULTIPLY>(B, res);
+    return res;
+  }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator*= for element-wise multiplication (edits self).
   /// \param[in] B The Array1D that is being multiplied.
-  Array1D& operator*=(Array1D& B){
-    binary_vector_operations(B, binary_operations::MULTIPLY, true);
+  Array1D& operator*=(const Array1D& B) {
+    binary_vector_operations<BinaryOperation::MULTIPLY>(B, *this);
     return *this;
   }
 
@@ -204,13 +219,17 @@ public:
   /// \brief Overloaded operator/ for element-wise division (creating a new array).
   /// \param[in] B The Array1D that is being divided.
   /// \return Array1D representing the result of the division.
-  Array1D operator/(Array1D& B){return binary_vector_operations(B, binary_operations::DIVIDE, false);}
+  Array1D operator/(const Array1D& B) const {
+    auto res = Array1D(size, this->device);
+    binary_vector_operations<BinaryOperation::DIVIDE>(B, res);
+    return res;
+  }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator/= for element-wise division (edits self).
   /// \param[in] B The Array2D that is being divided.
-  Array1D& operator/=(Array1D& B){
-    binary_vector_operations(B, binary_operations::DIVIDE, true);
+  Array1D& operator/=(const Array1D& B) {
+    binary_vector_operations<BinaryOperation::DIVIDE>(B, *this);
     return *this;
   }
 
@@ -222,12 +241,12 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array1D.
   /// \return Pointer to Array1D host data.
-  std::vector<float> get_host_data_vector();
+  std::vector<Scalar_T> get_host_data_vector();
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array1D.
   /// \return Pointer to Array1D device data.
-  float* get_device_data_ptr();
+  Scalar_T* get_device_data_ptr() const;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy memory from the CPU to the GPU.
@@ -244,7 +263,7 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Fill the device with a specific value
-  void fill(const float C);
+  void fill(const Scalar_T C);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function that finds the maximum value in the array
@@ -268,11 +287,11 @@ private:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Vector for data stored in host memory.
-  std::vector<float> data_host;
+  std::vector<Scalar_T> data_host;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Pointer to data stored in device memory.
-  float* data_device;
+  Scalar_T* data_device;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Device that will store and handle Array2D memory and operations
@@ -284,16 +303,17 @@ private:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Defining enumerations of binary operations
-  enum class binary_operations{ADD, SUBTRACT, MULTIPLY, DIVIDE};
+  enum class BinaryOperation{ADD, SUBTRACT, MULTIPLY, DIVIDE};
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function to perform binary matrix operations
-  Array1D binary_vector_operations(Array1D& B, binary_operations op, bool edit_self);
+  template<BinaryOperation op>
+  Array1D binary_vector_operations(const Array1D& B, const Array1D& C);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function to perform reduction operations
   template<typename Operation_T>
-  auto reductions(Operation_T op, float val = 0.0);
+  auto reductions(Operation_T&& op, Scalar_T val = 0.0);
 }; // class Array1D
 
 /// @} // end "Array1D" doxygen group
@@ -306,25 +326,25 @@ int pysycl::Array1D::get_size() const {
 }
 
 /////////////////////////////////////////////////////////////////////////
-std::vector<float> pysycl::Array1D::get_host_data_vector(){
+std::vector<Scalar_T> pysycl::Array1D::get_host_data_vector(){
   return data_host;
 }
 
 /////////////////////////////////////////////////////////////////////////
-float* pysycl::Array1D::get_device_data_ptr(){
+Scalar_T* pysycl::Array1D::get_device_data_ptr(){
   return data_device;
 }
 
 /////////////////////////////////////////////////////////////////////////
 /// \brief Copy memory from the CPU to the GPU.
 void pysycl::Array1D::mem_to_gpu(){
-  Q.memcpy(data_device, &data_host[0], size*sizeof(float)).wait();
+  Q.memcpy(data_device, &data_host[0], size*sizeof(Scalar_T)).wait();
 }
 
 /////////////////////////////////////////////////////////////////////////
 /// \brief Copy memory from the GPU to the CPU
 void pysycl::Array1D::mem_to_cpu(){
-  Q.memcpy(&data_host[0], data_device, size*sizeof(float)).wait();
+  Q.memcpy(&data_host[0], data_device, size*sizeof(Scalar_T)).wait();
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -333,7 +353,7 @@ pysycl::Device_Instance& pysycl::Array1D::get_device(){
 }
 
 /////////////////////////////////////////////////////////////////////////
-void pysycl::Array1D::fill(const float C){
+void pysycl::Array1D::fill(const Scalar_T C){
   const size_t B = device.get_max_workgroup_size();
 
   Q.submit([&](sycl::handler& h){
@@ -355,9 +375,8 @@ void pysycl::Array1D::fill(const float C){
 }
 
 /////////////////////////////////////////////////////////////////////////
-pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
-                                                          binary_operations op,
-                                                          bool edit_self){
+template<BinaryOperation op>
+void pysycl::Array1D::binary_vector_operations(const Array1D& B, Array1D& C) const {
   const auto rows = this->get_size();
 
   if(size != B.get_size()){
@@ -391,38 +410,28 @@ pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
 
       if(i >= N) return;
 
-      switch(op){
-        case binary_operations::ADD:
-          data_new[i] = data_1[i] + data_2[i];
-          break;
-
-        case binary_operations::SUBTRACT:
-          data_new[i] = data_1[i] - data_2[i];
-          break;
-
-        case binary_operations::MULTIPLY:
-          data_new[i] = data_1[i] * data_2[i];
-          break;
-
-        case binary_operations::DIVIDE:
-          data_new[i] = data_1[i] / data_2[i];
-          break;
+      if constexpr (op == BinaryOperation::ADD) {
+        data_new[i] = data_1[i] + data_2[i];
+      } else if constexpr (op == BinaryOperation::SUBTRACT) {
+        data_new[i] = data_1[i] - data_2[i];
+      } else if constexpr (op == BinaryOperation::MULTIPLY) {
+        data_new[i] = data_1[i] * data_2[i];
+      } else if constexpr (op == BinaryOperation::DIVIDE) {
+        data_new[i] = data_1[i] / data_2[i];
       }
     });
   }).wait();
-
-  return C;
 }
 
 /////////////////////////////////////////////////////////////////////////
 template<typename Operation_T>
-auto pysycl::Array1D::reductions(Operation_T op, float val){
-  sycl::buffer<float> buf{&val, 1};
+auto pysycl::Array1D::reductions(Operation_T&& op, Scalar_T val) const {
+  sycl::buffer<Scalar_T> buf{&val, 1};
 
   const size_t wg_size = device.get_max_workgroup_size();
 
   Q.submit([&](sycl::handler& h){
-    const auto reduction_func = sycl::reduction(buf, h, op);
+    const auto reduction_func = sycl::reduction(buf, h, std::forward<Operator_T>(op));
 
     const size_t global_size = ((size + wg_size - 1)/wg_size)*wg_size;
     sycl::range<1> global{global_size};
@@ -446,18 +455,18 @@ auto pysycl::Array1D::reductions(Operation_T op, float val){
 }
 
 /////////////////////////////////////////////////////////////////////////
-auto pysycl::Array1D::max(){
-  return reductions(sycl::maximum<float>(), std::numeric_limits<float>::lowest());
+auto pysycl::Array1D::max() const {
+  return reductions(sycl::maximum<Scalar_T>(), std::numeric_limits<Scalar_T>::lowest());
 }
 
 /////////////////////////////////////////////////////////////////////////
-auto pysycl::Array1D::min(){
-  return reductions(sycl::minimum<float>(), std::numeric_limits<float>::max());
+auto pysycl::Array1D::min() const {
+  return reductions(sycl::minimum<Scalar_T>(), std::numeric_limits<Scalar_T>::max());
 }
 
 /////////////////////////////////////////////////////////////////////////
-auto pysycl::Array1D::sum(){
-  return reductions(sycl::plus<float>());
+auto pysycl::Array1D::sum() const {
+  return reductions(sycl::plus<Scalar_T>());
 }
 
 #endif // ARRAY1D_H
