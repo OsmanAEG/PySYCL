@@ -373,7 +373,7 @@ pysycl::Array1D pysycl::Array1D::binary_vector_operations(Array1D& B,
 
   const size_t wg_size = this->device.get_max_workgroup_size();
 
-  Array1D C = edit_self ? *this : Array1D(size, this->device);
+  Array1D C = edit_self ? *this : Array1D(size, this->device); // dangerous
 
   Q.submit([&](sycl::handler& h){
     const size_t global_size = ((size + wg_size - 1)/wg_size)*wg_size;

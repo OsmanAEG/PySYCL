@@ -132,7 +132,7 @@ void array_2d_module(py::module& m){
       Example
         >>> A.mem_to_cpu()
       )delim")
-    .def("matmul", &Array2D_T::matmul, R"delim(
+    .def("matmul_nd_range", &Array2D_T::matmul_nd_range, R"delim(
       Description
         This function evaluates a matrix multiplication.
 
@@ -161,7 +161,41 @@ void array_2d_module(py::module& m){
         >>> C.mem_to_cpu()
         >>> print(C[30, 50])
         19200.0
-      )delim")
+      )delim",
+      py::arg("A"),
+      py::arg("B"))
+    .def("matmul_tiled", &Array2D_T::matmul_tiled, R"delim(
+      Description
+        This function evaluates a matrix multiplication.
+
+      Parameters
+        A : pysycl.array2D
+          The first matrix for multiplication.
+
+        B : pysycl.array2D
+          The second matrix for multiplication.
+
+      Example
+        >>> import pysycl
+        >>>
+        >>> M = 4000
+        >>> N = 800
+        >>> P = 2500
+        >>>
+        >>> A = pysycl.array_2d_init(M, N)
+        >>> B = pysycl.array_2d_init(N, P)
+        >>> C = pysycl.array_2d_init(M, P)
+        >>>
+        >>> A.fill(8.0)
+        >>> B.fill(3.0)
+        >>> C.matmul(A, B)
+        >>>
+        >>> C.mem_to_cpu()
+        >>> print(C[30, 50])
+        19200.0
+      )delim",
+      py::arg("A"),
+      py::arg("B"))
     .def("max", &Array2D_T::max, R"delim(
       Description
         This function finds the maximum value in the array.

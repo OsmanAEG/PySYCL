@@ -20,15 +20,18 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include "../Array2D/Array2D.h"
 #include "Matrix_Multiplication.h"
 
 namespace py = pybind11;
+
+using Array2D_T = pysycl::Array2D;
 
 ///////////////////////////////////////////////////////////////////////
 // Matrix multiplication function
 ///////////////////////////////////////////////////////////////////////
 void matmul_module(py::module& m){
-  m.def("matmul", &pysycl::matmul, R"delim(
+  m.def("matmul", &pysycl::matmul<Array2D_T>, R"delim(
     Description
       This function evaluates a matrix multiplication and returns the result.
 
@@ -62,28 +65,7 @@ void matmul_module(py::module& m){
   )delim",
   py::arg("A"),
   py::arg("B"),
-  py::arg("wg_size") = 4);
-
-  m.def("tiled_matmul", &pysycl::tiled_matmul, R"delim(
-    Description
-      This function evaluates a matrix multiplication and returns the result.
-
-    Parameters
-      A : pysycl.array2D
-        The first matrix for multiplication.
-
-      B : pysycl.array2D
-        The second matrix for multiplication.
-
-      wg_size : int
-        Optional: Work group size
-
-    Example
-      >>> C = pysycl.linalg.tiled_matmul(A, B)
-  )delim",
-  py::arg("A"),
-  py::arg("B"),
-  py::arg("wg_size") = 4);
+  py::arg("selection"));
 }
 
 #endif //MATRIX_MULTIPLICATION_PYTHON_MODULE_H
