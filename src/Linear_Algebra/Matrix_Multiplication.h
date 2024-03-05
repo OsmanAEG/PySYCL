@@ -166,8 +166,8 @@ Array2D_type matmul(Array2D_type& A,
   Array2D_type C(M, P, A.get_device());
   auto Q = A.get_device().get_queue();
 
-  if(selection == "nd_range") matmul_nd_range(A, B, C, M, N, P, wg_size, Q);
-  else if(selection == "tiled") matmul_tiled(A, B, C, M, N, P, wg_size, Q);
+  if(selection == "nd_range") C.matmul_nd_range(A, B);
+  else if(selection == "tiled") C.matmul_tiled(A, B);
   else throw std::runtime_error("ERROR: Invalid matmul selection!");
 
   return C;

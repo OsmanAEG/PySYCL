@@ -265,20 +265,20 @@ public:
   /// \brief Tiled Matrix multiplication function.
   /// \param[in] A The first Array2D that is being multiplied.
   /// \param[in] B The second Array2D that is being multiplied.
-  /// \param[in] M First Array2D rows.
-  /// \param[in] N First Array2D columns.
-  /// \param[in] P Second Array2D columns.
   void matmul_tiled(Array2D& A, Array2D& B);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief ND-Range matrix multiplication.
   /// \param[in] A The first Array2D that is being multiplied.
   /// \param[in] B The second Array2D that is being multiplied.
-  /// \param[in] M First Array2D rows.
-  /// \param[in] N First Array2D columns.
-  /// \param[in] P Second Array2D columns.
-  /// \param[in] wg_size Work group size.
   void matmul_nd_range(Array2D& A, Array2D& B);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Tiled Matrix multiplication function.
+  /// \param[in] A The first Array2D that is being multiplied.
+  /// \param[in] B The second Array2D that is being multiplied.
+  /// \param[in] selection The selected matmul algorithm.
+  void matmul(Array2D& A, Array2D& B, std::string selection);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function that finds the maximum value in the array
@@ -596,6 +596,13 @@ void pysycl::Array2D::matmul_tiled(Array2D& A, Array2D& B){
       C_ptr[iG*P + jG] = c_ij;
     });
   }).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+void pysycl::Array2D::matmul(Array2D& A, Array2D& B, std::string selection){
+  if(selection == "nd_range") matmul_nd_range(A, B);
+  else if(selection == "tiled") matmul_tiled(A, B);
+  else throw std::runtime_error("ERROR: Invalid matmul selection!");
 }
 
 /////////////////////////////////////////////////////////////////////////

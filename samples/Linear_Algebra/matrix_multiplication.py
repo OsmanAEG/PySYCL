@@ -8,9 +8,9 @@ import pysycl
 device = pysycl.device.device_instance(0, 0)
 
 # Matrix dimensions
-M = 8000
-N = 8000
-P = 8000
+N = 10000
+P = 10000
+M = 10000
 
 A_np = np.full((M, N), 2.0, dtype=np.float32)
 B_np = np.full((N, P), 4.0, dtype=np.float32)
@@ -29,7 +29,7 @@ end_time_np = time.time()
 numpy_duration = end_time_np - start_time_np
 
 start_time_ps = time.time()
-C_ps.matmul_nd_range(A_ps, B_ps)
+C_ps.matmul(A_ps, B_ps, "tiled")
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
 
