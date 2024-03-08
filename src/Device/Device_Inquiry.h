@@ -29,10 +29,10 @@ namespace pysycl{
 /// \brief Function that returns a list of available devices.
 std::vector<std::string> get_device_list(){
   std::vector<std::string> device_list;
-  auto platforms = sycl::platform::get_platforms();
+  const auto& platforms = sycl::platform::get_platforms();
 
   for(int i = 0; i < platforms.size(); ++i){
-    auto devices = platforms[i].get_devices();
+    const auto& devices = platforms[i].get_devices();
 
     for(int j = 0; j < devices.size(); ++j){
       auto si = std::to_string(i);
