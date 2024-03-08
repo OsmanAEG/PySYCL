@@ -65,7 +65,8 @@ void matmul_module(py::module& m){
   )delim",
   py::arg("A"),
   py::arg("B"),
-  py::arg("selection"));
+  py::arg("C"),
+  py::arg("tile_size"));
 }
 
 #endif //MATRIX_MULTIPLICATION_PYTHON_MODULE_H
