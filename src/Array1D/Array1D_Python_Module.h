@@ -26,7 +26,8 @@
 
 namespace py = pybind11;
 
-using Array1D_T = pysycl::Array1D<float>;
+using Scalar_T = float;
+using Array1D_T = pysycl::Array1D<Scalar_T>;
 
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
@@ -55,7 +56,7 @@ void array_1d_module(py::module& m){
       )delim",
       py::arg("size"),
       py::arg("device"))
-    .def(py::init<py::array_t<float>, pysycl::Device_Instance&>(), R"delim(
+    .def(py::init<py::array_t<Scalar_T>, pysycl::Device_Instance&>(), R"delim(
       NumPy Constructor
         Constructor that creates a 1D PySYCL array from a 1D NumPy array.
 
@@ -147,7 +148,7 @@ void array_1d_module(py::module& m){
         >>> sum = A.sum()
       )delim")
     .def("__getitem__",  [](Array1D_T &self, int i){return self(i);})
-    .def("__setitem__",  [](Array1D_T &self, int i, float val){self(i) = val;})
+    .def("__setitem__",  [](Array1D_T &self, int i, Scalar_T val){self(i) = val;})
     .def("__add__",      [](const Array1D_T& a, const Array1D_T& b) -> Array1D_T {return a + b;})
     .def("__iadd__",     [](const Array1D_T& a, const Array1D_T& b){return a + b;})
     .def("__sub__",      [](const Array1D_T& a, const Array1D_T& b) -> Array1D_T {return a - b;})
