@@ -63,8 +63,46 @@ public:
     using Device_T = pysycl::Device_Instance;
 
     ///////////////////////////////////////////////////////////////////////
-    /// \brief Default constructor.
-    Array1D() = delete;
+    /// \brief Basic constructor that takes in the size and device of
+    ///        the array.
+    /// \param[in] size_in Number of elements in the array.
+    /// \param[in] device_in Number of elements in the array (Optional).
+    Array1D(int size_in, Device_T& device_in = get_device())
+      : size(size_in)
+      , data_host(size)
+      , device(device_in)
+      , Q(device_in.get_queue()) {
+        if (size <= 0)
+            throw std::runtime_error(
+              "ERROR IN ARRAY1D: number of elements must be > 0.");
+        data_device = sycl::malloc_device<Scalar_T>(size, Q);
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    /// \brief Constructor that takes in a numpy array.
+    /// \param[in] np_array_in Number of elements in the array.
+    /// \param[in] device_in Number of elements in the array (Optional).
+    Array1D(
+      py::array_t<Scalar_T> np_array_in, Device_T& device_in = get_device())
+      : device(device_in)
+      , Q(device_in.get_queue()) {
+        if (np_array_in.ndim() != 1)
+            throw std::runtime_error("The input numpy array must be 1D.");
+
+        auto unchecked = np_array_in.template unchecked<1>();
+        size = unchecked.shape(0);
+        data_host.resize(size);
+
+        if (size <= 0)
+            throw std::runtime_error(
+              "ERROR IN ARRAY1D: number of elements must be > 0.");
+
+        for (int i = 0; i < size; ++i) {
+            data_host[i] = unchecked(i);
+        }
+
+        data_device = sycl::malloc_device<Scalar_T>(size, Q);
+    }
 
     ///////////////////////////////////////////////////////////////////////
     /// \brief Copy constructor.
@@ -121,48 +159,6 @@ public:
         }
 
         data_device = nullptr;
-    }
-
-    ///////////////////////////////////////////////////////////////////////
-    /// \brief Basic constructor that takes in the size and device of
-    ///        the array.
-    /// \param[in] size_in Number of elements in the array.
-    /// \param[in] device_in Number of elements in the array (Optional).
-    Array1D(int size_in, Device_T& device_in = get_device())
-      : size(size_in)
-      , data_host(size)
-      , device(device_in)
-      , Q(device_in.get_queue()) {
-        if (size <= 0)
-            throw std::runtime_error(
-              "ERROR IN ARRAY1D: number of elements must be > 0.");
-        data_device = sycl::malloc_device<Scalar_T>(size, Q);
-    }
-
-    ///////////////////////////////////////////////////////////////////////
-    /// \brief Constructor that takes in a numpy array.
-    /// \param[in] np_array_in Number of elements in the array.
-    /// \param[in] device_in Number of elements in the array (Optional).
-    Array1D(
-      py::array_t<Scalar_T> np_array_in, Device_T& device_in = get_device())
-      : device(device_in)
-      , Q(device_in.get_queue()) {
-        if (np_array_in.ndim() != 1)
-            throw std::runtime_error("The input numpy array must be 1D.");
-
-        auto unchecked = np_array_in.template unchecked<1>();
-        size = unchecked.shape(0);
-        data_host.resize(size);
-
-        if (size <= 0)
-            throw std::runtime_error(
-              "ERROR IN ARRAY1D: number of elements must be > 0.");
-
-        for (int i = 0; i < size; ++i) {
-            data_host[i] = unchecked(i);
-        }
-
-        data_device = sycl::malloc_device<Scalar_T>(size, Q);
     }
 
     ///////////////////////////////////////////////////////////////////////
