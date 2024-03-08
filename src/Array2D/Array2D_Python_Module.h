@@ -150,18 +150,21 @@ void array_2d_module(py::module& m){
         >>> N = 800
         >>> P = 2500
         >>>
-        >>> A = pysycl.array_2d_init(M, N)
-        >>> B = pysycl.array_2d_init(N, P)
-        >>> C = pysycl.array_2d_init(M, P)
+        >>> A = pysycl.array_2d(M, N)
+        >>> B = pysycl.array_2d(N, P)
+        >>> C = pysycl.array_2d(M, P)
         >>>
         >>> A.fill(8.0)
         >>> B.fill(3.0)
-        >>> C.matmul(A, B)
+        >>> C.matmul(A, B, "nd_range")
         >>>
         >>> C.mem_to_cpu()
         >>> print(C[30, 50])
         19200.0
-      )delim")
+      )delim",
+      py::arg("A"),
+      py::arg("B"),
+      py::arg("selection"))
     .def("max", &Array2D_T::max, R"delim(
       Description
         This function finds the maximum value in the array.

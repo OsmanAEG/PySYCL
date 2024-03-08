@@ -452,3 +452,4 @@ private:
 } // namespace pysycl
 
 #endif // ARRAY1D_H
+

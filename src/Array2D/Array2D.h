@@ -50,10 +50,11 @@ public:
       cols(og.cols),
       data_host(og.data_host),
       device(og.device),
-      Q(og.Q){
+      Q(og.Q)
+    {
         data_device = sycl::malloc_device<float>(rows*cols, Q);
         Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
-  }
+    }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move constructor.
@@ -63,25 +64,24 @@ public:
       data_host(std::move(og.data_host)),
       data_device(og.data_device),
       Q(std::move(og.Q)),
-      device(std::move(og.device)){
+      device(std::move(og.device))
+    {
         og.data_device = nullptr;
         og.rows = 0;
         og.cols = 0;
-  }
+    }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy assignment operator.
   Array2D& operator=(const Array2D& og){
-    if(this != &og){
-      data_host = og.data_host;
-      sycl::free(data_device, Q);
-      rows = og.rows;
-      cols = og.cols;
-      device = og.device;
-      Q = og.Q;
-      data_device = sycl::malloc_device<float>(rows*cols, Q);
-      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
-    }
+    data_host = og.data_host;
+    sycl::free(data_device, Q);
+    rows = og.rows;
+    cols = og.cols;
+    device = og.device;
+    Q = og.Q;
+    data_device = sycl::malloc_device<float>(rows*cols, Q);
+    Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
 
     return *this;
   }
@@ -89,18 +89,16 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Move assignment operator.
   Array2D& operator=(Array2D&& og) noexcept{
-    if(this != &og){
-      data_host = std::move(og.data_host);
-      sycl::free(data_device, Q);
-      data_device = og.data_device;
-      og.data_device = nullptr;
-      rows = og.rows;
-      cols = og.cols;
-      Q = std::move(og.Q);
-      device = std::move(og.device);
-      rows = 0;
-      cols = 0;
-    }
+    data_host = std::move(og.data_host);
+    sycl::free(data_device, Q);
+    data_device = og.data_device;
+    og.data_device = nullptr;
+    rows = og.rows;
+    cols = og.cols;
+    Q = std::move(og.Q);
+    device = std::move(og.device);
+    rows = 0;
+    cols = 0;
 
     return *this;
   }
@@ -123,7 +121,8 @@ public:
     cols(cols_in),
     data_host(rows*cols),
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(rows <= 0 || cols <= 0){
         throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
       }
@@ -137,7 +136,8 @@ public:
   /// \param[in] device_in Number of elements in the array (Optional).
   Array2D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
     device(device_in),
-    Q(device_in.get_queue()){
+    Q(device_in.get_queue())
+  {
       if(np_array_in.ndim() != 2) throw std::runtime_error("The input numpy array must be 2D.");
 
       auto unchecked = np_array_in.unchecked<2>();
@@ -242,7 +242,7 @@ public:
   ///////////////////////////////////////////////////////////////////////
   /// \brief Get the data pointer from Array2D.
   /// \return Pointer to Array2D device data.
-  float* get_device_data_ptr();
+  float* get_device_data_ptr() const;
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Copy memory from the CPU to the GPU.
@@ -262,10 +262,23 @@ public:
   void fill(const float C);
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Function for matrix multiplication
+  /// \brief Tiled Matrix multiplication function.
   /// \param[in] A The first Array2D that is being multiplied.
   /// \param[in] B The second Array2D that is being multiplied.
-  void matmul(Array2D& A, Array2D& B);
+  void matmul_tiled(Array2D& A, Array2D& B);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief ND-Range matrix multiplication.
+  /// \param[in] A The first Array2D that is being multiplied.
+  /// \param[in] B The second Array2D that is being multiplied.
+  void matmul_nd_range(Array2D& A, Array2D& B);
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Tiled Matrix multiplication function.
+  /// \param[in] A The first Array2D that is being multiplied.
+  /// \param[in] B The second Array2D that is being multiplied.
+  /// \param[in] selection The selected matmul algorithm.
+  void matmul(Array2D& A, Array2D& B, std::string selection);
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function that finds the maximum value in the array
@@ -341,7 +354,7 @@ std::vector<float> pysycl::Array2D::get_host_data_vector(){
 }
 
 /////////////////////////////////////////////////////////////////////////
-float* pysycl::Array2D::get_device_data_ptr(){
+float* pysycl::Array2D::get_device_data_ptr() const {
   return data_device;
 }
 
@@ -450,45 +463,44 @@ pysycl::Array2D pysycl::Array2D::binary_matrix_operations(Array2D& B,
 }
 
 /////////////////////////////////////////////////////////////////////////
-void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
-  if(A.num_cols() != B.num_rows()){
-    throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
-  }
-
-  if(rows != A.num_rows() || cols != B.num_cols()){
-    throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
-  }
-
-  const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
-  const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
-
-  if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
-
-  if(device.get_platform_index() != A.get_device().get_platform_index()){
-    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
-  }
-
-  if(device.get_device_index() != A.get_device().get_device_index()){
-    throw std::runtime_error("ERROR: Incompatible PySYCL device.");
-  }
-
-  const auto M = A.num_rows();
-  const auto N = A.num_cols();
-  const auto P = B.num_cols();
-
-  const size_t wg_size = sqrt(device.get_max_workgroup_size());
-
+void pysycl::Array2D::matmul_nd_range(Array2D& A, Array2D& B){
   Q.submit([&](sycl::handler& h){
+    if(A.num_cols() != B.num_rows()){
+      throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+    }
+
+    if(rows != A.num_rows() || cols != B.num_cols()){
+      throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+    }
+
+    const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
+    const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
+
+    if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+
+    if(device.get_platform_index() != A.get_device().get_platform_index()){
+      throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+    }
+
+    if(device.get_device_index() != A.get_device().get_device_index()){
+      throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+    }
+
+    const auto M = A.num_rows();
+    const auto N = A.num_cols();
+    const auto P = B.num_cols();
+
+    const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
     const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;
     const size_t global_size_P = ((P + wg_size - 1)/wg_size)*wg_size;
 
     sycl::range<2> global{global_size_M, global_size_P};
     sycl::range<2> local{wg_size, wg_size};
 
-    auto data_1   = A.get_device_data_ptr();
-    auto data_2   = B.get_device_data_ptr();
-
-    auto data_device_ptr = data_device;
+    float* A_ptr = A.get_device_data_ptr();
+    float* B_ptr = B.get_device_data_ptr();
+    float* C_ptr = data_device;
 
     h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
       const auto i = it.get_global_id(0);
@@ -499,12 +511,98 @@ void pysycl::Array2D::matmul(Array2D& A, Array2D& B){
       float c_ij = 0.0;
 
       for(int n = 0; n < N; ++n){
-        c_ij += data_1[i*N + n]*data_2[n*P + j];
+        c_ij += A_ptr[i*N + n]*B_ptr[n*P + j];
       }
 
-      data_device_ptr[i*P + j] = c_ij;
+      C_ptr[i*P + j] = c_ij;
     });
   }).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+void pysycl::Array2D::matmul_tiled(Array2D& A, Array2D& B){
+  Q.submit([&](sycl::handler& h){
+    if(A.num_cols() != B.num_rows()){
+      throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+    }
+
+    if(rows != A.num_rows() || cols != B.num_cols()){
+      throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
+    }
+
+    const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
+    const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
+
+    if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+
+    if(device.get_platform_index() != A.get_device().get_platform_index()){
+      throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+    }
+
+    if(device.get_device_index() != A.get_device().get_device_index()){
+      throw std::runtime_error("ERROR: Incompatible PySYCL device.");
+    }
+
+    const auto M = A.num_rows();
+    const auto N = A.num_cols();
+    const auto P = B.num_cols();
+
+    const size_t wg_size = sqrt(device.get_max_workgroup_size());
+
+    const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;
+    const size_t global_size_P = ((P + wg_size - 1)/wg_size)*wg_size;
+
+    sycl::range<2> global{global_size_M, global_size_P};
+    sycl::range<2> local{wg_size, wg_size};
+
+    sycl::local_accessor<float, 2> A_block({wg_size, wg_size}, h);
+    sycl::local_accessor<float, 2> B_block({wg_size, wg_size}, h);
+
+    float* A_ptr = A.get_device_data_ptr();
+    float* B_ptr = B.get_device_data_ptr();
+    float* C_ptr = data_device;
+
+    const auto tile_size = (N - 1)/wg_size + 1;
+
+    h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it){
+      const auto iG = it.get_global_id(0);
+      const auto jG = it.get_global_id(1);
+
+      const auto iL = it.get_local_id(0);
+      const auto jL = it.get_local_id(1);
+
+      if(iG >= M || jG >= P) return;
+
+      float c_ij = 0.0;
+
+      for(int tile_idx = 0; tile_idx < tile_size; ++tile_idx){
+        // load A and B into local shared memory
+        if(iG < M && jL + tile_idx*wg_size < N) A_block[iL][jL] = A_ptr[iG*N + tile_idx*wg_size + jL];
+        else A_block[iL][jL] = 0;
+
+        if(iL + tile_idx*wg_size < N && jG < P) B_block[iL][jL] = B_ptr[(iL + tile_idx*wg_size)*P + jG];
+        else B_block[iL][jL] = 0;
+
+        // sync threads
+        it.barrier(sycl::access::fence_space::local_space);
+
+        // vector dot product
+        for(int n = 0; n < wg_size; ++n) c_ij += A_block[iL][n] * B_block[n][jL];
+
+        // sync threads
+        it.barrier(sycl::access::fence_space::local_space);
+      }
+
+      C_ptr[iG*P + jG] = c_ij;
+    });
+  }).wait();
+}
+
+/////////////////////////////////////////////////////////////////////////
+void pysycl::Array2D::matmul(Array2D& A, Array2D& B, std::string selection){
+  if(selection == "nd_range") matmul_nd_range(A, B);
+  else if(selection == "tiled") matmul_tiled(A, B);
+  else throw std::runtime_error("ERROR: Invalid matmul selection!");
 }
 
 /////////////////////////////////////////////////////////////////////////
