@@ -14,10 +14,11 @@
 /// \file
 /// \brief Python module for device in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <pybind11/pybind11.h>
-
-#include "Device_Instance_Python_Module.h"
 #include "Device_Inquiry_Python_Module.h"
+#include "Device_Instance_Python_Module.h"
+#include "Device_Manager_Python_Module.h"
+
+#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
@@ -33,4 +34,5 @@ PYBIND11_MODULE(device, m){
 
   device_instance_module(m);
   device_inquiry_module(m);
+  device_manager_module(m);
 }
