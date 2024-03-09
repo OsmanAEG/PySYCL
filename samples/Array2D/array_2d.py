@@ -3,7 +3,7 @@ sys.path.insert(1, '../../build/')
 
 import pysycl
 
-device = pysycl.device.device_instance(0, 0)
+device = pysycl.device.get_device(0, 0)
 A = pysycl.array_2d(10, 12, device)
 B = pysycl.array_2d(10, 12, device)
 

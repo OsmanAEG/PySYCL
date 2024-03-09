@@ -25,7 +25,8 @@
 
 namespace py = pybind11;
 
-using Array2D_T = pysycl::Array2D;
+using Scalar_T = float;
+using Array2D_T = pysycl::Array2D<Scalar_T>;
 
 ///////////////////////////////////////////////////////////////////////
 // Matrix multiplication function

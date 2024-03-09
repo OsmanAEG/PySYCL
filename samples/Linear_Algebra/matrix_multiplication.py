@@ -5,7 +5,7 @@ import numpy as np
 sys.path.insert(1, '../../build/')
 import pysycl
 
-device = pysycl.device.device_instance(0, 0)
+device = pysycl.device.get_device(0, 0)
 
 # Matrix dimensions
 N = 6000
@@ -32,7 +32,7 @@ start_time_ps = time.time()
 pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
-pysycl_duration = pysycl_duration/5
+pysycl_duration = pysycl_duration
 
 C_ps.mem_to_cpu()
 print("numpy time: {:.2f} seconds".format(numpy_duration))

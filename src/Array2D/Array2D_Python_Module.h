@@ -26,7 +26,8 @@
 
 namespace py = pybind11;
 
-using Array2D_T = pysycl::Array2D;
+using Scalar_T = float;
+using Array2D_T = pysycl::Array2D<Scalar_T>;
 
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
@@ -36,7 +37,7 @@ void array_2d_module(py::module& m){
     Description
       This class creates a PySYCL array_2d object.
     )delim")
-    .def(py::init<int, int, pysycl::Device_Instance>(), R"delim(
+    .def(py::init<int, int, pysycl::Device_Instance&>(), R"delim(
       Default Constructor
         Constructor that creates a 2D PySYCL array.
 
@@ -58,7 +59,7 @@ void array_2d_module(py::module& m){
       py::arg("rows"),
       py::arg("cols"),
       py::arg("device"))
-    .def(py::init<py::array_t<float>, pysycl::Device_Instance>(), R"delim(
+    .def(py::init<py::array_t<Scalar_T>, pysycl::Device_Instance&>(), R"delim(
       NumPy Constructor
         Constructor that creates a 2D PySYCL array from a 2D NumPy array.
 
@@ -108,7 +109,7 @@ void array_2d_module(py::module& m){
         This function fills the array with a constant value.
 
       Parameters
-        C : float
+        C : Scalar_T
           Some scalar constant.
 
       Example
@@ -164,7 +165,7 @@ void array_2d_module(py::module& m){
       )delim")
     .def("__getitem__", [](Array2D_T &self, std::pair<int, int> idx){
       return self(idx.first, idx.second);})
-    .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, float val){
+    .def("__setitem__", [](Array2D_T &self, std::pair<int, int> idx, Scalar_T val){
       self(idx.first, idx.second) = val;})
     .def("__add__",      [](Array2D_T &a, Array2D_T &b) -> Array2D_T {return a + b;})
     .def("__iadd__",     [](Array2D_T &a, Array2D_T &b){return a + b;})

@@ -45,16 +45,16 @@ void matmul(Array2D_type& A,
     throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
   }
 
-  const bool same_platform_idx = A.get_device().get_platform_index() == B.get_device().get_platform_index();
-  const bool same_device_idx = A.get_device().get_device_index() == B.get_device().get_device_index();
+  const bool same_platform_idx = A.get_platform_index() == B.get_platform_index();
+  const bool same_device_idx   = A.get_device_index()   == B.get_device_index();
 
   if(!same_platform_idx || !same_device_idx) throw std::runtime_error("ERROR: Incompatible PySYCL device.");
 
-  if(C.get_device().get_platform_index() != A.get_device().get_platform_index()){
+  if(C.get_platform_index() != A.get_platform_index()){
     throw std::runtime_error("ERROR: Incompatible PySYCL device.");
   }
 
-  if(C.get_device().get_device_index() != A.get_device().get_device_index()){
+  if(C.get_device_index() != A.get_device_index()){
     throw std::runtime_error("ERROR: Incompatible PySYCL device.");
   }
 
@@ -62,7 +62,8 @@ void matmul(Array2D_type& A,
   const auto N = A.num_cols();
   const auto P = B.num_cols();
 
-  auto Q = C.get_device().get_queue();
+  auto Q = sycl::queue(sycl::platform::get_platforms()[C.get_platform_index()]
+                                        .get_devices()[C.get_device_index()]);
 
   Q.submit([&](sycl::handler& h){
     const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;

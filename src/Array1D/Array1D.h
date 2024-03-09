@@ -265,6 +265,14 @@ public:
     Scalar_T* get_device_data_ptr() const { return data_device; }
 
     ///////////////////////////////////////////////////////////////////////
+    /// \brief Get platform index for the sycl device
+    int get_platform_index(){ return device.get_platform_index(); }
+
+    ///////////////////////////////////////////////////////////////////////
+    /// \brief Get platform index for the sycl device
+    int get_device_index(){ return device.get_device_index(); }
+
+    ///////////////////////////////////////////////////////////////////////
     /// \brief Copy memory from the CPU to the GPU.
     void mem_to_gpu() {
         Q.memcpy(data_device, &data_host[0], size * sizeof(Scalar_T)).wait();
@@ -340,7 +348,7 @@ private:
     Scalar_T* data_device;
 
     ///////////////////////////////////////////////////////////////////////
-    /// \brief Device that will store and handle Array2D memory and operations
+    /// \brief Device that will store and handle Array1D memory and operations
     Device_T& device;
 
     ///////////////////////////////////////////////////////////////////////
@@ -348,7 +356,7 @@ private:
     sycl::queue& Q;
 
     ///////////////////////////////////////////////////////////////////////
-    /// \brief Defining enumerations of binary operations
+    /// \brief Defining enumerations for binary operations
     enum class BinaryOperation { ADD, SUBTRACT, MULTIPLY, DIVIDE };
 
     ///////////////////////////////////////////////////////////////////////
