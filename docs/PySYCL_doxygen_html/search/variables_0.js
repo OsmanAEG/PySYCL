@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cols_125',['cols',['../classpysycl_1_1_array2_d.html#aeb8aac1202947c13110f00dc9747b40a',1,'pysycl::Array2D']]]
+  ['cols_132',['cols',['../classpysycl_1_1_array2_d.html#a5ececf2b6b5000eca2ba18c2e7841e19',1,'pysycl::Array2D']]]
 ];

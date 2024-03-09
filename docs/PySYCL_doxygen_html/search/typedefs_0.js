@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['device_5ft_134',['Device_T',['../classpysycl_1_1_array1_d.html#aec28f9cdc1d96ac2461f412a44db455b',1,'pysycl::Array1D::Device_T()'],['../classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90',1,'pysycl::Array2D::Device_T()']]]
+  ['device_5ft_141',['Device_T',['../classpysycl_1_1_array1_d.html#a258727b2712cc2d4b652630415e2504f',1,'pysycl::Array1D::Device_T()'],['../classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91',1,'pysycl::Array2D::Device_T()']]]
 ];

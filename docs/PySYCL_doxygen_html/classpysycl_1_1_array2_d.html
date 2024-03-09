@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PySYCL Dev Guide: pysycl::Array2D Class Reference</title>
+<title>PySYCL Dev Guide: pysycl::Array2D&lt; Scalar_type &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('classpysycl_1_1_array2_d.html',''); in
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classpysycl_1_1_array2_d-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">pysycl::Array2D Class Reference<div class="ingroups"><a class="el" href="group___array2_d.html">Array2D</a></div></div>  </div>
+<div class="title">pysycl::Array2D&lt; Scalar_type &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___array2_d.html">Array2D</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('classpysycl_1_1_array2_d.html',''); in
 
 <p><code>#include &lt;<a class="el" href="_array2_d_8h_source.html">Array2D.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for pysycl::Array2D:</div>
+Collaboration diagram for pysycl::Array2D&lt; Scalar_type &gt;:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 0 -->
 </div>
@@ -115,180 +115,191 @@ Collaboration diagram for pysycl::Array2D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2b2e5a990ee3ab26c2321ff883f13d90"><td class="memItemLeft" align="right" valign="top"><a id="a2b2e5a990ee3ab26c2321ff883f13d90"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a> = <a class="el" href="classpysycl_1_1_device___instance.html">pysycl::Device_Instance</a></td></tr>
-<tr class="memdesc:a2b2e5a990ee3ab26c2321ff883f13d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining the device type. <br /></td></tr>
-<tr class="separator:a2b2e5a990ee3ab26c2321ff883f13d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33741e52cda406005de82985552f1f62"><td class="memItemLeft" align="right" valign="top"><a id="a33741e52cda406005de82985552f1f62"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> = Scalar_type</td></tr>
+<tr class="memdesc:a33741e52cda406005de82985552f1f62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining the device scalar type. <br /></td></tr>
+<tr class="separator:a33741e52cda406005de82985552f1f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf63a8de4bd3daaad603d340e17043a"><td class="memItemLeft" align="right" valign="top"><a id="a4cf63a8de4bd3daaad603d340e17043a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Array_T</b> = <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &gt;</td></tr>
+<tr class="separator:a4cf63a8de4bd3daaad603d340e17043a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee23f6d05f1107ed15942fa03463de91"><td class="memItemLeft" align="right" valign="top"><a id="aee23f6d05f1107ed15942fa03463de91"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> = <a class="el" href="classpysycl_1_1_device___instance.html">pysycl::Device_Instance</a></td></tr>
+<tr class="memdesc:aee23f6d05f1107ed15942fa03463de91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining the device type. <br /></td></tr>
+<tr class="separator:aee23f6d05f1107ed15942fa03463de91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a262922287f3b1f7351279e8b13c67e60"><td class="memItemLeft" align="right" valign="top"><a id="a262922287f3b1f7351279e8b13c67e60"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a262922287f3b1f7351279e8b13c67e60">Array2D</a> ()=delete</td></tr>
-<tr class="memdesc:a262922287f3b1f7351279e8b13c67e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
-<tr class="separator:a262922287f3b1f7351279e8b13c67e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09bb55ee7c3bdc31bbaba33c9bc5ce8d"><td class="memItemLeft" align="right" valign="top"><a id="a09bb55ee7c3bdc31bbaba33c9bc5ce8d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a09bb55ee7c3bdc31bbaba33c9bc5ce8d">Array2D</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;og)</td></tr>
-<tr class="memdesc:a09bb55ee7c3bdc31bbaba33c9bc5ce8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
-<tr class="separator:a09bb55ee7c3bdc31bbaba33c9bc5ce8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8630a74fa7f8e2f6388cc549fd3a36"><td class="memItemLeft" align="right" valign="top"><a id="a2b8630a74fa7f8e2f6388cc549fd3a36"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a2b8630a74fa7f8e2f6388cc549fd3a36">Array2D</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&amp;og) noexcept</td></tr>
-<tr class="memdesc:a2b8630a74fa7f8e2f6388cc549fd3a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
-<tr class="separator:a2b8630a74fa7f8e2f6388cc549fd3a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e8c8096fb729cd2d1d0d6260ce02e9"><td class="memItemLeft" align="right" valign="top"><a id="a14e8c8096fb729cd2d1d0d6260ce02e9"></a>
-<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a14e8c8096fb729cd2d1d0d6260ce02e9">operator=</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;og)</td></tr>
-<tr class="memdesc:a14e8c8096fb729cd2d1d0d6260ce02e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator. <br /></td></tr>
-<tr class="separator:a14e8c8096fb729cd2d1d0d6260ce02e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1edde0742bcf565e1c9fef756e976bf6"><td class="memItemLeft" align="right" valign="top"><a id="a1edde0742bcf565e1c9fef756e976bf6"></a>
-<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a1edde0742bcf565e1c9fef756e976bf6">operator=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&amp;og) noexcept</td></tr>
-<tr class="memdesc:a1edde0742bcf565e1c9fef756e976bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator. <br /></td></tr>
-<tr class="separator:a1edde0742bcf565e1c9fef756e976bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e573a31e3046627ea649bfe766202b2"><td class="memItemLeft" align="right" valign="top"><a id="a5e573a31e3046627ea649bfe766202b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a5e573a31e3046627ea649bfe766202b2">~Array2D</a> ()</td></tr>
-<tr class="memdesc:a5e573a31e3046627ea649bfe766202b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:a5e573a31e3046627ea649bfe766202b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9387bc4b016b0e576d3e30b4c0d30c54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a9387bc4b016b0e576d3e30b4c0d30c54">Array2D</a> (int rows_in, int cols_in, <a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a> device_in=<a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>(0, 0))</td></tr>
-<tr class="memdesc:a9387bc4b016b0e576d3e30b4c0d30c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> class.  <a href="classpysycl_1_1_array2_d.html#a9387bc4b016b0e576d3e30b4c0d30c54">More...</a><br /></td></tr>
-<tr class="separator:a9387bc4b016b0e576d3e30b4c0d30c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c01fbe0e4e2d8fa54b78ec96392aedc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a4c01fbe0e4e2d8fa54b78ec96392aedc">Array2D</a> (py::array_t&lt; float &gt; np_array_in, <a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a> device_in=<a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>(0, 0))</td></tr>
-<tr class="memdesc:a4c01fbe0e4e2d8fa54b78ec96392aedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that takes in a numpy array.  <a href="classpysycl_1_1_array2_d.html#a4c01fbe0e4e2d8fa54b78ec96392aedc">More...</a><br /></td></tr>
-<tr class="separator:a4c01fbe0e4e2d8fa54b78ec96392aedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf5e2271641ffeaeeadeefa7146688f7"><td class="memItemLeft" align="right" valign="top"><a id="acf5e2271641ffeaeeadeefa7146688f7"></a>
-float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#acf5e2271641ffeaeeadeefa7146688f7">operator()</a> (int i, int j)</td></tr>
-<tr class="memdesc:acf5e2271641ffeaeeadeefa7146688f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator() direct element access. <br /></td></tr>
-<tr class="separator:acf5e2271641ffeaeeadeefa7146688f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9acf609029ede87d9442afcaad273cc"><td class="memItemLeft" align="right" valign="top"><a id="ac9acf609029ede87d9442afcaad273cc"></a>
-const float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ac9acf609029ede87d9442afcaad273cc">operator()</a> (int i, int j) const</td></tr>
-<tr class="memdesc:ac9acf609029ede87d9442afcaad273cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator() read-only element access. <br /></td></tr>
-<tr class="separator:ac9acf609029ede87d9442afcaad273cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac61037ec2db614e23d028ed5532d2589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ac61037ec2db614e23d028ed5532d2589">operator+</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ac61037ec2db614e23d028ed5532d2589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator+ for matrix addition (creating a new array).  <a href="classpysycl_1_1_array2_d.html#ac61037ec2db614e23d028ed5532d2589">More...</a><br /></td></tr>
-<tr class="separator:ac61037ec2db614e23d028ed5532d2589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58d08c16e51acc5127aaadcd8c9cd460"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a58d08c16e51acc5127aaadcd8c9cd460">operator+=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:a58d08c16e51acc5127aaadcd8c9cd460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator+= for matrix addition (edits self).  <a href="classpysycl_1_1_array2_d.html#a58d08c16e51acc5127aaadcd8c9cd460">More...</a><br /></td></tr>
-<tr class="separator:a58d08c16e51acc5127aaadcd8c9cd460"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad50b4369186c7f65361acd67077488ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ad50b4369186c7f65361acd67077488ac">operator-</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ad50b4369186c7f65361acd67077488ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator- for matrix subtraction (creating a new array).  <a href="classpysycl_1_1_array2_d.html#ad50b4369186c7f65361acd67077488ac">More...</a><br /></td></tr>
-<tr class="separator:ad50b4369186c7f65361acd67077488ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3495796209cab7b0901885f3d5a97d82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a3495796209cab7b0901885f3d5a97d82">operator-=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:a3495796209cab7b0901885f3d5a97d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator-= for matrix subtraction (edits self).  <a href="classpysycl_1_1_array2_d.html#a3495796209cab7b0901885f3d5a97d82">More...</a><br /></td></tr>
-<tr class="separator:a3495796209cab7b0901885f3d5a97d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ede51231a4e1436bcd2f97aebb23715"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a9ede51231a4e1436bcd2f97aebb23715">operator*</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:a9ede51231a4e1436bcd2f97aebb23715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator* for element-wise multiplication (creating a new array).  <a href="classpysycl_1_1_array2_d.html#a9ede51231a4e1436bcd2f97aebb23715">More...</a><br /></td></tr>
-<tr class="separator:a9ede51231a4e1436bcd2f97aebb23715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89e4385915b6c75b952f2ab937e3b180"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a89e4385915b6c75b952f2ab937e3b180">operator*=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:a89e4385915b6c75b952f2ab937e3b180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator*= for element-wise multiplication (edits self).  <a href="classpysycl_1_1_array2_d.html#a89e4385915b6c75b952f2ab937e3b180">More...</a><br /></td></tr>
-<tr class="separator:a89e4385915b6c75b952f2ab937e3b180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae444a9575752911324e328c746c73a6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae444a9575752911324e328c746c73a6d">operator/</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ae444a9575752911324e328c746c73a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator/ for element-wise division (creating a new array).  <a href="classpysycl_1_1_array2_d.html#ae444a9575752911324e328c746c73a6d">More...</a><br /></td></tr>
-<tr class="separator:ae444a9575752911324e328c746c73a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa06f9f66388fdb455cf4dfa6fbc0ca06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aa06f9f66388fdb455cf4dfa6fbc0ca06">operator/=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:aa06f9f66388fdb455cf4dfa6fbc0ca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator/= for element-wise division (edits self).  <a href="classpysycl_1_1_array2_d.html#aa06f9f66388fdb455cf4dfa6fbc0ca06">More...</a><br /></td></tr>
-<tr class="separator:aa06f9f66388fdb455cf4dfa6fbc0ca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad78e74ab16956b393935a371e0aa6c4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f">num_rows</a> () const</td></tr>
-<tr class="memdesc:gad78e74ab16956b393935a371e0aa6c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#gad78e74ab16956b393935a371e0aa6c4f">More...</a><br /></td></tr>
-<tr class="separator:gad78e74ab16956b393935a371e0aa6c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga628c80a85cb0367d604f3ad0728630c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4">num_cols</a> () const</td></tr>
-<tr class="memdesc:ga628c80a85cb0367d604f3ad0728630c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#ga628c80a85cb0367d604f3ad0728630c4">More...</a><br /></td></tr>
-<tr class="separator:ga628c80a85cb0367d604f3ad0728630c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0533232108f0262ee88bca5f5d15e2c6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga0533232108f0262ee88bca5f5d15e2c6">get_host_data_vector</a> ()</td></tr>
-<tr class="memdesc:ga0533232108f0262ee88bca5f5d15e2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#ga0533232108f0262ee88bca5f5d15e2c6">More...</a><br /></td></tr>
-<tr class="separator:ga0533232108f0262ee88bca5f5d15e2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab52d1ee3359ae8386595fda7eedf2c6"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gaab52d1ee3359ae8386595fda7eedf2c6">get_device_data_ptr</a> ()</td></tr>
-<tr class="memdesc:gaab52d1ee3359ae8386595fda7eedf2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#gaab52d1ee3359ae8386595fda7eedf2c6">More...</a><br /></td></tr>
-<tr class="separator:gaab52d1ee3359ae8386595fda7eedf2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafa1d20cdb2a9009d72722c894a2fecae"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gafa1d20cdb2a9009d72722c894a2fecae">mem_to_gpu</a> ()</td></tr>
-<tr class="memdesc:gafa1d20cdb2a9009d72722c894a2fecae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy memory from the CPU to the GPU. <br /></td></tr>
-<tr class="separator:gafa1d20cdb2a9009d72722c894a2fecae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8968777c21247d4d07749825639ff404"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga8968777c21247d4d07749825639ff404">mem_to_cpu</a> ()</td></tr>
-<tr class="memdesc:ga8968777c21247d4d07749825639ff404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy memory from the GPU to the CPU. <br /></td></tr>
-<tr class="separator:ga8968777c21247d4d07749825639ff404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3fa3d6817f590c227e18ead54d5d188a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_device___instance.html">pysycl::Device_Instance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga3fa3d6817f590c227e18ead54d5d188a">get_device</a> ()</td></tr>
-<tr class="memdesc:ga3fa3d6817f590c227e18ead54d5d188a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the device from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="group___array2_d.html#ga3fa3d6817f590c227e18ead54d5d188a">More...</a><br /></td></tr>
-<tr class="separator:ga3fa3d6817f590c227e18ead54d5d188a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga136402c31545c067fba27d7f62c02f01"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga136402c31545c067fba27d7f62c02f01">fill</a> (const float C)</td></tr>
-<tr class="memdesc:ga136402c31545c067fba27d7f62c02f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the device with a specific value. <br /></td></tr>
-<tr class="separator:ga136402c31545c067fba27d7f62c02f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3">matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for matrix multiplication.  <a href="group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3">More...</a><br /></td></tr>
-<tr class="separator:ga8aa5da54abb1e9b56bc83a7c005efca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7faab6a1eaee9495bddc96a09ae443be"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be">max</a> ()</td></tr>
-<tr class="memdesc:ga7faab6a1eaee9495bddc96a09ae443be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the maximum value in the array.  <a href="group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be">More...</a><br /></td></tr>
-<tr class="separator:ga7faab6a1eaee9495bddc96a09ae443be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d">min</a> ()</td></tr>
-<tr class="memdesc:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the minimum value in the array.  <a href="group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d">More...</a><br /></td></tr>
-<tr class="separator:ga7dc0099e8751a6bb8905aa584ef8546d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e">sum</a> ()</td></tr>
-<tr class="memdesc:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the sum of all values in the array.  <a href="group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e">More...</a><br /></td></tr>
-<tr class="separator:ga45cafb1cb8876d754a557d5f93bbc60e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f29ee3fe1be8759e083e7c707f1c526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a5f29ee3fe1be8759e083e7c707f1c526">Array2D</a> (int rows_in, int cols_in, <a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> &amp;device_in=get_device())</td></tr>
+<tr class="memdesc:a5f29ee3fe1be8759e083e7c707f1c526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor that takes in the size and device of the array.  <a href="classpysycl_1_1_array2_d.html#a5f29ee3fe1be8759e083e7c707f1c526">More...</a><br /></td></tr>
+<tr class="separator:a5f29ee3fe1be8759e083e7c707f1c526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba931fe6149392695559b129998fb551"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aba931fe6149392695559b129998fb551">Array2D</a> (py::array_t&lt; <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &gt; np_array_in, <a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> &amp;device_in=get_device())</td></tr>
+<tr class="memdesc:aba931fe6149392695559b129998fb551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that takes in a numpy array.  <a href="classpysycl_1_1_array2_d.html#aba931fe6149392695559b129998fb551">More...</a><br /></td></tr>
+<tr class="separator:aba931fe6149392695559b129998fb551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd2fbf4e92102535106c142f3b7229f5"><td class="memItemLeft" align="right" valign="top"><a id="acd2fbf4e92102535106c142f3b7229f5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#acd2fbf4e92102535106c142f3b7229f5">Array2D</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;og)</td></tr>
+<tr class="memdesc:acd2fbf4e92102535106c142f3b7229f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:acd2fbf4e92102535106c142f3b7229f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea3df489ed0313fa59eb8d359493ee5"><td class="memItemLeft" align="right" valign="top"><a id="abea3df489ed0313fa59eb8d359493ee5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#abea3df489ed0313fa59eb8d359493ee5">Array2D</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&amp;og) noexcept</td></tr>
+<tr class="memdesc:abea3df489ed0313fa59eb8d359493ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
+<tr class="separator:abea3df489ed0313fa59eb8d359493ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b998bb9ce3095a59542f60a69eaf53a"><td class="memItemLeft" align="right" valign="top"><a id="a6b998bb9ce3095a59542f60a69eaf53a"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a6b998bb9ce3095a59542f60a69eaf53a">operator=</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;og)</td></tr>
+<tr class="memdesc:a6b998bb9ce3095a59542f60a69eaf53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator. <br /></td></tr>
+<tr class="separator:a6b998bb9ce3095a59542f60a69eaf53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9f290c2f0ee84c2cb5165492680d84a"><td class="memItemLeft" align="right" valign="top"><a id="ae9f290c2f0ee84c2cb5165492680d84a"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae9f290c2f0ee84c2cb5165492680d84a">operator=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&amp;og) noexcept</td></tr>
+<tr class="memdesc:ae9f290c2f0ee84c2cb5165492680d84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator. <br /></td></tr>
+<tr class="separator:ae9f290c2f0ee84c2cb5165492680d84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874615a2a6e5f887a57ea355ad04b4c6"><td class="memItemLeft" align="right" valign="top"><a id="a874615a2a6e5f887a57ea355ad04b4c6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a874615a2a6e5f887a57ea355ad04b4c6">~Array2D</a> ()</td></tr>
+<tr class="memdesc:a874615a2a6e5f887a57ea355ad04b4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:a874615a2a6e5f887a57ea355ad04b4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9f9bd4e11ea4d7e7cfd2c36f0525fc"><td class="memItemLeft" align="right" valign="top"><a id="a7f9f9bd4e11ea4d7e7cfd2c36f0525fc"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a7f9f9bd4e11ea4d7e7cfd2c36f0525fc">operator()</a> (int i, int j)</td></tr>
+<tr class="memdesc:a7f9f9bd4e11ea4d7e7cfd2c36f0525fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator() direct element access. <br /></td></tr>
+<tr class="separator:a7f9f9bd4e11ea4d7e7cfd2c36f0525fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43581e43d341f13c90ff7da800076e48"><td class="memItemLeft" align="right" valign="top"><a id="a43581e43d341f13c90ff7da800076e48"></a>
+const <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a43581e43d341f13c90ff7da800076e48">operator()</a> (int i, int j) const</td></tr>
+<tr class="memdesc:a43581e43d341f13c90ff7da800076e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator() read-only element access. <br /></td></tr>
+<tr class="separator:a43581e43d341f13c90ff7da800076e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9abd3d27d55acea3e1a6b050acd0fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aad9abd3d27d55acea3e1a6b050acd0fd">operator+</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B) const</td></tr>
+<tr class="memdesc:aad9abd3d27d55acea3e1a6b050acd0fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator+ for matrix addition (creating a new array).  <a href="classpysycl_1_1_array2_d.html#aad9abd3d27d55acea3e1a6b050acd0fd">More...</a><br /></td></tr>
+<tr class="separator:aad9abd3d27d55acea3e1a6b050acd0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca5ff6162ed97612741b3aadfe1db79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a2ca5ff6162ed97612741b3aadfe1db79">operator+=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:a2ca5ff6162ed97612741b3aadfe1db79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator+= for matrix addition (edits self).  <a href="classpysycl_1_1_array2_d.html#a2ca5ff6162ed97612741b3aadfe1db79">More...</a><br /></td></tr>
+<tr class="separator:a2ca5ff6162ed97612741b3aadfe1db79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c71aeeaf3654ac5cbf11dc022a024a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a6c71aeeaf3654ac5cbf11dc022a024a9">operator-</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:a6c71aeeaf3654ac5cbf11dc022a024a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator- for matrix subtraction (creating a new array).  <a href="classpysycl_1_1_array2_d.html#a6c71aeeaf3654ac5cbf11dc022a024a9">More...</a><br /></td></tr>
+<tr class="separator:a6c71aeeaf3654ac5cbf11dc022a024a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af631550b1790f960b7e0410c486e0666"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#af631550b1790f960b7e0410c486e0666">operator-=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:af631550b1790f960b7e0410c486e0666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator-= for matrix subtraction (edits self).  <a href="classpysycl_1_1_array2_d.html#af631550b1790f960b7e0410c486e0666">More...</a><br /></td></tr>
+<tr class="separator:af631550b1790f960b7e0410c486e0666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27738828f3a23e44ee775ddf47521f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae27738828f3a23e44ee775ddf47521f7">operator*</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:ae27738828f3a23e44ee775ddf47521f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator* for element-wise multiplication (creating a new array).  <a href="classpysycl_1_1_array2_d.html#ae27738828f3a23e44ee775ddf47521f7">More...</a><br /></td></tr>
+<tr class="separator:ae27738828f3a23e44ee775ddf47521f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29cb7e3c1c63e1f956df0ce5af40ae08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a29cb7e3c1c63e1f956df0ce5af40ae08">operator*=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:a29cb7e3c1c63e1f956df0ce5af40ae08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator*= for element-wise multiplication (edits self).  <a href="classpysycl_1_1_array2_d.html#a29cb7e3c1c63e1f956df0ce5af40ae08">More...</a><br /></td></tr>
+<tr class="separator:a29cb7e3c1c63e1f956df0ce5af40ae08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2240546497fe3e30e89de8d87f7b77ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a2240546497fe3e30e89de8d87f7b77ed">operator/</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:a2240546497fe3e30e89de8d87f7b77ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator/ for element-wise division (creating a new array).  <a href="classpysycl_1_1_array2_d.html#a2240546497fe3e30e89de8d87f7b77ed">More...</a><br /></td></tr>
+<tr class="separator:a2240546497fe3e30e89de8d87f7b77ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1510c3dfdf299e412ebc7c0c058d96d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ad1510c3dfdf299e412ebc7c0c058d96d">operator/=</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
+<tr class="memdesc:ad1510c3dfdf299e412ebc7c0c058d96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator/= for element-wise division (edits self).  <a href="classpysycl_1_1_array2_d.html#ad1510c3dfdf299e412ebc7c0c058d96d">More...</a><br /></td></tr>
+<tr class="separator:ad1510c3dfdf299e412ebc7c0c058d96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81fbdfc16a49da620dd749108f212c32"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a81fbdfc16a49da620dd749108f212c32">num_rows</a> () const</td></tr>
+<tr class="memdesc:a81fbdfc16a49da620dd749108f212c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="classpysycl_1_1_array2_d.html#a81fbdfc16a49da620dd749108f212c32">More...</a><br /></td></tr>
+<tr class="separator:a81fbdfc16a49da620dd749108f212c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0114869cd1e0b9475d71292a2ed721"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aea0114869cd1e0b9475d71292a2ed721">num_cols</a> () const</td></tr>
+<tr class="memdesc:aea0114869cd1e0b9475d71292a2ed721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="classpysycl_1_1_array2_d.html#aea0114869cd1e0b9475d71292a2ed721">More...</a><br /></td></tr>
+<tr class="separator:aea0114869cd1e0b9475d71292a2ed721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa025f46ddc10ba0c1835ff309f689d6a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aa025f46ddc10ba0c1835ff309f689d6a">get_host_data_vector</a> ()</td></tr>
+<tr class="memdesc:aa025f46ddc10ba0c1835ff309f689d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="classpysycl_1_1_array2_d.html#aa025f46ddc10ba0c1835ff309f689d6a">More...</a><br /></td></tr>
+<tr class="separator:aa025f46ddc10ba0c1835ff309f689d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad90ec10748ceee636cbab8d71bdb4993"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ad90ec10748ceee636cbab8d71bdb4993">get_device_data_ptr</a> () const</td></tr>
+<tr class="memdesc:ad90ec10748ceee636cbab8d71bdb4993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>.  <a href="classpysycl_1_1_array2_d.html#ad90ec10748ceee636cbab8d71bdb4993">More...</a><br /></td></tr>
+<tr class="separator:ad90ec10748ceee636cbab8d71bdb4993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6606dc549a0a7ecf9648a83e0343a51"><td class="memItemLeft" align="right" valign="top"><a id="ac6606dc549a0a7ecf9648a83e0343a51"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ac6606dc549a0a7ecf9648a83e0343a51">get_platform_index</a> ()</td></tr>
+<tr class="memdesc:ac6606dc549a0a7ecf9648a83e0343a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get platform index for the sycl device. <br /></td></tr>
+<tr class="separator:ac6606dc549a0a7ecf9648a83e0343a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ece10690bf9f77ec006634d8d2d87f"><td class="memItemLeft" align="right" valign="top"><a id="a98ece10690bf9f77ec006634d8d2d87f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a98ece10690bf9f77ec006634d8d2d87f">get_device_index</a> ()</td></tr>
+<tr class="memdesc:a98ece10690bf9f77ec006634d8d2d87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get platform index for the sycl device. <br /></td></tr>
+<tr class="separator:a98ece10690bf9f77ec006634d8d2d87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed30602b969fc660666679800b14c28"><td class="memItemLeft" align="right" valign="top"><a id="a0ed30602b969fc660666679800b14c28"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a0ed30602b969fc660666679800b14c28">mem_to_gpu</a> ()</td></tr>
+<tr class="memdesc:a0ed30602b969fc660666679800b14c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy memory from the CPU to the GPU. <br /></td></tr>
+<tr class="separator:a0ed30602b969fc660666679800b14c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666797e7b5007461476972726b258491"><td class="memItemLeft" align="right" valign="top"><a id="a666797e7b5007461476972726b258491"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a666797e7b5007461476972726b258491">mem_to_cpu</a> ()</td></tr>
+<tr class="memdesc:a666797e7b5007461476972726b258491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy memory from the GPU to the CPU. <br /></td></tr>
+<tr class="separator:a666797e7b5007461476972726b258491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a801157cd067f35ca02b970463115b3a3"><td class="memItemLeft" align="right" valign="top"><a id="a801157cd067f35ca02b970463115b3a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a801157cd067f35ca02b970463115b3a3">fill</a> (const <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> C)</td></tr>
+<tr class="memdesc:a801157cd067f35ca02b970463115b3a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the device with a specific value. <br /></td></tr>
+<tr class="separator:a801157cd067f35ca02b970463115b3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad631db2393f927eaebc3bb548274a005"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ad631db2393f927eaebc3bb548274a005">max</a> ()</td></tr>
+<tr class="memdesc:ad631db2393f927eaebc3bb548274a005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the maximum value in the array.  <a href="classpysycl_1_1_array2_d.html#ad631db2393f927eaebc3bb548274a005">More...</a><br /></td></tr>
+<tr class="separator:ad631db2393f927eaebc3bb548274a005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c442d826259648e0869d046206239d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a71c442d826259648e0869d046206239d">min</a> ()</td></tr>
+<tr class="memdesc:a71c442d826259648e0869d046206239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the minimum value in the array.  <a href="classpysycl_1_1_array2_d.html#a71c442d826259648e0869d046206239d">More...</a><br /></td></tr>
+<tr class="separator:a71c442d826259648e0869d046206239d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9e10bcbf20a3e2332ab17314a57bfd"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a9c9e10bcbf20a3e2332ab17314a57bfd">sum</a> ()</td></tr>
+<tr class="memdesc:a9c9e10bcbf20a3e2332ab17314a57bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the sum of all values in the array.  <a href="classpysycl_1_1_array2_d.html#a9c9e10bcbf20a3e2332ab17314a57bfd">More...</a><br /></td></tr>
+<tr class="separator:a9c9e10bcbf20a3e2332ab17314a57bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:aeb0160dec1a746ca3d1485f861f830af"><td class="memItemLeft" align="right" valign="top"><a id="aeb0160dec1a746ca3d1485f861f830af"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aeb0160dec1a746ca3d1485f861f830af">binary_operations</a> { <b>ADD</b>
+<tr class="memitem:af9c1498f5f031bff3f35cab5e0665f02"><td class="memItemLeft" align="right" valign="top"><a id="af9c1498f5f031bff3f35cab5e0665f02"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#af9c1498f5f031bff3f35cab5e0665f02">BinaryOperation</a> { <b>ADD</b>
 , <b>SUBTRACT</b>
 , <b>MULTIPLY</b>
 , <b>DIVIDE</b>
  }</td></tr>
-<tr class="memdesc:aeb0160dec1a746ca3d1485f861f830af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining enumerations of binary operations. <br /></td></tr>
-<tr class="separator:aeb0160dec1a746ca3d1485f861f830af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:af9c1498f5f031bff3f35cab5e0665f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining enumerations for binary operations. <br /></td></tr>
+<tr class="separator:af9c1498f5f031bff3f35cab5e0665f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gac4bf4ee7bd0a2d532ac57620294db73c">binary_matrix_operations</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B, <a class="el" href="classpysycl_1_1_array2_d.html#aeb0160dec1a746ca3d1485f861f830af">binary_operations</a> op, bool edit_self)</td></tr>
-<tr class="memdesc:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform binary matrix operations. <br /></td></tr>
-<tr class="separator:gac4bf4ee7bd0a2d532ac57620294db73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf017563467b7ec188408d6d68ffe3e1"><td class="memTemplParams" colspan="2">
+<tr class="memitem:ae6458bac68c5c2a0cda7364300d0961f"><td class="memTemplParams" colspan="2"><a id="ae6458bac68c5c2a0cda7364300d0961f"></a>
+template&lt;BinaryOperation op&gt; </td></tr>
+<tr class="memitem:ae6458bac68c5c2a0cda7364300d0961f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae6458bac68c5c2a0cda7364300d0961f">binary_matrix_operations</a> (const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;C) const</td></tr>
+<tr class="memdesc:ae6458bac68c5c2a0cda7364300d0961f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform binary matrix operations. <br /></td></tr>
+<tr class="separator:ae6458bac68c5c2a0cda7364300d0961f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507eba7743cd310a4c5f517bb5711e6f"><td class="memTemplParams" colspan="2"><a id="a507eba7743cd310a4c5f517bb5711e6f"></a>
 template&lt;typename Operation_T &gt; </td></tr>
-<tr class="memitem:gaaf017563467b7ec188408d6d68ffe3e1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___array2_d.html#gaaf017563467b7ec188408d6d68ffe3e1">reductions</a> (Operation_T op, float val=0.0)</td></tr>
-<tr class="memdesc:gaaf017563467b7ec188408d6d68ffe3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform reduction operations. <br /></td></tr>
-<tr class="separator:gaaf017563467b7ec188408d6d68ffe3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507eba7743cd310a4c5f517bb5711e6f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a507eba7743cd310a4c5f517bb5711e6f">reductions</a> (Operation_T op, <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> val=0.0)</td></tr>
+<tr class="memdesc:a507eba7743cd310a4c5f517bb5711e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform reduction operations. <br /></td></tr>
+<tr class="separator:a507eba7743cd310a4c5f517bb5711e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a1958b20ad69815e45a2f2ef213f285db"><td class="memItemLeft" align="right" valign="top"><a id="a1958b20ad69815e45a2f2ef213f285db"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a1958b20ad69815e45a2f2ef213f285db">rows</a></td></tr>
-<tr class="memdesc:a1958b20ad69815e45a2f2ef213f285db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows in the array. <br /></td></tr>
-<tr class="separator:a1958b20ad69815e45a2f2ef213f285db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb8aac1202947c13110f00dc9747b40a"><td class="memItemLeft" align="right" valign="top"><a id="aeb8aac1202947c13110f00dc9747b40a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#aeb8aac1202947c13110f00dc9747b40a">cols</a></td></tr>
-<tr class="memdesc:aeb8aac1202947c13110f00dc9747b40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns in the array. <br /></td></tr>
-<tr class="separator:aeb8aac1202947c13110f00dc9747b40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7cecda037513d6ca9c3d266cfa4ff6f"><td class="memItemLeft" align="right" valign="top"><a id="ae7cecda037513d6ca9c3d266cfa4ff6f"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae7cecda037513d6ca9c3d266cfa4ff6f">data_host</a></td></tr>
-<tr class="memdesc:ae7cecda037513d6ca9c3d266cfa4ff6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector for data stored in host memory. <br /></td></tr>
-<tr class="separator:ae7cecda037513d6ca9c3d266cfa4ff6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b302fdb538a29b6bfbbc077cd1496bf"><td class="memItemLeft" align="right" valign="top"><a id="a6b302fdb538a29b6bfbbc077cd1496bf"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a6b302fdb538a29b6bfbbc077cd1496bf">data_device</a></td></tr>
-<tr class="memdesc:a6b302fdb538a29b6bfbbc077cd1496bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to data stored in device memory. <br /></td></tr>
-<tr class="separator:a6b302fdb538a29b6bfbbc077cd1496bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7149d0fc0887f23546cfca779e9942c9"><td class="memItemLeft" align="right" valign="top"><a id="a7149d0fc0887f23546cfca779e9942c9"></a>
-<a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a7149d0fc0887f23546cfca779e9942c9">device</a></td></tr>
-<tr class="memdesc:a7149d0fc0887f23546cfca779e9942c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device that will store and handle <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> memory and operations. <br /></td></tr>
-<tr class="separator:a7149d0fc0887f23546cfca779e9942c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9a022617c917b54b273ab203109780"><td class="memItemLeft" align="right" valign="top"><a id="afb9a022617c917b54b273ab203109780"></a>
-sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#afb9a022617c917b54b273ab203109780">Q</a></td></tr>
-<tr class="memdesc:afb9a022617c917b54b273ab203109780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device SYCL queue. <br /></td></tr>
-<tr class="separator:afb9a022617c917b54b273ab203109780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d54c814710fba7b9b06ab866979b23"><td class="memItemLeft" align="right" valign="top"><a id="ae6d54c814710fba7b9b06ab866979b23"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#ae6d54c814710fba7b9b06ab866979b23">rows</a></td></tr>
+<tr class="memdesc:ae6d54c814710fba7b9b06ab866979b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows in the array. <br /></td></tr>
+<tr class="separator:ae6d54c814710fba7b9b06ab866979b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ececf2b6b5000eca2ba18c2e7841e19"><td class="memItemLeft" align="right" valign="top"><a id="a5ececf2b6b5000eca2ba18c2e7841e19"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a5ececf2b6b5000eca2ba18c2e7841e19">cols</a></td></tr>
+<tr class="memdesc:a5ececf2b6b5000eca2ba18c2e7841e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns in the array. <br /></td></tr>
+<tr class="separator:a5ececf2b6b5000eca2ba18c2e7841e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77ec5f5e06c184a9f8ee49083407a50"><td class="memItemLeft" align="right" valign="top"><a id="af77ec5f5e06c184a9f8ee49083407a50"></a>
+std::vector&lt; <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#af77ec5f5e06c184a9f8ee49083407a50">data_host</a></td></tr>
+<tr class="memdesc:af77ec5f5e06c184a9f8ee49083407a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector for data stored in host memory. <br /></td></tr>
+<tr class="separator:af77ec5f5e06c184a9f8ee49083407a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dae9c2cb46137dd7823663b2c52cef8"><td class="memItemLeft" align="right" valign="top"><a id="a8dae9c2cb46137dd7823663b2c52cef8"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a8dae9c2cb46137dd7823663b2c52cef8">data_device</a></td></tr>
+<tr class="memdesc:a8dae9c2cb46137dd7823663b2c52cef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to data stored in device memory. <br /></td></tr>
+<tr class="separator:a8dae9c2cb46137dd7823663b2c52cef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22e8f7f821670c1a2189d99dc82b2ff"><td class="memItemLeft" align="right" valign="top"><a id="af22e8f7f821670c1a2189d99dc82b2ff"></a>
+<a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#af22e8f7f821670c1a2189d99dc82b2ff">device</a></td></tr>
+<tr class="memdesc:af22e8f7f821670c1a2189d99dc82b2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device that will store and handle <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> memory and operations. <br /></td></tr>
+<tr class="separator:af22e8f7f821670c1a2189d99dc82b2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91ca86c7f069033cec1f6199d5b43a39"><td class="memItemLeft" align="right" valign="top"><a id="a91ca86c7f069033cec1f6199d5b43a39"></a>
+sycl::queue &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html#a91ca86c7f069033cec1f6199d5b43a39">Q</a></td></tr>
+<tr class="memdesc:a91ca86c7f069033cec1f6199d5b43a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device SYCL queue. <br /></td></tr>
+<tr class="separator:a91ca86c7f069033cec1f6199d5b43a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> class for PySYCL. </p>
+<div class="textblock"><h3>template&lt;typename Scalar_type&gt;<br />
+class pysycl::Array2D&lt; Scalar_type &gt;</h3>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00036">36</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> class for PySYCL. </p>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00053">53</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9387bc4b016b0e576d3e30b4c0d30c54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9387bc4b016b0e576d3e30b4c0d30c54">&#9670;&nbsp;</a></span>Array2D() <span class="overload">[1/2]</span></h2>
+<a id="a5f29ee3fe1be8759e083e7c707f1c526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f29ee3fe1be8759e083e7c707f1c526">&#9670;&nbsp;</a></span>Array2D() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pysycl::Array2D::Array2D </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>rows_in</em>, </td>
@@ -302,8 +313,8 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>&#160;</td>
-          <td class="paramname"><em>device_in</em> = <code><a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>(0,&#160;0)</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> &amp;&#160;</td>
+          <td class="paramname"><em>device_in</em> = <code>get_device()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -318,39 +329,42 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> class. </p>
+<p>Basic constructor that takes in the size and device of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">rows</td><td>Number of rows in the array. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cols</td><td>Number of columns in the array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rows_in</td><td>Number of rows in the array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cols_in</td><td>Number of columns in the array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">device_in</td><td>Number of elements in the array (Optional). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00121">121</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00071">71</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="a4c01fbe0e4e2d8fa54b78ec96392aedc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c01fbe0e4e2d8fa54b78ec96392aedc">&#9670;&nbsp;</a></span>Array2D() <span class="overload">[2/2]</span></h2>
+<a id="aba931fe6149392695559b129998fb551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba931fe6149392695559b129998fb551">&#9670;&nbsp;</a></span>Array2D() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pysycl::Array2D::Array2D </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> </td>
           <td>(</td>
-          <td class="paramtype">py::array_t&lt; float &gt;&#160;</td>
+          <td class="paramtype">py::array_t&lt; <a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a> &gt;&#160;</td>
           <td class="paramname"><em>np_array_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>&#160;</td>
-          <td class="paramname"><em>device_in</em> = <code><a class="el" href="classpysycl_1_1_array2_d.html#a2b2e5a990ee3ab26c2321ff883f13d90">Device_T</a>(0,&#160;0)</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html#aee23f6d05f1107ed15942fa03463de91">Device_T</a> &amp;&#160;</td>
+          <td class="paramname"><em>device_in</em> = <code>get_device()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -374,24 +388,218 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00138">138</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00087">87</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9ede51231a4e1436bcd2f97aebb23715"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ede51231a4e1436bcd2f97aebb23715">&#9670;&nbsp;</a></span>operator*()</h2>
+<a id="ad90ec10748ceee636cbab8d71bdb4993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad90ec10748ceee636cbab8d71bdb4993">&#9670;&nbsp;</a></span>get_device_data_ptr()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> pysycl::Array2D::operator* </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a>* <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::get_device_data_ptr </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> device data. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00272">272</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="aa025f46ddc10ba0c1835ff309f689d6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa025f46ddc10ba0c1835ff309f689d6a">&#9670;&nbsp;</a></span>get_host_data_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62">Scalar_T</a>&gt; <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::get_host_data_vector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the data pointer from <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> host data. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00267">267</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="ad631db2393f927eaebc3bb548274a005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad631db2393f927eaebc3bb548274a005">&#9670;&nbsp;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that finds the maximum value in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum value in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00319">319</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="a71c442d826259648e0869d046206239d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c442d826259648e0869d046206239d">&#9670;&nbsp;</a></span>min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::min </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that finds the minimum value in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Minimum value in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00324">324</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="aea0114869cd1e0b9475d71292a2ed721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0114869cd1e0b9475d71292a2ed721">&#9670;&nbsp;</a></span>num_cols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::num_cols </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of columns in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00262">262</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="a81fbdfc16a49da620dd749108f212c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81fbdfc16a49da620dd749108f212c32">&#9670;&nbsp;</a></span>num_rows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::num_rows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of rows in the <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00257">257</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="ae27738828f3a23e44ee775ddf47521f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27738828f3a23e44ee775ddf47521f7">&#9670;&nbsp;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -412,23 +620,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> representing the product of the multiplication. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00203">203</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00222">222</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="a89e4385915b6c75b952f2ab937e3b180"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89e4385915b6c75b952f2ab937e3b180">&#9670;&nbsp;</a></span>operator*=()</h2>
+<a id="a29cb7e3c1c63e1f956df0ce5af40ae08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29cb7e3c1c63e1f956df0ce5af40ae08">&#9670;&nbsp;</a></span>operator*=()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; pysycl::Array2D::operator*= </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator*= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -448,25 +658,27 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00208">208</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00231">231</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="ac61037ec2db614e23d028ed5532d2589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac61037ec2db614e23d028ed5532d2589">&#9670;&nbsp;</a></span>operator+()</h2>
+<a id="aad9abd3d27d55acea3e1a6b050acd0fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9abd3d27d55acea3e1a6b050acd0fd">&#9670;&nbsp;</a></span>operator+()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> pysycl::Array2D::operator+ </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator+ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -485,23 +697,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> representing the sum of the addition. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00175">175</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00186">186</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="a58d08c16e51acc5127aaadcd8c9cd460"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58d08c16e51acc5127aaadcd8c9cd460">&#9670;&nbsp;</a></span>operator+=()</h2>
+<a id="a2ca5ff6162ed97612741b3aadfe1db79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca5ff6162ed97612741b3aadfe1db79">&#9670;&nbsp;</a></span>operator+=()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; pysycl::Array2D::operator+= </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator+= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -521,23 +735,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00180">180</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00195">195</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="ad50b4369186c7f65361acd67077488ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad50b4369186c7f65361acd67077488ac">&#9670;&nbsp;</a></span>operator-()</h2>
+<a id="a6c71aeeaf3654ac5cbf11dc022a024a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c71aeeaf3654ac5cbf11dc022a024a9">&#9670;&nbsp;</a></span>operator-()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> pysycl::Array2D::operator- </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -558,23 +774,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> representing the difference of the subtraction. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00189">189</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00204">204</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="a3495796209cab7b0901885f3d5a97d82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3495796209cab7b0901885f3d5a97d82">&#9670;&nbsp;</a></span>operator-=()</h2>
+<a id="af631550b1790f960b7e0410c486e0666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af631550b1790f960b7e0410c486e0666">&#9670;&nbsp;</a></span>operator-=()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; pysycl::Array2D::operator-= </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator-= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -594,23 +812,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00194">194</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00213">213</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="ae444a9575752911324e328c746c73a6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae444a9575752911324e328c746c73a6d">&#9670;&nbsp;</a></span>operator/()</h2>
+<a id="a2240546497fe3e30e89de8d87f7b77ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2240546497fe3e30e89de8d87f7b77ed">&#9670;&nbsp;</a></span>operator/()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> pysycl::Array2D::operator/ </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator/ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -631,23 +851,25 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> representing the result of the division. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00217">217</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00240">240</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
-<a id="aa06f9f66388fdb455cf4dfa6fbc0ca06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa06f9f66388fdb455cf4dfa6fbc0ca06">&#9670;&nbsp;</a></span>operator/=()</h2>
+<a id="ad1510c3dfdf299e412ebc7c0c058d96d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1510c3dfdf299e412ebc7c0c058d96d">&#9670;&nbsp;</a></span>operator/=()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; pysycl::Array2D::operator/= </td>
+          <td class="memname"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&amp; <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::operator/= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em></td><td>)</td>
           <td></td>
         </tr>
@@ -667,7 +889,39 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00222">222</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00249">249</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
+
+</div>
+</div>
+<a id="a9c9e10bcbf20a3e2332ab17314a57bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9e10bcbf20a3e2332ab17314a57bfd">&#9670;&nbsp;</a></span>sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Scalar_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classpysycl_1_1_array2_d.html">pysycl::Array2D</a>&lt; Scalar_type &gt;::sum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that finds the sum of all values in the array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Sum of all values in the array </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8h_source.html#l00329">329</a> of file <a class="el" href="_array2_d_8h_source.html">Array2D.h</a>.</p>
 
 </div>
 </div>
@@ -680,7 +934,7 @@ sycl::queue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepysycl.html">pysycl</a></li><li class="navelem"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 18:13:15 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

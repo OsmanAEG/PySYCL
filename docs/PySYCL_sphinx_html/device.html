@@ -207,26 +207,10 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pysycl.device.device_instance">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.device.device_instance" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_instance</span></span><a class="headerlink" href="#pysycl.device.device_instance" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<dl>
+<dl class="simple">
 <dt>Description</dt><dd><p>This class creates a PySYCL device instance.</p>
-</dd>
-<dt>Default Constructor</dt><dd><p>Constructor that creates a PySYCL device instance.</p>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>platform_index: int</dt><dd><p>Optional: Index for the sycl platform to select.</p>
-</dd>
-<dt>device_index: int</dt><dd><p>Optional: Index for the sycl device to select.</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns</dt><dd><p>A PySYCL device instance.</p>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_device</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">device_instance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd>
 </dl>
 <dl class="py method">
@@ -263,6 +247,44 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="pysycl.device.device_manager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">device_manager</span></span><a class="headerlink" href="#pysycl.device.device_manager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl class="simple">
+<dt>Description</dt><dd><p>This class creates a PySYCL device manager.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.device.device_manager.get_device">
+<span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.device.device_manager" title="pysycl.device.device_manager"><span class="pre">pysycl.device.device_manager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></span><a class="headerlink" href="#pysycl.device.device_manager.get_device" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns a device from the manager.</p>
+</dd>
+<dt>Returns</dt><dd><p>The PySYCL device.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_device</span><span class="o">.</span><span class="n">vendor</span><span class="p">())</span>
+<span class="go">NVIDIA Corporation</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysycl.device.get_device">
+<span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.device.device_instance" title="pysycl.device.device_instance"><span class="pre">pysycl.device.device_instance</span></a></span></span><a class="headerlink" href="#pysycl.device.get_device" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>This function returns the device.</p>
+</dd>
+<dt>Returns</dt><dd><p>The PySYCL device.</p>
+</dd>
+</dl>
+<p>Example</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pysycl.device.get_device_list">
 <span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">get_device_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pysycl.device.get_device_list" title="Link to this definition">#</a></dt>
@@ -279,6 +301,18 @@
 </div>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysycl.device.get_device_manager">
+<span class="sig-prename descclassname"><span class="pre">pysycl.device.</span></span><span class="sig-name descname"><span class="pre">get_device_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pysycl::Device_Manager</span></span></span><a class="headerlink" href="#pysycl.device.get_device_manager" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Description</dt><dd><p>This function returns the device manager.</p>
+</dd>
+<dt>Returns</dt><dd><p>The PySYCL device manager.</p>
+</dd>
+</dl>
+<p>Example</p>
 </dd></dl>
 
 </section>
@@ -344,7 +378,13 @@
 <li><a class="reference internal" href="#pysycl.device.device_instance.vendor"><code class="docutils literal notranslate"><span class="pre">device_instance.vendor()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#pysycl.device.device_manager"><code class="docutils literal notranslate"><span class="pre">device_manager</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.device.device_manager.get_device"><code class="docutils literal notranslate"><span class="pre">device_manager.get_device()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pysycl.device.get_device"><code class="docutils literal notranslate"><span class="pre">get_device()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.device.get_device_list"><code class="docutils literal notranslate"><span class="pre">get_device_list()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.device.get_device_manager"><code class="docutils literal notranslate"><span class="pre">get_device_manager()</span></code></a></li>
 </ul>
 </li>
 </ul>

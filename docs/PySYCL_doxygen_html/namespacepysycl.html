@@ -112,6 +112,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___instance.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___manager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -119,12 +122,13 @@ Functions</h2></td></tr>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">get_device_list</a> ()</td></tr>
 <tr class="memdesc:ga05b8a8b68116eb84bc713b15cf291f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available devices. <br /></td></tr>
 <tr class="separator:ga05b8a8b68116eb84bc713b15cf291f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9a70bc1da8704593a22527b40464fc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:gab9a70bc1da8704593a22527b40464fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication function.  <a href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">More...</a><br /></td></tr>
-<tr class="separator:gab9a70bc1da8704593a22527b40464fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">tiled_matmul</a> (<a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;A, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a> &amp;B)</td></tr>
-<tr class="memdesc:ga614d9fab6633d53a8f54cc18a93c5824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">More...</a><br /></td></tr>
-<tr class="separator:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_device</b> (int platform_idx=0, int device_idx=0)</td></tr>
+<tr class="separator:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplParams" colspan="2">template&lt;typename Array2D_type &gt; </td></tr>
+<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">matmul</a> (Array2D_type &amp;A, Array2D_type &amp;B, Array2D_type &amp;C, const size_t &amp;wg_size)</td></tr>
+<tr class="memdesc:ga890b1552ed2b672fa71654756b8f44d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">More...</a><br /></td></tr>
+<tr class="separator:ga890b1552ed2b672fa71654756b8f44d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main namespace for the program, pysycl. </p>
@@ -135,7 +139,7 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepysycl.html">pysycl</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 18:13:15 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

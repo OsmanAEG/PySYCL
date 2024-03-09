@@ -271,7 +271,7 @@
 <dt>Description</dt><dd><p>This function fills the array with a constant value.</p>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
-<dt>C<span class="classifier">float</span></dt><dd><p>Some scalar constant.</p>
+<dt>C<span class="classifier">Scalar_T</span></dt><dd><p>Some scalar constant.</p>
 </dd>
 </dl>
 </dd>
@@ -279,42 +279,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 <span class="go">45.0</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_2d.array_2d.matmul">
-<span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_2d.array_2d.matmul" title="Link to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>This function evaluates a matrix multiplication.</p>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>A<span class="classifier">pysycl.array2D</span></dt><dd><p>The first matrix for multiplication.</p>
-</dd>
-<dt>B<span class="classifier">pysycl.array2D</span></dt><dd><p>The second matrix for multiplication.</p>
-</dd>
-</dl>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="mi">4000</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">800</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="mi">2500</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d_init</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d_init</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d_init</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
-<span class="go">19200.0</span>
 </pre></div>
 </div>
 </dd>
@@ -488,7 +452,6 @@
 <li><a class="reference internal" href="#">PySYCL: Array2D Sub-Module</a><ul>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d"><code class="docutils literal notranslate"><span class="pre">array_2d</span></code></a><ul>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d.fill"><code class="docutils literal notranslate"><span class="pre">array_2d.fill()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_2d.array_2d.matmul"><code class="docutils literal notranslate"><span class="pre">array_2d.matmul()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d.max"><code class="docutils literal notranslate"><span class="pre">array_2d.max()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_2d.mem_to_cpu()</span></code></a></li>
 <li><a class="reference internal" href="#pysycl.array_2d.array_2d.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_2d.mem_to_gpu()</span></code></a></li>

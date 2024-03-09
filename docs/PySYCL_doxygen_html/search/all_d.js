@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['size_62',['size',['../classpysycl_1_1_array1_d.html#a3a5a7593f80110cca71a176cf79f894c',1,'pysycl::Array1D']]],
-  ['sum_63',['sum',['../group___array2_d.html#ga27a123df343d179908492c5b32424ea3',1,'pysycl::Array1D::sum()'],['../group___array2_d.html#ga45cafb1cb8876d754a557d5f93bbc60e',1,'pysycl::Array2D::sum()']]]
+  ['scalar_5ft_65',['Scalar_T',['../classpysycl_1_1_array1_d.html#accd9f8c8a4c1d82b60b5400aef296cf3',1,'pysycl::Array1D::Scalar_T()'],['../classpysycl_1_1_array2_d.html#a33741e52cda406005de82985552f1f62',1,'pysycl::Array2D::Scalar_T()']]],
+  ['size_66',['size',['../classpysycl_1_1_array1_d.html#ac53c4dfb14604861a0315d2febfed996',1,'pysycl::Array1D']]],
+  ['sum_67',['sum',['../classpysycl_1_1_array1_d.html#a1c995654d059cf6a3aaf215da36d27ec',1,'pysycl::Array1D::sum()'],['../classpysycl_1_1_array2_d.html#a9c9e10bcbf20a3e2332ab17314a57bfd',1,'pysycl::Array2D::sum()']]]
 ];

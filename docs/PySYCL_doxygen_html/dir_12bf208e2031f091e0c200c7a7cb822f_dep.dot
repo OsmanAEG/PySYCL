@@ -5,5 +5,5 @@ digraph "Array1D" {
   edge [ labelfontsize="10", labelfontname="Helvetica"];
   dir_12bf208e2031f091e0c200c7a7cb822f [shape=box, label="Array1D", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_12bf208e2031f091e0c200c7a7cb822f.html"];
   dir_737e998198a830156af4433d00da986d [shape=box label="Device" URL="dir_737e998198a830156af4433d00da986d.html"];
-  dir_12bf208e2031f091e0c200c7a7cb822f->dir_737e998198a830156af4433d00da986d [headlabel="2", labeldistance=1.5 headhref="dir_000001_000003.html"];
+  dir_12bf208e2031f091e0c200c7a7cb822f->dir_737e998198a830156af4433d00da986d [headlabel="3", labeldistance=1.5 headhref="dir_000001_000003.html"];
 }

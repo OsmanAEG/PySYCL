@@ -207,7 +207,7 @@
 </dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pysycl.linalg.matmul">
-<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wg_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tile_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function evaluates a matrix multiplication and returns the result.</p>
 </dd>
@@ -236,28 +236,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
 <span class="go">19200.0</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pysycl.linalg.tiled_matmul">
-<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">tiled_matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wg_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></span><a class="headerlink" href="#pysycl.linalg.tiled_matmul" title="Link to this definition">#</a></dt>
-<dd><dl>
-<dt>Description</dt><dd><p>This function evaluates a matrix multiplication and returns the result.</p>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>A<span class="classifier">pysycl.array2D</span></dt><dd><p>The first matrix for multiplication.</p>
-</dd>
-<dt>B<span class="classifier">pysycl.array2D</span></dt><dd><p>The second matrix for multiplication.</p>
-</dd>
-<dt>wg_size<span class="classifier">int</span></dt><dd><p>Optional: Work group size</p>
-</dd>
-</dl>
-</dd>
-<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">tiled_matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -315,7 +293,6 @@
             <ul>
 <li><a class="reference internal" href="#">PySYCL: Linear Algebra Sub-Module</a><ul>
 <li><a class="reference internal" href="#pysycl.linalg.matmul"><code class="docutils literal notranslate"><span class="pre">matmul()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.linalg.tiled_matmul"><code class="docutils literal notranslate"><span class="pre">tiled_matmul()</span></code></a></li>
 </ul>
 </li>
 </ul>

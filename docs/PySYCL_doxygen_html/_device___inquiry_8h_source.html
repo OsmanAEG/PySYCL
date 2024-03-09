@@ -125,10 +125,10 @@ $(document).ready(function(){initNavTree('_device___inquiry_8h_source.html','');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/// \brief Function that returns a list of available devices.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">   30</a></span>&#160;<span class="comment"></span>std::vector&lt;std::string&gt; <a class="code" href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">get_device_list</a>(){</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  std::vector&lt;std::string&gt; device_list;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">auto</span> platforms = sycl::platform::get_platforms();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; platforms = sycl::platform::get_platforms();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; platforms.size(); ++i){</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">auto</span> devices = platforms[i].get_devices();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; devices = platforms[i].get_devices();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; devices.size(); ++j){</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">auto</span> si = std::to_string(i);</div>
@@ -144,14 +144,14 @@ $(document).ready(function(){initNavTree('_device___inquiry_8h_source.html','');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DEVICE_INQUIRY_H</span></div>
 <div class="ttc" id="agroup___device_html_ga05b8a8b68116eb84bc713b15cf291f90"><div class="ttname"><a href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">pysycl::get_device_list</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_device_list()</div><div class="ttdoc">Function that returns a list of available devices.</div><div class="ttdef"><b>Definition:</b> <a href="_device___inquiry_8h_source.html#l00030">Device_Inquiry.h:30</a></div></div>
-<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div><div class="ttdef"><b>Definition:</b> <a href="_array1_d_8h_source.html#l00033">Array1D.h:33</a></div></div>
+<div class="ttc" id="anamespacepysycl_html"><div class="ttname"><a href="namespacepysycl.html">pysycl</a></div><div class="ttdoc">The main namespace for the program, pysycl.</div><div class="ttdef"><b>Definition:</b> <a href="_array1_d_8h_source.html#l00049">Array1D.h:49</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_737e998198a830156af4433d00da986d.html">Device</a></li><li class="navelem"><a class="el" href="_device___inquiry_8h.html">Device_Inquiry.h</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 18:13:15 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

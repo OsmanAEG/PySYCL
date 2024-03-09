@@ -101,7 +101,6 @@ $(document).ready(function(){initNavTree('_matrix___multiplication_8h.html','');
 <p>Matrix Multiplication in PySYCL.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;CL/sycl.hpp&gt;</code><br />
-<code>#include &quot;<a class="el" href="_array2_d_8h_source.html">../Array2D/Array2D.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_device___instance_8h_source.html">../Device/Device_Instance.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Matrix_Multiplication.h:</div>
@@ -126,12 +125,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gab9a70bc1da8704593a22527b40464fc0"><td class="memItemLeft" align="right" valign="top">Array2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">pysycl::matmul</a> (Array2D &amp;A, Array2D &amp;B)</td></tr>
-<tr class="memdesc:gab9a70bc1da8704593a22527b40464fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication function.  <a href="group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0">More...</a><br /></td></tr>
-<tr class="separator:gab9a70bc1da8704593a22527b40464fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memItemLeft" align="right" valign="top">Array2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">pysycl::tiled_matmul</a> (Array2D &amp;A, Array2D &amp;B)</td></tr>
-<tr class="memdesc:ga614d9fab6633d53a8f54cc18a93c5824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga614d9fab6633d53a8f54cc18a93c5824">More...</a><br /></td></tr>
-<tr class="separator:ga614d9fab6633d53a8f54cc18a93c5824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplParams" colspan="2">template&lt;typename Array2D_type &gt; </td></tr>
+<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">pysycl::matmul</a> (Array2D_type &amp;A, Array2D_type &amp;B, Array2D_type &amp;C, const size_t &amp;wg_size)</td></tr>
+<tr class="memdesc:ga890b1552ed2b672fa71654756b8f44d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">More...</a><br /></td></tr>
+<tr class="separator:ga890b1552ed2b672fa71654756b8f44d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Matrix Multiplication in PySYCL. </p>
@@ -143,7 +140,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_048d98b6635f6f7d0d13e92ba82f3b00.html">Linear_Algebra</a></li><li class="navelem"><a class="el" href="_matrix___multiplication_8h.html">Matrix_Multiplication.h</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 18:13:15 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

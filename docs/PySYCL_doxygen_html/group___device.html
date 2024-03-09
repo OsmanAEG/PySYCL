@@ -98,11 +98,17 @@ $(document).ready(function(){initNavTree('group___device.html',''); initResizabl
 <div class="title">Device</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>sycl  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___instance.html">pysycl::Device_Instance</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___instance.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___manager.html">pysycl::Device_Manager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___manager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -111,10 +117,6 @@ Functions</h2></td></tr>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">pysycl::get_device_list</a> ()</td></tr>
 <tr class="memdesc:ga05b8a8b68116eb84bc713b15cf291f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available devices. <br /></td></tr>
 <tr class="separator:ga05b8a8b68116eb84bc713b15cf291f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7b7f6d0aad9f55a413f8a3662fe48b9"><td class="memItemLeft" align="right" valign="top"><a id="gad7b7f6d0aad9f55a413f8a3662fe48b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#gad7b7f6d0aad9f55a413f8a3662fe48b9">pysycl::Device_Instance::Device_Instance</a> ()=default</td></tr>
-<tr class="memdesc:gad7b7f6d0aad9f55a413f8a3662fe48b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, use compiler generated version. <br /></td></tr>
-<tr class="separator:gad7b7f6d0aad9f55a413f8a3662fe48b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaff26c4d0d7b11fbb38cc256e3949ec4"><td class="memItemLeft" align="right" valign="top"><a id="gaaff26c4d0d7b11fbb38cc256e3949ec4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#gaaff26c4d0d7b11fbb38cc256e3949ec4">pysycl::Device_Instance::Device_Instance</a> (const <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;)=default</td></tr>
 <tr class="memdesc:gaaff26c4d0d7b11fbb38cc256e3949ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor, use compiler generated version. <br /></td></tr>
@@ -137,10 +139,10 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga1f043e1708912f6e0542beac4157fdf9">pysycl::Device_Instance::vendor</a> ()</td></tr>
 <tr class="memdesc:ga1f043e1708912f6e0542beac4157fdf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output device vendor. <br /></td></tr>
 <tr class="separator:ga1f043e1708912f6e0542beac4157fdf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga10213e605bb7f3c031e56772dd50982f"><td class="memItemLeft" align="right" valign="top"><a id="ga10213e605bb7f3c031e56772dd50982f"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga10213e605bb7f3c031e56772dd50982f">pysycl::Device_Instance::get_queue</a> () const</td></tr>
-<tr class="memdesc:ga10213e605bb7f3c031e56772dd50982f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the device queue. <br /></td></tr>
-<tr class="separator:ga10213e605bb7f3c031e56772dd50982f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f3d8e009b78e295e905ad9c22d8c1ac"><td class="memItemLeft" align="right" valign="top"><a id="ga8f3d8e009b78e295e905ad9c22d8c1ac"></a>
+auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga8f3d8e009b78e295e905ad9c22d8c1ac">pysycl::Device_Instance::get_queue</a> ()</td></tr>
+<tr class="memdesc:ga8f3d8e009b78e295e905ad9c22d8c1ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the device queue. <br /></td></tr>
+<tr class="separator:ga8f3d8e009b78e295e905ad9c22d8c1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7143e0873ae512f8ce3ebd6c3b325677"><td class="memItemLeft" align="right" valign="top"><a id="ga7143e0873ae512f8ce3ebd6c3b325677"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga7143e0873ae512f8ce3ebd6c3b325677">pysycl::Device_Instance::get_platform_index</a> () const</td></tr>
 <tr class="memdesc:ga7143e0873ae512f8ce3ebd6c3b325677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform index. <br /></td></tr>
@@ -156,6 +158,26 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <tr class="memitem:ga1d65787fdbb9917999035f48e375f0c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga1d65787fdbb9917999035f48e375f0c9">pysycl::Device_Instance::Device_Instance</a> (int platform_idx_in=0, int device_idx_in=0)</td></tr>
 <tr class="memdesc:ga1d65787fdbb9917999035f48e375f0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that selects a SYCL device.  <a href="group___device.html#ga1d65787fdbb9917999035f48e375f0c9">More...</a><br /></td></tr>
 <tr class="separator:ga1d65787fdbb9917999035f48e375f0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2dbc4682b0a02336ac52931b500eade2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga2dbc4682b0a02336ac52931b500eade2">pysycl::Device_Manager::get_device_manager</a> ()</td></tr>
+<tr class="memdesc:ga2dbc4682b0a02336ac52931b500eade2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get singleton instance of device manager.  <a href="group___device.html#ga2dbc4682b0a02336ac52931b500eade2">More...</a><br /></td></tr>
+<tr class="separator:ga2dbc4682b0a02336ac52931b500eade2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12b90568c3dc6de58d411ef163f57f3e"><td class="memItemLeft" align="right" valign="top"><a id="ga12b90568c3dc6de58d411ef163f57f3e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga12b90568c3dc6de58d411ef163f57f3e">pysycl::Device_Manager::Device_Manager</a> (const <a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ga12b90568c3dc6de58d411ef163f57f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor, deleted. <br /></td></tr>
+<tr class="separator:ga12b90568c3dc6de58d411ef163f57f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga310334ae78e8b323a1ba6e2d72d3d315"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga310334ae78e8b323a1ba6e2d72d3d315">pysycl::Device_Manager::operator=</a> (const <a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ga310334ae78e8b323a1ba6e2d72d3d315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment, deleted.  <a href="group___device.html#ga310334ae78e8b323a1ba6e2d72d3d315">More...</a><br /></td></tr>
+<tr class="separator:ga310334ae78e8b323a1ba6e2d72d3d315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2d916d91e6176fd2a1303e5f7120146"><td class="memItemLeft" align="right" valign="top"><a id="gae2d916d91e6176fd2a1303e5f7120146"></a>
+<a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>pysycl::Device_Manager::get_device</b> (int platform_idx=0, int device_idx=0)</td></tr>
+<tr class="separator:gae2d916d91e6176fd2a1303e5f7120146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad47bdf464d643ba3ff38f4d59c7e056a"><td class="memItemLeft" align="right" valign="top"><a id="gad47bdf464d643ba3ff38f4d59c7e056a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#gad47bdf464d643ba3ff38f4d59c7e056a">pysycl::Device_Manager::Device_Manager</a> ()=default</td></tr>
+<tr class="memdesc:gad47bdf464d643ba3ff38f4d59c7e056a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, use compiler generated version. <br /></td></tr>
+<tr class="separator:gad47bdf464d643ba3ff38f4d59c7e056a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memItemLeft" align="right" valign="top"><a id="ga3e14b0f0a372da5f73c4e8afcf278a66"></a>
+<a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>pysycl::get_device</b> (int platform_idx=0, int device_idx=0)</td></tr>
+<tr class="separator:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -171,8 +193,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga8de86fbfccd95fe7c4c2bc72dc7488e0">pysycl::Device_Instance::device_idx</a></td></tr>
 <tr class="memdesc:ga8de86fbfccd95fe7c4c2bc72dc7488e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The device index based on the platform index. <br /></td></tr>
 <tr class="separator:ga8de86fbfccd95fe7c4c2bc72dc7488e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22bd659a134d7a101cf33a5e8bde8625"><td class="memItemLeft" align="right" valign="top"><a id="ga22bd659a134d7a101cf33a5e8bde8625"></a>
+std::unordered_map&lt; std::string, <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pysycl::Device_Manager::device_map</b></td></tr>
+<tr class="separator:ga22bd659a134d7a101cf33a5e8bde8625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>sycl </p>
+<p>local </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga1d65787fdbb9917999035f48e375f0c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga1d65787fdbb9917999035f48e375f0c9">&#9670;&nbsp;</a></span>Device_Instance()</h2>
@@ -217,12 +244,42 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_device___instance_8h_source.html#l00083">83</a> of file <a class="el" href="_device___instance_8h_source.html">Device_Instance.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_device___instance_8h_source.html#l00078">78</a> of file <a class="el" href="_device___instance_8h_source.html">Device_Instance.h</a>.</p>
+
+</div>
+</div>
+<a id="ga2dbc4682b0a02336ac52931b500eade2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2dbc4682b0a02336ac52931b500eade2">&#9670;&nbsp;</a></span>get_device_manager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a>&amp; pysycl::Device_Manager::get_device_manager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get singleton instance of device manager. </p>
+<dl class="section return"><dt>Returns</dt><dd>The singleton device manager. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_device___manager_8h_source.html#l00044">44</a> of file <a class="el" href="_device___manager_8h_source.html">Device_Manager.h</a>.</p>
 
 </div>
 </div>
 <a id="gab13415f8a5640abd6abdc90d844fd5df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab13415f8a5640abd6abdc90d844fd5df">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gab13415f8a5640abd6abdc90d844fd5df">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,8 +307,37 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 
 </div>
 </div>
+<a id="ga310334ae78e8b323a1ba6e2d72d3d315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga310334ae78e8b323a1ba6e2d72d3d315">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a>&amp; pysycl::Device_Manager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment, deleted. </p>
+<dl class="section return"><dt>Returns</dt><dd>reference to the assigned object. </dd></dl>
+
+</div>
+</div>
 <a id="gad2e88abb933492e56d20fd88b5ffa6c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad2e88abb933492e56d20fd88b5ffa6c2">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gad2e88abb933492e56d20fd88b5ffa6c2">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +370,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 22:08:13 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 18:13:15 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

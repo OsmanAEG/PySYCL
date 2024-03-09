@@ -8,13 +8,13 @@ import pysycl
 device = pysycl.device.get_device(0, 0)
 
 # Matrix dimensions
-N = 6000
-P = 6000
-M = 6000
+N = 6400
+P = 6400
+M = 6400
 
-A_np = np.full((M, N), 2.0, dtype=np.float32)
-B_np = np.full((N, P), 4.0, dtype=np.float32)
-C_np = np.full((M, P), 0.0, dtype=np.float32)
+A_np = np.full((M, N), 2.0)
+B_np = np.full((N, P), 4.0)
+C_np = np.full((M, P), 0.0)
 
 A_ps = pysycl.array_2d(M, N, device)
 B_ps = pysycl.array_2d(N, P, device)
@@ -29,7 +29,7 @@ end_time_np = time.time()
 numpy_duration = end_time_np - start_time_np
 
 start_time_ps = time.time()
-pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
+pysycl.linalg.matmul(A_ps, B_ps, C_ps, 16)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
 pysycl_duration = pysycl_duration

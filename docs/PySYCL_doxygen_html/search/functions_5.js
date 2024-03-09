@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['matmul_101',['matmul',['../group___array2_d.html#ga8aa5da54abb1e9b56bc83a7c005efca3',1,'pysycl::Array2D::matmul()'],['../group___linear___algebra.html#gab9a70bc1da8704593a22527b40464fc0',1,'pysycl::matmul()']]],
-  ['max_102',['max',['../group___array2_d.html#ga6ea02d4fdfe5d6cbff7a451565cebff3',1,'pysycl::Array1D::max()'],['../group___array2_d.html#ga7faab6a1eaee9495bddc96a09ae443be',1,'pysycl::Array2D::max()']]],
-  ['mem_5fto_5fcpu_103',['mem_to_cpu',['../group___array2_d.html#gadd34fe9520303473875fe8ad5343a5bf',1,'pysycl::Array1D::mem_to_cpu()'],['../group___array2_d.html#ga8968777c21247d4d07749825639ff404',1,'pysycl::Array2D::mem_to_cpu()']]],
-  ['mem_5fto_5fgpu_104',['mem_to_gpu',['../group___array2_d.html#ga48b1af221bc5a605b7c3724cd7037c74',1,'pysycl::Array1D::mem_to_gpu()'],['../group___array2_d.html#gafa1d20cdb2a9009d72722c894a2fecae',1,'pysycl::Array2D::mem_to_gpu()']]],
-  ['min_105',['min',['../group___array2_d.html#ga817191f20f9fe756ff90c16fc0871fec',1,'pysycl::Array1D::min()'],['../group___array2_d.html#ga7dc0099e8751a6bb8905aa584ef8546d',1,'pysycl::Array2D::min()']]]
+  ['matmul_109',['matmul',['../group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4',1,'pysycl']]],
+  ['max_110',['max',['../classpysycl_1_1_array1_d.html#a245faa76008a7a749aeaeea2e394d3e7',1,'pysycl::Array1D::max()'],['../classpysycl_1_1_array2_d.html#ad631db2393f927eaebc3bb548274a005',1,'pysycl::Array2D::max()']]],
+  ['mem_5fto_5fcpu_111',['mem_to_cpu',['../classpysycl_1_1_array1_d.html#aa1ec311a065174dcaf64458b6c1021dd',1,'pysycl::Array1D::mem_to_cpu()'],['../classpysycl_1_1_array2_d.html#a666797e7b5007461476972726b258491',1,'pysycl::Array2D::mem_to_cpu()']]],
+  ['mem_5fto_5fgpu_112',['mem_to_gpu',['../classpysycl_1_1_array1_d.html#a2d02e9485fa5351282096a4ffc3b8af8',1,'pysycl::Array1D::mem_to_gpu()'],['../classpysycl_1_1_array2_d.html#a0ed30602b969fc660666679800b14c28',1,'pysycl::Array2D::mem_to_gpu()']]],
+  ['min_113',['min',['../classpysycl_1_1_array1_d.html#a551b23b26cb520a928dab38293af347d',1,'pysycl::Array1D::min()'],['../classpysycl_1_1_array2_d.html#a71c442d826259648e0869d046206239d',1,'pysycl::Array2D::min()']]]
 ];
