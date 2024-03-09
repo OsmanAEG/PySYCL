@@ -169,13 +169,16 @@ public:
   /// \brief Overloaded operator() direct element access
   Scalar_T& operator()(int i, int j) {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
+    mem_to_cpu();
     return data_host[i*cols + j];
+    mem_to_gpu();
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() read-only element access
   const Scalar_T& operator()(int i, int j) const {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
+    mem_to_cpu();
     return data_host[i*cols + j];
   }
 
