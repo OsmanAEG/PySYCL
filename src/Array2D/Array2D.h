@@ -17,124 +17,73 @@
 /// \file
 /// \brief Array2D in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <CL/sycl.hpp>
-#include <vector>
-#include <cmath>
-#include <pybind11/pybind11.h>
-#include <pybind11/numpy.h>
 
+///////////////////////////////////////////////////////////////////////
+/// sycl
+///////////////////////////////////////////////////////////////////////
+#include <CL/sycl.hpp>
+
+///////////////////////////////////////////////////////////////////////
+/// pybind11
+///////////////////////////////////////////////////////////////////////
+#include <pybind11/numpy.h>
+#include <pybind11/pybind11.h>
+
+///////////////////////////////////////////////////////////////////////
+/// stl
+///////////////////////////////////////////////////////////////////////
+#include <cmath>
+#include <vector>
+
+///////////////////////////////////////////////////////////////////////
+/// local
+///////////////////////////////////////////////////////////////////////
 #include "../Device/Device_Instance.h"
+#include "../Device/Device_Manager.h"
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Array2D
 /// @{
+template<typename Scalar_type>
 namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
 /// \brief Array2D class for PySYCL
 class Array2D {
 public:
   ///////////////////////////////////////////////////////////////////////
+  /// \brief Defining the device scalar type.
+  using Scalar_T = Scalar_type
+
+  using Array_T = Array2D<Scalar_T>
+
+  ///////////////////////////////////////////////////////////////////////
   /// \brief Defining the device type.
   using Device_T = pysycl::Device_Instance;
 
   ///////////////////////////////////////////////////////////////////////
-  /// \brief Default constructor.
-  Array2D() = delete;
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Copy constructor.
-  Array2D(const Array2D& og) :
-      rows(og.rows),
-      cols(og.cols),
-      data_host(og.data_host),
-      device(og.device),
-      Q(og.Q)
-    {
-        data_device = sycl::malloc_device<float>(rows*cols, Q);
-        Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
-    }
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Move constructor.
-  Array2D(Array2D&& og) noexcept :
-      rows(og.rows),
-      cols(og.cols),
-      data_host(std::move(og.data_host)),
-      data_device(og.data_device),
-      Q(std::move(og.Q)),
-      device(std::move(og.device))
-    {
-        og.data_device = nullptr;
-        og.rows = 0;
-        og.cols = 0;
-    }
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Copy assignment operator.
-  Array2D& operator=(const Array2D& og){
-    data_host = og.data_host;
-    sycl::free(data_device, Q);
-    rows = og.rows;
-    cols = og.cols;
-    device = og.device;
-    Q = og.Q;
-    data_device = sycl::malloc_device<float>(rows*cols, Q);
-    Q.memcpy(data_device, og.data_device, rows*cols*sizeof(float)).wait();
-
-    return *this;
-  }
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Move assignment operator.
-  Array2D& operator=(Array2D&& og) noexcept{
-    data_host = std::move(og.data_host);
-    sycl::free(data_device, Q);
-    data_device = og.data_device;
-    og.data_device = nullptr;
-    rows = og.rows;
-    cols = og.cols;
-    Q = std::move(og.Q);
-    device = std::move(og.device);
-    rows = 0;
-    cols = 0;
-
-    return *this;
-  }
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Destructor.
-  ~Array2D(){
-    if(data_device){
-      sycl::free(data_device, Q);
-      data_device = nullptr;
-    }
-  }
-
-  ///////////////////////////////////////////////////////////////////////
-  /// \brief Constructor for the Array2D class.
-  /// \param[in] rows Number of rows in the array.
-  /// \param[in] cols Number of columns in the array.
+  /// \brief Basic constructor that takes in the size and device of
+  ///        the array.
+  /// \param[in] rows_in Number of rows in the array.
+  /// \param[in] cols_in Number of columns in the array.
   Array2D(int rows_in, int cols_in, Device_T device_in = Device_T(0, 0)) :
     rows(rows_in),
     cols(cols_in),
     data_host(rows*cols),
     device(device_in),
-    Q(device_in.get_queue())
-  {
-      if(rows <= 0 || cols <= 0){
+    Q(device_in.get_queue()){
+      if(rows <= 0 || cols <= 0)
         throw std::runtime_error("ERROR IN ARRAY2D: number of cols and rows must be > 0.");
-      }
 
-      data_device = sycl::malloc_device<float>(rows*cols, Q);
+      data_device = sycl::malloc_device<Scalar_T>(rows*cols, Q);
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Constructor that takes in a numpy array.
   /// \param[in] np_array_in Number of elements in the array.
   /// \param[in] device_in Number of elements in the array (Optional).
-  Array2D(py::array_t<float> np_array_in, Device_T device_in = Device_T(0, 0)) :
+  Array2D(py::array_t<Scalar_T> np_array_in, Device_T device_in = Device_T(0, 0)) :
     device(device_in),
     Q(device_in.get_queue())
   {
@@ -155,15 +104,76 @@ public:
   }
 
   ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy constructor.
+  Array2D(const Array2D& og) :
+    rows(og.rows),
+    cols(og.cols),
+    data_host(og.data_host),
+    device(og.device),
+    Q(og.Q) {
+      data_device = sycl::malloc_device<Scalar_T>(rows*cols, Q);
+      Q.memcpy(data_device, og.data_device, rows*cols*sizeof(Scalar_T)).wait();
+    }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Move constructor.
+  Array2D(Array2D&& og) noexcept :
+    rows(std::exhange(og.rows, 0)),
+    cols(std::exhange(og.cols, 0)),
+    data_host(std::move(og.data_host)),
+    data_device(std::exchange(og.data_device, nullptr)),
+    Q(og.Q),
+    device(og.device) {}
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Copy assignment operator.
+  Array2D& operator=(const Array2D& og){
+    data_host = og.data_host;
+    sycl::free(data_device, Q);
+    rows = og.rows;
+    cols = og.cols;
+    device = og.device;
+    Q = og.Q;
+    data_device = sycl::malloc_device<Scalar_T>(rows*cols, Q);
+    Q.memcpy(data_device, og.data_device, rows*cols*sizeof(Scalar_T)).wait();
+
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Move assignment operator.
+  Array2D& operator=(Array2D&& og) noexcept{
+    data_host = std::move(og.data_host);
+    sycl::free(data_device, Q);
+    data_device = std::exchange(og.data_device, nullptr);
+    rows = std::exchange(og.rows, 0);
+    cols = std::exchange(og.cols, 0);
+    Q = og.Q;
+    device = og.device;
+
+    return *this;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Destructor.
+  ~Array2D(){
+    if(data_device){
+      sycl::free(data_device, Q);
+    }
+
+    data_device = nullptr;
+  }
+
+  ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() direct element access
-  float& operator()(int i, int j) {
+  const Scalar_T& operator()(int i, int j) const {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
     return data_host[i*cols + j];
   }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator() read-only element access
-  const float& operator()(int i, int j) const {
+  const Scalar_T& operator()(int i, int j) const {
     if(i < 0 || i >= rows || j < 0 || j >= cols) throw std::out_of_range("Array2D access out of range");
     return data_host[i*cols + j];
   }
