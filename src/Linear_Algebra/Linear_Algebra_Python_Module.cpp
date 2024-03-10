@@ -23,7 +23,7 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 // Linear Algebra module for PySYCL
 ///////////////////////////////////////////////////////////////////////
-PYBIND11_MODULE(linalg, m){
+PYBIND11_MODULE(linalg, m) {
   m.doc() = R"delim(
     Linear Algebra module for PySYCL
       This module provides classes and functions for linear algebra related calculations.

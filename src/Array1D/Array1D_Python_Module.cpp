@@ -14,16 +14,16 @@
 /// \file
 /// \brief Python module for array_1d in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <pybind11/pybind11.h>
-
 #include "Array1D_Python_Module.h"
+
+#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 // Array1D module for PySYCL
 ///////////////////////////////////////////////////////////////////////
-PYBIND11_MODULE(array_1d, m){
+PYBIND11_MODULE(array_1d, m) {
   m.doc() = R"delim(
     Array1D module for PySYCL
       This module provides classes and functions for creating PySYCL 1D arrays.

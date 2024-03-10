@@ -17,12 +17,13 @@
 /// \file
 /// \brief Python module for an array object in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <tuple>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "Array.h"
+#include <tuple>
+
 #include "../Device/Device_Instance.h"
+#include "Array.h"
 
 namespace py = pybind11;
 
@@ -32,18 +33,19 @@ using Device_T = pysycl::Device_Instance;
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
-void array_module(py::module& m){
-  m.def("array", [](int dims, Device_T& device){
+void array_module(py::module &m) {
+  m.def("array", [](int dims, Device_T &device) {
     return pysycl::array_selector<Scalar_T>(dims, device);
   });
 
-  m.def("array", [](std::tuple<int, int> dims, Device_T& device){
+  m.def("array", [](std::tuple<int, int> dims, Device_T &device) {
     return pysycl::array_selector<Scalar_T>(dims, device);
   });
 
-  m.def("array", [](py::args args){
-    throw std::runtime_error("ERROR IN ARRAY: Unsupported number of dimensions.");
+  m.def("array", [](py::args args) {
+    throw std::runtime_error(
+        "ERROR IN ARRAY: Unsupported number of dimensions.");
   });
 }
 
-#endif //ARRAY_PYTHON_MODULE_H
+#endif // ARRAY_PYTHON_MODULE_H

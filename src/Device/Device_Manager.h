@@ -38,49 +38,50 @@ namespace pysycl {
 /// \brief Class representing a device instance.
 class Device_Manager {
 public:
-    /////////////////////////////////////////////////////////////////////
-    /// \brief Get singleton instance of device manager.
-    /// \return The singleton device manager.
-    static Device_Manager& get_device_manager() {
-        static Device_Manager device_manager;
-        return device_manager;
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Get singleton instance of device manager.
+  /// \return The singleton device manager.
+  static Device_Manager &get_device_manager() {
+    static Device_Manager device_manager;
+    return device_manager;
+  }
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Copy constructor, deleted.
+  Device_Manager(const Device_Manager &) = delete;
+
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Copy assignment, deleted.
+  /// \return reference to the assigned object.
+  Device_Manager &operator=(const Device_Manager &) = delete;
+
+  Device_Instance &get_device(int platform_idx = 0, int device_idx = 0) {
+    const std::string hash_device_idx =
+        std::to_string(platform_idx) + "-" + std::to_string(device_idx);
+    auto device_map_it = device_map.find(hash_device_idx);
+    if (device_map_it == device_map.end()) {
+      auto device_it =
+          device_map
+              .insert_or_assign(hash_device_idx,
+                                Device_Instance(platform_idx, device_idx))
+              .first;
+      return device_it->second;
+    } else {
+      return device_map_it->second;
     }
-
-    /////////////////////////////////////////////////////////////////////
-    /// \brief Copy constructor, deleted.
-    Device_Manager(const Device_Manager&) = delete;
-
-    /////////////////////////////////////////////////////////////////////
-    /// \brief Copy assignment, deleted.
-    /// \return reference to the assigned object.
-    Device_Manager& operator=(const Device_Manager&) = delete;
-
-    Device_Instance&
-    get_device(int platform_idx = 0, int device_idx = 0) {
-        const std::string hash_device_idx = std::to_string(platform_idx)
-                                            + "-"
-                                            + std::to_string(device_idx);
-        auto device_map_it = device_map.find(hash_device_idx);
-        if (device_map_it == device_map.end()) {
-            auto device_it = device_map.insert_or_assign(
-              hash_device_idx, Device_Instance(platform_idx, device_idx)).first;
-            return device_it->second;
-        } else {
-            return device_map_it->second;
-        }
-    }
+  }
 
 private:
-    /////////////////////////////////////////////////////////////////////
-    /// \brief Default constructor, use compiler generated version.
-    Device_Manager() = default;
+  /////////////////////////////////////////////////////////////////////
+  /// \brief Default constructor, use compiler generated version.
+  Device_Manager() = default;
 
-    std::unordered_map<std::string, Device_Instance> device_map;
+  std::unordered_map<std::string, Device_Instance> device_map;
 };
 
-inline Device_Instance& get_device(int platform_idx = 0, int device_idx = 0) {
-    auto& device_manager = Device_Manager::get_device_manager();
-    return device_manager.get_device(platform_idx, device_idx);
+inline Device_Instance &get_device(int platform_idx = 0, int device_idx = 0) {
+  auto &device_manager = Device_Manager::get_device_manager();
+  return device_manager.get_device(platform_idx, device_idx);
 }
 
 } // namespace pysycl

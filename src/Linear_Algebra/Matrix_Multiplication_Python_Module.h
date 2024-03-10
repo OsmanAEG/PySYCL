@@ -31,7 +31,7 @@ using Array2D_T = pysycl::Array2D<Scalar_T>;
 ///////////////////////////////////////////////////////////////////////
 // Matrix multiplication function
 ///////////////////////////////////////////////////////////////////////
-void matmul_module(py::module& m){
+void matmul_module(py::module &m) {
   m.def("matmul", &pysycl::matmul<Array2D_T>, R"delim(
     Description
       This function evaluates a matrix multiplication and returns the result.
@@ -64,10 +64,7 @@ void matmul_module(py::module& m){
       >>> print(C[30, 50])
       19200.0
   )delim",
-  py::arg("A"),
-  py::arg("B"),
-  py::arg("C"),
-  py::arg("tile_size"));
+        py::arg("A"), py::arg("B"), py::arg("C"), py::arg("tile_size"));
 }
 
-#endif //MATRIX_MULTIPLICATION_PYTHON_MODULE_H
+#endif // MATRIX_MULTIPLICATION_PYTHON_MODULE_H

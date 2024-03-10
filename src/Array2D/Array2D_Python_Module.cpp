@@ -14,16 +14,16 @@
 /// \file
 /// \brief Python module for array_2d in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <pybind11/pybind11.h>
-
 #include "Array2D_Python_Module.h"
+
+#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 // Array2D module for PySYCL
 ///////////////////////////////////////////////////////////////////////
-PYBIND11_MODULE(array_2d, m){
+PYBIND11_MODULE(array_2d, m) {
   m.doc() = R"delim(
     Array2D module for PySYCL
       This module provides classes and functions for creating PySYCL 2D arrays.

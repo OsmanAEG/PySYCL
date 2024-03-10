@@ -27,7 +27,7 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 // Device inquiry function
 ///////////////////////////////////////////////////////////////////////
-void device_inquiry_module(py::module& m){
+void device_inquiry_module(py::module &m) {
   m.def("get_device_list", &pysycl::get_device_list, R"delim(
     Description
       This function returns a list of all available devices.
@@ -43,4 +43,4 @@ void device_inquiry_module(py::module& m){
   )delim");
 }
 
-#endif //DEVICE_INQUIRY_PYTHON_MODULE_H
+#endif // DEVICE_INQUIRY_PYTHON_MODULE_H

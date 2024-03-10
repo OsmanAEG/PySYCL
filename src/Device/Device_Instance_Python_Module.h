@@ -19,6 +19,7 @@
 ///////////////////////////////////////////////////////////////////////
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+
 #include "Device_Instance.h"
 #include "Device_Manager.h"
 
@@ -27,12 +28,12 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
-void device_instance_module(py::module& m){
+void device_instance_module(py::module &m) {
   py::class_<pysycl::Device_Instance>(m, "device_instance", R"delim(
     Description
       This class creates a PySYCL device instance.
     )delim")
-    .def("name", &pysycl::Device_Instance::name, R"delim(
+      .def("name", &pysycl::Device_Instance::name, R"delim(
       Description
         This function returns the device name.
 
@@ -44,7 +45,7 @@ void device_instance_module(py::module& m){
         NVIDIA GeForce RTX 3060 Laptop GPU
 
       )delim")
-    .def("vendor", &pysycl::Device_Instance::vendor, R"delim(
+      .def("vendor", &pysycl::Device_Instance::vendor, R"delim(
       Description
         This function returns the device vendor.
 
@@ -57,4 +58,4 @@ void device_instance_module(py::module& m){
       )delim");
 }
 
-#endif //DEVICE_INSTANCE_PYTHON_MODULE_H
+#endif // DEVICE_INSTANCE_PYTHON_MODULE_H

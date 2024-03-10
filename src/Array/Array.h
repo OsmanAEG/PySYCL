@@ -40,22 +40,24 @@ namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function to handle the selection of a PySYCL Array type
 ///        based on input dimensions.
-template<typename Scalar_type, typename... Args>
-std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>> array_selector(Args... args);
+template <typename Scalar_type, typename... Args>
+std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
+array_selector(Args... args);
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function specialization for Array1D.
-template<typename Scalar_type>
+template <typename Scalar_type>
 std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
-array_selector(int dims, Device_Instance& device = get_device()){
+array_selector(int dims, Device_Instance &device = get_device()) {
   return Array1D<Scalar_type>(dims, device);
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function specialization for Array2D.
-template<typename Scalar_type>
+template <typename Scalar_type>
 std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
-array_selector(std::tuple<int, int> dims, Device_Instance& device = get_device()){
+array_selector(std::tuple<int, int> dims,
+               Device_Instance &device = get_device()) {
   return Array2D<Scalar_type>(std::get<0>(dims), std::get<1>(dims), device);
 }
 
@@ -64,4 +66,3 @@ array_selector(std::tuple<int, int> dims, Device_Instance& device = get_device()
 } // namespace pysycl
 
 #endif // ARRAY_H
-

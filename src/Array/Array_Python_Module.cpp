@@ -14,16 +14,16 @@
 /// \file
 /// \brief Python module for array in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <pybind11/pybind11.h>
-
 #include "Array_Python_Module.h"
+
+#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
 // Array module for PySYCL
 ///////////////////////////////////////////////////////////////////////
-PYBIND11_MODULE(array, m){
+PYBIND11_MODULE(array, m) {
   m.doc() = R"delim(
     Array module for PySYCL
       This module provides classes and functions for creating PySYCL arrays.

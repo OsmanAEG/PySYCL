@@ -19,6 +19,7 @@
 ///////////////////////////////////////////////////////////////////////
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+
 #include "Device_Manager.h"
 
 namespace py = pybind11;
@@ -26,8 +27,9 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
-void device_manager_module(py::module& m){
-  m.def("get_device_manager", &pysycl::Device_Manager::get_device_manager, py::return_value_policy::reference, R"delim(
+void device_manager_module(py::module &m) {
+  m.def("get_device_manager", &pysycl::Device_Manager::get_device_manager,
+        py::return_value_policy::reference, R"delim(
       Description
         This function returns the device manager.
 
@@ -37,7 +39,8 @@ void device_manager_module(py::module& m){
       Example
 
       )delim");
-  m.def("get_device", &pysycl::get_device, py::return_value_policy::reference, R"delim(
+  m.def("get_device", &pysycl::get_device, py::return_value_policy::reference,
+        R"delim(
       Description
         This function returns the device.
 
@@ -51,7 +54,8 @@ void device_manager_module(py::module& m){
     Description
       This class creates a PySYCL device manager.
     )delim")
-    .def("get_device", &pysycl::Device_Manager::get_device, py::return_value_policy::reference, R"delim(
+      .def("get_device", &pysycl::Device_Manager::get_device,
+           py::return_value_policy::reference, R"delim(
       Description
         This function returns a device from the manager.
 
@@ -62,8 +66,7 @@ void device_manager_module(py::module& m){
         >>> print(my_device.vendor())
         NVIDIA Corporation
       )delim",
-         py::arg("platform_index") = 0,
-         py::arg("device_index") = 0);
+           py::arg("platform_index") = 0, py::arg("device_index") = 0);
 }
 
-#endif //DEVICE_MANAGER_PYTHON_MODULE_H
+#endif // DEVICE_MANAGER_PYTHON_MODULE_H

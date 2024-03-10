@@ -14,11 +14,11 @@
 /// \file
 /// \brief Python module for device in PySYCL.
 ///////////////////////////////////////////////////////////////////////
+#include <pybind11/pybind11.h>
+
 #include "Device_Inquiry_Python_Module.h"
 #include "Device_Instance_Python_Module.h"
 #include "Device_Manager_Python_Module.h"
-
-#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
@@ -26,7 +26,7 @@ namespace py = pybind11;
 // Device module for PySYCL
 ///////////////////////////////////////////////////////////////////////
 
-PYBIND11_MODULE(device, m){
+PYBIND11_MODULE(device, m) {
   m.doc() = R"delim(
     Device module for PySYCL
       This module provides classes and functions for selecting SYCL devices.

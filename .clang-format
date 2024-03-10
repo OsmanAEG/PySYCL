@@ -1,0 +1,19 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+BraceWrapping:
+  AfterFunction: false
+  AfterNamespace: false
+  AfterClass: false
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  IndentBraces: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false

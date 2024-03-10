@@ -17,27 +17,28 @@
 /// \file
 /// \brief Device inquiry in PySYCL.
 ///////////////////////////////////////////////////////////////////////
-#include <iostream>
 #include <CL/sycl.hpp>
+#include <iostream>
 
 ///////////////////////////////////////////////////////////////////////
 /// \addtogroup Device
 /// @{
 
-namespace pysycl{
+namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function that returns a list of available devices.
-std::vector<std::string> get_device_list(){
+std::vector<std::string> get_device_list() {
   std::vector<std::string> device_list;
-  const auto& platforms = sycl::platform::get_platforms();
+  const auto &platforms = sycl::platform::get_platforms();
 
-  for(int i = 0; i < platforms.size(); ++i){
-    const auto& devices = platforms[i].get_devices();
+  for (int i = 0; i < platforms.size(); ++i) {
+    const auto &devices = platforms[i].get_devices();
 
-    for(int j = 0; j < devices.size(); ++j){
+    for (int j = 0; j < devices.size(); ++j) {
       auto si = std::to_string(i);
       auto sj = std::to_string(j);
-      device_list.push_back(devices[j].get_info<sycl::info::device::name>() + " [" + si + ", " + sj + "]");
+      device_list.push_back(devices[j].get_info<sycl::info::device::name>() +
+                            " [" + si + ", " + sj + "]");
     }
   }
 
