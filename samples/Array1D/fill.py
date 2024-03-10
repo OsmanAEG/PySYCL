@@ -3,12 +3,12 @@ sys.path.insert(1, '../../build/')
 
 import pysycl
 
-device = pysycl.device.get_device(1, 0)
+device = pysycl.device.get_device(0, 0)
 
 N = 10
 
-A = pysycl.array_1d(N, device)
-B = pysycl.array_1d(N, device)
+A = pysycl.array(N, device)
+B = pysycl.array(N, device)
 
 # get number of elements
 print("Number of elements in A: " + str(A.get_size()))
@@ -19,6 +19,8 @@ print("----------------------------------------")
 A[2] = 6.0
 B[2] = 3.0
 
+A.mem_to_cpu()
+B.mem_to_cpu()
 print("A[2] = " + str(A[2]))
 print("B[2] = " + str(B[2]) + "\n")
 

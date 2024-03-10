@@ -7,7 +7,7 @@ import numpy as np
 rows = 10
 cols = 12
 
-device = pysycl.device.device_instance(0, 0)
+device = pysycl.device.get_device(0, 0)
 A = pysycl.array_2d(np.random.rand(rows, cols).astype(np.float32), device)
 A.mem_to_gpu()
 

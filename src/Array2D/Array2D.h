@@ -163,9 +163,7 @@ public:
   Scalar_T &operator()(int i, int j) {
     if (i < 0 || i >= rows || j < 0 || j >= cols)
       throw std::out_of_range("Array2D access out of range");
-    mem_to_cpu();
     return data_host[i * cols + j];
-    mem_to_gpu();
   }
 
   ///////////////////////////////////////////////////////////////////////
@@ -173,7 +171,6 @@ public:
   const Scalar_T &operator()(int i, int j) const {
     if (i < 0 || i >= rows || j < 0 || j >= cols)
       throw std::out_of_range("Array2D access out of range");
-    mem_to_cpu();
     return data_host[i * cols + j];
   }
 
@@ -197,8 +194,9 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator- for matrix subtraction (creating a new
-  /// array). \param[in] B The Array2D that is being subtracted. \return
-  /// Array2D representing the difference of the subtraction.
+  /// array).
+  /// \param[in] B The Array2D that is being subtracted.
+  /// \return Array2D representing the difference of the subtraction.
   Array2D operator-(Array2D &B) {
     auto res = Array2D(rows, cols, this->device);
     binary_matrix_operations<BinaryOperation::SUBTRACT>(B, res);
@@ -215,8 +213,9 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator* for element-wise multiplication (creating a
-  /// new array). \param[in] B The Array2D that is being multiplied. \return
-  /// Array2D representing the product of the multiplication.
+  /// new array).
+  /// \param[in] B The Array2D that is being multiplied.
+  /// \return Array2D representing the product of the multiplication.
   Array2D operator*(Array2D &B) {
     auto res = Array2D(rows, cols, this->device);
     binary_matrix_operations<BinaryOperation::MULTIPLY>(B, res);
@@ -225,7 +224,8 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator*= for element-wise multiplication (edits
-  /// self). \param[in] B The Array2D that is being multiplied.
+  /// self).
+  /// \param[in] B The Array2D that is being multiplied.
   Array2D &operator*=(Array2D &B) {
     binary_matrix_operations<BinaryOperation::MULTIPLY>(B, *this);
     return *this;
@@ -233,8 +233,9 @@ public:
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Overloaded operator/ for element-wise division (creating a new
-  /// array). \param[in] B The Array2D that is being divided. \return Array2D
-  /// representing the result of the division.
+  /// array).
+  /// \param[in] B The Array2D that is being divided.
+  /// \return Array2D representing the result of the division.
   Array2D operator/(Array2D &B) {
     auto res = Array2D(rows, cols, this->device);
     binary_matrix_operations<BinaryOperation::DIVIDE>(B, res);

@@ -3,11 +3,11 @@ sys.path.insert(1, '../../build/')
 
 import pysycl
 
-device = pysycl.device.get_device(1, 0)
+device = pysycl.device.get_device(0, 0)
 
 N = 3
 
-A = pysycl.array_1d(N, device)
+A = pysycl.array(N, device)
 
 for i in range(N):
   A[i] = i

@@ -33,7 +33,7 @@ B_ps.fill(4.0)
 
 # numpy timings
 start_time_np = time.time()
-# C_np = np.matmul(A_np, B_np)
+C_np = np.matmul(A_np, B_np)
 end_time_np = time.time()
 numpy_duration = end_time_np - start_time_np
 
@@ -42,10 +42,11 @@ start_time_ps = time.time()
 pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
+C_ps.mem_to_cpu()
 
 # torch timings
 start_time_pt = time.time()
-# C_pt = torch.matmul(A_pt, B_pt)
+C_pt = torch.matmul(A_pt, B_pt)
 end_time_pt = time.time()
 pytorch_duration = end_time_pt - start_time_pt
 

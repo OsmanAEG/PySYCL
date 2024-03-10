@@ -6,7 +6,7 @@ import numpy as np
 
 N = 10
 
-device = pysycl.device.get_device(1, 0)
+device = pysycl.device.get_device(0, 0)
 A = pysycl.array_1d(np.random.rand(N).astype(np.float32), device)
 A.mem_to_gpu()
 
