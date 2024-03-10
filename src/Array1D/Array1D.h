@@ -166,7 +166,9 @@ public:
     Scalar_T& operator()(int i) {
         if (i < 0 || i >= size)
             throw std::out_of_range("Array1D access out of range");
+        mem_to_cpu();
         return data_host[i];
+        meme_to_gpu();
     }
 
     ///////////////////////////////////////////////////////////////////////
@@ -174,6 +176,7 @@ public:
     const Scalar_T& operator()(int i) const {
         if (i < 0 || i >= size)
             throw std::out_of_range("Array1D access out of range");
+        mem_to_cpu();
         return data_host[i];
     }
 
