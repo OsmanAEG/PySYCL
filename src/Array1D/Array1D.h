@@ -44,7 +44,7 @@
 namespace py = pybind11;
 
 ///////////////////////////////////////////////////////////////////////
-/// \addtogroup Array2D
+/// \addtogroup Array1D
 /// @{
 namespace pysycl {
 ///////////////////////////////////////////////////////////////////////
@@ -168,7 +168,7 @@ public:
             throw std::out_of_range("Array1D access out of range");
         mem_to_cpu();
         return data_host[i];
-        meme_to_gpu();
+        mem_to_gpu();
     }
 
     ///////////////////////////////////////////////////////////////////////

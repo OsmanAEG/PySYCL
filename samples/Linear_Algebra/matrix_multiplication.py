@@ -14,14 +14,14 @@ P = 6400
 M = 6400
 
 # numpy
-A_np = np.full((M, N), 2.0)
-B_np = np.full((N, P), 4.0)
-C_np = np.full((M, P), 0.0)
+A_np = np.full((M, N), 2.0, dtype=np.float32)
+B_np = np.full((N, P), 4.0, dtype=np.float32)
+C_np = np.full((M, P), 0.0, dtype=np.float32)
 
 # pytorch
-A_pt = torch.full((M, N), 2.0, dtype=torch.float32)
-B_pt = torch.full((N, P), 4.0, dtype=torch.float32)
-C_pt = torch.full((M, P), 0.0, dtype=torch.float32)
+A_pt = torch.full((M, N), 2.0, dtype=torch.float32).to('cuda')
+B_pt = torch.full((N, P), 4.0, dtype=torch.float32).to('cuda')
+C_pt = torch.full((M, P), 0.0, dtype=torch.float32).to('cuda')
 
 # pysycl
 A_ps = pysycl.array_2d(M, N, device)
@@ -33,19 +33,19 @@ B_ps.fill(4.0)
 
 # numpy timings
 start_time_np = time.time()
-C_np = np.matmul(A_np, B_np)
+# C_np = np.matmul(A_np, B_np)
 end_time_np = time.time()
 numpy_duration = end_time_np - start_time_np
 
 # pysycl timings
 start_time_ps = time.time()
-pysycl.linalg.matmul(A_ps, B_ps, C_ps, 16)
+pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
 
 # torch timings
 start_time_pt = time.time()
-C_pt = torch.matmul(A_pt, B_pt)
+# C_pt = torch.matmul(A_pt, B_pt)
 end_time_pt = time.time()
 pytorch_duration = end_time_pt - start_time_pt
 

@@ -43,6 +43,7 @@ include(CMake/PyBind11.cmake)
 #######################################################################
 ## Subdirectories
 #######################################################################
+add_subdirectory(Array)
 add_subdirectory(Array1D)
 add_subdirectory(Array2D)
 add_subdirectory(Device)
