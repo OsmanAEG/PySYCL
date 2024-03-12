@@ -32,13 +32,12 @@
 
 namespace py = pybind11;
 
-using Scalar_T = float;
-using Array1D_T = pysycl::Array1D<Scalar_T>;
-
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
-void array_1d_module(py::module &m) {
+template<typename Scalar_T>
+void bind_array_1d(py::module &m) {
+  using Array1D_T = pysycl::Array1D<Scalar_T>;
   py::class_<Array1D_T>(m, "array_1d", R"delim(
     Description
       This class creates a PySYCL array_1d object.
@@ -179,6 +178,12 @@ void array_1d_module(py::module &m) {
            })
       .def("__itruediv__",
            [](const Array1D_T &a, const Array1D_T &b) { return a / b; });
+}
+
+void array_1d_module(py::module &m) {
+  bind_array_1d<float>(m);
+  bind_array_1d<int>(m);
+  bind_array_1d<double>(m);
 }
 
 #endif // ARRAY1D_PYTHON_MODULE_H

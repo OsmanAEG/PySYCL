@@ -32,13 +32,12 @@
 
 namespace py = pybind11;
 
-using Scalar_T = float;
-using Array2D_T = pysycl::Array2D<Scalar_T>;
-
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
-void array_2d_module(py::module &m) {
+template<typename Scalar_T>
+void bind_array_2d(py::module &m) {
+  using Array2D_T = pysycl::Array2D<Scalar_T>;
   py::class_<Array2D_T>(m, "array_2d", R"delim(
     Description
       This class creates a PySYCL array_2d object.
@@ -187,6 +186,12 @@ void array_2d_module(py::module &m) {
       .def("__truediv__",
            [](Array2D_T &a, Array2D_T &b) -> Array2D_T { return a / b; })
       .def("__itruediv__", [](Array2D_T &a, Array2D_T &b) { return a / b; });
+}
+
+void array_2d_module(py::module &m) {
+  bind_array_2d<float>(m);
+  bind_array_2d<int>(m);
+  bind_array_2d<double>(m);
 }
 
 #endif // ARRAY2D_PYTHON_MODULE_H
