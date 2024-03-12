@@ -30,7 +30,7 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 // Array1D module for PySYCL
 ///////////////////////////////////////////////////////////////////////
-PYBIND11_MODULE(array_1d, m) {
+PYBIND11_MODULE(data_types, m) {
   m.doc() = R"delim(
     Data Types module for PySYCL
       This module provides PySYCL data types for selection.

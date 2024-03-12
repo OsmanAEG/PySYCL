@@ -1,5 +1,5 @@
-#ifndef ARRAY1D_PYTHON_MODULE_H
-#define ARRAY1D_PYTHON_MODULE_H
+#ifndef DATA_TYPES_PYTHON_MODULE_H
+#define DATA_TYPES_PYTHON_MODULE_H
 
 ///////////////////////////////////////////////////////////////////////
 // This file is part of the PySYCL software for SYCL development in
@@ -34,14 +34,12 @@ namespace py = pybind11;
 using Data_T = pysycl::Data_Types;
 
 void data_types_module(py::module& m){
-  py::enum_<Data_T>(m, "Data_Types")
+  py::enum_<Data_T>(m, "data_types")
     .value("double", Data_T::DOUBLE)
     .value("float",  Data_T::FLOAT)
     .value("int",    Data_T::INT)
     .export_values();
 }
 
-namespace py = pybind11;
 
-
-#endif // ARRAY1D_PYTHON_MODULE_H
+#endif // DATA_TYPES_PYTHON_MODULE_H

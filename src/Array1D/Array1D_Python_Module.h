@@ -36,9 +36,9 @@ namespace py = pybind11;
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
 template<typename Scalar_T>
-void bind_array_1d(py::module &m) {
+void bind_array_1d(py::module &m, const std::string& arr1d_type) {
   using Array1D_T = pysycl::Array1D<Scalar_T>;
-  py::class_<Array1D_T>(m, "array_1d", R"delim(
+  py::class_<Array1D_T>(m, arr1d_type.c_str(), R"delim(
     Description
       This class creates a PySYCL array_1d object.
     )delim")
@@ -181,9 +181,9 @@ void bind_array_1d(py::module &m) {
 }
 
 void array_1d_module(py::module &m) {
-  bind_array_1d<float>(m);
-  bind_array_1d<int>(m);
-  bind_array_1d<double>(m);
+  bind_array_1d<double>(m, "array_1d_double");
+  bind_array_1d<float>(m, "array_1d_float");
+  bind_array_1d<int>(m, "array_1d_int");
 }
 
 #endif // ARRAY1D_PYTHON_MODULE_H

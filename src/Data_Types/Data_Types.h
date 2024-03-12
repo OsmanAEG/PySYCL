@@ -25,7 +25,7 @@ namespace pysycl {
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Data types
-enum class Data_Types {
+enum class Data_Types{
   DOUBLE,
   FLOAT,
   INT
