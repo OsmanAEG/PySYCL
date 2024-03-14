@@ -8,7 +8,7 @@ device = pysycl.device.get_device(0, 0)
 M = 5
 N = 3
 
-A = pysycl.array((M, N), device)
+A = pysycl.array((M, N), device= device, dtype= pysycl.float)
 
 for i in range(M):
   for j in range(N):
