@@ -32,13 +32,12 @@
 
 namespace py = pybind11;
 
-using Scalar_T = float;
-using Array2D_T = pysycl::Array2D<Scalar_T>;
-
 ///////////////////////////////////////////////////////////////////////
 // Matrix multiplication function
 ///////////////////////////////////////////////////////////////////////
-void matmul_module(py::module &m) {
+template<typename Scalar_T>
+void bind_matmul_module(py::module &m) {
+  using Array2D_T = pysycl::Array2D<Scalar_T>;
   m.def("matmul", &pysycl::matmul<Array2D_T>, R"delim(
     Description
       This function evaluates a matrix multiplication and returns the result.
@@ -72,6 +71,12 @@ void matmul_module(py::module &m) {
       19200.0
   )delim",
         py::arg("A"), py::arg("B"), py::arg("C"), py::arg("tile_size"));
+}
+
+void matmul_module(py::module &m) {
+  bind_matmul_module<double>(m);
+  bind_matmul_module<float>(m);
+  bind_matmul_module<int>(m);
 }
 
 #endif // MATRIX_MULTIPLICATION_PYTHON_MODULE_H

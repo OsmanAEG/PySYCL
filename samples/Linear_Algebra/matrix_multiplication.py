@@ -14,19 +14,19 @@ P = 6400
 M = 6400
 
 # numpy
-A_np = np.full((M, N), 2.0, dtype=np.float32)
-B_np = np.full((N, P), 4.0, dtype=np.float32)
-C_np = np.full((M, P), 0.0, dtype=np.float32)
+A_np = np.full((M, N), 2.0, dtype=np.float64)
+B_np = np.full((N, P), 4.0, dtype=np.float64)
+C_np = np.full((M, P), 0.0, dtype=np.float64)
 
 # pytorch
-A_pt = torch.full((M, N), 2.0, dtype=torch.float32).to('cuda')
-B_pt = torch.full((N, P), 4.0, dtype=torch.float32).to('cuda')
-C_pt = torch.full((M, P), 0.0, dtype=torch.float32).to('cuda')
+A_pt = torch.full((M, N), 2.0, dtype=torch.float64).to('cuda')
+B_pt = torch.full((N, P), 4.0, dtype=torch.float64).to('cuda')
+C_pt = torch.full((M, P), 0.0, dtype=torch.float64).to('cuda')
 
 # pysycl
-A_ps = pysycl.array((M, N), device, dtype = pysycl.float)
-B_ps = pysycl.array((N, P), device, dtype = pysycl.float)
-C_ps = pysycl.array((M, P), device, dtype = pysycl.float)
+A_ps = pysycl.array((M, N), device= device, dtype = pysycl.double)
+B_ps = pysycl.array((N, P), device= device, dtype = pysycl.double)
+C_ps = pysycl.array((M, P), device= device, dtype = pysycl.double)
 
 A_ps.fill(2.0)
 B_ps.fill(4.0)
@@ -39,7 +39,7 @@ numpy_duration = end_time_np - start_time_np
 
 # pysycl timings
 start_time_ps = time.time()
-pysycl.linalg.matmul(A_ps, B_ps, C_ps, 16)
+pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
 C_ps.mem_to_cpu()

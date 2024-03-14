@@ -42,6 +42,8 @@ namespace pysycl {
 template <typename Array2D_type>
 void matmul(Array2D_type &A, Array2D_type &B, Array2D_type &C,
             const size_t &wg_size) {
+  using Scalar_T = typename Array2D_type::Scalar_T;
+
   if (A.num_cols() != B.num_rows()) {
     throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");
   }
@@ -79,12 +81,12 @@ void matmul(Array2D_type &A, Array2D_type &B, Array2D_type &C,
      sycl::range<2> global{global_size_M, global_size_P};
      sycl::range<2> local{wg_size, wg_size};
 
-     sycl::local_accessor<float, 2> A_block({wg_size, wg_size}, h);
-     sycl::local_accessor<float, 2> B_block({wg_size, wg_size}, h);
+     sycl::local_accessor<Scalar_T, 2> A_block({wg_size, wg_size}, h);
+     sycl::local_accessor<Scalar_T, 2> B_block({wg_size, wg_size}, h);
 
-     float *A_ptr = A.get_device_data_ptr();
-     float *B_ptr = B.get_device_data_ptr();
-     float *C_ptr = C.get_device_data_ptr();
+     Scalar_T *A_ptr = A.get_device_data_ptr();
+     Scalar_T *B_ptr = B.get_device_data_ptr();
+     Scalar_T *C_ptr = C.get_device_data_ptr();
 
      const auto tile_size = (N - 1) / wg_size + 1;
 
@@ -98,7 +100,7 @@ void matmul(Array2D_type &A, Array2D_type &B, Array2D_type &C,
        if (iG >= M || jG >= P)
          return;
 
-       float c_ij = 0.0;
+       Scalar_T c_ij = 0.0;
 
        for (int tile_idx = 0; tile_idx < tile_size; ++tile_idx) {
          // load A and B into local shared memory
