@@ -7,7 +7,7 @@ device = pysycl.device.get_device(0, 0)
 
 N = 3
 
-A = pysycl.array(N, device)
+A = pysycl.array(N, device= device, dtype = pysycl.float)
 
 for i in range(N):
   A[i] = i

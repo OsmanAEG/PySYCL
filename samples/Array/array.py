@@ -5,11 +5,8 @@ import pysycl
 
 device = pysycl.device.get_device(0, 0)
 
-A2d = pysycl.array((10, 12), device)
-B2d = pysycl.array((10, 12), device)
-
-A1d = pysycl.array(10, device)
-A1d = pysycl.array(10, device)
+A = pysycl.array((10, 12), device= device, dtype= pysycl.float)
+B = pysycl.array((10, 12), device= device, dtype= pysycl.float)
 
 # get number of rows
 print("Number of rows in A: " + str(A.num_rows()))

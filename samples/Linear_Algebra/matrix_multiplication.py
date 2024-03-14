@@ -24,9 +24,9 @@ B_pt = torch.full((N, P), 4.0, dtype=torch.float32).to('cuda')
 C_pt = torch.full((M, P), 0.0, dtype=torch.float32).to('cuda')
 
 # pysycl
-A_ps = pysycl.array_2d(M, N, device)
-B_ps = pysycl.array_2d(N, P, device)
-C_ps = pysycl.array_2d(M, P, device)
+A_ps = pysycl.array((M, N), device, dtype = pysycl.float)
+B_ps = pysycl.array((N, P), device, dtype = pysycl.float)
+C_ps = pysycl.array((M, P), device, dtype = pysycl.float)
 
 A_ps.fill(2.0)
 B_ps.fill(4.0)
@@ -39,7 +39,7 @@ numpy_duration = end_time_np - start_time_np
 
 # pysycl timings
 start_time_ps = time.time()
-pysycl.linalg.matmul(A_ps, B_ps, C_ps, 32)
+pysycl.linalg.matmul(A_ps, B_ps, C_ps, 16)
 end_time_ps = time.time()
 pysycl_duration = end_time_ps - start_time_ps
 C_ps.mem_to_cpu()

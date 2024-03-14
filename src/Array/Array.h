@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////
 #include "../Array1D/Array1D.h"
 #include "../Array2D/Array2D.h"
+#include "../Data_Types/Data_Types.h"
 #include "../Device/Device_Instance.h"
 #include "../Device/Device_Manager.h"
 
@@ -37,28 +38,42 @@
 /// @{
 namespace pysycl {
 
-///////////////////////////////////////////////////////////////////////
-/// \brief Function to handle the selection of a PySYCL Array type
-///        based on input dimensions.
-template <typename Scalar_type, typename... Args>
-std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
-array_selector(Args... args);
+using Array1D_Variants = std::variant<Array1D<double>,
+                                      Array1D<float>,
+                                      Array1D<int>>;
+
+using Array2D_Variants = std::variant<Array2D<double>,
+                                      Array2D<float>,
+                                      Array2D<int>>;
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function specialization for Array1D.
-template <typename Scalar_type>
-std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
-array_selector(int dims, Device_Instance &device = get_device()) {
-  return Array1D<Scalar_type>(dims, device);
+Array1D_Variants
+array_selector(int dims, Device_Instance &device, Data_Types& dtype) {
+  if(dtype == Data_Types::DOUBLE) {
+    return Array1D<double>(dims, device);
+  } else if(dtype == Data_Types::FLOAT) {
+    return Array1D<float>(dims, device);
+  } else if (dtype == Data_Types::INT) {
+    return Array1D<int>(dims, device);
+  } else {
+    throw std::runtime_error("ERROR IN ARRAY: Unsupported datatype.");
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Function specialization for Array2D.
-template <typename Scalar_type>
-std::variant<Array1D<Scalar_type>, Array2D<Scalar_type>>
-array_selector(std::tuple<int, int> dims,
-               Device_Instance &device = get_device()) {
-  return Array2D<Scalar_type>(std::get<0>(dims), std::get<1>(dims), device);
+Array2D_Variants
+array_selector(std::tuple<int, int> dims, Device_Instance &device, Data_Types& dtype) {
+  if(dtype == Data_Types::DOUBLE) {
+    return Array2D<double>(std::get<0>(dims), std::get<1>(dims), device);
+  } else if(dtype == Data_Types::FLOAT) {
+    return Array2D<float>(std::get<0>(dims), std::get<1>(dims), device);
+  } else if (dtype == Data_Types::INT) {
+    return Array2D<int>(std::get<0>(dims), std::get<1>(dims), device);
+  } else {
+    throw std::runtime_error("ERROR IN ARRAY: Unsupported datatype.");
+  }
 }
 
 /// @} // end "Array" doxygen group

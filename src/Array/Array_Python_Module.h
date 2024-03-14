@@ -33,29 +33,32 @@
 /// local
 ///////////////////////////////////////////////////////////////////////
 #include "../Device/Device_Instance.h"
+#include "../Device/Device_Manager.h"
+#include "../Data_Types/Data_Types.h"
 #include "Array.h"
 
 namespace py = pybind11;
 
-using Scalar_T = float;
 using Device_T = pysycl::Device_Instance;
+using Data_T = pysycl::Data_Types;
 
 ///////////////////////////////////////////////////////////////////////
 // Device class and functions
 ///////////////////////////////////////////////////////////////////////
 void array_module(py::module &m) {
-  m.def("array", [](int dims, Device_T &device) {
-    return pysycl::array_selector<Scalar_T>(dims, device);
-  });
+  // Array 1D Factories
+  m.def("array", [](int dims, Device_T& device, Data_T& dtype) {
+    return pysycl::array_selector(dims, device, dtype);
+  }, py::arg("dims"),
+     py::arg("device"),
+     py::arg("dtype"));
 
-  m.def("array", [](std::tuple<int, int> dims, Device_T &device) {
-    return pysycl::array_selector<Scalar_T>(dims, device);
-  });
-
-  m.def("array", [](py::args args) {
-    throw std::runtime_error(
-        "ERROR IN ARRAY: Unsupported number of dimensions.");
-  });
+  // Array 2D Factories
+  m.def("array", [](std::tuple<int, int> dims, Device_T& device, Data_T& dtype) {
+    return pysycl::array_selector(dims, device, dtype);
+  }, py::arg("dims"),
+     py::arg("device"),
+     py::arg("dtype"));
 }
 
 #endif // ARRAY_PYTHON_MODULE_H

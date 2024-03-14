@@ -21,6 +21,6 @@
 # ######################################################################
 option(PYSYCL_Linear_Algebra "Compile the PySYCL Linear_Algebra module" ON)
 
-    if (PYSYCL_Linear_Algebra)
-        PySYCL_add_pybind11_module(linalg Linear_Algebra_Python_Module.cpp)
-            endif()
+if (PYSYCL_Linear_Algebra)
+  PySYCL_add_pybind11_module(linalg Linear_Algebra_Python_Module.cpp)
+endif()

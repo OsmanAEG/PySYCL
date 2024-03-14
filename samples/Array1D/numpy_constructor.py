@@ -7,7 +7,7 @@ import numpy as np
 N = 10
 
 device = pysycl.device.get_device(0, 0)
-A = pysycl.array_1d(np.random.rand(N).astype(np.float32), device)
+A = pysycl.array_1d_float(np.random.rand(N).astype(np.float32), device)
 A.mem_to_gpu()
 
 print("MAX VALUE: " + str(A.max()))

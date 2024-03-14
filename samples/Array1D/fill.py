@@ -7,8 +7,8 @@ device = pysycl.device.get_device(0, 0)
 
 N = 10
 
-A = pysycl.array(N, device)
-B = pysycl.array(N, device)
+A = pysycl.array(N, device= device, dtype = pysycl.float)
+B = pysycl.array(N, device= device, dtype = pysycl.float)
 
 # get number of elements
 print("Number of elements in A: " + str(A.get_size()))

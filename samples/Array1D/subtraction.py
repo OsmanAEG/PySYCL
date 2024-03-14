@@ -7,8 +7,8 @@ device = pysycl.device.get_device(0, 0)
 
 N = 300
 
-A = pysycl.array(N, device)
-B = pysycl.array(N, device)
+A = pysycl.array(N, device= device, dtype = pysycl.float)
+B = pysycl.array(N, device= device, dtype = pysycl.float)
 
 print("Fill A with 1.0 and B with 2.0")
 print("Compute C = A - B")
