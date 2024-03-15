@@ -144,6 +144,414 @@ class TestArray2D_Addition(unittest.TestCase):
             self.assertEqual(A_pysycl[i, j], A_np[i, j])
 
 ############################################
+############ SUBTRACTION TESTS #############
+############################################
+class TestArray2D_Subtraction(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 2D TESTS: SUBTRACTION (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 2D TESTS: SUBTRACTION (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_float  = 1e-7
+    self.tolerance_double = 1e-15
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # SUBTRACTION DOUBLE TYPE TESTS
+  def test_matrix_subtraction_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl - B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        C_np = A_np - B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
+
+  def test_in_place_matrix_subtraction_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl -= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        A_np -= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_double)
+
+  # SUBTRACTION FLOAT TYPE TESTS
+  def test_matrix_subtraction_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl - B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        C_np = A_np - B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
+
+  def test_in_place_matrix_subtraction_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl -= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        A_np -= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_float)
+
+  # SUBTRACTION INTEGER TYPE TESTS
+  def test_matrix_subtraction_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        C_pysycl = A_pysycl - B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        C_np = A_np - B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(C_pysycl[i, j], C_np[i, j])
+
+  def test_in_place_matrix_addition_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        A_pysycl -= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        A_np -= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(A_pysycl[i, j], A_np[i, j])
+
+############################################
+########## MULTIPLICATION TESTS ############
+############################################
+class TestArray2D_Multiplication(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 2D TESTS: MULTIPLICATION (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 2D TESTS: MULTIPLICATION (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_float  = 1e-7
+    self.tolerance_double = 1e-15
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # MULTIPLICATION DOUBLE TYPE TESTS
+  def test_matrix_element_multiplication_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl * B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        C_np = A_np * B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
+
+  def test_in_place_matrix_element_multiplication_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl *= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        A_np *= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_double)
+
+  # MULTIPLICATION FLOAT TYPE TESTS
+  def test_matrix_element_multiplication_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl * B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        C_np = A_np * B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
+
+  def test_in_place_matrix_element_multiplication_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl *= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        A_np *= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_float)
+
+  # MULTIPLICATION INTEGER TYPE TESTS
+  def test_matrix_element_multiplication_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        C_pysycl = A_pysycl * B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        C_np = A_np * B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(C_pysycl[i, j], C_np[i, j])
+
+  def test_in_place_matrix_element_multiplication_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        A_pysycl *= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        A_np *= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(A_pysycl[i, j], A_np[i, j])
+
+############################################
+############# DIVISION TESTS ###############
+############################################
+class TestArray2D_Division(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 2D TESTS: DIVISION (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 2D TESTS: DIVISION (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_float  = 1e-7
+    self.tolerance_double = 1e-15
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # DIVISION DOUBLE TYPE TESTS
+  def test_matrix_division_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl / B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        C_np = A_np / B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
+
+  def test_in_place_matrix_division_double(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl /= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float64)
+        B_np = np.full((M, N), 12.79, dtype= np.float64)
+        A_np /= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_double)
+
+  # DIVISION FLOAT TYPE TESTS
+  def test_matrix_division_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        C_pysycl = A_pysycl / B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        C_np = A_np / B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
+
+  def test_in_place_matrix_division_float(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
+        A_pysycl.fill(86.74)
+        B_pysycl.fill(12.79)
+
+        A_pysycl /= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 86.74, dtype= np.float32)
+        B_np = np.full((M, N), 12.79, dtype= np.float32)
+        A_np /= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_float)
+
+  # DIVISION INTEGER TYPE TESTS
+  def test_matrix_division_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        C_pysycl = A_pysycl / B_pysycl
+        C_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        C_np = A_np // B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(C_pysycl[i, j], C_np[i, j])
+
+  def test_in_place_matrix_division_int(self):
+    for M in [10, 100, 1000]:
+      for N in [25, 65, 450]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
+        A_pysycl.fill(8)
+        B_pysycl.fill(3)
+
+        A_pysycl /= B_pysycl
+        A_pysycl.mem_to_cpu()
+
+        A_np = np.full((M, N), 8, dtype= np.int32)
+        B_np = np.full((M, N), 3, dtype= np.int32)
+        A_np //= B_np
+
+        for i in range(M):
+          for j in range(N):
+            self.assertEqual(A_pysycl[i, j], A_np[i, j])
+
+############################################
 ########## ROWS AND COLS TESTS #############
 ############################################
 class TestArray2D_Rows_Cols(unittest.TestCase):
