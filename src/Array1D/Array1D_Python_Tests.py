@@ -546,7 +546,7 @@ class TestArray1D_Fill(unittest.TestCase):
       for i in range(N):
         self.assertAlmostEqual(A_pysycl[i], A_np[i], delta= self.tolerance_float)
 
-  # DIVISION INTEGER TYPE TESTS
+  # FILL INTEGER TYPE TESTS
   def test_vector_division_int(self):
     for N in [10, 100, 1000, 10000]:
       A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.int)
@@ -557,6 +557,29 @@ class TestArray1D_Fill(unittest.TestCase):
 
       for i in range(N):
         self.assertEqual(A_pysycl[i], A_np[i])
+
+############################################
+############## SIZE TESTS ##################
+############################################
+class TestArray1D_Fill(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 1D TESTS: SIZE (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 1D TESTS: SIZE (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # SIZE TYPE TESTS
+  def test_vector_size_double(self):
+    for N in [10, 100, 1000, 10000]:
+      A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)
+      self.assertEqual(A_pysycl.get_size(), N)
 
 if __name__ == '__main__':
   unittest.main()
