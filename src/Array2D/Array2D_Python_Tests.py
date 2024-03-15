@@ -580,7 +580,7 @@ class TestArray2D_Rows_Cols(unittest.TestCase):
 ############################################
 ######### MAX, MIN, SUM TESTS ##############
 ############################################
-class TestArray2D_Max(unittest.TestCase):
+class TestArray2D_Reductions(unittest.TestCase):
   @classmethod
   def setUpClass(cls):
     print("\033[34mARRAY 2D TESTS: MAX, MIN, SUM (STARTING)\033[0m")

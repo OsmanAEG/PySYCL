@@ -584,7 +584,7 @@ class TestArray1D_Fill(unittest.TestCase):
 ############################################
 ######### MAX, MIN, SUM TESTS ##############
 ############################################
-class TestArray1D_Max(unittest.TestCase):
+class TestArray1D_Reductions(unittest.TestCase):
   @classmethod
   def setUpClass(cls):
     print("\033[34mARRAY 1D TESTS: MAX, MIN, SUM (STARTING)\033[0m")
@@ -600,7 +600,7 @@ class TestArray1D_Max(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # MAX, MIN, SUM TESTS
-  def test_vector_size_double(self):
+  def reductions(self):
     for N in [10, 100, 250]:
       A_np = np.random.rand(N)
       A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)
