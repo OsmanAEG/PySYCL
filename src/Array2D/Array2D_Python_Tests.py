@@ -573,10 +573,52 @@ class TestArray2D_Rows_Cols(unittest.TestCase):
     for M in [10, 100, 1000]:
       for N in [25, 65, 450]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
-        B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
 
         self.assertEqual(A_pysycl.num_rows(), M)
         self.assertEqual(A_pysycl.num_cols(), N)
+
+############################################
+######### MAX, MIN, SUM TESTS ##############
+############################################
+class TestArray2D_Max(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 2D TESTS: MAX, MIN, SUM (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 2D TESTS: MAX, MIN, SUM (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_double = 1e-12
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # MAX, MIN, SUM TESTS
+  def reductions(self):
+    for N in [10, 100, 250]:
+      for M in [8, 43, 115]:
+        A_np = np.random.rand(N)
+        A_pysycl = pysycl.array((N, M), device= self.device, dtype= pysycl.double)
+
+        for i in range(N):
+          for j in range(M):
+            A_pysycl[i] = A_np[i]
+
+        A_pysycl.mem_to_gpu()
+
+        max_pysycl = A_pysycl.max()
+        min_pysycl = A_pysycl.min()
+        sum_pysycl = A_pysycl.sum()
+
+        max_np = A_np.max()
+        min_np = A_np.min()
+        sum_np = A_np.sum()
+
+        self.assertAlmostEqual(max_pysycl, max_np, delta= self.tolerance_double)
+        self.assertAlmostEqual(min_pysycl, min_np, delta= self.tolerance_double)
+        self.assertAlmostEqual(sum_pysycl, sum_np, delta= self.tolerance_double)
 
 if __name__ == '__main__':
   unittest.main()

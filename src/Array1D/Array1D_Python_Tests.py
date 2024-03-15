@@ -599,7 +599,7 @@ class TestArray1D_Max(unittest.TestCase):
     self.device = pysycl.device.get_device(0, 0)
     print("\033[33mrunning test...\033[0m")
 
-  # SIZE TYPE TESTS
+  # MAX, MIN, SUM TESTS
   def test_vector_size_double(self):
     for N in [10, 100, 250]:
       A_np = np.random.rand(N)
