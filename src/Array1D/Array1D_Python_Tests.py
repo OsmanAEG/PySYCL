@@ -503,5 +503,60 @@ class TestArray1D_Dvision(unittest.TestCase):
       for i in range(N):
         self.assertEqual(A_pysycl[i], A_np[i])
 
+############################################
+############## FILL TESTS ##################
+############################################
+class TestArray1D_Fill(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 1D TESTS: Fill (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 1D TESTS: FILL (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_float  = 1e-7
+    self.tolerance_double = 1e-15
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # FILL DOUBLE TYPE TESTS
+  def test_vector_fill_double(self):
+    for N in [10, 100, 1000, 10000]:
+      A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)
+      A_pysycl.fill(86.74)
+      A_pysycl.mem_to_cpu()
+
+      A_np = np.full(N, 86.74, dtype= np.float64)
+
+      for i in range(N):
+        self.assertAlmostEqual(A_pysycl[i], A_np[i], delta= self.tolerance_double)
+
+  # FILL FLOAT TYPE TESTS
+  def test_vector_division_float(self):
+    for N in [10, 100, 1000, 10000]:
+      A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.float)
+      A_pysycl.fill(86.74)
+      A_pysycl.mem_to_cpu()
+
+      A_np = np.full(N, 86.74, dtype= np.float32)
+
+      for i in range(N):
+        self.assertAlmostEqual(A_pysycl[i], A_np[i], delta= self.tolerance_float)
+
+  # DIVISION INTEGER TYPE TESTS
+  def test_vector_division_int(self):
+    for N in [10, 100, 1000, 10000]:
+      A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.int)
+      A_pysycl.fill(8)
+      A_pysycl.mem_to_cpu()
+
+      A_np = np.full(N, 8, dtype= np.int32)
+
+      for i in range(N):
+        self.assertEqual(A_pysycl[i], A_np[i])
+
 if __name__ == '__main__':
   unittest.main()
