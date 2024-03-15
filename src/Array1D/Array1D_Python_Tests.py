@@ -581,5 +581,46 @@ class TestArray1D_Fill(unittest.TestCase):
       A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)
       self.assertEqual(A_pysycl.get_size(), N)
 
+############################################
+######### MAX, MIN, SUM TESTS ##############
+############################################
+class TestArray1D_Max(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 1D TESTS: MAX, MIN, SUM (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 1D TESTS: MAX, MIN, SUM (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_double = 1e-12
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # SIZE TYPE TESTS
+  def test_vector_size_double(self):
+    for N in [10, 100, 250]:
+      A_np = np.random.rand(N)
+      A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)
+
+      for i in range(N):
+        A_pysycl[i] = A_np[i]
+
+      A_pysycl.mem_to_gpu()
+
+      max_pysycl = A_pysycl.max()
+      min_pysycl = A_pysycl.min()
+      sum_pysycl = A_pysycl.sum()
+
+      max_np = A_np.max()
+      min_np = A_np.min()
+      sum_np = A_np.sum()
+
+      self.assertAlmostEqual(max_pysycl, max_np, delta= self.tolerance_double)
+      self.assertAlmostEqual(min_pysycl, min_np, delta= self.tolerance_double)
+      self.assertAlmostEqual(sum_pysycl, sum_np, delta= self.tolerance_double)
+
 if __name__ == '__main__':
   unittest.main()
