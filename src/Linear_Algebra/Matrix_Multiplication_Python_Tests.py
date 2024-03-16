@@ -2,7 +2,7 @@ import numpy as np
 import unittest
 import sys
 
-sys.path.insert(1, '../../build/')
+sys.path.insert(1, '../build/')
 import pysycl
 
 print("\033[32m| ----- MATMUL TEST SUITE ----- |\033[0m")
