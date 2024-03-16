@@ -75,58 +75,30 @@ void matmul(Array2D_type &A, Array2D_type &B, Array2D_type &C,
                            .get_devices()[C.get_device_index()]);
 
   Q.submit([&](sycl::handler &h) {
-     const size_t global_size_M = ((M + wg_size - 1) / wg_size) * wg_size;
-     const size_t global_size_P = ((P + wg_size - 1) / wg_size) * wg_size;
+    const size_t global_size_M = ((M + wg_size - 1)/wg_size)*wg_size;
+    const size_t global_size_P = ((P + wg_size - 1)/wg_size)*wg_size;
 
-     sycl::range<2> global{global_size_M, global_size_P};
-     sycl::range<2> local{wg_size, wg_size};
+    sycl::range<2> global{global_size_M, global_size_P};
+    sycl::range<2> local{wg_size, wg_size};
 
-     sycl::local_accessor<Scalar_T, 2> A_block({wg_size, wg_size}, h);
-     sycl::local_accessor<Scalar_T, 2> B_block({wg_size, wg_size}, h);
+    Scalar_T *A_ptr = A.get_device_data_ptr();
+    Scalar_T *B_ptr = B.get_device_data_ptr();
+    Scalar_T *C_ptr = C.get_device_data_ptr();
 
-     Scalar_T *A_ptr = A.get_device_data_ptr();
-     Scalar_T *B_ptr = B.get_device_data_ptr();
-     Scalar_T *C_ptr = C.get_device_data_ptr();
+    h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it) {
+      int i = it.get_global_id(0);
+      int j = it.get_global_id(1);
 
-     const auto tile_size = (N - 1) / wg_size + 1;
+      Scalar_T c_ij = 0.0;
 
-     h.parallel_for(sycl::nd_range<2>(global, local), [=](sycl::nd_item<2> it) {
-       const auto iG = it.get_global_id(0);
-       const auto jG = it.get_global_id(1);
+      if(i >= M || j >= P) return;
 
-       const auto iL = it.get_local_id(0);
-       const auto jL = it.get_local_id(1);
+      for(int p = 0; p < N; ++p){
+        c_ij += A_ptr[i*N + p]*B_ptr[p*P + j];
+      }
 
-       if (iG >= M || jG >= P)
-         return;
-
-       Scalar_T c_ij = 0.0;
-
-       for (int tile_idx = 0; tile_idx < tile_size; ++tile_idx) {
-         // load A and B into local shared memory
-         if (iG < M && jL + tile_idx * wg_size < N)
-           A_block[iL][jL] = A_ptr[iG * N + tile_idx * wg_size + jL];
-         else
-           A_block[iL][jL] = 0;
-
-         if (iL + tile_idx * wg_size < N && jG < P)
-           B_block[iL][jL] = B_ptr[(iL + tile_idx * wg_size) * P + jG];
-         else
-           B_block[iL][jL] = 0;
-
-         // sync threads
-         it.barrier(sycl::access::fence_space::local_space);
-
-         // vector dot product
-         for (int n = 0; n < wg_size; ++n)
-           c_ij += A_block[iL][n] * B_block[n][jL];
-
-         // sync threads
-         it.barrier(sycl::access::fence_space::local_space);
-       }
-
-       C_ptr[iG * P + jG] = c_ij;
-     });
+      C_ptr[i*P + j] = c_ij;
+    });
    }).wait();
 }
 

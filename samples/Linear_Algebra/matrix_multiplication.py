@@ -9,9 +9,9 @@ import pysycl
 device = pysycl.device.get_device(0, 0)
 
 # Matrix dimensions
-N = 6400
-P = 6400
-M = 6400
+N = 3200
+P = 3200
+M = 3200
 
 # numpy
 A_np = np.full((M, N), 2.0, dtype=np.float64)
