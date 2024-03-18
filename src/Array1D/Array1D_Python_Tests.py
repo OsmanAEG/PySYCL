@@ -600,7 +600,7 @@ class TestArray1D_Reductions(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # MAX, MIN, SUM TESTS
-  def reductions(self):
+  def test_reductions(self):
     for N in [10, 100, 250]:
       A_np = np.random.rand(N)
       A_pysycl = pysycl.array(N, device= self.device, dtype= pysycl.double)

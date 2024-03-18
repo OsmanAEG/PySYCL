@@ -166,6 +166,13 @@ void bind_array_2d(py::module &m, const std::string& arr2d_type) {
       Example
         >>> sum = A.sum()
       )delim")
+      .def("transpose", &Array2D_T::transpose, R"delim(
+      Description
+        This function finds the tranpose of the array.
+
+      Example
+        >>> A.transpose()
+      )delim")
       .def("__getitem__",
            [](Array2D_T &self, std::pair<int, int> idx) {
              return self(idx.first, idx.second);

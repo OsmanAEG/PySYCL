@@ -30,5 +30,10 @@ class Device_Manager_Tests(unittest.TestCase):
     name = dev.name()
     vendor = dev.vendor()
 
+    self.assertIsNotNone(device_manager, "pysycl.device.get_device_manager() failed")
+    self.assertIsNotNone(dev, "pysycl.device.get_device(0,0) failed.")
+    self.assertIsNotNone(name, "name function failed.")
+    self.assertIsNotNone(vendor, "vendor function failed.")
+
 if __name__ == '__main__':
   unittest.main()

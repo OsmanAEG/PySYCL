@@ -24,10 +24,14 @@ class Data_Type_Tests(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # SETTING DATA TYPES
-  def setting_data_types(self):
+  def test_setting_data_types(self):
     float64 = pysycl.double
     float32 = pysycl.float
     int_t   = pysycl.int
+
+    self.assertIsNotNone(float64, "pysycl.double failed.")
+    self.assertIsNotNone(float32, "pysycl.float failed.")
+    self.assertIsNotNone(int_t, "pysycl.int failed.")
 
 if __name__ == '__main__':
   unittest.main()

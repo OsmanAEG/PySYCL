@@ -24,8 +24,10 @@ class Device_Inquiry_Tests(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # DEVICE INQUIRY
-  def device_inquiry(self):
+  def test_device_inquiry(self):
     devices = pysycl.device.get_device_list()
+
+    self.assertIsNotNone(devices, "pysycl.device.get_device_list() failed.")
 
 if __name__ == '__main__':
   unittest.main()

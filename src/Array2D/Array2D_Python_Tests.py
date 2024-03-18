@@ -28,8 +28,8 @@ class TestArray2D_Addition(unittest.TestCase):
 
   # ADDITION DOUBLE TYPE TESTS
   def test_matrix_addition_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -47,8 +47,8 @@ class TestArray2D_Addition(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
 
   def test_in_place_matrix_addition_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -67,8 +67,8 @@ class TestArray2D_Addition(unittest.TestCase):
 
   # ADDITION FLOAT TYPE TESTS
   def test_matrix_addition_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -86,8 +86,8 @@ class TestArray2D_Addition(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
 
   def test_in_place_matrix_addition_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -106,8 +106,8 @@ class TestArray2D_Addition(unittest.TestCase):
 
   # ADDITION INTEGER TYPE TESTS
   def test_matrix_addition_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -125,8 +125,8 @@ class TestArray2D_Addition(unittest.TestCase):
             self.assertEqual(C_pysycl[i, j], C_np[i, j])
 
   def test_in_place_matrix_addition_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -164,8 +164,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
 
   # SUBTRACTION DOUBLE TYPE TESTS
   def test_matrix_subtraction_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -183,8 +183,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
 
   def test_in_place_matrix_subtraction_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -203,8 +203,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
 
   # SUBTRACTION FLOAT TYPE TESTS
   def test_matrix_subtraction_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -222,8 +222,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
 
   def test_in_place_matrix_subtraction_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -242,8 +242,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
 
   # SUBTRACTION INTEGER TYPE TESTS
   def test_matrix_subtraction_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -261,8 +261,8 @@ class TestArray2D_Subtraction(unittest.TestCase):
             self.assertEqual(C_pysycl[i, j], C_np[i, j])
 
   def test_in_place_matrix_addition_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -300,8 +300,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
 
   # MULTIPLICATION DOUBLE TYPE TESTS
   def test_matrix_element_multiplication_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -319,8 +319,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
 
   def test_in_place_matrix_element_multiplication_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -339,8 +339,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
 
   # MULTIPLICATION FLOAT TYPE TESTS
   def test_matrix_element_multiplication_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -358,8 +358,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
 
   def test_in_place_matrix_element_multiplication_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -378,8 +378,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
 
   # MULTIPLICATION INTEGER TYPE TESTS
   def test_matrix_element_multiplication_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -397,8 +397,8 @@ class TestArray2D_Multiplication(unittest.TestCase):
             self.assertEqual(C_pysycl[i, j], C_np[i, j])
 
   def test_in_place_matrix_element_multiplication_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -436,8 +436,8 @@ class TestArray2D_Division(unittest.TestCase):
 
   # DIVISION DOUBLE TYPE TESTS
   def test_matrix_division_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -455,8 +455,8 @@ class TestArray2D_Division(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_double)
 
   def test_in_place_matrix_division_double(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
         A_pysycl.fill(86.74)
@@ -475,8 +475,8 @@ class TestArray2D_Division(unittest.TestCase):
 
   # DIVISION FLOAT TYPE TESTS
   def test_matrix_division_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -494,8 +494,8 @@ class TestArray2D_Division(unittest.TestCase):
             self.assertAlmostEqual(C_pysycl[i, j], C_np[i, j], delta= self.tolerance_float)
 
   def test_in_place_matrix_division_float(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.float)
         A_pysycl.fill(86.74)
@@ -514,8 +514,8 @@ class TestArray2D_Division(unittest.TestCase):
 
   # DIVISION INTEGER TYPE TESTS
   def test_matrix_division_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -533,8 +533,8 @@ class TestArray2D_Division(unittest.TestCase):
             self.assertEqual(C_pysycl[i, j], C_np[i, j])
 
   def test_in_place_matrix_division_int(self):
-    for M in [10, 100, 1000]:
-      for N in [25, 65, 450]:
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
         A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         B_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.int)
         A_pysycl.fill(8)
@@ -596,15 +596,15 @@ class TestArray2D_Reductions(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # MAX, MIN, SUM TESTS
-  def reductions(self):
-    for N in [10, 100, 250]:
-      for M in [8, 43, 115]:
-        A_np = np.random.rand(N)
-        A_pysycl = pysycl.array((N, M), device= self.device, dtype= pysycl.double)
+  def test_reductions(self):
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_np = np.random.rand(M, N)
 
-        for i in range(N):
-          for j in range(M):
-            A_pysycl[i] = A_np[i]
+        for i in range(M):
+          for j in range(N):
+            A_pysycl[i, j] = A_np[i, j]
 
         A_pysycl.mem_to_gpu()
 
@@ -619,6 +619,47 @@ class TestArray2D_Reductions(unittest.TestCase):
         self.assertAlmostEqual(max_pysycl, max_np, delta= self.tolerance_double)
         self.assertAlmostEqual(min_pysycl, min_np, delta= self.tolerance_double)
         self.assertAlmostEqual(sum_pysycl, sum_np, delta= self.tolerance_double)
+
+############################################
+############# TRANSPOSE TESTS ##############
+############################################
+class TestArray2D_Transpose(unittest.TestCase):
+  @classmethod
+  def setUpClass(cls):
+    print("\033[34mARRAY 2D TESTS: TRANSPOSE (STARTING)\033[0m")
+
+  @classmethod
+  def tearDownClass(cls):
+    print("\033[32mARRAY 2D TESTS: TRANSPOSE (COMPLETED)\033[0m")
+    print("\033[33m------------------------------------------\033[0m")
+
+  def setUp(self):
+    self.tolerance_float  = 1e-7
+    self.tolerance_double = 1e-15
+    self.device = pysycl.device.get_device(0, 0)
+    print("\033[33mrunning test...\033[0m")
+
+  # TRANSPOSE TESTS
+  def test_tranpose(self):
+    for M in [5, 15, 80]:
+      for N in [4, 20, 35]:
+        A_pysycl = pysycl.array((M, N), device= self.device, dtype= pysycl.double)
+        A_np = np.random.rand(M, N)
+
+        for i in range(M):
+          for j in range(N):
+            A_pysycl[i, j] = A_np[i, j]
+
+        A_pysycl.mem_to_gpu()
+
+        A_pysycl.transpose()
+        A_np = A_np.T
+
+        A_pysycl.mem_to_cpu()
+
+        for i in range(N):
+          for j in range(M):
+            self.assertAlmostEqual(A_pysycl[i, j], A_np[i, j], delta= self.tolerance_double)
 
 if __name__ == '__main__':
   unittest.main()

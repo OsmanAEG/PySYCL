@@ -332,12 +332,50 @@ public:
   auto min() {
     return reductions(sycl::minimum<Scalar_T>(),
                       std::numeric_limits<Scalar_T>::max());
-  };
+  }
 
   ///////////////////////////////////////////////////////////////////////
   /// \brief Function that finds the sum of all values in the array
   /// \return Sum of all values in the array
-  auto sum() { return reductions(sycl::plus<Scalar_T>()); };
+  auto sum() { return reductions(sycl::plus<Scalar_T>()); }
+
+  ///////////////////////////////////////////////////////////////////////
+  /// \brief Function that transposes the array
+  void transpose() {
+    const int rows_old = rows;
+    const int cols_old = cols;
+
+    rows = cols_old;
+    cols = rows_old;
+
+    Scalar_T* old_data = sycl::malloc_device<Scalar_T>(rows_old * cols_old, Q);
+
+    auto setup = Q.submit([&](sycl::handler &h) {
+      auto data_device_ptr = data_device;
+
+      h.parallel_for(sycl::range<2>(rows_old, cols_old), [=](sycl::id<2> idx){
+        const int i = idx[0];
+        const int j = idx[1];
+
+        old_data[i * cols_old + j] = data_device_ptr[i * cols_old + j];
+      });
+    });
+
+    Q.submit([&](sycl::handler &h) {
+      auto data_device_ptr = data_device;
+
+      h.depends_on(setup);
+
+      h.parallel_for(sycl::range<2>(rows_old, cols_old), [=](sycl::id<2> idx){
+        const int i = idx[0];
+        const int j = idx[1];
+
+        data_device_ptr[j * rows_old + i] = old_data[i * cols_old + j];
+      });
+    }).wait();
+
+    sycl::free(old_data, Q);
+  }
 
 private:
   ///////////////////////////////////////////////////////////////////////
@@ -455,7 +493,7 @@ private:
 
                         el.combine(data_device_ptr[idx]);
                       });
-     }).wait();
+    }).wait();
 
     sycl::host_accessor val_host{buf, sycl::read_only};
     val = val_host[0];

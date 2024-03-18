@@ -24,10 +24,13 @@ class Device_Instance_Tests(unittest.TestCase):
     print("\033[33mrunning test...\033[0m")
 
   # DEVICE INSTANCE
-  def device_instance(self):
+  def test_device_instance(self):
     Q = pysycl.device.get_device(0,0);
     name = Q.name()
-    vencor = Q.vendor()
+    vendor = Q.vendor()
 
+    self.assertIsNotNone(Q, "pysycl.device.get_device(0,0) failed.")
+    self.assertIsNotNone(name, "name function failed.")
+    self.assertIsNotNone(vendor, "vendor function failed.")
 if __name__ == '__main__':
   unittest.main()
