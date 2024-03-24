@@ -15,7 +15,8 @@ Find the user-guide here: https://osmanaeg.github.io/PySYCL/user-guide.html
 
 # Developer Guide
 The PySYCL Developer Guide is intended for developers aiming to contribute to the PySYCL backend. It provided developers with a complete set of documentation for the projects backend.
-https://osmanaeg.github.io/PySYCL/dev-guide.html
+
+Find the dev-guide here: https://osmanaeg.github.io/PySYCL/dev-guide.html
 
 # Installation
 Installation guides for various development enviornments will be made available here.
