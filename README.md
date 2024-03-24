@@ -3,17 +3,26 @@ PySYCL is an open-source Python interface for SYCL that enables Python applicati
 
 ![pysycl_equals](https://github.com/OsmanAEG/PySYCL/assets/79581083/ba5a297e-0941-4034-bb34-1bf97b4c7e91)
 
-# Website
-https://osmanaeg.github.io/PySYCL/
+# Official Website
+The official PySYCL website serves as the central hub for all things PySYCL. Get the latest PySYCL news, updates, and community resources, documentation, tutorials, and examples.
+
+Access the official website here: https://osmanaeg.github.io/PySYCL/
 
 # User Guide
-https://osmanaeg.github.io/PySYCL/user-guide.html
+The PySYCL User Guide is intended for python users aiming to leverage PySYCL in their projects. It covers basic concepts and practical examples to get started.
+
+Find the user-guide here: https://osmanaeg.github.io/PySYCL/user-guide.html
 
 # Developer Guide
+The PySYCL Developer Guide is intended for developers aiming to contribute to the PySYCL backend. It provided developers with a complete set of documentation for the projects backend.
 https://osmanaeg.github.io/PySYCL/dev-guide.html
 
 # Installation
-This project is still currently under development. Eventually there will be official installation guides available to the user. However, if you wish to build this project on your local machine, please reach out to me.
+Installation guides for various development enviornments will be made available here.
+
+## Installing PySYCL on Ubuntu WSL2 with CUDA
+
+This guide provides instructions for setting up PySYCL on Windows 11 with an Ubuntu WSL2 enviornment with CUDA. 
 
 # Inquiries
 I will include contact information here for any inquires about the project.
