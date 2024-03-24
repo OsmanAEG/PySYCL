@@ -38,9 +38,9 @@ class Device_Instance_Tests(unittest.TestCase):
     B_np = np.full((N, P), 4.0, dtype=np.float64)
     C_np = np.full((M, P), 0.0, dtype=np.float64)
 
-    A_pysycl = pysycl.array((M, N), device= device, dtype = pysycl.double)
-    B_pysycl = pysycl.array((N, P), device= device, dtype = pysycl.double)
-    C_pysycl = pysycl.array((M, P), device= device, dtype = pysycl.double)
+    A_pysycl = pysycl.matrix((M, N), device= device, dtype = pysycl.double)
+    B_pysycl = pysycl.matrix((N, P), device= device, dtype = pysycl.double)
+    C_pysycl = pysycl.matrix((M, P), device= device, dtype = pysycl.double)
 
     A_pysycl.fill(2.0)
     B_pysycl.fill(4.0)
@@ -67,9 +67,9 @@ class Device_Instance_Tests(unittest.TestCase):
     B_np = np.full((N, P), 4.0, dtype=np.float32)
     C_np = np.full((M, P), 0.0, dtype=np.float32)
 
-    A_pysycl = pysycl.array((M, N), device= device, dtype = pysycl.float)
-    B_pysycl = pysycl.array((N, P), device= device, dtype = pysycl.float)
-    C_pysycl = pysycl.array((M, P), device= device, dtype = pysycl.float)
+    A_pysycl = pysycl.matrix((M, N), device= device, dtype = pysycl.float)
+    B_pysycl = pysycl.matrix((N, P), device= device, dtype = pysycl.float)
+    C_pysycl = pysycl.matrix((M, P), device= device, dtype = pysycl.float)
 
     A_pysycl.fill(2.0)
     B_pysycl.fill(4.0)
@@ -96,9 +96,9 @@ class Device_Instance_Tests(unittest.TestCase):
     B_np = np.full((N, P), 4, dtype=np.int32)
     C_np = np.full((M, P), 0, dtype=np.int32)
 
-    A_pysycl = pysycl.array((M, N), device= device, dtype = pysycl.int)
-    B_pysycl = pysycl.array((N, P), device= device, dtype = pysycl.int)
-    C_pysycl = pysycl.array((M, P), device= device, dtype = pysycl.int)
+    A_pysycl = pysycl.matrix((M, N), device= device, dtype = pysycl.int)
+    B_pysycl = pysycl.matrix((N, P), device= device, dtype = pysycl.int)
+    C_pysycl = pysycl.matrix((M, P), device= device, dtype = pysycl.int)
 
     A_pysycl.fill(2)
     B_pysycl.fill(4)

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['binaryoperation_159',['BinaryOperation',['../classpysycl_1_1_array1_d.html#a245d5c82e792615974be877bf454a957',1,'pysycl::Array1D::BinaryOperation()'],['../classpysycl_1_1_array2_d.html#af9c1498f5f031bff3f35cab5e0665f02',1,'pysycl::Array2D::BinaryOperation()']]]
+  ['binaryoperation_176',['BinaryOperation',['../classpysycl_1_1_matrix.html#a7869bd364f6946647efaa78c52afb391',1,'pysycl::Matrix::BinaryOperation()'],['../classpysycl_1_1_vector.html#a6651baf7b918cd8a29806ea9deaa2984',1,'pysycl::Vector::BinaryOperation()']]]
 ];

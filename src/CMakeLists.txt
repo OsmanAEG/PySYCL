@@ -43,12 +43,11 @@ include(CMake/PyBind11.cmake)
 # ######################################################################
 # # Subdirectories
 # ######################################################################
-add_subdirectory(Array)
-add_subdirectory(Array1D)
-add_subdirectory(Array2D)
 add_subdirectory(Data_Types)
 add_subdirectory(Device)
 add_subdirectory(Linear_Algebra)
+add_subdirectory(Matrix)
+add_subdirectory(Vector)
 
 # ######################################################################
 # # Python Test Suite

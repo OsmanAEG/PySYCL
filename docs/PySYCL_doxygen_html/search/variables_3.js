@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['q_154',['Q',['../classpysycl_1_1_array1_d.html#a558320e119e683d9b1a06287c32739d5',1,'pysycl::Array1D::Q()'],['../classpysycl_1_1_array2_d.html#a91ca86c7f069033cec1f6199d5b43a39',1,'pysycl::Array2D::Q()'],['../group___device.html#ga64f4163d091013ece5a2fc71c6adf691',1,'pysycl::Device_Instance::Q()']]]
+  ['q_170',['Q',['../group___device.html#ga64f4163d091013ece5a2fc71c6adf691',1,'pysycl::Device_Instance::Q()'],['../classpysycl_1_1_matrix.html#a6d6cddfbb73514131489a96cd871a5b9',1,'pysycl::Matrix::Q()'],['../classpysycl_1_1_vector.html#a862b87014b5134f1cc4251dc74fbdc28',1,'pysycl::Vector::Q()']]]
 ];

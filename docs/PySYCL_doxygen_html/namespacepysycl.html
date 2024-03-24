@@ -92,47 +92,52 @@ $(document).ready(function(){initNavTree('namespacepysycl.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">pysycl Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The main namespace for the program, pysycl.  
+<p>Linear Algebra functionalities in PySYCL.  
 <a href="namespacepysycl.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array1_d.html">Array1D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpysycl_1_1_array1_d.html" title="Array1D class for PySYCL.">Array1D</a> class for PySYCL.  <a href="classpysycl_1_1_array1_d.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a> class for PySYCL.  <a href="classpysycl_1_1_array2_d.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___instance.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_device___manager.html">Device_Manager</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a device instance.  <a href="classpysycl_1_1_device___manager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_matrix.html">Matrix</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> class for PySYCL.  <a href="classpysycl_1_1_matrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpysycl_1_1_vector.html">Vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpysycl_1_1_vector.html" title="Vector class for PySYCL.">Vector</a> class for PySYCL.  <a href="classpysycl_1_1_vector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga268dd29e91dbc33fc9bde406ab8af3e8"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Matrix_Variants</b> = std::variant&lt; <a class="el" href="classpysycl_1_1_matrix.html">Matrix</a>&lt; double &gt;, <a class="el" href="classpysycl_1_1_matrix.html">Matrix</a>&lt; float &gt;, <a class="el" href="classpysycl_1_1_matrix.html">Matrix</a>&lt; int &gt; &gt;</td></tr>
+<tr class="separator:ga268dd29e91dbc33fc9bde406ab8af3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf057d25515d9fddcf130bb38e9b6a5e0"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Vector_Variants</b> = std::variant&lt; <a class="el" href="classpysycl_1_1_vector.html">Vector</a>&lt; double &gt;, <a class="el" href="classpysycl_1_1_vector.html">Vector</a>&lt; float &gt;, <a class="el" href="classpysycl_1_1_vector.html">Vector</a>&lt; int &gt; &gt;</td></tr>
+<tr class="separator:gaf057d25515d9fddcf130bb38e9b6a5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gadd3366a2a7918736064f09238c4b2838"><td class="memItemLeft" align="right" valign="top"><a id="gadd3366a2a7918736064f09238c4b2838"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data.html#gadd3366a2a7918736064f09238c4b2838">Data_Types</a> { <b>DOUBLE</b>
+, <b>FLOAT</b>
+, <b>INT</b>
+ }</td></tr>
+<tr class="memdesc:gadd3366a2a7918736064f09238c4b2838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data types. <br /></td></tr>
+<tr class="separator:gadd3366a2a7918736064f09238c4b2838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga7fcd0ddab81db1e894a12ba0cb0987a1"><td class="memTemplParams" colspan="2">
-template&lt;typename Scalar_type , typename... Args&gt; </td></tr>
-<tr class="memitem:ga7fcd0ddab81db1e894a12ba0cb0987a1"><td class="memTemplItemLeft" align="right" valign="top">std::variant&lt; <a class="el" href="classpysycl_1_1_array1_d.html">Array1D</a>&lt; Scalar_type &gt;, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___array.html#ga7fcd0ddab81db1e894a12ba0cb0987a1">array_selector</a> (Args... args)</td></tr>
-<tr class="memdesc:ga7fcd0ddab81db1e894a12ba0cb0987a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle the selection of a PySYCL Array type based on input dimensions. <br /></td></tr>
-<tr class="separator:ga7fcd0ddab81db1e894a12ba0cb0987a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae68edb6cd8e0cc32cc9432a1e613a718"><td class="memTemplParams" colspan="2">
-template&lt;typename Scalar_type &gt; </td></tr>
-<tr class="memitem:gae68edb6cd8e0cc32cc9432a1e613a718"><td class="memTemplItemLeft" align="right" valign="top">std::variant&lt; <a class="el" href="classpysycl_1_1_array1_d.html">Array1D</a>&lt; Scalar_type &gt;, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___array.html#gae68edb6cd8e0cc32cc9432a1e613a718">array_selector</a> (int dims, <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;device=get_device())</td></tr>
-<tr class="memdesc:gae68edb6cd8e0cc32cc9432a1e613a718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function specialization for <a class="el" href="classpysycl_1_1_array1_d.html" title="Array1D class for PySYCL.">Array1D</a>. <br /></td></tr>
-<tr class="separator:gae68edb6cd8e0cc32cc9432a1e613a718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff5525db61747156cab15806755750f7"><td class="memTemplParams" colspan="2">
-template&lt;typename Scalar_type &gt; </td></tr>
-<tr class="memitem:gaff5525db61747156cab15806755750f7"><td class="memTemplItemLeft" align="right" valign="top">std::variant&lt; <a class="el" href="classpysycl_1_1_array1_d.html">Array1D</a>&lt; Scalar_type &gt;, <a class="el" href="classpysycl_1_1_array2_d.html">Array2D</a>&lt; Scalar_type &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___array.html#gaff5525db61747156cab15806755750f7">array_selector</a> (std::tuple&lt; int, int &gt; dims, <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;device=get_device())</td></tr>
-<tr class="memdesc:gaff5525db61747156cab15806755750f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function specialization for <a class="el" href="classpysycl_1_1_array2_d.html" title="Array2D class for PySYCL.">Array2D</a>. <br /></td></tr>
-<tr class="separator:gaff5525db61747156cab15806755750f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga05b8a8b68116eb84bc713b15cf291f90"><td class="memItemLeft" align="right" valign="top">
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___device.html#ga05b8a8b68116eb84bc713b15cf291f90">get_device_list</a> ()</td></tr>
 <tr class="memdesc:ga05b8a8b68116eb84bc713b15cf291f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a list of available devices. <br /></td></tr>
@@ -140,21 +145,86 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memitem:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_device</b> (int platform_idx=0, int device_idx=0)</td></tr>
 <tr class="separator:ga3e14b0f0a372da5f73c4e8afcf278a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplParams" colspan="2">template&lt;typename Array2D_type &gt; </td></tr>
-<tr class="memitem:ga890b1552ed2b672fa71654756b8f44d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">matmul</a> (Array2D_type &amp;A, Array2D_type &amp;B, Array2D_type &amp;C, const size_t &amp;wg_size)</td></tr>
-<tr class="memdesc:ga890b1552ed2b672fa71654756b8f44d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled Matrix multiplication function.  <a href="group___linear___algebra.html#ga890b1552ed2b672fa71654756b8f44d4">More...</a><br /></td></tr>
-<tr class="separator:ga890b1552ed2b672fa71654756b8f44d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe65fdf9301fcb037c5e4f8b7de603d"><td class="memTemplParams" colspan="2">template&lt;typename Matrix_type &gt; </td></tr>
+<tr class="memitem:a5fe65fdf9301fcb037c5e4f8b7de603d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepysycl.html#a5fe65fdf9301fcb037c5e4f8b7de603d">matmul</a> (Matrix_type &amp;A, Matrix_type &amp;B, Matrix_type &amp;C, const size_t &amp;wg_size)</td></tr>
+<tr class="memdesc:a5fe65fdf9301fcb037c5e4f8b7de603d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiled <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> multiplication function.  <a href="namespacepysycl.html#a5fe65fdf9301fcb037c5e4f8b7de603d">More...</a><br /></td></tr>
+<tr class="separator:a5fe65fdf9301fcb037c5e4f8b7de603d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82ef1d9821c0cbe1f7b0138417e8fc35"><td class="memItemLeft" align="right" valign="top">
+Matrix_Variants&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___matrix.html#ga82ef1d9821c0cbe1f7b0138417e8fc35">matrix_factories</a> (std::tuple&lt; int, int &gt; dims, <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;device, <a class="el" href="group___data.html#gadd3366a2a7918736064f09238c4b2838">Data_Types</a> &amp;dtype)</td></tr>
+<tr class="memdesc:ga82ef1d9821c0cbe1f7b0138417e8fc35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function specialization for <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a>. <br /></td></tr>
+<tr class="separator:ga82ef1d9821c0cbe1f7b0138417e8fc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59dc765a02839da35ef53af68146c52f"><td class="memItemLeft" align="right" valign="top">
+Vector_Variants&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___vector.html#ga59dc765a02839da35ef53af68146c52f">vector_factories</a> (int dims, <a class="el" href="classpysycl_1_1_device___instance.html">Device_Instance</a> &amp;device, <a class="el" href="group___data.html#gadd3366a2a7918736064f09238c4b2838">Data_Types</a> &amp;dtype)</td></tr>
+<tr class="memdesc:ga59dc765a02839da35ef53af68146c52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function factory for <a class="el" href="classpysycl_1_1_vector.html" title="Vector class for PySYCL.">Vector</a> Types. <br /></td></tr>
+<tr class="separator:ga59dc765a02839da35ef53af68146c52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The main namespace for the program, pysycl. </p>
+<div class="textblock"><p>Linear Algebra functionalities in PySYCL. </p>
+<p>The main namespace for the program, pysycl.</p>
 <p>All components of the code are in this namespace </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5fe65fdf9301fcb037c5e4f8b7de603d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe65fdf9301fcb037c5e4f8b7de603d">&#9670;&nbsp;</a></span>matmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Matrix_type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void pysycl::matmul </td>
+          <td>(</td>
+          <td class="paramtype">Matrix_type &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix_type &amp;&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix_type &amp;&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>wg_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tiled <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> multiplication function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>The first <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> that is being multiplied. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>The second <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> that is being multiplied. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">C</td><td>The <a class="el" href="classpysycl_1_1_matrix.html" title="Matrix class for PySYCL.">Matrix</a> containing the result of the multiplication. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wg_size</td><td>The tile size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_matrix___multiplication_8h_source.html#l00045">45</a> of file <a class="el" href="_matrix___multiplication_8h_source.html">Matrix_Multiplication.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepysycl.html">pysycl</a></li>
-    <li class="footer">Generated on Sun Mar 10 2024 18:46:03 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 24 2024 13:12:25 for PySYCL Dev Guide by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

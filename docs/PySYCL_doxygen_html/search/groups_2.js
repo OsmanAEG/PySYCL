@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linear_5falgebra_164',['Linear_Algebra',['../group___linear___algebra.html',1,'']]]
+  ['types_180',['Types',['../group___data.html',1,'']]]
 ];

@@ -1,8 +1,8 @@
 var files_dup =
 [
-    [ "Array", "dir_2dc110b2c2800a73721ee28665c41de0.html", "dir_2dc110b2c2800a73721ee28665c41de0" ],
-    [ "Array1D", "dir_12bf208e2031f091e0c200c7a7cb822f.html", "dir_12bf208e2031f091e0c200c7a7cb822f" ],
-    [ "Array2D", "dir_224ac7b824186f4773522b8bb0743517.html", "dir_224ac7b824186f4773522b8bb0743517" ],
+    [ "Data_Types", "dir_8a42088feef58cff509f54bc664f34ad.html", "dir_8a42088feef58cff509f54bc664f34ad" ],
     [ "Device", "dir_737e998198a830156af4433d00da986d.html", "dir_737e998198a830156af4433d00da986d" ],
-    [ "Linear_Algebra", "dir_048d98b6635f6f7d0d13e92ba82f3b00.html", "dir_048d98b6635f6f7d0d13e92ba82f3b00" ]
+    [ "Linear_Algebra", "dir_048d98b6635f6f7d0d13e92ba82f3b00.html", "dir_048d98b6635f6f7d0d13e92ba82f3b00" ],
+    [ "Matrix", "dir_b16e19d0c4a2719fd01fb3b9035a19cd.html", "dir_b16e19d0c4a2719fd01fb3b9035a19cd" ],
+    [ "Vector", "dir_d2653df67fea485f1bf2e407794c9984.html", "dir_d2653df67fea485f1bf2e407794c9984" ]
 ];

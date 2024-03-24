@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['binary_5fmatrix_5foperations_13',['binary_matrix_operations',['../classpysycl_1_1_array2_d.html#ae6458bac68c5c2a0cda7364300d0961f',1,'pysycl::Array2D']]],
-  ['binary_5fvector_5foperations_14',['binary_vector_operations',['../classpysycl_1_1_array1_d.html#a74d27efa6122da75ed5bd8258bb29904',1,'pysycl::Array1D']]],
-  ['binaryoperation_15',['BinaryOperation',['../classpysycl_1_1_array1_d.html#a245d5c82e792615974be877bf454a957',1,'pysycl::Array1D::BinaryOperation()'],['../classpysycl_1_1_array2_d.html#af9c1498f5f031bff3f35cab5e0665f02',1,'pysycl::Array2D::BinaryOperation()']]]
+  ['cols_4',['cols',['../classpysycl_1_1_matrix.html#a2f73d95c80cde5743664d9a8bdee00f1',1,'pysycl::Matrix']]]
 ];

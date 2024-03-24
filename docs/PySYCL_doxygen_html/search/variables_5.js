@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size_156',['size',['../classpysycl_1_1_array1_d.html#ac53c4dfb14604861a0315d2febfed996',1,'pysycl::Array1D']]]
+  ['size_172',['size',['../classpysycl_1_1_vector.html#a391579a7f67afe2cbc5067ad4670440c',1,'pysycl::Vector']]]
 ];

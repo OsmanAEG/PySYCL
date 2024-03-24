@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['binary_5fmatrix_5foperations_107',['binary_matrix_operations',['../classpysycl_1_1_array2_d.html#ae6458bac68c5c2a0cda7364300d0961f',1,'pysycl::Array2D']]],
-  ['binary_5fvector_5foperations_108',['binary_vector_operations',['../classpysycl_1_1_array1_d.html#a74d27efa6122da75ed5bd8258bb29904',1,'pysycl::Array1D']]]
+  ['device_5finquiry_5fmodule_119',['device_inquiry_module',['../_device___inquiry___python___module_8h.html#a7f0a529b52249231aefc70c1cb81e232',1,'Device_Inquiry_Python_Module.h']]],
+  ['device_5finstance_120',['Device_Instance',['../group___device.html#gaaff26c4d0d7b11fbb38cc256e3949ec4',1,'pysycl::Device_Instance::Device_Instance(const Device_Instance &amp;)=default'],['../group___device.html#ga0bd9318e415a494c69a2fd57ce20cc28',1,'pysycl::Device_Instance::Device_Instance(Device_Instance &amp;&amp;)=default'],['../group___device.html#ga1d65787fdbb9917999035f48e375f0c9',1,'pysycl::Device_Instance::Device_Instance(int platform_idx_in=0, int device_idx_in=0)']]],
+  ['device_5finstance_5fmodule_121',['device_instance_module',['../_device___instance___python___module_8h.html#aa17e1e7d3f713714e065f7c9b22d7ebb',1,'Device_Instance_Python_Module.h']]],
+  ['device_5fmanager_122',['Device_Manager',['../group___device.html#ga12b90568c3dc6de58d411ef163f57f3e',1,'pysycl::Device_Manager::Device_Manager(const Device_Manager &amp;)=delete'],['../group___device.html#gad47bdf464d643ba3ff38f4d59c7e056a',1,'pysycl::Device_Manager::Device_Manager()=default']]],
+  ['device_5fmanager_5fmodule_123',['device_manager_module',['../_device___manager___python___module_8h.html#aa42e993eeaa7fb39ef0b34b72be1360d',1,'Device_Manager_Python_Module.h']]]
 ];

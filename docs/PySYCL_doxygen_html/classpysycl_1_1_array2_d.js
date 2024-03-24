@@ -40,6 +40,7 @@ var classpysycl_1_1_array2_d =
     [ "operator=", "classpysycl_1_1_array2_d.html#a6b998bb9ce3095a59542f60a69eaf53a", null ],
     [ "reductions", "classpysycl_1_1_array2_d.html#a507eba7743cd310a4c5f517bb5711e6f", null ],
     [ "sum", "classpysycl_1_1_array2_d.html#a9c9e10bcbf20a3e2332ab17314a57bfd", null ],
+    [ "transpose", "classpysycl_1_1_array2_d.html#acb482ed8838717e1c529d225d6081149", null ],
     [ "cols", "classpysycl_1_1_array2_d.html#a5ececf2b6b5000eca2ba18c2e7841e19", null ],
     [ "data_device", "classpysycl_1_1_array2_d.html#a8dae9c2cb46137dd7823663b2c52cef8", null ],
     [ "data_host", "classpysycl_1_1_array2_d.html#af77ec5f5e06c184a9f8ee49083407a50", null ],

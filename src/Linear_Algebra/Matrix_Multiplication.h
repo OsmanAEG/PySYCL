@@ -18,31 +18,33 @@
 /// \brief Matrix Multiplication in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 
+/// Linear Algebra functionalities in PySYCL
+
 ///////////////////////////////////////////////////////////////////////
-/// sycl
+// sycl
 ///////////////////////////////////////////////////////////////////////
 #include <CL/sycl.hpp>
 
 ///////////////////////////////////////////////////////////////////////
-/// local
+// local
 ///////////////////////////////////////////////////////////////////////
 #include "../Device/Device_Instance.h"
 
 ///////////////////////////////////////////////////////////////////////
-/// \addtogroup Linear_Algebra
+// \addtogroup Linear_Algebra
 /// @{
 namespace pysycl {
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief Tiled Matrix multiplication function.
-/// \param[in] A The first Array2D that is being multiplied.
-/// \param[in] B The second Array2D that is being multiplied.
-/// \param[in] C The resulting Array2D.
+/// \param[in] A The first Matrix that is being multiplied.
+/// \param[in] B The second Matrix that is being multiplied.
+/// \param[in] C The Matrix containing the result of the multiplication.
 /// \param[in] wg_size The tile size.
-template <typename Array2D_type>
-void matmul(Array2D_type &A, Array2D_type &B, Array2D_type &C,
+template <typename Matrix_type>
+void matmul(Matrix_type &A, Matrix_type &B, Matrix_type &C,
             const size_t &wg_size) {
-  using Scalar_T = typename Array2D_type::Scalar_T;
+  using Scalar_T = typename Matrix_type::Scalar_T;
 
   if (A.num_cols() != B.num_rows()) {
     throw std::runtime_error("ERROR: Incompatible Array2D dimensions.");

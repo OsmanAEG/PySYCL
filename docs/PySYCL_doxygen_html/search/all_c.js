@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['reductions_72',['reductions',['../classpysycl_1_1_array1_d.html#a0165dfeff2717eff7d280a5ed487127a',1,'pysycl::Array1D::reductions()'],['../classpysycl_1_1_array2_d.html#a507eba7743cd310a4c5f517bb5711e6f',1,'pysycl::Array2D::reductions(Operation_T op, Scalar_T val=0.0)']]],
-  ['rows_73',['rows',['../classpysycl_1_1_array2_d.html#ae6d54c814710fba7b9b06ab866979b23',1,'pysycl::Array2D']]]
+  ['scalar_5ft_73',['Scalar_T',['../classpysycl_1_1_matrix.html#a46c30c509247436f61f2b8cc8ba5ee06',1,'pysycl::Matrix::Scalar_T()'],['../classpysycl_1_1_vector.html#a1095ad2d05b4c91e9878fe544a003c0c',1,'pysycl::Vector::Scalar_T()']]],
+  ['size_74',['size',['../classpysycl_1_1_vector.html#a391579a7f67afe2cbc5067ad4670440c',1,'pysycl::Vector']]],
+  ['sum_75',['sum',['../classpysycl_1_1_matrix.html#aeb44fc62728e05705bdb9a2b6b804099',1,'pysycl::Matrix::sum()'],['../classpysycl_1_1_vector.html#a17bcfd4fb24640c4b74b7cb2f9feaa9b',1,'pysycl::Vector::sum()']]]
 ];

@@ -18,16 +18,18 @@
 /// \brief Python module for a matrix multiplication in PySYCL.
 ///////////////////////////////////////////////////////////////////////
 
+/// Linear Algebra functionalities in PySYCL
+
 ///////////////////////////////////////////////////////////////////////
-/// pybind11
+// pybind11
 ///////////////////////////////////////////////////////////////////////
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
 ///////////////////////////////////////////////////////////////////////
-/// local
+// local
 ///////////////////////////////////////////////////////////////////////
-#include "../Array2D/Array2D.h"
+#include "../Matrix/Matrix_Type.h"
 #include "Matrix_Multiplication.h"
 
 namespace py = pybind11;
@@ -37,8 +39,8 @@ namespace py = pybind11;
 ///////////////////////////////////////////////////////////////////////
 template<typename Scalar_T>
 void bind_matmul_module(py::module &m) {
-  using Array2D_T = pysycl::Array2D<Scalar_T>;
-  m.def("matmul", &pysycl::matmul<Array2D_T>, R"delim(
+  using Matrix_T = pysycl::Matrix<Scalar_T>;
+  m.def("matmul", &pysycl::matmul<Matrix_T>, R"delim(
     Description
       This function evaluates a matrix multiplication and returns the result.
 

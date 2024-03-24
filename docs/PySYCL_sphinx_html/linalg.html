@@ -3,9 +3,9 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="PySYCL: Device Sub-Module" href="device.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="PySYCL: Matrix Sub-Module" href="matrix.html" /><link rel="prev" title="PySYCL: Device Sub-Module" href="device.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>PySYCL: Linear Algebra Sub-Module - PySYCL User Guide</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=82a976d7" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
@@ -159,10 +159,11 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">PySYCL Python Module</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of PySYCL Python Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="array_1d.html">PySYCL: Array1D Sub-Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="array_2d.html">PySYCL: Array2D Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">PySYCL: Data Types Sub-Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device.html">PySYCL: Device Sub-Module</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PySYCL: Linear Algebra Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">PySYCL: Matrix Sub-Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">PySYCL: Vector Sub-Module</a></li>
 </ul>
 </li>
 </ul>
@@ -207,8 +208,12 @@
 </dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="pysycl.linalg.matmul">
-<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pysycl.html#pysycl.array_2d.array_2d" title="pysycl.array_2d.array_2d"><span class="pre">pysycl.array_2d.array_2d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tile_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
-<dd><dl>
+<span class="sig-prename descclassname"><span class="pre">pysycl.linalg.</span></span><span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.linalg.matmul" title="Link to this definition">#</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>matmul(A: pysycl::Matrix&lt;double&gt;, B: pysycl::Matrix&lt;double&gt;, C: pysycl::Matrix&lt;double&gt;, tile_size: int) -&gt; None</p>
+<blockquote>
+<div><dl>
 <dt>Description</dt><dd><p>This function evaluates a matrix multiplication and returns the result.</p>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
@@ -240,6 +245,81 @@
 </div>
 </dd>
 </dl>
+</div></blockquote>
+</li>
+<li><p>matmul(A: pysycl::Matrix&lt;float&gt;, B: pysycl::Matrix&lt;float&gt;, C: pysycl::Matrix&lt;float&gt;, tile_size: int) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>This function evaluates a matrix multiplication and returns the result.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>A<span class="classifier">pysycl.array2D</span></dt><dd><p>The first matrix for multiplication.</p>
+</dd>
+<dt>B<span class="classifier">pysycl.array2D</span></dt><dd><p>The second matrix for multiplication.</p>
+</dd>
+<dt>wg_size<span class="classifier">int</span></dt><dd><p>Optional: Work group size</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="mi">2500</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="go">19200.0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>matmul(A: pysycl::Matrix&lt;int&gt;, B: pysycl::Matrix&lt;int&gt;, C: pysycl::Matrix&lt;int&gt;, tile_size: int) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Description</dt><dd><p>This function evaluates a matrix multiplication and returns the result.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>A<span class="classifier">pysycl.array2D</span></dt><dd><p>The first matrix for multiplication.</p>
+</dd>
+<dt>B<span class="classifier">pysycl.array2D</span></dt><dd><p>The second matrix for multiplication.</p>
+</dd>
+<dt>wg_size<span class="classifier">int</span></dt><dd><p>Optional: Work group size</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="mi">2500</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_2d</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">B</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="go">19200.0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
 </dd></dl>
 
 </section>
@@ -249,7 +329,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="matrix.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">PySYCL: Matrix Sub-Module</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="device.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">

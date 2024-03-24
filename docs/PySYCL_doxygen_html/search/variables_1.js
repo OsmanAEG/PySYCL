@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['data_5fdevice_149',['data_device',['../classpysycl_1_1_array1_d.html#ad86909373afec8bf096bc51fec648ac7',1,'pysycl::Array1D::data_device()'],['../classpysycl_1_1_array2_d.html#a8dae9c2cb46137dd7823663b2c52cef8',1,'pysycl::Array2D::data_device()']]],
-  ['data_5fhost_150',['data_host',['../classpysycl_1_1_array1_d.html#a19a0cdf09b412f5709c51622ac71676b',1,'pysycl::Array1D::data_host()'],['../classpysycl_1_1_array2_d.html#af77ec5f5e06c184a9f8ee49083407a50',1,'pysycl::Array2D::data_host()']]],
-  ['device_151',['device',['../classpysycl_1_1_array1_d.html#ade4c36454819b9329d92df46f3729b7a',1,'pysycl::Array1D::device()'],['../classpysycl_1_1_array2_d.html#af22e8f7f821670c1a2189d99dc82b2ff',1,'pysycl::Array2D::device()']]],
-  ['device_5fidx_152',['device_idx',['../group___device.html#ga8de86fbfccd95fe7c4c2bc72dc7488e0',1,'pysycl::Device_Instance']]]
+  ['data_5fdevice_165',['data_device',['../classpysycl_1_1_matrix.html#a369e1f4dccc7113839290f01323d4459',1,'pysycl::Matrix::data_device()'],['../classpysycl_1_1_vector.html#a5a65b186e986e47910d5cc014d8a9908',1,'pysycl::Vector::data_device()']]],
+  ['data_5fhost_166',['data_host',['../classpysycl_1_1_matrix.html#af7edb08a1aa66e1e9e6b521ffed8a7a7',1,'pysycl::Matrix::data_host()'],['../classpysycl_1_1_vector.html#a5a60a1635420f4a75c915a9a97c7cc16',1,'pysycl::Vector::data_host()']]],
+  ['device_167',['device',['../classpysycl_1_1_matrix.html#a5fbf89edc3bb569b6c4e5f64cbbc0c87',1,'pysycl::Matrix::device()'],['../classpysycl_1_1_vector.html#abad4e37b1bafe4f8bb66fb55b2d0bca4',1,'pysycl::Vector::device()']]],
+  ['device_5fidx_168',['device_idx',['../group___device.html#ga8de86fbfccd95fe7c4c2bc72dc7488e0',1,'pysycl::Device_Instance']]]
 ];

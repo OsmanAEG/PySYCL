@@ -24,9 +24,9 @@ B_pt = torch.full((N, P), 4.0, dtype=torch.float64).to('cuda')
 C_pt = torch.full((M, P), 0.0, dtype=torch.float64).to('cuda')
 
 # pysycl
-A_ps = pysycl.array((M, N), device= device, dtype = pysycl.double)
-B_ps = pysycl.array((N, P), device= device, dtype = pysycl.double)
-C_ps = pysycl.array((M, P), device= device, dtype = pysycl.double)
+A_ps = pysycl.matrix((M, N), device= device, dtype = pysycl.double)
+B_ps = pysycl.matrix((N, P), device= device, dtype = pysycl.double)
+C_ps = pysycl.matrix((M, P), device= device, dtype = pysycl.double)
 
 A_ps.fill(2.0)
 B_ps.fill(4.0)

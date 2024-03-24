@@ -206,8 +206,8 @@
 </dd>
 </dl>
 <dl class="py class">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array_1d.</span></span><span class="sig-name descname"><span class="pre">array_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array_1d.array_1d" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array_1d.</span></span><span class="sig-name descname"><span class="pre">array_1d_double</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array_1d.array_1d_double" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
 <dl class="simple">
 <dt>Description</dt><dd><p>This class creates a PySYCL array_1d object.</p>
@@ -215,7 +215,7 @@
 </dl>
 <p>Overloaded function.</p>
 <ol class="arabic">
-<li><p>__init__(self: pysycl.array_1d.array_1d, size: int, device: pysycl::Device_Instance) -&gt; None</p>
+<li><p>__init__(self: pysycl.array_1d.array_1d_double, size: int, device: pysycl::Device_Instance) -&gt; None</p>
 <blockquote>
 <div><dl>
 <dt>Default Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array.</p>
@@ -225,10 +225,13 @@
 </dd>
 <dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
 </dd>
+<dt>dtype:</dt><dd><p>Optional: THe PySYCL datatype.</p>
+</dd>
 <dt>Returns</dt><dd><p>A PySYCL 1D array.</p>
 </dd>
 <dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_1d</span><span class="o">.</span><span class="n">array_1d_init</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A_pysycl</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -237,7 +240,7 @@
 </dl>
 </div></blockquote>
 </li>
-<li><p>__init__(self: pysycl.array_1d.array_1d, np_arr: numpy.ndarray[numpy.float32], device: pysycl::Device_Instance) -&gt; None</p>
+<li><p>__init__(self: pysycl.array_1d.array_1d_double, np_arr: numpy.ndarray[numpy.float64], device: pysycl::Device_Instance) -&gt; None</p>
 <blockquote>
 <div><dl>
 <dt>NumPy Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array from a 1D NumPy array.</p>
@@ -262,8 +265,8 @@
 </li>
 </ol>
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.fill">
-<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.fill" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.fill" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function fills the array with a constant value.</p>
 </dd>
@@ -283,8 +286,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.get_size">
-<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.get_size" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.get_size" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function returns the number of elements.</p>
 </dd>
@@ -300,8 +303,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.max">
-<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.max" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.max" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function finds the maximum value in the array.</p>
 </dd>
@@ -315,8 +318,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.mem_to_cpu">
-<span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.mem_to_cpu" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.mem_to_cpu">
+<span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.mem_to_cpu" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function copies array memory from GPU to CPU.</p>
 </dd>
@@ -328,8 +331,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.mem_to_gpu">
-<span class="sig-name descname"><span class="pre">mem_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.mem_to_gpu" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.mem_to_gpu">
+<span class="sig-name descname"><span class="pre">mem_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.mem_to_gpu" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function copies array memory from CPU to GPU.</p>
 </dd>
@@ -341,8 +344,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.min">
-<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.min" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.min" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function finds the minimum value in the array.</p>
 </dd>
@@ -356,8 +359,348 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pysycl.array_1d.array_1d.sum">
-<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d" title="pysycl.array_1d.array_1d"><span class="pre">pysycl.array_1d.array_1d</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d.sum" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_double.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_double" title="pysycl.array_1d.array_1d_double"><span class="pre">pysycl.array_1d.array_1d_double</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_double.sum" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the sum of all element values in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The sum of all element values.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array_1d.</span></span><span class="sig-name descname"><span class="pre">array_1d_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array_1d.array_1d_float" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl class="simple">
+<dt>Description</dt><dd><p>This class creates a PySYCL array_1d object.</p>
+</dd>
+</dl>
+<p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>__init__(self: pysycl.array_1d.array_1d_float, size: int, device: pysycl::Device_Instance) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Default Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl>
+<dt>size: int</dt><dd><p>Number of elements.</p>
+</dd>
+<dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
+</dd>
+<dt>dtype:</dt><dd><p>Optional: THe PySYCL datatype.</p>
+</dd>
+<dt>Returns</dt><dd><p>A PySYCL 1D array.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A_pysycl</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>__init__(self: pysycl.array_1d.array_1d_float, np_arr: numpy.ndarray[numpy.float32], device: pysycl::Device_Instance) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>NumPy Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array from a 1D NumPy array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl>
+<dt>np_arr: numpy.array()</dt><dd><p>numpy array.</p>
+</dd>
+<dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
+</dd>
+<dt>Returns</dt><dd><p>A PySYCL 1D array.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.fill" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function fills the array with a constant value.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C<span class="classifier">float</span></dt><dd><p>Some scalar constant.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">45.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+<span class="go">45.0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.get_size" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns the number of elements.</p>
+</dd>
+<dt>Returns</dt><dd><p>The number of elements.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.max" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the maximum value in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The maximum value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.mem_to_cpu">
+<span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.mem_to_cpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from GPU to CPU.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.mem_to_gpu">
+<span class="sig-name descname"><span class="pre">mem_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.mem_to_gpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from CPU to GPU.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_gpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.min" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the minimum value in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The minimum element value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_float.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_float" title="pysycl.array_1d.array_1d_float"><span class="pre">pysycl.array_1d.array_1d_float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_float.sum" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the sum of all element values in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The sum of all element values.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysycl.array_1d.</span></span><span class="sig-name descname"><span class="pre">array_1d_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysycl.array_1d.array_1d_int" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
+<dl class="simple">
+<dt>Description</dt><dd><p>This class creates a PySYCL array_1d object.</p>
+</dd>
+</dl>
+<p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>__init__(self: pysycl.array_1d.array_1d_int, size: int, device: pysycl::Device_Instance) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>Default Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl>
+<dt>size: int</dt><dd><p>Number of elements.</p>
+</dd>
+<dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
+</dd>
+<dt>dtype:</dt><dd><p>Optional: THe PySYCL datatype.</p>
+</dd>
+<dt>Returns</dt><dd><p>A PySYCL 1D array.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A_pysycl</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>__init__(self: pysycl.array_1d.array_1d_int, np_arr: numpy.ndarray[numpy.int32], device: pysycl::Device_Instance) -&gt; None</p>
+<blockquote>
+<div><dl>
+<dt>NumPy Constructor</dt><dd><p>Constructor that creates a 1D PySYCL array from a 1D NumPy array.</p>
+</dd>
+<dt>Parameters</dt><dd><dl>
+<dt>np_arr: numpy.array()</dt><dd><p>numpy array.</p>
+</dd>
+<dt>device:</dt><dd><p>Optional: The target PySYCL device.</p>
+</dd>
+<dt>Returns</dt><dd><p>A PySYCL 1D array.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysycl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">pysycl</span><span class="o">.</span><span class="n">array_1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.fill" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function fills the array with a constant value.</p>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>C<span class="classifier">float</span></dt><dd><p>Some scalar constant.</p>
+</dd>
+</dl>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mf">45.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+<span class="go">45.0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.get_size" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function returns the number of elements.</p>
+</dd>
+<dt>Returns</dt><dd><p>The number of elements.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">get_size</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.max" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the maximum value in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The maximum value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.mem_to_cpu">
+<span class="sig-name descname"><span class="pre">mem_to_cpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.mem_to_cpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from GPU to CPU.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_cpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.mem_to_gpu">
+<span class="sig-name descname"><span class="pre">mem_to_gpu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.mem_to_gpu" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function copies array memory from CPU to GPU.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="n">mem_to_gpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.min" title="Link to this definition">#</a></dt>
+<dd><dl>
+<dt>Description</dt><dd><p>This function finds the minimum value in the array.</p>
+</dd>
+<dt>Returns</dt><dd><p>The minimum element value.</p>
+</dd>
+<dt>Example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysycl.array_1d.array_1d_int.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pysycl.array_1d.array_1d_int" title="pysycl.array_1d.array_1d_int"><span class="pre">pysycl.array_1d.array_1d_int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pysycl.array_1d.array_1d_int.sum" title="Link to this definition">#</a></dt>
 <dd><dl>
 <dt>Description</dt><dd><p>This function finds the sum of all element values in the array.</p>
 </dd>
@@ -430,14 +773,34 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">PySYCL: Array1D Sub-Module</a><ul>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d"><code class="docutils literal notranslate"><span class="pre">array_1d</span></code></a><ul>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.fill"><code class="docutils literal notranslate"><span class="pre">array_1d.fill()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.get_size"><code class="docutils literal notranslate"><span class="pre">array_1d.get_size()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.max"><code class="docutils literal notranslate"><span class="pre">array_1d.max()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_1d.mem_to_cpu()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_1d.mem_to_gpu()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.min"><code class="docutils literal notranslate"><span class="pre">array_1d.min()</span></code></a></li>
-<li><a class="reference internal" href="#pysycl.array_1d.array_1d.sum"><code class="docutils literal notranslate"><span class="pre">array_1d.sum()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double"><code class="docutils literal notranslate"><span class="pre">array_1d_double</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.fill"><code class="docutils literal notranslate"><span class="pre">array_1d_double.fill()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.get_size"><code class="docutils literal notranslate"><span class="pre">array_1d_double.get_size()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.max"><code class="docutils literal notranslate"><span class="pre">array_1d_double.max()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_1d_double.mem_to_cpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_1d_double.mem_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.min"><code class="docutils literal notranslate"><span class="pre">array_1d_double.min()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_double.sum"><code class="docutils literal notranslate"><span class="pre">array_1d_double.sum()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float"><code class="docutils literal notranslate"><span class="pre">array_1d_float</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.fill"><code class="docutils literal notranslate"><span class="pre">array_1d_float.fill()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.get_size"><code class="docutils literal notranslate"><span class="pre">array_1d_float.get_size()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.max"><code class="docutils literal notranslate"><span class="pre">array_1d_float.max()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_1d_float.mem_to_cpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_1d_float.mem_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.min"><code class="docutils literal notranslate"><span class="pre">array_1d_float.min()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_float.sum"><code class="docutils literal notranslate"><span class="pre">array_1d_float.sum()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int"><code class="docutils literal notranslate"><span class="pre">array_1d_int</span></code></a><ul>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.fill"><code class="docutils literal notranslate"><span class="pre">array_1d_int.fill()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.get_size"><code class="docutils literal notranslate"><span class="pre">array_1d_int.get_size()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.max"><code class="docutils literal notranslate"><span class="pre">array_1d_int.max()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.mem_to_cpu"><code class="docutils literal notranslate"><span class="pre">array_1d_int.mem_to_cpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.mem_to_gpu"><code class="docutils literal notranslate"><span class="pre">array_1d_int.mem_to_gpu()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.min"><code class="docutils literal notranslate"><span class="pre">array_1d_int.min()</span></code></a></li>
+<li><a class="reference internal" href="#pysycl.array_1d.array_1d_int.sum"><code class="docutils literal notranslate"><span class="pre">array_1d_int.sum()</span></code></a></li>
 </ul>
 </li>
 </ul>
