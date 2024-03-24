@@ -78,6 +78,7 @@ sudo apt-get install cmake git python3-pybind11 python3-dev -y
    ```
 
    > Note: `$(nproc)` will use all available processors to build. Adjust the `-j` flag according to your system's capabilities.
+
    > Note: If you want to install sycl locally, edit the CMAKE_INSTALL_PREFIX to be the following:
 
    ```bash
