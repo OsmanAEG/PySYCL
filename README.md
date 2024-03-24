@@ -21,6 +21,7 @@ https://osmanaeg.github.io/PySYCL/dev-guide.html
 Installation guides for various development enviornments will be made available here.
 
 ## Installing PySYCL on Ubuntu WSL2 with CUDA
+![ubuntu_wsl_cuda](https://github.com/OsmanAEG/PySYCL/assets/79581083/d031f799-7f77-424b-986c-720b1078b7f2)
 
 This guide provides instructions for setting up PySYCL on Windows 11 with an Ubuntu WSL2 enviornment with CUDA. 
 
